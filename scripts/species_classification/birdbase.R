@@ -40,7 +40,7 @@ bb_col_names <-
 
 # Combine column names and data:
 
-birdbase <-
+birdbase_full <-
   bb_raw %>%
   slice(
     3:nrow(.)
@@ -49,4 +49,16 @@ birdbase <-
     bb_col_names
   ) %>% 
   janitor::clean_names()
+
+# Get just relevant columns (out of the 97!):
+
+birdbase_habitat <- 
+  birdbase_full %>% 
+  select(
+    common_name = taxonomy_english_name_bird_life_ioc_clements_avi_list,
+    scientific_name = taxonomy_latin_bird_life_ioc_clements_avi_list,
+    order = taxonomy_order,
+    family = taxonomy_family_ioc_15_1,
+    matches("habitat")
+  )
 
