@@ -46,6 +46,7 @@ species_classified <-
         str_detect(classification, "^fac|forag|overw|mosaic|woodl") ~
           "facultative_grassland",
         str_detect(
+          classification,
           "obligate|grasslands|marsh|tundra") ~
           "obligate_grassland",
         str_detect(classification, "s[ch]rub|chap") ~
