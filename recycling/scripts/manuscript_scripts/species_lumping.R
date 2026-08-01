@@ -10,19 +10,45 @@ species_classification_start <-
   read_rds("data/processed/species_classification.rds") %>% 
   mutate(
     across(
-      c(classification, species = common_name),
+      common_name:classification_source,
       ~ tolower(.x) %>% 
         str_replace_all(" ", "_")
     )
   ) %>% 
-  distinct(species, classification) %>% 
+  select(
+    species = common_name, 
+    classification_source,
+    classification
+  ) %>% 
   arrange(species) %>% 
+  distinct() %>% 
   
   # Keep only grassland or shrub classes:
   
   filter(
     !str_detect(classification, "develop|^town|river|lakes|shore|ocean")
-  )
+  ) %>% 
+  
+  # Multiple classifications from one source:
+  
+  summarize(
+    classification = 
+      classification %>% 
+      str_remove("__") %>% 
+      str_flatten(, collapse = "; "),
+    .by = c(species, classification_source)
+  ) %>% 
+  
+  # Reshape so there's a wide table of species and sources:
+  
+  pivot_wider(
+    names_from = classification_source,
+    values_from = classification
+  ) %>% 
+  
+  # The combined is just obligates, so:
+  
+  rename(combined_obligate = combined)
 
 # Species tables from the Google spreadsheet:
 
@@ -30,8 +56,118 @@ species_table_start <-
   read_effect_size_tables() %>% 
   map_df(
     ~ select(.x, species)
+  ) %>%
+  mutate(
+    species = str_replace(species, "-", "_")
   ) %>% 
   distinct()
+
+# pass 1: simplifying classes ---------------------------------------------
+
+species_classes_simplified <-
+  species_classification_start %>% 
+  
+  # Lump classes:
+  
+  mutate(
+    across(
+      !species,
+      \(.x) {
+        case_when(
+          str_detect(.x, "shrub|scrub|chap") ~ "shrub",
+          str_detect(.x, "mosaic|grassland_foragers|facultative|overwinte") ~
+            "facultative",
+          str_detect(.x, "obligate") ~ "obligate",
+          .default = .x
+        )
+      }
+    )
+  ) %>% 
+  
+  # Remove records with shrub only:
+  
+  filter(
+    !if_all(
+      partners_in_flight:combined_obligate,
+      ~ is.na(.x) | .x == "shrub"
+    )
+  )
+
+# pass 2: combining classes across sources --------------------------------
+
+species_classes_simplified %>% 
+  mutate(
+    guild = 
+      case_when(
+        
+        # If any source defines a species as obligate, define as obligate:
+        
+        if_any(
+          all_about_birds:combined_obligate,
+          ~ .x == "obligate"
+        ) ~ "obligate",
+        
+        # If *all* sources define a species as facultative, define as
+        # facultative:
+        
+        if_all(
+          all_about_birds:combined_obligate, 
+          ~ .x == "facultative" | is.na(.x)
+        ) ~ "facultative",
+        
+        # If vgbi defines a species as facultative, define as facultative:
+        
+        vgbi == "facultative" ~ "facultative",
+        
+        .default = NA
+      )
+  ) %>% 
+  select(species, guild) %>% 
+  drop_na() %>% 
+  
+  # Danged European birds:
+  
+  bind_rows(
+    tribble(
+      ~ species, ~ guild,
+      "northern_lapwing",  "facultative",
+      "whinchat", "facultative",
+      "skylark", "facultative",
+      "eurasian_wryneck", "facultative",
+
+    )
+  ) %>% 
+  clipr::write_clip()
+  write_csv("data/processed/species_classes_reduced.csv")
+
+# from tara ---------------------------------------------------------------
+
+species_classification_start %>% 
+  mutate(
+    classification_new =
+      case_when(
+        str_detect(classification, "shrub|scrub|chap") ~
+          "shrub",
+        str_detect(
+          classification, 
+          "mosaic|grassland_foragers|facultative|overwinter"
+        ) ~
+          "facultative",
+        str_detect(classification, "obligate") ~ "obligate",
+        .default = classification
+      ),
+    .keep = "unused"
+  ) %>% 
+  distinct(common_name, species, classification_new) %>% 
+  mutate(
+    n = n(),
+    .by = common_name
+  ) %>% 
+  filter(
+    n == 1,
+    classification_new == "open_woodlands"
+  ) %>% 
+  print(n = Inf)
 
 # species classification --------------------------------------------------
 
