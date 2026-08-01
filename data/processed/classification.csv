@@ -1,0 +1,1280 @@
+species,source,classification,analysis
+aberts_towhee,all_about_birds,Deserts,1
+aberts_towhee,partners_in_flight,Aridlands: Desert Scrub,1
+acadian_flycatcher,all_about_birds,Forests,1
+acorn_woodpecker,all_about_birds,Open Woodlands,0
+alder_flycatcher,peterjohn_2006,shrubland,1
+allens_hummingbird,all_about_birds,Open Woodlands,0
+allens_hummingbird,partners_in_flight,Aridlands: Chaparral,0
+altamira_oriole,all_about_birds,Open Woodlands,0
+american_avocet,all_about_birds,Marshes,0
+american_bittern,all_about_birds,Marshes,0
+american_bittern,hand_entered,facultative,0
+american_bittern,vickery_1999_facultative,facultative grassland,0
+american_black_duck,all_about_birds,Lakes and Ponds,0
+american_coot,all_about_birds,Lakes and Ponds,0
+american_crow,all_about_birds,Open Woodlands,1
+american_crow,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+american_crow,hand_entered,facultative,1
+american_crow,vgbi,facultative grassland,1
+american_dipper,all_about_birds,Rivers and Streams,0
+american_golden_plover,all_about_birds,Grasslands,0
+american_golden_plover,hand_entered,obligate,0
+american_golden_plover,vickery_1999_obligate,grassland obligate,0
+american_goldfinch,all_about_birds,Open Woodlands,1
+american_goldfinch,partners_in_flight,Open Country: Habitat Mosaic,1
+american_goldfinch,hand_entered,facultative,1
+american_goldfinch,vgbi,facultative grassland,1
+american_kestrel,all_about_birds,Grasslands,1
+american_kestrel,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+american_kestrel,hand_entered,facultative,1
+american_kestrel,vgbi,facultative grassland,1
+american_kestrel,vickery_1999_facultative,facultative grassland,1
+american_oystercatcher,all_about_birds,Shorelines,0
+american_pipit,all_about_birds,Tundra,0
+american_pipit,partners_in_flight,Open Country: Developed/Disturbed,0
+american_pipit,hand_entered,obligate,0
+american_pipit,vgbi,facultative grassland,0
+american_pipit,vickery_1999_obligate,grassland obligate,0
+american_redstart,all_about_birds,Forests,1
+american_robin,all_about_birds,Open Woodlands,1
+american_robin,hand_entered,facultative,1
+american_robin,vgbi,facultative grassland,1
+american_three_toed_woodpecker,all_about_birds,Forests,0
+american_tree_sparrow,all_about_birds,Open Woodlands,0
+american_tree_sparrow,partners_in_flight,Open Country: Habitat Mosaic,0
+american_tree_sparrow,hand_entered,facultative,0
+american_tree_sparrow,vgbi,facultative grassland,0
+american_white_pelican,all_about_birds,Lakes and Ponds,0
+american_wigeon,all_about_birds,Lakes and Ponds,0
+american_wigeon,hand_entered,facultative,0
+american_wigeon,vickery_1999_facultative,facultative grassland,0
+american_woodcock,all_about_birds,Forests,0
+american_woodcock,hand_entered,facultative,0
+american_woodcock,vgbi,facultative grassland,0
+anhinga,all_about_birds,Marshes,0
+annas_hummingbird,all_about_birds,Open Woodlands,0
+annas_hummingbird,partners_in_flight,Aridlands: Chaparral,0
+antillean_nighthawk,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+antillean_nighthawk,hand_entered,facultative,0
+aplomado_falcon,hand_entered,obligate,0
+aplomado_falcon,vickery_1999_obligate,grassland obligate,0
+arctic_tern,all_about_birds,Shorelines,0
+arctic_warbler,all_about_birds,Forests,0
+arizona_woodpecker,all_about_birds,Open Woodlands,0
+ash_throated_flycatcher,all_about_birds,Open Woodlands,1
+ash_throated_flycatcher,partners_in_flight,Aridlands: Desert Scrub,1
+ash_throated_flycatcher,hand_entered,facultative,1
+ash_throated_flycatcher,vickery_1999_facultative,facultative grassland,1
+audubons_oriole,all_about_birds,Open Woodlands,0
+bachmans_sparrow,all_about_birds,Open Woodlands,1
+bachmans_sparrow,hand_entered,obligate,1
+bachmans_sparrow,vickery_1999_obligate,grassland obligate,1
+bairds_sandpiper,hand_entered,obligate,0
+bairds_sandpiper,vickery_1999_obligate,grassland obligate,0
+bairds_sparrow,all_about_birds,Grasslands,1
+bairds_sparrow,hand_entered,obligate,1
+bairds_sparrow,vickery_1999_obligate,grassland obligate,1
+bald_eagle,all_about_birds,Forests,0
+baltimore_oriole,all_about_birds,Forests,1
+band_tailed_pigeon,all_about_birds,Forests,0
+bank_swallow,all_about_birds,Lakes and Ponds,1
+bank_swallow,partners_in_flight,Open Country Aerial: Habitat Mosaic,1
+bank_swallow,hand_entered,facultative,1
+bar_tailed_godwit,all_about_birds,Tundra,0
+barn_owl,all_about_birds,Grasslands,0
+barn_owl,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+barn_owl,hand_entered,facultative,0
+barn_owl,vgbi,facultative grassland,0
+barn_owl,vickery_1999_facultative,facultative grassland,0
+barn_swallow,all_about_birds,Grasslands,1
+barn_swallow,partners_in_flight,Open Country Aerial: Habitat Mosaic,1
+barn_swallow,hand_entered,facultative,1
+barn_swallow,vgbi,facultative grassland,1
+barred_owl,all_about_birds,Forests,0
+barrows_goldeneye,all_about_birds,Lakes and Ponds,0
+bay_breasted_warbler,all_about_birds,Forests,0
+bells_sparrow,partners_in_flight,Aridlands: Chaparral; Aridlands: Desert Scrub,0
+bells_vireo,all_about_birds,Scrub,1
+belted_flycatcher,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+belted_kingfisher,all_about_birds,Lakes and Ponds,0
+bendires_thrasher,all_about_birds,Deserts,0
+bendires_thrasher,partners_in_flight,Aridlands: Desert Scrub,0
+bendires_thrasher,hand_entered,facultative,0
+bendires_thrasher,vickery_1999_facultative,facultative grassland,0
+bewicks_wren,all_about_birds,Open Woodlands,1
+bewicks_wren,partners_in_flight,Aridlands: Desert Scrub,1
+bicknells_thrush,all_about_birds,Forests,0
+black_and_white_warbler,all_about_birds,Forests,1
+black_backed_woodpecker,all_about_birds,Forests,0
+black_bellied_plover,hand_entered,facultative,0
+black_bellied_plover,vickery_1999_facultative,facultative grassland,0
+black_bellied_whistling_duck,all_about_birds,Marshes,0
+black_billed_cuckoo,all_about_birds,Forests,0
+black_billed_cuckoo,peterjohn_2006,shrubland,0
+black_billed_cuckoo,hand_entered,facultative,0
+black_billed_cuckoo,vgbi,facultative grassland,0
+black_billed_magpie,all_about_birds,Open Woodlands,1
+black_billed_magpie,partners_in_flight,Open Country: Habitat Mosaic,1
+black_billed_magpie,hand_entered,facultative,1
+black_capped_chickadee,all_about_birds,Forests,1
+black_capped_gnatcatcher,partners_in_flight,Aridlands: Desert Scrub,0
+black_capped_vireo,all_about_birds,Scrub,0
+black_capped_vireo,partners_in_flight,Aridlands: Desert Scrub,0
+black_chinned_hummingbird,all_about_birds,Open Woodlands,0
+black_chinned_sparrow,all_about_birds,Scrub,0
+black_chinned_sparrow,partners_in_flight,Aridlands: Chaparral; Aridlands: Desert Scrub,0
+black_crested_titmouse,all_about_birds,Forests,0
+black_crowned_night_heron,all_about_birds,Marshes,0
+black_guillemot,all_about_birds,Oceans,0
+black_headed_grosbeak,all_about_birds,Forests,0
+black_legged_kittiwake,all_about_birds,Oceans,0
+black_necked_stilt,all_about_birds,Marshes,0
+black_oystercatcher,all_about_birds,Shorelines,0
+black_phoebe,all_about_birds,Open Woodlands,0
+black_rail,all_about_birds,Marshes,0
+black_rosy_finch,hand_entered,facultative,0
+black_rosy_finch,vickery_1999_facultative,facultative grassland,0
+black_scoter,all_about_birds,Oceans,0
+black_skimmer,all_about_birds,Shorelines,0
+black_swift,all_about_birds,Forests,0
+black_tailed_gnatcatcher,all_about_birds,Scrub,0
+black_tailed_gnatcatcher,partners_in_flight,Aridlands: Desert Scrub,0
+black_tailed_godwit,palearctic_extension,facultative grassland,1
+black_tern,all_about_birds,Marshes,0
+black_throated_blue_warbler,all_about_birds,Forests,0
+black_throated_bobwhite,hand_entered,facultative,0
+black_throated_bobwhite,vickery_1999_facultative,facultative grassland,0
+black_throated_gray_warbler,all_about_birds,Forests,0
+black_throated_green_warbler,all_about_birds,Forests,0
+black_throated_mango,partners_in_flight,Open Country: Habitat Mosaic,0
+black_throated_mango,hand_entered,facultative,0
+black_throated_sparrow,all_about_birds,Scrub,0
+black_throated_sparrow,partners_in_flight,Aridlands: Desert Scrub,0
+black_vulture,all_about_birds,Grasslands,0
+black_whiskered_vireo,all_about_birds,Forests,0
+blackburnian_warbler,all_about_birds,Forests,0
+blackpoll_warbler,all_about_birds,Forests,0
+blue_and_white_swallow,partners_in_flight,Open Country Aerial: Developed/Disturbed; Open Country Aerial: Habitat Mosaic,0
+blue_and_white_swallow,hand_entered,facultative,0
+blue_black_grassquit,partners_in_flight,Open Country: Developed/Disturbed,0
+blue_black_grassquit,hand_entered,facultative,0
+blue_black_grassquit,vickery_1999_facultative,facultative grassland,0
+blue_gray_gnatcatcher,all_about_birds,Forests,0
+blue_gray_tanager,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+blue_gray_tanager,hand_entered,facultative,0
+blue_grosbeak,all_about_birds,Open Woodlands,1
+blue_grosbeak,partners_in_flight,Open Country: Habitat Mosaic,1
+blue_grosbeak,peterjohn_2006,shrubland,1
+blue_grosbeak,hand_entered,facultative,1
+blue_grosbeak,vgbi,facultative grassland,1
+blue_headed_vireo,all_about_birds,Forests,0
+blue_jay,all_about_birds,Forests,1
+blue_throated_hummingbird,all_about_birds,Open Woodlands,0
+blue_winged_teal,all_about_birds,Marshes,0
+blue_winged_teal,hand_entered,facultative,0
+blue_winged_teal,vickery_1999_facultative,facultative grassland,0
+blue_winged_warbler,all_about_birds,Open Woodlands,1
+blue_winged_warbler,peterjohn_2006,shrubland,1
+bluethroat,all_about_birds,Tundra,0
+boat_tailed_grackle,all_about_birds,Marshes,0
+bobolink,all_about_birds,Grasslands,1
+bobolink,hand_entered,obligate,1
+bobolink,vickery_1999_obligate,grassland obligate,1
+bohemian_waxwing,all_about_birds,Forests,0
+bonapartes_gull,all_about_birds,Lakes and Ponds,0
+boreal_chickadee,all_about_birds,Forests,0
+boreal_owl,all_about_birds,Forests,0
+botteris_sparrow,all_about_birds,Grasslands,0
+botteris_sparrow,hand_entered,obligate,0
+botteris_sparrow,vickery_1999_obligate,grassland obligate,0
+bran_colored_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,0
+bran_colored_flycatcher,hand_entered,facultative,0
+brandts_cormorant,all_about_birds,Oceans,0
+brant,vickery_1999_facultative,facultative grassland,0
+brant_gadwall,hand_entered,facultative,0
+brewers_blackbird,all_about_birds,Towns,1
+brewers_blackbird,partners_in_flight,Open Country: Habitat Mosaic,1
+brewers_blackbird,hand_entered,facultative,1
+brewers_blackbird,vickery_1999_facultative,facultative grassland,1
+brewers_sparrow,all_about_birds,Scrub,1
+brewers_sparrow,partners_in_flight,Aridlands: Desert Scrub,1
+bridled_titmouse,all_about_birds,Forests,1
+bristle_thighed_curlew,hand_entered,obligate,0
+bristle_thighed_curlew,vickery_1999_obligate,grassland obligate,0
+broad_billed_hummingbird,all_about_birds,Forests,0
+broad_billed_hummingbird,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+broad_tailed_hummingbird,all_about_birds,Open Woodlands,0
+broad_winged_hawk,all_about_birds,Forests,0
+bronzed_cowbird,all_about_birds,Towns,0
+bronzed_cowbird,partners_in_flight,Open Country: Habitat Mosaic,0
+bronzed_cowbird,hand_entered,facultative,0
+bronzed_cowbird,vickery_1999_facultative,facultative grassland,0
+brown_capped_rosy_finch,hand_entered,facultative,0
+brown_capped_rosy_finch,vickery_1999_facultative,facultative grassland,0
+brown_chested_martin,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+brown_chested_martin,hand_entered,facultative,0
+brown_creeper,all_about_birds,Forests,0
+brown_crested_flycatcher,all_about_birds,Forests,0
+brown_headed_cowbird,all_about_birds,Grasslands,1
+brown_headed_cowbird,partners_in_flight,Open Country: Habitat Mosaic,1
+brown_headed_cowbird,hand_entered,facultative,1
+brown_headed_cowbird,vgbi,facultative grassland,1
+brown_headed_cowbird,vickery_1999_facultative,facultative grassland,1
+brown_headed_nuthatch,all_about_birds,Forests,0
+brown_pelican,all_about_birds,Oceans,0
+brown_thrasher,all_about_birds,Scrub,1
+brown_thrasher,peterjohn_2006,shrubland,1
+brown_thrasher,hand_entered,facultative,1
+brown_thrasher,vgbi,facultative grassland,1
+buff_bellied_hummingbird,all_about_birds,Open Woodlands,0
+buff_breasted_sandpiper,hand_entered,obligate,0
+buff_breasted_sandpiper,vickery_1999_obligate,grassland obligate,0
+bufflehead,all_about_birds,Lakes and Ponds,0
+bullocks_oriole,all_about_birds,Open Woodlands,1
+burrowing_owl,all_about_birds,Grasslands,1
+burrowing_owl,partners_in_flight,Aridlands: Desert Scrub,1
+burrowing_owl,hand_entered,obligate,1
+burrowing_owl,vickery_1999_obligate,grassland obligate,1
+bushtit,all_about_birds,Scrub,1
+cabaniss_ground_sparrow,partners_in_flight,Open Country: Habitat Mosaic,0
+cabaniss_ground_sparrow,hand_entered,facultative,0
+cabaniss_wren,partners_in_flight,Open Country: Habitat Mosaic,0
+cabaniss_wren,hand_entered,facultative,0
+cactus_wren,all_about_birds,Deserts,1
+cactus_wren,partners_in_flight,Aridlands: Desert Scrub,1
+california_gnatcatcher,all_about_birds,Scrub,0
+california_gnatcatcher,partners_in_flight,Aridlands: Chaparral,0
+california_gull,all_about_birds,Lakes and Ponds,0
+california_quail,all_about_birds,Scrub,1
+california_quail,partners_in_flight,Aridlands: Chaparral,1
+california_scrub_jay,partners_in_flight,Aridlands: Chaparral,0
+california_thrasher,all_about_birds,Scrub,0
+california_thrasher,partners_in_flight,Aridlands: Chaparral,0
+california_towhee,all_about_birds,Scrub,0
+california_towhee,partners_in_flight,Aridlands: Chaparral,0
+calliope_hummingbird,all_about_birds,Open Woodlands,1
+canada_goose,all_about_birds,Marshes,0
+canada_goose,hand_entered,facultative,0
+canada_goose,vgbi,facultative grassland,0
+canada_goose,vickery_1999_facultative,facultative grassland,0
+canada_jay,all_about_birds,Forests,0
+canada_warbler,all_about_birds,Forests,0
+canebrake_wren,partners_in_flight,Open Country: Habitat Mosaic,0
+canebrake_wren,hand_entered,facultative,0
+canvasback,all_about_birds,Lakes and Ponds,0
+canyon_towhee,all_about_birds,Scrub,1
+canyon_towhee,partners_in_flight,Aridlands: Desert Scrub,1
+canyon_towhee,hand_entered,facultative,1
+canyon_towhee,vickery_1999_facultative,facultative grassland,1
+canyon_wren,all_about_birds,Deserts,0
+canyon_wren,partners_in_flight,Aridlands: Desert Scrub,0
+cape_may_warbler,all_about_birds,Forests,0
+caribbean_elaenia,partners_in_flight,Open Country: Habitat Mosaic,0
+caribbean_elaenia,hand_entered,facultative,0
+carolina_chickadee,all_about_birds,Forests,1
+carolina_wren,all_about_birds,Open Woodlands,1
+carolina_wren,peterjohn_2006,shrubland,1
+caspian_tern,all_about_birds,Shorelines,0
+cassins_finch,all_about_birds,Forests,0
+cassins_kingbird,all_about_birds,Open Woodlands,0
+cassins_kingbird,partners_in_flight,Open Country: Habitat Mosaic,0
+cassins_kingbird,hand_entered,facultative,0
+cassins_kingbird,vickery_1999_facultative,facultative grassland,0
+cassins_sparrow,all_about_birds,Grasslands,1
+cassins_sparrow,hand_entered,obligate,1
+cassins_sparrow,vickery_1999_obligate,grassland obligate,1
+cassins_vireo,all_about_birds,Forests,0
+cattle_egret,all_about_birds,Grasslands,0
+cattle_egret,hand_entered,facultative,0
+cattle_egret,vickery_1999_facultative,facultative grassland,0
+cattle_tyrant,partners_in_flight,Open Country: Developed/Disturbed,0
+cave_swallow,all_about_birds,Grasslands,0
+cave_swallow,partners_in_flight,Aridlands Aerial: Desert Scrub; Open Country Aerial: Habitat Mosaic,0
+cedar_waxwing,all_about_birds,Open Woodlands,1
+cerulean_warbler,all_about_birds,Forests,0
+chestnut_backed_chickadee,all_about_birds,Forests,0
+chestnut_collared_longspur,all_about_birds,Grasslands,1
+chestnut_collared_longspur,hand_entered,obligate,1
+chestnut_collared_longspur,vickery_1999_obligate,grassland obligate,1
+chestnut_sided_warbler,all_about_birds,Open Woodlands,1
+chestnut_sided_warbler,peterjohn_2006,shrubland,1
+chihuahuan_raven,all_about_birds,Scrub,1
+chihuahuan_raven,partners_in_flight,Aridlands: Desert Scrub; Open Country: Developed/Disturbed,1
+chihuahuan_raven,hand_entered,facultative,1
+chihuahuan_raven,vickery_1999_facultative,facultative grassland,1
+chimney_swift,all_about_birds,Towns,0
+chimney_swift,partners_in_flight,Open Country Aerial: Developed/Disturbed; Open Country Aerial: Habitat Mosaic,0
+chimney_swift,hand_entered,facultative,0
+chimney_swift,vgbi,facultative grassland,0
+chipping_sparrow,all_about_birds,Open Woodlands,1
+chipping_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+chipping_sparrow,hand_entered,facultative,1
+chipping_sparrow,vgbi,facultative grassland,1
+chuck_wills_widow,all_about_birds,Open Woodlands,0
+chuck_wills_widow,partners_in_flight,Open Country: Habitat Mosaic,0
+chuck_wills_widow,hand_entered,facultative,0
+chukar,all_about_birds,Scrub,0
+chukar,partners_in_flight,Aridlands: Desert Scrub,0
+cinnamon_rumped_seedeater,partners_in_flight,Open Country: Developed/Disturbed,0
+cinnamon_teal,all_about_birds,Marshes,0
+clapper_rail,all_about_birds,Marshes,0
+clarks_nutcracker,all_about_birds,Forests,0
+clay_colored_sparrow,all_about_birds,Scrub,1
+clay_colored_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+clay_colored_sparrow,hand_entered,facultative,1
+clay_colored_sparrow,vickery_1999_facultative,facultative grassland,1
+clay_colored_thrush,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+clay_colored_thrush,hand_entered,facultative,0
+cliff_swallow,all_about_birds,Lakes and Ponds,1
+cliff_swallow,partners_in_flight,Open Country Aerial: Habitat Mosaic,1
+cliff_swallow,hand_entered,facultative,1
+common_eider,all_about_birds,Oceans,0
+common_gallinule,all_about_birds,Marshes,0
+common_goldeneye,all_about_birds,Lakes and Ponds,0
+common_grackle,all_about_birds,Open Woodlands,1
+common_grackle,partners_in_flight,Open Country: Habitat Mosaic,1
+common_grackle,hand_entered,facultative,1
+common_ground_dove,all_about_birds,Scrub,0
+common_ground_dove,partners_in_flight,Aridlands: Desert Scrub,0
+common_ground_dove,hand_entered,facultative,0
+common_ground_dove,vickery_1999_facultative,facultative grassland,0
+common_loon,all_about_birds,Lakes and Ponds,0
+common_merganser,all_about_birds,Lakes and Ponds,0
+common_myna,partners_in_flight,Open Country: Developed/Disturbed,0
+common_nighthawk,all_about_birds,Grasslands,1
+common_nighthawk,partners_in_flight,Open Country Aerial: Habitat Mosaic,1
+common_nighthawk,hand_entered,facultative,1
+common_nighthawk,vgbi,facultative grassland,1
+common_nighthawk,vickery_1999_facultative,facultative grassland,1
+common_pauraque,all_about_birds,Forests,0
+common_poorwill,all_about_birds,Scrub,0
+common_poorwill,partners_in_flight,Aridlands: Desert Scrub,0
+common_poorwill,hand_entered,facultative,0
+common_poorwill,vickery_1999_facultative,facultative grassland,0
+common_quail,palearctic_extension,facultative grassland,1
+common_raven,all_about_birds,Forests,1
+common_raven,partners_in_flight,Open Country: Habitat Mosaic,1
+common_raven,hand_entered,facultative,1
+common_redpoll,all_about_birds,Open Woodlands,0
+common_redpoll,partners_in_flight,Open Country: Habitat Mosaic,0
+common_redpoll,hand_entered,facultative,0
+common_snipe,vickery_1999_facultative,facultative grassland,0
+common_snipe_wilsons_phalarope,hand_entered,facultative,0
+common_tern,all_about_birds,Shorelines,0
+common_tody_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,0
+common_tody_flycatcher,hand_entered,facultative,0
+common_yellowthroat,all_about_birds,Scrub,1
+common_yellowthroat,partners_in_flight,Open Country: Habitat Mosaic,1
+common_yellowthroat,peterjohn_2006,shrubland,1
+common_yellowthroat,hand_entered,facultative,1
+common_yellowthroat,vgbi,facultative grassland,1
+common_yellowthroat,vickery_1999_facultative,facultative grassland,1
+connecticut_warbler,all_about_birds,Forests,0
+coopers_hawk,all_about_birds,Forests,0
+coopers_hawk,partners_in_flight,Open Country: Habitat Mosaic,0
+coopers_hawk,hand_entered,facultative,0
+coopers_hawk,vgbi,facultative grassland,0
+corn_bunting,palearctic_extension,facultative grassland,1
+corncrake,palearctic_extension,facultative grassland,1
+costas_hummingbird,all_about_birds,Deserts,0
+costas_hummingbird,partners_in_flight,Aridlands: Desert Scrub,0
+couchs_kingbird,all_about_birds,Open Woodlands,0
+couchs_kingbird,partners_in_flight,Open Country: Habitat Mosaic,0
+couchs_kingbird,hand_entered,facultative,0
+crested_bobwhite,partners_in_flight,Open Country: Habitat Mosaic,0
+crested_bobwhite,hand_entered,facultative,0
+crested_bobwhite,vickery_1999_facultative,facultative grassland,0
+crested_caracara,all_about_birds,Scrub,0
+crested_caracara,partners_in_flight,Open Country: Habitat Mosaic,0
+crested_caracara,hand_entered,facultative,0
+crested_caracara,vickery_1999_facultative,facultative grassland,0
+crissal_thrasher,all_about_birds,Scrub,0
+crissal_thrasher,partners_in_flight,Aridlands: Desert Scrub,0
+curve_billed_thrasher,all_about_birds,Scrub,1
+curve_billed_thrasher,partners_in_flight,Aridlands: Desert Scrub,1
+dark_eyed_junco,partners_in_flight,Open Country: Habitat Mosaic,1
+dark_eyed_junco,hand_entered,facultative,1
+dark_eyed_junco,vgbi,facultative grassland,1
+dickcissel,all_about_birds,Grasslands,1
+dickcissel,hand_entered,obligate,1
+dickcissel,vickery_1999_obligate,grassland obligate,1
+double_crested_cormorant,all_about_birds,Lakes and Ponds,0
+double_striped_thick_knee,hand_entered,obligate,0
+double_striped_thick_knee,vickery_1999_obligate,grassland obligate,0
+downy_woodpecker,all_about_birds,Forests,0
+downy_woodpecker,hand_entered,facultative,0
+downy_woodpecker,vgbi,facultative grassland,0
+dunlin,hand_entered,facultative,0
+dunlin,vickery_1999_facultative,facultative grassland,0
+dusky_capped_flycatcher,all_about_birds,Forests,0
+dusky_flycatcher,all_about_birds,Open Woodlands,1
+dusky_grouse,all_about_birds,Forests,0
+dwarf_vireo,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+eared_grebe,all_about_birds,Lakes and Ponds,0
+eastern_bluebird,all_about_birds,Grasslands,1
+eastern_bluebird,hand_entered,facultative,1
+eastern_bluebird,vgbi,facultative grassland,1
+eastern_bluebird,vickery_1999_facultative,facultative grassland,1
+eastern_kingbird,all_about_birds,Grasslands,1
+eastern_kingbird,partners_in_flight,Open Country: Habitat Mosaic,1
+eastern_kingbird,hand_entered,facultative,1
+eastern_kingbird,vgbi,facultative grassland,1
+eastern_kingbird,vickery_1999_facultative,facultative grassland,1
+eastern_meadowlark,all_about_birds,Grasslands,1
+eastern_meadowlark,hand_entered,obligate,1
+eastern_meadowlark,vickery_1999_obligate,grassland obligate,1
+eastern_phoebe,all_about_birds,Open Woodlands,1
+eastern_phoebe,partners_in_flight,Open Country: Habitat Mosaic,1
+eastern_phoebe,hand_entered,facultative,1
+eastern_phoebe,vgbi,facultative grassland,1
+eastern_screech_owl,all_about_birds,Forests,1
+eastern_towhee,all_about_birds,Scrub,1
+eastern_towhee,peterjohn_2006,shrubland,1
+eastern_towhee,hand_entered,facultative,1
+eastern_towhee,vgbi,facultative grassland,1
+eastern_whip_poor_will,all_about_birds,Open Woodlands,0
+eastern_wood_pewee,all_about_birds,Forests,1
+eastern_yellow_wagtail,all_about_birds,Tundra,0
+eastern_yellow_wagtail,partners_in_flight,Open Country: Habitat Mosaic,0
+eastern_yellow_wagtail,hand_entered,facultative,0
+elegant_quail,partners_in_flight,Aridlands: Desert Scrub,0
+elegant_quail,hand_entered,facultative,0
+elegant_quail,vickery_1999_facultative,facultative grassland,0
+elegant_trogon,all_about_birds,Forests,0
+elf_owl,all_about_birds,Deserts,0
+elf_owl,partners_in_flight,Aridlands: Desert Scrub,0
+emperor_goose,hand_entered,facultative,0
+emperor_goose,vickery_1999_facultative,facultative grassland,0
+eskimo_curlew,hand_entered,obligate,0
+eskimo_curlew,vickery_1999_obligate,grassland obligate,0
+eurasian_collared_dove,all_about_birds,Towns,1
+eurasian_collared_dove,partners_in_flight,Open Country: Developed/Disturbed,1
+eurasian_skylark,partners_in_flight,Open Country: Developed/Disturbed,1
+eurasian_tree_sparrow,all_about_birds,Towns,0
+eurasian_tree_sparrow,partners_in_flight,Open Country: Developed/Disturbed,0
+european_starling,all_about_birds,Towns,1
+european_starling,partners_in_flight,Open Country: Developed/Disturbed,1
+evening_grosbeak,all_about_birds,Forests,0
+ferruginous_hawk,all_about_birds,Grasslands,1
+ferruginous_hawk,partners_in_flight,Open Country: Habitat Mosaic,1
+ferruginous_hawk,hand_entered,obligate,1
+ferruginous_hawk,vickery_1999_obligate,grassland obligate,1
+field_sparrow,all_about_birds,Scrub,1
+field_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+field_sparrow,peterjohn_2006,shrubland,1
+field_sparrow,hand_entered,facultative,1
+field_sparrow,vgbi,facultative grassland,1
+fish_crow,all_about_birds,Shorelines,0
+fish_crow,partners_in_flight,Open Country: Habitat Mosaic,0
+fish_crow,hand_entered,facultative,0
+five_striped_sparrow,partners_in_flight,Aridlands: Desert Scrub,0
+florida_scrub_jay,all_about_birds,Scrub,0
+fork_tailed_flycatcher,hand_entered,facultative,0
+fork_tailed_flycatcher,vickery_1999_facultative,facultative grassland,0
+forsters_tern,all_about_birds,Marshes,0
+fox_sparrow,all_about_birds,Forests,0
+fox_sparrow,partners_in_flight,Aridlands: Chaparral,0
+fox_sparrow,hand_entered,facultative,0
+fox_sparrow,vgbi,facultative grassland,0
+franklins_gull,all_about_birds,Lakes and Ponds,0
+franklins_gull,hand_entered,facultative,0
+franklins_gull,vickery_1999_facultative,facultative grassland,0
+fulvous_whistling_duck,all_about_birds,Marshes,0
+gadwall,all_about_birds,Marshes,0
+gadwall,vickery_1999_facultative,facultative grassland,0
+gambels_quail,all_about_birds,Scrub,1
+gambels_quail,partners_in_flight,Aridlands: Desert Scrub,1
+giant_cowbird,partners_in_flight,Open Country: Habitat Mosaic,0
+giant_cowbird,hand_entered,facultative,0
+gila_woodpecker,all_about_birds,Deserts,0
+gila_woodpecker,partners_in_flight,Aridlands: Desert Scrub,0
+gilded_flicker,all_about_birds,Deserts,0
+gilded_flicker,partners_in_flight,Aridlands: Desert Scrub,0
+glaucous_gull,all_about_birds,Shorelines,0
+glaucous_winged_gull,all_about_birds,Shorelines,0
+glossy_ibis,all_about_birds,Marshes,0
+golden_cheeked_warbler,all_about_birds,Forests,0
+golden_crowned_kinglet,all_about_birds,Forests,0
+golden_crowned_sparrow,all_about_birds,Scrub,0
+golden_crowned_sparrow,partners_in_flight,Open Country: Habitat Mosaic,0
+golden_crowned_sparrow,hand_entered,facultative,0
+golden_eagle,all_about_birds,Grasslands,1
+golden_eagle,partners_in_flight,Open Country: Habitat Mosaic,1
+golden_eagle,hand_entered,facultative,1
+golden_fronted_woodpecker,all_about_birds,Open Woodlands,0
+golden_winged_warbler,all_about_birds,Open Woodlands,0
+golden_winged_warbler,peterjohn_2006,shrubland,0
+graces_warbler,all_about_birds,Forests,0
+grasshopper_sparrow,all_about_birds,Grasslands,1
+grasshopper_sparrow,hand_entered,obligate,1
+grasshopper_sparrow,vickery_1999_obligate,grassland obligate,1
+grassland_yellow_finch,hand_entered,obligate,0
+grassland_yellow_finch,vickery_1999_obligate,grassland obligate,0
+gray_breasted_martin,partners_in_flight,Open Country Aerial: Developed/Disturbed; Open Country Aerial: Habitat Mosaic,0
+gray_breasted_martin,hand_entered,facultative,0
+gray_capped_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,0
+gray_capped_flycatcher,hand_entered,facultative,0
+gray_catbird,all_about_birds,Open Woodlands,1
+gray_catbird,peterjohn_2006,shrubland,1
+gray_cheeked_thrush,all_about_birds,Forests,0
+gray_crowned_rosy_finch,partners_in_flight,Open Country: Habitat Mosaic,0
+gray_crowned_rosy_finch,hand_entered,facultative,0
+gray_crowned_rosy_finch,vickery_1999_facultative,facultative grassland,0
+gray_crowned_yellowthroat,partners_in_flight,Open Country: Habitat Mosaic,0
+gray_crowned_yellowthroat,hand_entered,facultative,0
+gray_flycatcher,all_about_birds,Open Woodlands,1
+gray_flycatcher,partners_in_flight,Aridlands: Desert Scrub,1
+gray_hawk,all_about_birds,Forests,0
+gray_hawk,partners_in_flight,Open Country: Habitat Mosaic,0
+gray_hawk,hand_entered,facultative,0
+gray_kingbird,all_about_birds,Open Woodlands,0
+gray_lined_hawk,partners_in_flight,Open Country: Habitat Mosaic,0
+gray_lined_hawk,hand_entered,facultative,0
+gray_partridge,all_about_birds,Grasslands,1
+gray_partridge,partners_in_flight,Open Country: Developed/Disturbed,1
+gray_partridge,hand_entered,facultative,1
+gray_partridge,vickery_1999_facultative,facultative grassland,1
+gray_thrasher,partners_in_flight,Aridlands: Desert Scrub,0
+gray_vireo,all_about_birds,Scrub,0
+gray_vireo,partners_in_flight,Aridlands: Chaparral; Aridlands: Desert Scrub,0
+great_black_backed_gull,all_about_birds,Shorelines,0
+great_crested_flycatcher,all_about_birds,Open Woodlands,1
+great_egret,all_about_birds,Marshes,0
+great_gray_owl,all_about_birds,Forests,0
+great_horned_owl,all_about_birds,Forests,0
+great_horned_owl,partners_in_flight,Open Country: Habitat Mosaic,0
+great_horned_owl,hand_entered,facultative,0
+great_kiskadee,all_about_birds,Open Woodlands,0
+great_kiskadee,partners_in_flight,Open Country: Habitat Mosaic,0
+great_kiskadee,hand_entered,facultative,0
+great_tailed_grackle,all_about_birds,Scrub,0
+great_tailed_grackle,partners_in_flight,Open Country: Developed/Disturbed,0
+greater_pewee,all_about_birds,Open Woodlands,0
+greater_prairie_chicken,all_about_birds,Grasslands,1
+greater_prairie_chicken,hand_entered,obligate,1
+greater_prairie_chicken,vickery_1999_obligate,grassland obligate,1
+greater_roadrunner,all_about_birds,Scrub,1
+greater_roadrunner,partners_in_flight,Aridlands: Desert Scrub,1
+greater_sage_grouse,all_about_birds,Grasslands,0
+greater_scaup,all_about_birds,Lakes and Ponds,0
+greater_white_fronted_goose,all_about_birds,Lakes and Ponds,0
+greater_white_fronted_goose,hand_entered,facultative,0
+greater_white_fronted_goose,vickery_1999_facultative,facultative grassland,0
+greater_yellowlegs,all_about_birds,Marshes,0
+green_heron,all_about_birds,Marshes,0
+green_jay,all_about_birds,Open Woodlands,0
+green_kingfisher,all_about_birds,Rivers and Streams,0
+green_tailed_towhee,all_about_birds,Scrub,1
+green_tailed_towhee,partners_in_flight,Aridlands: Desert Scrub,1
+green_winged_teal,all_about_birds,Marshes,0
+green_winged_teal,hand_entered,facultative,0
+green_winged_teal,vickery_1999_facultative,facultative grassland,0
+groove_billed_ani,all_about_birds,Scrub,0
+groove_billed_ani,partners_in_flight,Open Country: Developed/Disturbed,0
+gull_billed_tern,all_about_birds,Shorelines,0
+gyrfalcon,all_about_birds,Tundra,0
+gyrfalcon,partners_in_flight,Open Country: Habitat Mosaic,0
+gyrfalcon,hand_entered,facultative,0
+gyrfalcon,vickery_1999_facultative,facultative grassland,0
+hairy_woodpecker,all_about_birds,Forests,0
+hammonds_flycatcher,all_about_birds,Forests,0
+harlequin_duck,all_about_birds,Rivers and Streams,0
+harriss_hawk,all_about_birds,Scrub,0
+harriss_hawk,partners_in_flight,Aridlands: Desert Scrub,0
+henslows_sparrow,all_about_birds,Grasslands,1
+henslows_sparrow,hand_entered,obligate,1
+henslows_sparrow,vickery_1999_obligate,grassland obligate,1
+hepatic_tanager,all_about_birds,Forests,0
+hermit_thrush,all_about_birds,Open Woodlands,0
+hermit_warbler,all_about_birds,Forests,0
+herring_gull,all_about_birds,Shorelines,0
+hoary_redpoll,all_about_birds,Open Woodlands,0
+hoary_redpoll,partners_in_flight,Open Country: Habitat Mosaic,0
+hoary_redpoll,hand_entered,facultative,0
+hooded_merganser,all_about_birds,Lakes and Ponds,0
+hooded_oriole,all_about_birds,Open Woodlands,0
+hooded_warbler,all_about_birds,Forests,1
+hooded_yellowthroat,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+horned_grebe,all_about_birds,Lakes and Ponds,0
+horned_lark,all_about_birds,Grasslands,1
+horned_lark,partners_in_flight,Open Country: Developed/Disturbed,1
+horned_lark,hand_entered,obligate,1
+horned_lark,vickery_1999_obligate,grassland obligate,1
+house_finch,all_about_birds,Towns,1
+house_finch,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,1
+house_finch,hand_entered,facultative,1
+house_finch,vgbi,facultative grassland,1
+house_sparrow,all_about_birds,Towns,0
+house_sparrow,partners_in_flight,Open Country: Developed/Disturbed,0
+house_wren,all_about_birds,Scrub,1
+house_wren,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+house_wren,hand_entered,facultative,1
+hudsonian_godwit,hand_entered,facultative,0
+hudsonian_godwit,vickery_1999_facultative,facultative grassland,0
+huttons_vireo,all_about_birds,Forests,0
+inca_dove,all_about_birds,Towns,0
+inca_dove,partners_in_flight,Open Country: Habitat Mosaic,0
+inca_dove,hand_entered,facultative,0
+indigo_bunting,all_about_birds,Open Woodlands,1
+indigo_bunting,partners_in_flight,Open Country: Habitat Mosaic,1
+indigo_bunting,peterjohn_2006,shrubland,1
+indigo_bunting,hand_entered,facultative,1
+indigo_bunting,vgbi,facultative grassland,1
+isthmian_wren,partners_in_flight,Open Country: Habitat Mosaic,0
+isthmian_wren,hand_entered,facultative,0
+jabiru,hand_entered,facultative,0
+jabiru,vickery_1999_facultative,facultative grassland,0
+juniper_titmouse,all_about_birds,Open Woodlands,0
+kentucky_warbler,all_about_birds,Forests,0
+killdeer,all_about_birds,Grasslands,1
+killdeer,partners_in_flight,Open Country: Habitat Mosaic,1
+killdeer,hand_entered,facultative,1
+killdeer,vgbi,facultative grassland,1
+killdeer,vickery_1999_facultative,facultative grassland,1
+king_rail,all_about_birds,Marshes,0
+kirtlands_warbler,all_about_birds,Scrub,0
+ladder_backed_woodpecker,all_about_birds,Deserts,1
+ladder_backed_woodpecker,partners_in_flight,Aridlands: Desert Scrub,1
+lapland_longspur,all_about_birds,Grasslands,0
+lapland_longspur,partners_in_flight,Open Country: Developed/Disturbed,0
+lapland_longspur,hand_entered,obligate,0
+lapland_longspur,vgbi,facultative grassland,0
+lapland_longspur,vickery_1999_obligate,grassland obligate,0
+lark_bunting,all_about_birds,Grasslands,1
+lark_bunting,partners_in_flight,Aridlands: Desert Scrub,1
+lark_bunting,hand_entered,obligate,1
+lark_bunting,vickery_1999_obligate,grassland obligate,1
+lark_sparrow,all_about_birds,Grasslands,1
+lark_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+lark_sparrow,hand_entered,facultative,1
+lark_sparrow,vickery_1999_facultative,facultative grassland,1
+laughing_gull,all_about_birds,Shorelines,0
+lawrences_goldfinch,all_about_birds,Open Woodlands,0
+lawrences_goldfinch,partners_in_flight,Aridlands: Chaparral; Aridlands: Desert Scrub,0
+lazuli_bunting,all_about_birds,Open Woodlands,1
+lazuli_bunting,partners_in_flight,Open Country: Habitat Mosaic,1
+lazuli_bunting,hand_entered,facultative,1
+le_contes_sparrow,hand_entered,obligate,1
+le_contes_sparrow,vickery_1999_obligate,grassland obligate,1
+least_bittern,all_about_birds,Marshes,0
+least_flycatcher,all_about_birds,Forests,1
+least_grebe,all_about_birds,Lakes and Ponds,0
+least_sandpiper,all_about_birds,Marshes,0
+least_sandpiper,hand_entered,facultative,0
+least_sandpiper,vickery_1999_facultative,facultative grassland,0
+least_tern,all_about_birds,Shorelines,0
+lecontes_sparrow,all_about_birds,Grasslands,0
+lecontes_thrasher,all_about_birds,Scrub,0
+lecontes_thrasher,partners_in_flight,Aridlands: Desert Scrub,0
+lesser_elaenia,partners_in_flight,Open Country: Habitat Mosaic,0
+lesser_elaenia,hand_entered,facultative,0
+lesser_goldfinch,all_about_birds,Open Woodlands,0
+lesser_goldfinch,partners_in_flight,Open Country: Habitat Mosaic,0
+lesser_goldfinch,hand_entered,facultative,0
+lesser_nighthawk,all_about_birds,Deserts,0
+lesser_nighthawk,partners_in_flight,Aridlands Aerial: Desert Scrub; Open Country Aerial: Habitat Mosaic,0
+lesser_nighthawk,hand_entered,facultative,0
+lesser_nighthawk,vickery_1999_facultative,facultative grassland,0
+lesser_prairie_chicken,all_about_birds,Grasslands,1
+lesser_prairie_chicken,hand_entered,obligate,1
+lesser_prairie_chicken,vickery_1999_obligate,grassland obligate,1
+lesser_scaup,all_about_birds,Lakes and Ponds,0
+lesser_yellow_headed_vulture,hand_entered,facultative,0
+lesser_yellow_headed_vulture,vickery_1999_facultative,facultative grassland,0
+lesser_yellowlegs,all_about_birds,Marshes,0
+lesser_yellowlegs,hand_entered,facultative,0
+lesser_yellowlegs,vickery_1999_facultative,facultative grassland,0
+lewiss_woodpecker,all_about_birds,Open Woodlands,1
+limpkin,all_about_birds,Marshes,0
+lincolns_sparrow,all_about_birds,Scrub,0
+little_blue_heron,all_about_birds,Marshes,0
+loggerhead_shrike,all_about_birds,Open Woodlands,1
+loggerhead_shrike,partners_in_flight,Aridlands: Desert Scrub,1
+loggerhead_shrike,hand_entered,facultative,1
+loggerhead_shrike,vgbi,facultative grassland,1
+loggerhead_shrike,vickery_1999_facultative,facultative grassland,1
+long_billed_curlew,all_about_birds,Grasslands,1
+long_billed_curlew,hand_entered,obligate,1
+long_billed_curlew,vickery_1999_obligate,grassland obligate,1
+long_billed_dowitcher,hand_entered,facultative,0
+long_billed_dowitcher,vickery_1999_facultative,facultative grassland,0
+long_billed_thrasher,all_about_birds,Scrub,0
+long_eared_owl,all_about_birds,Forests,0
+long_eared_owl,hand_entered,obligate,0
+long_eared_owl,vickery_1999_obligate,grassland obligate,0
+long_tailed_duck,all_about_birds,Lakes and Ponds,0
+long_tailed_jaeger,all_about_birds,Tundra,0
+long_tailed_jaeger,hand_entered,obligate,0
+long_tailed_jaeger,vickery_1999_obligate,grassland obligate,0
+louisiana_waterthrush,all_about_birds,Rivers and Streams,0
+lucifer_hummingbird,partners_in_flight,Aridlands: Desert Scrub,0
+lucys_warbler,all_about_birds,Scrub,0
+lucys_warbler,partners_in_flight,Aridlands: Desert Scrub,0
+macgillivrays_warbler,all_about_birds,Open Woodlands,0
+magnificent_frigatebird,all_about_birds,Oceans,0
+magnolia_warbler,all_about_birds,Forests,0
+magnolia_warbler,partners_in_flight,Open Country: Habitat Mosaic,0
+magnolia_warbler,hand_entered,facultative,0
+mallard,hand_entered,facultative,0
+mallard,vickery_1999_facultative,facultative grassland,0
+mangrove_cuckoo,all_about_birds,Forests,0
+marbled_godwit,all_about_birds,Grasslands,1
+marbled_godwit,hand_entered,obligate,1
+marbled_godwit,vickery_1999_obligate,grassland obligate,1
+marbled_murrelet,all_about_birds,Oceans,0
+marsh_wren,all_about_birds,Marshes,0
+mccowns_longspur,all_about_birds,Grasslands,1
+mccowns_longspur,hand_entered,obligate,1
+mccowns_longspur,vickery_1999_obligate,grassland obligate,1
+mckays_bunting,hand_entered,obligate,0
+mckays_bunting,vickery_1999_obligate,grassland obligate,0
+meadow_pipit,palearctic_extension,facultative grassland,1
+melodious_blackbird,partners_in_flight,Open Country: Habitat Mosaic,0
+melodious_blackbird,hand_entered,facultative,0
+merlin,all_about_birds,Forests,0
+merlin,partners_in_flight,Open Country: Habitat Mosaic,0
+merlin,hand_entered,facultative,0
+merlin,vickery_1999_facultative,facultative grassland,0
+mew_gull,all_about_birds,Shorelines,0
+mexican_jay,all_about_birds,Open Woodlands,1
+mississippi_kite,all_about_birds,Open Woodlands,0
+mississippi_kite,partners_in_flight,Open Country: Developed/Disturbed,0
+monk_parakeet,all_about_birds,Forests,0
+montezuma_quail,all_about_birds,Open Woodlands,1
+montezuma_quail,hand_entered,obligate,1
+montezuma_quail,vickery_1999_obligate,grassland obligate,1
+morelets_seedeater,partners_in_flight,Open Country: Developed/Disturbed,0
+mottled_duck,all_about_birds,Marshes,0
+mountain_bluebird,all_about_birds,Open Woodlands,1
+mountain_bluebird,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+mountain_bluebird,hand_entered,facultative,1
+mountain_bluebird,vickery_1999_facultative,facultative grassland,1
+mountain_chickadee,all_about_birds,Forests,0
+mountain_plover,all_about_birds,Grasslands,1
+mountain_plover,hand_entered,obligate,1
+mountain_plover,vickery_1999_obligate,grassland obligate,1
+mountain_quail,all_about_birds,Forests,0
+mountain_quail,partners_in_flight,Aridlands: Chaparral,0
+mourning_dove,all_about_birds,Open Woodlands,1
+mourning_dove,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+mourning_dove,hand_entered,facultative,1
+mourning_dove,vgbi,facultative grassland,1
+mourning_dove,vickery_1999_facultative,facultative grassland,1
+mourning_warbler,all_about_birds,Forests,0
+mouse_colored_tyrannulet,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+mute_swan,all_about_birds,Lakes and Ponds,0
+nashville_warbler,all_about_birds,Forests,0
+nashville_warbler,peterjohn_2006,shrubland,0
+nelsons_sparrow,all_about_birds,Marshes,0
+neotropic_cormorant,all_about_birds,Lakes and Ponds,0
+northern_beardless_tyrannulet,all_about_birds,Rivers and Streams,0
+northern_beardless_tyrannulet,partners_in_flight,Aridlands: Desert Scrub,0
+northern_bobwhite,all_about_birds,Grasslands,1
+northern_bobwhite,partners_in_flight,Open Country: Habitat Mosaic,1
+northern_bobwhite,peterjohn_2006,shrubland,1
+northern_bobwhite,hand_entered,facultative,1
+northern_bobwhite,vgbi,facultative grassland,1
+northern_bobwhite,vickery_1999_facultative,facultative grassland,1
+northern_cardinal,all_about_birds,Open Woodlands,1
+northern_cardinal,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,1
+northern_cardinal,peterjohn_2006,shrubland,1
+northern_cardinal,hand_entered,facultative,1
+northern_cardinal,vgbi,facultative grassland,1
+northern_flicker,all_about_birds,Open Woodlands,1
+northern_flicker,hand_entered,facultative,1
+northern_flicker,vgbi,facultative grassland,1
+northern_gannet,all_about_birds,Oceans,0
+northern_goshawk,all_about_birds,Forests,0
+northern_harrier,all_about_birds,Grasslands,1
+northern_harrier,partners_in_flight,Open Country: Habitat Mosaic,1
+northern_harrier,hand_entered,obligate,1
+northern_harrier,vickery_1999_obligate,grassland obligate,1
+northern_hawk_owl,all_about_birds,Forests,0
+northern_lapwing,palearctic_extension,facultative grassland,1
+northern_lapwing,hand_entered,facultative,1
+northern_mockingbird,all_about_birds,Towns,1
+northern_mockingbird,partners_in_flight,Open Country: Habitat Mosaic,1
+northern_mockingbird,peterjohn_2006,shrubland,1
+northern_mockingbird,hand_entered,facultative,1
+northern_mockingbird,vgbi,facultative grassland,1
+northern_parula,all_about_birds,Forests,0
+northern_pintail,all_about_birds,Marshes,0
+northern_pintail,hand_entered,facultative,0
+northern_pintail,vickery_1999_facultative,facultative grassland,0
+northern_pygmy_owl,all_about_birds,Forests,0
+northern_rough_winged_swallow,all_about_birds,Rivers and Streams,0
+northern_rough_winged_swallow,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+northern_rough_winged_swallow,hand_entered,facultative,0
+northern_saw_whet_owl,all_about_birds,Forests,0
+northern_shoveler,all_about_birds,Marshes,0
+northern_shoveler,hand_entered,facultative,0
+northern_shoveler,vickery_1999_facultative,facultative grassland,0
+northern_shrike,all_about_birds,Open Woodlands,0
+northern_shrike,partners_in_flight,Open Country: Habitat Mosaic,0
+northern_shrike,hand_entered,facultative,0
+northern_shrike,vickery_1999_facultative,facultative grassland,0
+northern_waterthrush,all_about_birds,Forests,0
+northern_wheatear,all_about_birds,Tundra,0
+northern_wheatear,partners_in_flight,Open Country: Habitat Mosaic,0
+northern_wheatear,hand_entered,facultative,0
+nuttalls_woodpecker,all_about_birds,Open Woodlands,0
+oak_titmouse,all_about_birds,Open Woodlands,0
+oaxaca_sparrow,hand_entered,facultative,0
+oaxaca_sparrow,vickery_1999_facultative,facultative grassland,0
+ocellated_quail,hand_entered,obligate,0
+ocellated_quail,vickery_1999_obligate,grassland obligate,0
+ocellated_thrasher,partners_in_flight,Aridlands: Desert Scrub,0
+olive_sided_flycatcher,all_about_birds,Open Woodlands,0
+olive_sparrow,all_about_birds,Scrub,0
+olive_warbler,all_about_birds,Forests,0
+orange_crowned_warbler,all_about_birds,Forests,0
+orchard_oriole,all_about_birds,Open Woodlands,1
+orchard_oriole,hand_entered,facultative,1
+orchard_oriole,vgbi,facultative grassland,1
+osprey,all_about_birds,Oceans,0
+ovenbird,all_about_birds,Forests,1
+pacific_golden_plover,all_about_birds,Grasslands,0
+pacific_golden_plover,hand_entered,obligate,0
+pacific_golden_plover,vickery_1999_obligate,grassland obligate,0
+pacific_loon,all_about_birds,Lakes and Ponds,0
+pacific_wren,all_about_birds,Forests,0
+painted_bunting,all_about_birds,Scrub,1
+painted_bunting,partners_in_flight,Open Country: Habitat Mosaic,1
+painted_bunting,hand_entered,facultative,1
+painted_redstart,all_about_birds,Forests,0
+pale_breasted_spinetail,partners_in_flight,Open Country: Habitat Mosaic,0
+pale_breasted_spinetail,hand_entered,facultative,0
+palm_tanager,partners_in_flight,Open Country: Habitat Mosaic,0
+palm_tanager,hand_entered,facultative,0
+palm_warbler,all_about_birds,Open Woodlands,0
+palm_warbler,partners_in_flight,Open Country: Habitat Mosaic,0
+palm_warbler,hand_entered,facultative,0
+parasitic_jaeger,all_about_birds,Tundra,0
+parasitic_jaeger,hand_entered,obligate,0
+parasitic_jaeger,vickery_1999_obligate,grassland obligate,0
+pearl_kite,partners_in_flight,Open Country: Habitat Mosaic,0
+pearl_kite,hand_entered,facultative,0
+pectoral_sandpiper,hand_entered,facultative,0
+pectoral_sandpiper,vickery_1999_facultative,facultative grassland,0
+pelagic_cormorant,all_about_birds,Shorelines,0
+peregrine_falcon,all_about_birds,Shorelines,0
+peregrine_falcon,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+peregrine_falcon,hand_entered,facultative,0
+peregrine_falcon,vickery_1999_facultative,facultative grassland,0
+phainopepla,all_about_birds,Scrub,1
+phainopepla,partners_in_flight,Aridlands: Desert Scrub,1
+philadelphia_vireo,all_about_birds,Forests,0
+pied_billed_grebe,all_about_birds,Lakes and Ponds,0
+pigeon_guillemot,all_about_birds,Oceans,0
+pileated_flycatcher,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+pileated_woodpecker,all_about_birds,Forests,0
+pine_grosbeak,all_about_birds,Open Woodlands,0
+pine_siskin,all_about_birds,Open Woodlands,0
+pine_warbler,all_about_birds,Forests,0
+pinyon_jay,all_about_birds,Open Woodlands,0
+piratic_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,0
+piratic_flycatcher,hand_entered,facultative,0
+plain_breasted_ground_dove,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+plain_chachalaca,all_about_birds,Forests,0
+plumbeous_vireo,all_about_birds,Forests,0
+pomarine_jaeger,hand_entered,obligate,0
+pomarine_jaeger,vickery_1999_obligate,grassland obligate,0
+prairie_falcon,all_about_birds,Grasslands,1
+prairie_falcon,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,1
+prairie_falcon,hand_entered,facultative,1
+prairie_falcon,vickery_1999_facultative,facultative grassland,1
+prairie_warbler,all_about_birds,Scrub,1
+prairie_warbler,peterjohn_2006,shrubland,1
+prairie_warbler,hand_entered,facultative,1
+prairie_warbler,vgbi,facultative grassland,1
+prothonotary_warbler,all_about_birds,Forests,0
+purple_finch,all_about_birds,Forests,0
+purple_gallinule,all_about_birds,Marshes,0
+purple_martin,all_about_birds,Lakes and Ponds,0
+purple_martin,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+purple_martin,hand_entered,facultative,0
+purple_martin,vgbi,facultative grassland,0
+purple_sandpiper,hand_entered,facultative,0
+purple_sandpiper,vickery_1999_facultative,facultative grassland,0
+pygmy_nuthatch,all_about_birds,Forests,0
+pyrrhuloxia,all_about_birds,Scrub,0
+pyrrhuloxia,partners_in_flight,Aridlands: Desert Scrub,0
+red_bellied_woodpecker,all_about_birds,Forests,0
+red_breasted_meadowlark,partners_in_flight,Open Country: Developed/Disturbed,0
+red_breasted_merganser,all_about_birds,Lakes and Ponds,0
+red_breasted_nuthatch,all_about_birds,Forests,0
+red_breasted_sapsucker,all_about_birds,Forests,0
+red_cockaded_woodpecker,all_about_birds,Open Woodlands,0
+red_crossbill,all_about_birds,Forests,0
+red_eyed_vireo,all_about_birds,Forests,1
+red_faced_warbler,all_about_birds,Forests,0
+red_headed_woodpecker,all_about_birds,Open Woodlands,1
+red_knot,hand_entered,facultative,0
+red_knot,vickery_1999_facultative,facultative grassland,0
+red_naped_sapsucker,all_about_birds,Forests,1
+red_necked_grebe,all_about_birds,Lakes and Ponds,0
+red_necked_phalarope,all_about_birds,Oceans,0
+red_shouldered_hawk,all_about_birds,Forests,0
+red_shouldered_hawk,hand_entered,facultative,0
+red_shouldered_hawk,vgbi,facultative grassland,0
+red_tailed_hawk,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,1
+red_tailed_hawk,hand_entered,facultative,1
+red_tailed_hawk,vgbi,facultative grassland,1
+red_throated_loon,all_about_birds,Lakes and Ponds,0
+red_winged_blackbird,all_about_birds,Marshes,1
+red_winged_blackbird,partners_in_flight,Open Country: Habitat Mosaic,1
+red_winged_blackbird,hand_entered,facultative,1
+red_winged_blackbird,vgbi,facultative grassland,1
+red_winged_blackbird,vickery_1999_facultative,facultative grassland,1
+reddish_egret,all_about_birds,Marshes,0
+redhead,all_about_birds,Lakes and Ponds,0
+rhinoceros_auklet,all_about_birds,Oceans,0
+ring_billed_gull,all_about_birds,Lakes and Ponds,0
+ring_necked_duck,all_about_birds,Lakes and Ponds,0
+ring_necked_pheasant,all_about_birds,Grasslands,1
+ring_necked_pheasant,hand_entered,facultative,1
+ring_necked_pheasant,vickery_1999_facultative,facultative grassland,1
+rivolis_hummingbird,all_about_birds,Forests,0
+roadside_hawk,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+roadside_hawk,hand_entered,facultative,0
+rock_pigeon,all_about_birds,Towns,0
+rock_pigeon,partners_in_flight,Open Country: Developed/Disturbed,0
+rock_ptarmigan,all_about_birds,Tundra,0
+rock_ptarmigan,hand_entered,obligate,0
+rock_ptarmigan,vickery_1999_obligate,grassland obligate,0
+rock_sandpiper,hand_entered,facultative,0
+rock_sandpiper,vickery_1999_facultative,facultative grassland,0
+rock_wren,all_about_birds,Deserts,0
+rock_wren,partners_in_flight,Aridlands: Desert Scrub,0
+rose_breasted_grosbeak,all_about_birds,Forests,1
+roseate_spoonbill,all_about_birds,Marshes,0
+rosss_goose,hand_entered,facultative,0
+rosss_goose,vickery_1999_facultative,facultative grassland,0
+rough_legged_hawk,all_about_birds,Grasslands,0
+rough_legged_hawk,partners_in_flight,Open Country: Habitat Mosaic,0
+rough_legged_hawk,hand_entered,obligate,0
+rough_legged_hawk,vickery_1999_obligate,grassland obligate,0
+royal_tern,all_about_birds,Shorelines,0
+ruby_crowned_kinglet,all_about_birds,Forests,1
+ruby_throated_hummingbird,all_about_birds,Open Woodlands,1
+ruby_throated_hummingbird,hand_entered,facultative,1
+ruby_throated_hummingbird,vgbi,facultative grassland,1
+ruddy_breasted_seedeater,partners_in_flight,Open Country: Habitat Mosaic,0
+ruddy_breasted_seedeater,hand_entered,obligate,0
+ruddy_breasted_seedeater,vickery_1999_obligate,grassland obligate,0
+ruddy_duck,all_about_birds,Marshes,0
+ruddy_ground_dove,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+ruddy_ground_dove,hand_entered,facultative,0
+ruddy_turnstone,all_about_birds,Shorelines,0
+ruffed_grouse,all_about_birds,Forests,1
+rufous_collared_sparrow,partners_in_flight,Open Country: Developed/Disturbed,0
+rufous_crowned_sparrow,all_about_birds,Scrub,1
+rufous_crowned_sparrow,partners_in_flight,Aridlands: Desert Scrub,1
+rufous_crowned_sparrow,hand_entered,facultative,1
+rufous_crowned_sparrow,vickery_1999_facultative,facultative grassland,1
+rufous_hummingbird,all_about_birds,Open Woodlands,1
+rufous_winged_sparrow,all_about_birds,Scrub,0
+rufous_winged_sparrow,partners_in_flight,Aridlands: Desert Scrub,0
+rufous_winged_sparrow,hand_entered,facultative,0
+rufous_winged_sparrow,vickery_1999_facultative,facultative grassland,0
+rusty_blackbird,all_about_birds,Forests,0
+saffron_finch,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+saffron_finch,hand_entered,obligate,0
+saffron_finch,vickery_1999_obligate,grassland obligate,0
+sage_thrasher,all_about_birds,Scrub,1
+sage_thrasher,partners_in_flight,Aridlands: Desert Scrub,1
+sagebrush_sparrow,partners_in_flight,Aridlands: Desert Scrub,0
+saltmarsh_sparrow,all_about_birds,Marshes,0
+sanderling,hand_entered,facultative,0
+sanderling,vickery_1999_facultative,facultative grassland,0
+sandhill_crane,all_about_birds,Marshes,0
+sandhill_crane,hand_entered,facultative,0
+sandhill_crane,vickery_1999_facultative,facultative grassland,0
+sandwich_tern,all_about_birds,Shorelines,0
+savannah_sparrow,all_about_birds,Grasslands,1
+savannah_sparrow,partners_in_flight,Open Country: Developed/Disturbed,1
+savannah_sparrow,hand_entered,obligate,1
+savannah_sparrow,vickery_1999_obligate,grassland obligate,1
+says_phoebe,all_about_birds,Grasslands,1
+says_phoebe,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,1
+says_phoebe,hand_entered,facultative,1
+says_phoebe,vickery_1999_facultative,facultative grassland,1
+scaled_quail,all_about_birds,Grasslands,1
+scaled_quail,partners_in_flight,Aridlands: Desert Scrub,1
+scaled_quail,hand_entered,facultative,1
+scaled_quail,vickery_1999_facultative,facultative grassland,1
+scaly_breasted_munia,partners_in_flight,Open Country: Developed/Disturbed,0
+scarlet_tanager,all_about_birds,Forests,1
+scissor_tailed_flycatcher,all_about_birds,Grasslands,0
+scissor_tailed_flycatcher,partners_in_flight,Open Country: Developed/Disturbed,0
+scissor_tailed_flycatcher,hand_entered,facultative,0
+scissor_tailed_flycatcher,vickery_1999_facultative,facultative grassland,0
+scotts_oriole,all_about_birds,Open Woodlands,0
+scotts_oriole,partners_in_flight,Aridlands: Desert Scrub,0
+seaside_sparrow,all_about_birds,Marshes,0
+sedge_wren,all_about_birds,Grasslands,1
+sedge_wren,hand_entered,obligate,1
+sedge_wren,vickery_1999_obligate,grassland obligate,1
+semipalmated_plover,all_about_birds,Shorelines,0
+semipalmated_sandpiper,hand_entered,facultative,0
+semipalmated_sandpiper,vickery_1999_facultative,facultative grassland,0
+sharp_shinned_hawk,all_about_birds,Forests,0
+sharp_tailed_grouse,all_about_birds,Grasslands,1
+sharp_tailed_grouse,hand_entered,obligate,1
+sharp_tailed_grouse,vickery_1999_obligate,grassland obligate,1
+shiny_cowbird,partners_in_flight,Open Country: Habitat Mosaic,0
+shiny_cowbird,hand_entered,facultative,0
+shiny_cowbird,vickery_1999_facultative,facultative grassland,0
+short_billed_dowitcher,all_about_birds,Marshes,0
+short_billed_dowitcher,hand_entered,facultative,0
+short_billed_dowitcher,vickery_1999_facultative,facultative grassland,0
+short_eared_owl,all_about_birds,Grasslands,1
+short_eared_owl,hand_entered,obligate,1
+short_eared_owl,vgbi,facultative grassland,1
+short_eared_owl,vickery_1999_obligate,grassland obligate,1
+short_tailed_hawk,all_about_birds,Forests,0
+short_tailed_hawk,partners_in_flight,Open Country: Habitat Mosaic,0
+short_tailed_hawk,hand_entered,facultative,0
+sierra_madre_sparrow,hand_entered,obligate,0
+sierra_madre_sparrow,vickery_1999_obligate,grassland obligate,0
+skylark,palearctic_extension,grassland obligate,1
+skylark,hand_entered,facultative,1
+smiths_longspur,hand_entered,obligate,1
+smiths_longspur,vickery_1999_obligate,grassland obligate,1
+smooth_billed_ani,all_about_birds,Scrub,0
+smooth_billed_ani,partners_in_flight,Open Country: Developed/Disturbed,0
+snow_bunting,partners_in_flight,Open Country: Developed/Disturbed,0
+snow_bunting,hand_entered,obligate,0
+snow_bunting,vickery_1999_obligate,grassland obligate,0
+snow_goose,hand_entered,facultative,0
+snow_goose,vickery_1999_facultative,facultative grassland,0
+snowy_egret,all_about_birds,Marshes,0
+snowy_owl,partners_in_flight,Open Country: Habitat Mosaic,0
+snowy_owl,hand_entered,obligate,0
+snowy_owl,vickery_1999_obligate,grassland obligate,0
+snowy_plover,all_about_birds,Shorelines,0
+social_flycatcher,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+social_flycatcher,hand_entered,facultative,0
+solitary_sandpiper,all_about_birds,Marshes,0
+song_sparrow,all_about_birds,Open Woodlands,1
+song_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+song_sparrow,peterjohn_2006,shrubland,1
+song_sparrow,hand_entered,facultative,1
+song_sparrow,vgbi,facultative grassland,1
+sooty_grouse,all_about_birds,Forests,0
+sora,all_about_birds,Marshes,0
+southern_lapwing,partners_in_flight,Open Country: Developed/Disturbed,0
+southern_rough_winged_swallow,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+southern_rough_winged_swallow,hand_entered,facultative,0
+spot_breasted_oriole,all_about_birds,Towns,0
+spotted_dove,partners_in_flight,Open Country: Developed/Disturbed,0
+spotted_owl,all_about_birds,Forests,0
+spotted_sandpiper,all_about_birds,Shorelines,0
+spotted_towhee,all_about_birds,Scrub,1
+spragues_pipit,all_about_birds,Grasslands,1
+spragues_pipit,hand_entered,obligate,1
+spragues_pipit,vickery_1999_obligate,grassland obligate,1
+spruce_grouse,all_about_birds,Forests,0
+stellers_jay,all_about_birds,Forests,0
+striped_cuckoo,partners_in_flight,Open Country: Habitat Mosaic,0
+striped_cuckoo,hand_entered,facultative,0
+striped_owl,hand_entered,facultative,0
+striped_owl,vickery_1999_facultative,facultative grassland,0
+striped_sparrow,hand_entered,obligate,0
+striped_sparrow,vickery_1999_obligate,grassland obligate,0
+sulphur_bellied_flycatcher,all_about_birds,Forests,0
+summer_tanager,all_about_birds,Open Woodlands,1
+surf_scoter,all_about_birds,Oceans,0
+surfbird,hand_entered,facultative,0
+surfbird,vickery_1999_facultative,facultative grassland,0
+swainsons_hawk,all_about_birds,Grasslands,0
+swainsons_hawk,hand_entered,obligate,0
+swainsons_hawk,vickery_1999_obligate,grassland obligate,0
+swainsons_thrush,all_about_birds,Forests,0
+swainsons_warbler,all_about_birds,Forests,0
+swallow_tailed_kite,all_about_birds,Forests,0
+swamp_sparrow,all_about_birds,Marshes,1
+tennessee_warbler,all_about_birds,Forests,0
+thick_billed_kingbird,all_about_birds,Open Woodlands,0
+townsends_solitaire,all_about_birds,Open Woodlands,0
+townsends_warbler,all_about_birds,Forests,0
+tree_swallow,all_about_birds,Lakes and Ponds,1
+tree_swallow,hand_entered,facultative,1
+tree_swallow,vgbi,facultative grassland,1
+tres_marias_hummingbird,partners_in_flight,Aridlands: Tropical Arid Scrub,0
+tricolored_blackbird,all_about_birds,Marshes,0
+tricolored_blackbird,partners_in_flight,Open Country: Developed/Disturbed,0
+tricolored_heron,all_about_birds,Marshes,0
+tricolored_munia,partners_in_flight,Open Country: Developed/Disturbed,0
+tropical_kingbird,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+tropical_kingbird,hand_entered,facultative,0
+tropical_mockingbird,partners_in_flight,Open Country: Developed/Disturbed; Open Country: Habitat Mosaic,0
+tropical_mockingbird,hand_entered,facultative,0
+tropical_pewee,partners_in_flight,Open Country: Habitat Mosaic,0
+tropical_pewee,hand_entered,facultative,0
+trumpeter_swan,all_about_birds,Lakes and Ponds,0
+tufted_titmouse,all_about_birds,Forests,0
+tundra_swan,all_about_birds,Lakes and Ponds,0
+turkey_vulture,all_about_birds,Open Woodlands,0
+turkey_vulture,hand_entered,facultative,0
+turkey_vulture,vickery_1999_facultative,facultative grassland,0
+upland_sandpiper,all_about_birds,Grasslands,1
+upland_sandpiper,hand_entered,obligate,1
+upland_sandpiper,vickery_1999_obligate,grassland obligate,1
+variable_seedeater,partners_in_flight,Open Country: Habitat Mosaic,0
+variable_seedeater,hand_entered,facultative,0
+varied_bunting,all_about_birds,Scrub,0
+varied_bunting,partners_in_flight,Aridlands: Desert Scrub,0
+varied_thrush,all_about_birds,Forests,0
+vauxs_swift,all_about_birds,Forests,0
+veery,all_about_birds,Forests,1
+veraguan_mango,partners_in_flight,Open Country: Habitat Mosaic,0
+veraguan_mango,hand_entered,facultative,0
+verdin,all_about_birds,Scrub,1
+verdin,partners_in_flight,Aridlands: Desert Scrub,1
+vermilion_flycatcher,all_about_birds,Grasslands,0
+vermilion_flycatcher,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,0
+vesper_sparrow,all_about_birds,Grasslands,1
+vesper_sparrow,hand_entered,obligate,1
+vesper_sparrow,vickery_1999_obligate,grassland obligate,1
+violet_green_swallow,all_about_birds,Open Woodlands,0
+violet_green_swallow,partners_in_flight,Open Country Aerial: Developed/Disturbed; Open Country Aerial: Habitat Mosaic,0
+violet_green_swallow,hand_entered,facultative,0
+virginia_rail,all_about_birds,Marshes,0
+virginias_warbler,all_about_birds,Open Woodlands,0
+wandering_tattler,all_about_birds,Shorelines,0
+warbling_vireo,all_about_birds,Open Woodlands,1
+west_mexican_euphonia,partners_in_flight,Open Country: Habitat Mosaic,0
+west_mexican_euphonia,hand_entered,facultative,0
+western_bluebird,all_about_birds,Open Woodlands,1
+western_bluebird,partners_in_flight,Aridlands: Desert Scrub,1
+western_bluebird,hand_entered,facultative,1
+western_bluebird,vickery_1999_facultative,facultative grassland,1
+western_gull,all_about_birds,Oceans,0
+western_kingbird,all_about_birds,Grasslands,1
+western_kingbird,partners_in_flight,Aridlands: Desert Scrub; Open Country: Habitat Mosaic,1
+western_kingbird,hand_entered,facultative,1
+western_kingbird,vickery_1999_facultative,facultative grassland,1
+western_meadowlark,all_about_birds,Grasslands,1
+western_meadowlark,hand_entered,obligate,1
+western_meadowlark,vickery_1999_obligate,grassland obligate,1
+western_sandpiper,all_about_birds,Shorelines,0
+western_sandpiper,hand_entered,facultative,0
+western_sandpiper,vickery_1999_facultative,facultative grassland,0
+western_screech_owl,all_about_birds,Open Woodlands,0
+western_tanager,all_about_birds,Forests,0
+western_wood_pewee,all_about_birds,Open Woodlands,1
+whimbrel,all_about_birds,Shorelines,0
+whimbrel,hand_entered,facultative,0
+whimbrel,vickery_1999_facultative,facultative grassland,0
+whinchat,palearctic_extension,facultative grassland,1
+whinchat,hand_entered,facultative,1
+white_breasted_nuthatch,all_about_birds,Forests,0
+white_crowned_pigeon,all_about_birds,Forests,0
+white_crowned_sparrow,all_about_birds,Scrub,1
+white_crowned_sparrow,partners_in_flight,Open Country: Habitat Mosaic,1
+white_crowned_sparrow,hand_entered,facultative,1
+white_crowned_sparrow,vgbi,facultative grassland,1
+white_eyed_vireo,all_about_birds,Scrub,1
+white_eyed_vireo,peterjohn_2006,shrubland,1
+white_faced_ground_sparrow,partners_in_flight,Open Country: Habitat Mosaic,0
+white_faced_ground_sparrow,hand_entered,facultative,0
+white_faced_ibis,all_about_birds,Marshes,0
+white_headed_woodpecker,all_about_birds,Forests,0
+white_ibis,all_about_birds,Marshes,0
+white_rumped_sandpiper,hand_entered,facultative,0
+white_rumped_sandpiper,vickery_1999_facultative,facultative grassland,0
+white_stork,palearctic_extension,facultative grassland,1
+white_tailed_hawk,all_about_birds,Grasslands,0
+white_tailed_kite,all_about_birds,Grasslands,0
+white_tailed_kite,partners_in_flight,Open Country: Habitat Mosaic,0
+white_tailed_kite,hand_entered,facultative,0
+white_tailed_ptarmigan,hand_entered,obligate,0
+white_tailed_ptarmigan,vickery_1999_obligate,grassland obligate,0
+white_throated_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,0
+white_throated_flycatcher,hand_entered,facultative,0
+white_throated_sparrow,all_about_birds,Forests,1
+white_throated_sparrow,hand_entered,facultative,1
+white_throated_sparrow,vgbi,facultative grassland,1
+white_throated_swift,all_about_birds,Scrub,0
+white_throated_swift,partners_in_flight,Open Country Aerial: Habitat Mosaic,0
+white_throated_swift,hand_entered,facultative,0
+white_throated_towhee,partners_in_flight,Aridlands: Desert Scrub,0
+white_tipped_dove,all_about_birds,Open Woodlands,0
+white_wagtail,partners_in_flight,Open Country: Habitat Mosaic,0
+white_wagtail,hand_entered,facultative,0
+white_winged_crossbill,all_about_birds,Forests,0
+white_winged_dove,all_about_birds,Towns,0
+white_winged_dove,partners_in_flight,Aridlands: Desert Scrub,0
+white_winged_scoter,all_about_birds,Lakes and Ponds,0
+whooping_crane,hand_entered,facultative,0
+whooping_crane,vickery_1999_facultative,facultative grassland,0
+wild_turkey,all_about_birds,Open Woodlands,1
+wild_turkey,hand_entered,facultative,1
+wild_turkey,vgbi,facultative grassland,1
+willet,all_about_birds,Shorelines,1
+willet,hand_entered,facultative,1
+willet,vickery_1999_facultative,facultative grassland,1
+williamsons_sapsucker,all_about_birds,Forests,0
+willow_flycatcher,partners_in_flight,Open Country: Habitat Mosaic,1
+willow_flycatcher,peterjohn_2006,shrubland,1
+willow_ptarmigan,all_about_birds,Tundra,0
+willow_ptarmigan,hand_entered,facultative,0
+willow_ptarmigan,vickery_1999_facultative,facultative grassland,0
+wilsons_phalarope,all_about_birds,Lakes and Ponds,1
+wilsons_phalarope,vickery_1999_facultative,facultative grassland,1
+wilsons_plover,all_about_birds,Shorelines,0
+wilsons_snipe,all_about_birds,Marshes,1
+wilsons_warbler,all_about_birds,Scrub,0
+winter_wren,all_about_birds,Forests,0
+wood_duck,all_about_birds,Lakes and Ponds,0
+wood_stork,all_about_birds,Marshes,0
+wood_thrush,all_about_birds,Forests,1
+woodhouses_scrub_jay,partners_in_flight,Aridlands: Chaparral,0
+worm_eating_warbler,all_about_birds,Forests,0
+worthens_sparrow,hand_entered,facultative,0
+worthens_sparrow,vickery_1999_facultative,facultative grassland,0
+wrentit,all_about_birds,Scrub,0
+wrentit,partners_in_flight,Aridlands: Chaparral,0
+xantuss_hummingbird,partners_in_flight,Aridlands: Desert Scrub,0
+yellow_bellied_elaenia,partners_in_flight,Open Country: Habitat Mosaic,0
+yellow_bellied_elaenia,hand_entered,facultative,0
+yellow_bellied_flycatcher,all_about_birds,Forests,0
+yellow_bellied_sapsucker,all_about_birds,Forests,0
+yellow_bellied_seedeater,partners_in_flight,Open Country: Developed/Disturbed,0
+yellow_bellied_seedeater,hand_entered,facultative,0
+yellow_bellied_seedeater,vickery_1999_facultative,facultative grassland,0
+yellow_billed_cuckoo,all_about_birds,Open Woodlands,1
+yellow_billed_cuckoo,peterjohn_2006,shrubland,1
+yellow_billed_cuckoo,hand_entered,facultative,1
+yellow_billed_cuckoo,vgbi,facultative grassland,1
+yellow_billed_magpie,all_about_birds,Open Woodlands,0
+yellow_breasted_chat,all_about_birds,Scrub,1
+yellow_breasted_chat,peterjohn_2006,shrubland,1
+yellow_breasted_chat,hand_entered,facultative,1
+yellow_breasted_chat,vgbi,facultative grassland,1
+yellow_crowned_night_heron,all_about_birds,Marshes,0
+yellow_eyed_junco,all_about_birds,Open Woodlands,0
+yellow_faced_grassquit,partners_in_flight,Open Country: Habitat Mosaic,0
+yellow_faced_grassquit,hand_entered,facultative,0
+yellow_faced_grassquit,vickery_1999_facultative,facultative grassland,0
+yellow_headed_blackbird,all_about_birds,Marshes,1
+yellow_headed_blackbird,partners_in_flight,Open Country: Habitat Mosaic,1
+yellow_headed_blackbird,hand_entered,facultative,1
+yellow_headed_caracara,partners_in_flight,Open Country: Habitat Mosaic,0
+yellow_headed_caracara,hand_entered,facultative,0
+yellow_rail,all_about_birds,Marshes,0
+yellow_rail,hand_entered,facultative,0
+yellow_rail,vickery_1999_facultative,facultative grassland,0
+yellow_rumped_warbler,partners_in_flight,Open Country: Habitat Mosaic,1
+yellow_rumped_warbler,hand_entered,facultative,1
+yellow_throated_vireo,all_about_birds,Open Woodlands,1
+yellow_throated_warbler,all_about_birds,Forests,0
+yellow_tyrannulet,partners_in_flight,Open Country: Habitat Mosaic,0
+yellow_tyrannulet,hand_entered,facultative,0
+yellow_wagtail,palearctic_extension,facultative grassland,1
+yellow_warbler,all_about_birds,Open Woodlands,1
+yellow_warbler,partners_in_flight,Open Country: Habitat Mosaic,1
+yellow_warbler,peterjohn_2006,shrubland,1
+zone_tailed_hawk,all_about_birds,Forests,0
