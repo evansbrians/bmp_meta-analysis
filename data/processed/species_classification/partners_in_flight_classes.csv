@@ -1,0 +1,1614 @@
+species,habitat
+highland_tinamou,Forests:  Tropical Montane Evergreen
+great_tinamou,Forests:  Tropical Lowland Evergreen
+little_tinamou,Forests:  Tropical Lowland Evergreen
+thicket_tinamou,Forests:  Tropical Dry
+slaty_breasted_tinamou,Forests:  Tropical Lowland Evergreen
+choco_tinamou,Forests:  Tropical Lowland Evergreen
+black_bellied_whistling_duck,Wetlands:  Generalist
+fulvous_whistling_duck,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+emperor_goose,Coasts:  Saltmarsh; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+snow_goose,Wetlands:  Tundra; Tundra:  Arctic; Wetlands:  Generalist
+rosss_goose,Wetlands:  Tundra; Tundra:  Arctic; Wetlands:  Generalist
+greater_white_fronted_goose,Wetlands:  Tundra; Wetlands:  Generalist
+brant,Coasts:  Saltmarsh; Coasts:  Tundra; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+cackling_goose,Wetlands:  Tundra; Coasts:  Tundra; Wetlands:  Generalist
+canada_goose,Wetlands:  Generalist; Coasts:  Saltmarsh
+mute_swan,Wetlands:  Generalist
+trumpeter_swan,Wetlands:  Lakes and Rivers; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+tundra_swan,Wetlands:  Tundra; Wetlands:  Generalist
+muscovy_duck,Wetlands:  Generalist
+wood_duck,Wetlands:  Forested; Forests:  Temperate Eastern; Wetlands:  Lakes and Rivers
+blue_winged_teal,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+cinnamon_teal,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers
+northern_shoveler,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+gadwall,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+eurasian_wigeon,Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+american_wigeon,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+mallard,Wetlands:  Generalist; Coasts:  Saltmarsh
+mexican_duck,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers
+american_black_duck,Wetlands:  Boreal; Coasts:  Saltmarsh; Wetlands:  Lakes and Rivers
+mottled_duck,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+northern_pintail,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Tundra; Wetlands:  Generalist
+green_winged_teal,Wetlands:  Generalist
+canvasback,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+redhead,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+ring_necked_duck,Wetlands:  Boreal; Wetlands:  Lakes and Rivers
+greater_scaup,Wetlands:  Tundra; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+lesser_scaup,Wetlands:  Lakes and Rivers; Wetlands:  Freshwater Marsh; Coasts:  Marine Waters
+harlequin_duck,Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+surf_scoter,Wetlands:  Boreal; Coasts:  Marine Waters
+white_winged_scoter,Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+black_scoter,Wetlands:  Tundra; Coasts:  Marine Waters
+long_tailed_duck,Wetlands:  Tundra; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+bufflehead,Wetlands:  Forested; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+common_goldeneye,Wetlands:  Forested; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+barrows_goldeneye,Wetlands:  Forested; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+white_bellied_chachalaca,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+crested_guan,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+black_guan,Forests:  Tropical Montane Evergreen
+highland_guan,Forests:  Tropical Montane Evergreen
+horned_guan,Forests:  Tropical Montane Evergreen
+great_curassow,Forests:  Tropical Lowland Evergreen
+tawny_faced_quail,Forests:  Tropical Lowland Evergreen
+mountain_quail,Forests:  Temperate Western; Aridlands:  Chaparral
+buffy_crowned_wood_partridge,Forests:  Tropical Montane Evergreen
+long_tailed_wood_partridge,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+bearded_wood_partridge,Forests:  Tropical Montane Evergreen
+banded_quail,Forests:  Tropical Dry
+northern_bobwhite,Open Country:  Habitat Mosaic; Forests:  Tropical Dry
+black_throated_bobwhite,Forests:  Tropical Dry; Grasslands:  Tropical
+crested_bobwhite,Open Country:  Habitat Mosaic
+scaled_quail,Grasslands:  Chihuahuan; Aridlands:  Desert Scrub
+elegant_quail,Forests:  Tropical Dry; Aridlands:  Desert Scrub
+california_quail,Aridlands:  Chaparral
+gambels_quail,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+montezuma_quail,Forests:  Mesoamerican Pine-Oak; Grasslands:  Tropical
+black_breasted_wood_quail,Forests:  Tropical Montane Evergreen
+spotted_wood_quail,Forests:  Tropical Montane Evergreen
+wild_turkey,Forests:  Temperate Generalist
+ocellated_turkey,Forests:  Tropical Lowland Evergreen
+ruffed_grouse,Forests:  Temperate Generalist
+spruce_grouse,Forests:  Boreal
+willow_ptarmigan,Tundra:  Arctic
+rock_ptarmigan,Tundra:  Alpine; Tundra:  Arctic
+white_tailed_ptarmigan,Tundra:  Alpine
+greater_sage_grouse,Aridlands:  Sagebrush
+gunnison_sage_grouse,Aridlands:  Sagebrush
+dusky_grouse,Forests:  Temperate Western
+sooty_grouse,Forests:  Temperate Western
+sharp_tailed_grouse,Grasslands:  Temperate; Forests:  Boreal
+greater_prairie_chicken,Grasslands:  Temperate
+lesser_prairie_chicken,Grasslands:  Temperate
+gray_partridge,Open Country:  Developed/Disturbed
+ring_necked_pheasant,Grasslands:  Temperate
+himalayan_snowcock,Tundra:  Alpine
+chukar,Aridlands:  Desert Scrub
+american_flamingo,Coasts:  Beach and Estuary; Coasts:  Mangroves
+least_grebe,Wetlands:  Generalist
+pied_billed_grebe,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers
+horned_grebe,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+band_tailed_pigeon,Forests:  Temperate Western; Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+ruddy_pigeon,Forests:  Tropical Lowland Evergreen
+short_billed_pigeon,Forests:  Tropical Lowland Evergreen
+eurasian_collared_dove,Open Country:  Developed/Disturbed
+spotted_dove,Open Country:  Developed/Disturbed
+inca_dove,Open Country:  Habitat Mosaic
+common_ground_dove,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+plain_breasted_ground_dove,Aridlands:  Tropical Arid Scrub; Grasslands:  Tropical
+ruddy_ground_dove,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+blue_ground_dove,Forests:  Tropical Lowland Evergreen
+maroon_chested_ground_dove,Forests:  Tropical Montane Evergreen
+ruddy_quail_dove,Forests:  Tropical Lowland Evergreen
+violaceous_quail_dove,Forests:  Tropical Lowland Evergreen
+olive_backed_quail_dove,Forests:  Tropical Lowland Evergreen
+white_tipped_dove,Forests:  Tropical Dry
+groove_billed_ani,Open Country:  Developed/Disturbed
+striped_cuckoo,Open Country:  Habitat Mosaic; Grasslands:  Tropical
+pheasant_cuckoo,Forests:  Tropical Lowland Evergreen
+lesser_ground_cuckoo,Forests:  Tropical Dry
+lesser_roadrunner,Forests:  Tropical Dry
+greater_roadrunner,Aridlands:  Desert Scrub
+rufous_vented_ground_cuckoo,Forests:  Tropical Lowland Evergreen
+little_cuckoo,Forests:  Tropical Lowland Evergreen
+squirrel_cuckoo,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+yellow_billed_cuckoo,Forests:  Temperate Eastern; Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+mangrove_cuckoo,Coasts:  Mangroves; Forests:  Tropical Dry
+cocos_cuckoo,Islands:  Terrestrial Habitats
+black_billed_cuckoo,Forests:  Temperate Eastern; Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+short_tailed_nighthawk,Forests:  Tropical Lowland Evergreen
+lesser_nighthawk,Aridlands Aerial:  Desert Scrub; Open Country Aerial:  Habitat Mosaic
+common_nighthawk,Open Country Aerial:  Habitat Mosaic
+antillean_nighthawk,Open Country Aerial:  Habitat Mosaic; Unknown
+common_pauraque,Forests:  Tropical Generalist
+common_poorwill,Aridlands:  Desert Scrub; Aridlands:  Sagebrush
+eared_poorwill,Forests:  Mesoamerican Pine-Oak
+yucatan_poorwill,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+ocellated_poorwill,Forests:  Tropical Lowland Evergreen
+chuck_wills_widow,Forests:  Temperate Eastern; Open Country:  Habitat Mosaic
+rufous_nightjar,Forests:  Tropical Dry
+tawny_collared_nightjar,Forests:  Tropical Dry
+black_swift,Forest Aerial:  Temperate Western; Forests Aerial:  Mesoamerican Highland; Forest Aerial:  Tropical Generalist
+white_fronted_swift,Forest Aerial:  Mesoamerican Highland
+white_chinned_swift,Forest Aerial:  Tropical Montane Evergreen
+spot_fronted_swift,Forest Aerial:  Tropical Montane Evergreen
+chestnut_collared_swift,Forest Aerial:  Mesoamerican Highland; Forests Aerial:  Tropical Lowland Evergreen; Forest Aerial:  Tropical Montane Evergreen
+white_whiskered_hermit,Forests:  Tropical Montane Evergreen
+pale_bellied_hermit,Forests:  Tropical Lowland Evergreen
+stripe_throated_hermit,Forests:  Tropical Lowland Evergreen
+green_fronted_lancebill,Forests:  Tropical Montane Evergreen
+brown_violetear,Forests:  Tropical Montane Evergreen
+mexican_violetear,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Pine-Oak
+lesser_violetear,Forests:  Tropical Montane Evergreen
+tooth_billed_hummingbird,Forests:  Tropical Montane Evergreen
+purple_crowned_fairy,Forests:  Tropical Lowland Evergreen
+green_breasted_mango,Forests:  Tropical Lowland Evergreen
+black_throated_mango,Open Country:  Habitat Mosaic
+veraguan_mango,Open Country:  Habitat Mosaic
+green_thorntail,Forests:  Tropical Montane Evergreen
+short_crested_coquette,Forests:  Tropical Lowland Evergreen
+rufous_crested_coquette,Forests:  Tropical Lowland Evergreen
+rufous_hummingbird,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+allens_hummingbird,Aridlands:  Chaparral; Forests:  Mesoamerican Pine-Oak
+broad_tailed_hummingbird,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+bumblebee_hummingbird,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+wine_throated_hummingbird,Forests:  Tropical Montane Evergreen
+volcano_hummingbird,Tundra:  Paramo
+scintillant_hummingbird,Forests:  Tropical Montane Evergreen
+glow_throated_hummingbird,Forests:  Tropical Montane Evergreen
+dusky_hummingbird,Forests:  Tropical Dry
+cozumel_emerald,Forests:  Tropical Dry
+canivets_emerald,Forests:  Tropical Lowland Evergreen
+garden_emerald,Forests:  Tropical Lowland Evergreen
+white_eared_hummingbird,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+xantuss_hummingbird,Aridlands:  Desert Scrub
+wedge_tailed_sabrewing,Forests:  Tropical Lowland Evergreen
+rufous_sabrewing,Forests:  Tropical Montane Evergreen
+emerald_chinned_hummingbird,Forests:  Tropical Montane Evergreen
+violet_headed_hummingbird,Forests:  Tropical Montane Evergreen
+violet_sabrewing,Forests:  Tropical Montane Evergreen
+bronze_tailed_plumeleteer,Forests:  Tropical Lowland Evergreen
+white_vented_plumeleteer,Forests:  Tropical Lowland Evergreen
+crowned_woodnymph,Forests:  Tropical Lowland Evergreen
+snowcap,Forests:  Tropical Lowland Evergreen
+coppery_headed_emerald,Forests:  Tropical Montane Evergreen
+white_tailed_emerald,Forests:  Tropical Montane Evergreen
+violet_capped_hummingbird,Forests:  Tropical Lowland Evergreen
+pirre_hummingbird,Forests:  Tropical Montane Evergreen
+mexican_woodnymph,Forests:  Tropical Dry
+white_tailed_hummingbird,Forests:  Tropical Montane Evergreen
+blue_capped_hummingbird,Forests:  Tropical Montane Evergreen
+stripe_tailed_hummingbird,Forests:  Tropical Montane Evergreen
+black_bellied_hummingbird,Forests:  Tropical Montane Evergreen
+scaly_breasted_hummingbird,Forests:  Tropical Lowland Evergreen
+violet_crowned_hummingbird,Forests:  Tropical Dry; Aridlands:  Desert Riparian
+common_gallinule,Wetlands:  Freshwater Marsh
+american_coot,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers; Coasts:  Saltmarsh
+purple_gallinule,Wetlands:  Freshwater Marsh
+ocellated_crake,Grasslands:  Tropical
+yellow_rail,Wetlands:  Boreal; Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+yellow_breasted_crake,Wetlands:  Freshwater Marsh
+ruddy_crake,Wetlands:  Freshwater Marsh
+white_throated_crake,Wetlands:  Freshwater Marsh
+gray_breasted_crake,Wetlands:  Freshwater Marsh
+black_rail,Coasts:  Saltmarsh; Wetlands:  Freshwater Marsh
+sungrebe,Wetlands:  Lakes and Rivers
+limpkin,Wetlands:  Lakes and Rivers; Wetlands:  Freshwater Marsh
+sandhill_crane,Wetlands:  Generalist
+whooping_crane,Wetlands:  Boreal; Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+double_striped_thick_knee,Grasslands:  Tropical
+black_necked_stilt,Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+ruddy_turnstone,Coasts:  Tundra; Wetlands:  Tundra; Coasts:  Beach and Estuary; Coasts:  Rocky Intertidal
+black_turnstone,Coasts:  Tundra; Tundra:  Arctic; Coasts:  Rocky Intertidal
+red_knot,Tundra:  Arctic; Coasts:  Beach and Estuary
+surfbird,Tundra:  Alpine; Coasts:  Rocky Intertidal
+sharp_tailed_sandpiper,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Seasonally Wet Grasslands
+purple_sandpiper,Wetlands:  Tundra; Tundra:  Arctic; Coasts:  Rocky Intertidal
+bairds_sandpiper,Tundra:  Arctic; Grasslands:  Pampas and Campos; Wetlands:  Lakes and Rivers
+least_sandpiper,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Generalist
+white_rumped_sandpiper,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+dovekie,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+common_murre,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+thick_billed_murre,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+razorbill,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+black_guillemot,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+pigeon_guillemot,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+marbled_murrelet,Forests:  Temperate Western; Coasts:  Marine Waters
+kittlitzs_murrelet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+scrippss_murrelet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+guadalupe_murrelet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+craveris_murrelet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+ancient_murrelet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+cassins_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+parakeet_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+least_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+whiskered_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+crested_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+rhinoceros_auklet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+atlantic_puffin,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+horned_puffin,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+sabines_gull,Wetlands:  Tundra; Oceans:  Pelagic
+bonapartes_gull,Wetlands:  Boreal; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+black_headed_gull,Wetlands:  Generalist; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+little_gull,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+rosss_gull,Wetlands:  Tundra; Coasts:  Marine Waters
+laughing_gull,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+franklins_gull,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary; Coasts:  Marine Waters
+heermanns_gull,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+short_billed_gull,Wetlands:  Generalist; Coasts:  Beach and Estuary; Coasts:  Marine Waters
+ring_billed_gull,Wetlands:  Generalist; Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary
+western_gull,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Beach and Estuary
+yellow_footed_gull,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+california_gull,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+herring_gull,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+iceland_gull,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Beach and Estuary
+lesser_black_backed_gull,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+slaty_backed_gull,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Beach and Estuary
+glaucous_winged_gull,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Beach and Estuary
+glaucous_gull,Coasts:  Cliffs and Islands; Wetlands:  Tundra; Coasts:  Beach and Estuary; Coasts:  Marine Waters
+great_black_backed_gull,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+brown_noddy,Islands:  Oceanic; Oceans:  Pelagic
+black_noddy,Islands:  Oceanic; Oceans:  Pelagic
+sooty_tern,Coasts:  Beach and Estuary; Islands:  Oceanic; Oceans:  Pelagic
+bridled_tern,Islands:  Oceanic; Oceans:  Pelagic
+aleutian_tern,Coasts:  Beach and Estuary; Wetlands:  Freshwater Marsh; Coasts:  Marine Waters
+least_tern,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+gull_billed_tern,Coasts:  Beach and Estuary; Wetlands:  Freshwater Marsh
+caspian_tern,Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary
+black_tern,Wetlands:  Freshwater Marsh; Oceans:  Pelagic; Coasts:  Marine Waters
+roseate_tern,Coasts:  Beach and Estuary; Coasts:  Marine Waters; Oceans:  Pelagic
+common_tern,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+arctic_tern,Wetlands:  Tundra; Forests:  Boreal; Coasts:  Marine Waters; Oceans:  Pelagic
+forsters_tern,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary
+royal_tern,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+sandwich_tern,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+elegant_tern,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+black_skimmer,Coasts:  Beach and Estuary; Coasts:  Saltmarsh
+sunbittern,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+white_tailed_tropicbird,Islands:  Oceanic; Oceans:  Pelagic
+red_billed_tropicbird,Islands:  Oceanic; Oceans:  Pelagic; Coasts:  Marine Waters
+red_tailed_tropicbird,Islands:  Oceanic; Oceans:  Pelagic
+red_throated_loon,Wetlands:  Tundra; Wetlands:  Boreal; Coasts:  Marine Waters
+arctic_loon,Wetlands:  Lakes and Rivers; Wetlands:  Tundra; Coasts:  Marine Waters
+black_footed_albatross,Islands:  Oceanic; Oceans:  Pelagic
+short_tailed_albatross,Islands:  Oceanic; Oceans:  Pelagic
+wilsons_storm_petrel,Islands:  Oceanic; Oceans:  Pelagic
+white_faced_storm_petrel,Islands:  Oceanic; Oceans:  Pelagic
+fork_tailed_storm_petrel,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+leachs_storm_petrel,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+townsends_storm_petrel,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+ainleys_storm_petrel,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+ashy_storm_petrel,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+band_rumped_storm_petrel,Islands:  Oceanic; Oceans:  Pelagic
+wedge_rumped_storm_petrel,Islands:  Oceanic; Oceans:  Pelagic
+black_storm_petrel,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+least_storm_petrel,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+northern_fulmar,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+trindade_petrel,Islands:  Oceanic; Oceans:  Pelagic
+murphys_petrel,Islands:  Oceanic; Oceans:  Pelagic
+mottled_petrel,Islands:  Oceanic; Oceans:  Pelagic
+bermuda_petrel,Islands:  Oceanic; Oceans:  Pelagic
+black_capped_petrel,Islands:  Oceanic; Oceans:  Pelagic
+juan_fernandez_petrel,Islands:  Oceanic; Oceans:  Pelagic
+hawaiian_petrel,Islands:  Oceanic; Oceans:  Pelagic
+feas_petrel,Islands:  Oceanic; Oceans:  Pelagic
+cooks_petrel,Islands:  Oceanic; Oceans:  Pelagic
+tahiti_petrel,Islands:  Oceanic; Oceans:  Pelagic
+bulwers_petrel,Islands:  Oceanic; Oceans:  Pelagic
+parkinsons_petrel,Islands:  Oceanic; Oceans:  Pelagic
+corys_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+wedge_tailed_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+bullers_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+galapagos_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+manx_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+townsends_shearwater,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+black_vented_shearwater,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+audubons_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+jabiru,Wetlands:  Freshwater Marsh
+wood_stork,Wetlands:  Forested; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+magnificent_frigatebird,Coasts:  Mangroves; Coasts:  Marine Waters; Oceans:  Pelagic
+great_frigatebird,Islands:  Oceanic; Oceans:  Pelagic
+masked_booby,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+great_cormorant,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+double_crested_cormorant,Wetlands:  Generalist; Coasts:  Beach and Estuary; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+neotropic_cormorant,Wetlands:  Generalist; Coasts:  Beach and Estuary
+american_white_pelican,Wetlands:  Lakes and Rivers; Coasts:  Saltmarsh
+brown_pelican,Coasts:  Beach and Estuary; Coasts:  Marine Waters
+pinnated_bittern,Wetlands:  Freshwater Marsh
+american_bittern,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+least_bittern,Wetlands:  Freshwater Marsh
+rufescent_tiger_heron,Wetlands:  Freshwater Marsh
+fasciated_tiger_heron,Wetlands:  Lakes and Rivers; Forests:  Tropical Lowland Evergreen
+bare_throated_tiger_heron,Wetlands:  Freshwater Marsh
+great_blue_heron,Wetlands:  Generalist; Coasts:  Saltmarsh
+cocoi_heron,Wetlands:  Generalist
+great_egret,Wetlands:  Generalist; Coasts:  Saltmarsh
+cattle_egret,Wetlands:  Generalist; Open Country:  Developed/Disturbed; Wetlands:  Seasonally Wet Grasslands
+green_heron,Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh
+striated_heron,Wetlands:  Freshwater Marsh
+agami_heron,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+capped_heron,Wetlands:  Freshwater Marsh
+black_crowned_night_heron,Wetlands:  Generalist; Coasts:  Saltmarsh
+yellow_crowned_night_heron,Wetlands:  Generalist; Coasts:  Mangroves; Coasts:  Saltmarsh
+boat_billed_heron,Wetlands:  Generalist; Coasts:  Mangroves
+white_ibis,Wetlands:  Generalist; Coasts:  Mangroves; Coasts:  Saltmarsh
+swallow_tailed_kite,Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+crested_eagle,Forests:  Tropical Lowland Evergreen
+harpy_eagle,Forests:  Tropical Lowland Evergreen
+golden_eagle,Open Country:  Habitat Mosaic
+black_hawk_eagle,Forests:  Tropical Lowland Evergreen
+mississippi_kite,Forests:  Temperate Eastern; Forests:  Tropical Dry; Open Country:  Developed/Disturbed
+plumbeous_kite,Forests:  Tropical Lowland Evergreen
+black_collared_hawk,Wetlands:  Freshwater Marsh
+crane_hawk,Forests:  Tropical Generalist
+snail_kite,Wetlands:  Freshwater Marsh
+slender_billed_kite,Forests:  Tropical Lowland Evergreen
+plumbeous_hawk,Forests:  Tropical Lowland Evergreen
+common_black_hawk,Wetlands:  Forested; Coasts:  Mangroves
+savanna_hawk,Grasslands:  Tropical
+great_black_hawk,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+solitary_eagle,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+barred_hawk,Forests:  Tropical Montane Evergreen
+roadside_hawk,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+harriss_hawk,Aridlands:  Desert Scrub
+white_tailed_hawk,Forests:  Tropical Dry; Grasslands:  Tropical
+broad_winged_hawk,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Generalist
+short_tailed_hawk,Open Country:  Habitat Mosaic; Forests:  Generalist
+swainsons_hawk,Grasslands:  Temperate; Grasslands:  Pampas and Campos
+zone_tailed_hawk,Forests:  Tropical Generalist
+red_tailed_hawk,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+rough_legged_hawk,Tundra:  Arctic; Open Country:  Habitat Mosaic
+ferruginous_hawk,Grasslands:  Temperate; Open Country:  Habitat Mosaic; Grasslands:  Chihuahuan
+barn_owl,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+flammulated_owl,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+whiskered_screech_owl,Forests:  Mesoamerican Pine-Oak
+eastern_screech_owl,Forests:  Temperate Eastern
+balsas_screech_owl,Forests:  Tropical Dry
+middle_american_screech_owl,Forests:  Tropical Lowland Evergreen
+choco_screech_owl,Forests:  Tropical Lowland Evergreen
+crested_owl,Forests:  Tropical Lowland Evergreen
+spectacled_owl,Forests:  Tropical Lowland Evergreen
+great_horned_owl,Open Country:  Habitat Mosaic
+snowy_owl,Tundra:  Arctic; Open Country:  Habitat Mosaic
+northern_hawk_owl,Forests:  Boreal
+northern_pygmy_owl,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+costa_rican_pygmy_owl,Forests:  Tropical Montane Evergreen
+central_american_pygmy_owl,Forests:  Tropical Lowland Evergreen
+tamaulipas_pygmy_owl,Forests:  Tropical Montane Evergreen
+colima_pygmy_owl,Forests:  Tropical Dry
+ferruginous_pygmy_owl,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+elf_owl,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+burrowing_owl,Grasslands:  Temperate; Aridlands:  Desert Scrub
+spotted_owl,Forests:  Temperate Western; Forests:  Mesoamerican Highland
+barred_owl,Forests:  Temperate Eastern; Forests:  Temperate Western
+cinereous_owl,Forests:  Mesoamerican Pine-Oak
+fulvous_owl,Forests:  Tropical Montane Evergreen
+mottled_owl,Forests:  Tropical Generalist
+black_and_white_owl,Forests:  Tropical Lowland Evergreen
+great_gray_owl,Forests:  Boreal
+long_eared_owl,Forests:  Temperate Generalist
+stygian_owl,Forests:  Tropical Generalist
+short_eared_owl,Tundra:  Arctic; Grasslands:  Temperate; Coasts:  Saltmarsh
+striped_owl,Grasslands:  Tropical
+black_tailed_trogon,Forests:  Tropical Lowland Evergreen
+black_headed_trogon,Forests:  Tropical Lowland Evergreen
+citreoline_trogon,Forests:  Tropical Dry
+white_tailed_trogon,Forests:  Tropical Lowland Evergreen
+bairds_trogon,Forests:  Tropical Lowland Evergreen
+gartered_trogon,Forests:  Tropical Lowland Evergreen
+black_throated_trogon,Forests:  Tropical Lowland Evergreen
+elegant_trogon,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+mountain_trogon,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+collared_trogon,Forests:  Tropical Lowland Evergreen
+eared_quetzal,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+golden_headed_quetzal,Forests:  Tropical Montane Evergreen
+resplendent_quetzal,Forests:  Tropical Montane Evergreen
+tody_motmot,Forests:  Tropical Lowland Evergreen
+blue_throated_motmot,Forests:  Tropical Montane Evergreen
+russet_crowned_motmot,Forests:  Tropical Dry
+amazon_kingfisher,Wetlands:  Generalist
+american_pygmy_kingfisher,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+green_kingfisher,Wetlands:  Generalist
+green_and_rufous_kingfisher,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+barred_puffbird,Forests:  Tropical Lowland Evergreen
+white_necked_puffbird,Forests:  Tropical Lowland Evergreen
+black_breasted_puffbird,Forests:  Tropical Lowland Evergreen
+pied_puffbird,Forests:  Tropical Lowland Evergreen
+white_whiskered_puffbird,Forests:  Tropical Lowland Evergreen
+lanceolated_monklet,Forests:  Tropical Montane Evergreen
+gray_cheeked_nunlet,Forests:  Tropical Lowland Evergreen
+white_fronted_nunbird,Forests:  Tropical Lowland Evergreen
+dusky_backed_jacamar,Forests:  Tropical Lowland Evergreen
+rufous_tailed_jacamar,Forests:  Tropical Lowland Evergreen
+great_jacamar,Forests:  Tropical Lowland Evergreen
+spot_crowned_barbet,Forests:  Tropical Lowland Evergreen
+red_headed_barbet,Forests:  Tropical Montane Evergreen
+prong_billed_barbet,Forests:  Tropical Montane Evergreen
+northern_emerald_toucanet,Forests:  Tropical Montane Evergreen
+collared_aracari,Forests:  Tropical Lowland Evergreen
+fiery_billed_aracari,Forests:  Tropical Lowland Evergreen
+yellow_eared_toucanet,Forests:  Tropical Lowland Evergreen
+keel_billed_toucan,Forests:  Tropical Lowland Evergreen
+yellow_throated_toucan,Forests:  Tropical Montane Evergreen
+olivaceous_piculet,Forests:  Tropical Lowland Evergreen
+lewiss_woodpecker,Forests:  Temperate Western
+red_headed_woodpecker,Forests:  Temperate Eastern
+acorn_woodpecker,Forests:  Mesoamerican Pine-Oak; Forests:  Temperate Western
+golden_naped_woodpecker,Forests:  Tropical Lowland Evergreen
+black_cheeked_woodpecker,Forests:  Tropical Lowland Evergreen
+golden_cheeked_woodpecker,Forests:  Tropical Dry
+gray_breasted_woodpecker,Forests:  Tropical Dry
+yucatan_woodpecker,Forests:  Tropical Dry
+red_crowned_woodpecker,Forests:  Tropical Lowland Evergreen
+gila_woodpecker,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+hoffmanns_woodpecker,Forests:  Tropical Dry
+golden_fronted_woodpecker,Forests:  Tropical Dry
+red_bellied_woodpecker,Forests:  Temperate Eastern
+williamsons_sapsucker,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+yellow_bellied_sapsucker,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Temperate Generalist
+red_naped_sapsucker,Forests:  Temperate Western; Aridlands:  Desert Riparian
+red_breasted_sapsucker,Forests:  Temperate Western
+american_three_toed_woodpecker,Forests:  Boreal; Forests:  Temperate Western
+black_backed_woodpecker,Forests:  Boreal; Forests:  Temperate Western
+downy_woodpecker,Forests:  Temperate Generalist
+nuttalls_woodpecker,Forests:  Temperate Western
+ladder_backed_woodpecker,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+red_cockaded_woodpecker,Forests:  Temperate Eastern
+hairy_woodpecker,Forests:  Generalist
+white_headed_woodpecker,Forests:  Temperate Western
+smoky_brown_woodpecker,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+arizona_woodpecker,Forests:  Mesoamerican Pine-Oak
+gyrfalcon,Tundra:  Arctic; Open Country:  Habitat Mosaic
+peregrine_falcon,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+prairie_falcon,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub; Grasslands:  Temperate
+painted_parakeet,Forests:  Tropical Lowland Evergreen
+sulphur_winged_parakeet,Forests:  Tropical Montane Evergreen
+monk_parakeet,Open Country:  Developed/Disturbed
+olive_throated_parakeet,Forests:  Tropical Lowland Evergreen
+orange_fronted_parakeet,Forests:  Tropical Dry
+brown_throated_parakeet,Forests:  Tropical Dry
+blue_and_yellow_macaw,Forests:  Tropical Lowland Evergreen
+chestnut_fronted_macaw,Forests:  Tropical Lowland Evergreen
+scarlet_macaw,Forests:  Tropical Lowland Evergreen
+red_and_green_macaw,Forests:  Tropical Lowland Evergreen
+military_macaw,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+great_green_macaw,Forests:  Tropical Lowland Evergreen
+green_parakeet,Forests:  Tropical Dry
+socorro_parakeet,Islands:  Terrestrial Habitats
+pacific_parakeet,Forests:  Tropical Dry
+crimson_fronted_parakeet,Forests:  Tropical Lowland Evergreen
+thick_billed_parrot,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+maroon_fronted_parrot,Forests:  Mesoamerican Pine-Oak
+barred_parakeet,Forests:  Tropical Montane Evergreen
+mexican_parrotlet,Forests:  Tropical Dry
+spectacled_parrotlet,Forests:  Tropical Dry
+orange_chinned_parakeet,Forests:  Tropical Dry
+red_fronted_parrotlet,Forests:  Tropical Montane Evergreen
+blue_fronted_parrotlet,Forests:  Tropical Montane Evergreen
+brown_hooded_parrot,Forests:  Tropical Lowland Evergreen
+saffron_headed_parrot,Forests:  Tropical Lowland Evergreen
+blue_headed_parrot,Forests:  Tropical Lowland Evergreen
+white_crowned_parrot,Forests:  Tropical Lowland Evergreen
+white_fronted_parrot,Forests:  Tropical Dry
+yellow_lored_parrot,Forests:  Tropical Dry
+red_crowned_parrot,Forests:  Tropical Dry
+lilac_crowned_parrot,Forests:  Tropical Dry
+red_lored_parrot,Forests:  Tropical Lowland Evergreen
+mealy_parrot,Forests:  Tropical Lowland Evergreen
+yellow_headed_parrot,Forests:  Tropical Dry
+yellow_naped_parrot,Forests:  Tropical Dry
+yellow_crowned_parrot,Forests:  Tropical Lowland Evergreen
+sapayoa,Forests:  Tropical Lowland Evergreen
+lance_tailed_manakin,Forests:  Tropical Dry
+long_tailed_manakin,Forests:  Tropical Dry
+white_ruffed_manakin,Forests:  Tropical Lowland Evergreen
+green_manakin,Forests:  Tropical Lowland Evergreen
+blue_crowned_manakin,Forests:  Tropical Lowland Evergreen
+white_collared_manakin,Forests:  Tropical Lowland Evergreen
+orange_collared_manakin,Forests:  Tropical Lowland Evergreen
+golden_collared_manakin,Forests:  Tropical Lowland Evergreen
+white_crowned_manakin,Forests:  Tropical Lowland Evergreen
+red_capped_manakin,Forests:  Tropical Lowland Evergreen
+golden_headed_manakin,Forests:  Tropical Lowland Evergreen
+purple_throated_fruitcrow,Forests:  Tropical Lowland Evergreen
+one_colored_becard,Forests:  Tropical Lowland Evergreen
+sharpbill,Forests:  Tropical Montane Evergreen
+royal_flycatcher,Forests:  Tropical Lowland Evergreen
+ruddy_tailed_flycatcher,Forests:  Tropical Lowland Evergreen
+tawny_breasted_flycatcher,Forests:  Tropical Montane Evergreen
+sulphur_rumped_flycatcher,Forests:  Tropical Lowland Evergreen
+black_tailed_flycatcher,Forests:  Tropical Lowland Evergreen
+gray_headed_piprites,Forests:  Tropical Lowland Evergreen
+stub_tailed_spadebill,Forests:  Tropical Lowland Evergreen
+white_throated_spadebill,Forests:  Tropical Montane Evergreen
+golden_crowned_spadebill,Forests:  Tropical Lowland Evergreen
+olive_striped_flycatcher,Forests:  Tropical Lowland Evergreen
+social_flycatcher,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+gray_capped_flycatcher,Open Country:  Habitat Mosaic
+white_ringed_flycatcher,Forests:  Tropical Lowland Evergreen
+golden_bellied_flycatcher,Forests:  Tropical Montane Evergreen
+golden_crowned_flycatcher,Forests:  Tropical Montane Evergreen
+streaked_flycatcher,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+sulphur_bellied_flycatcher,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Lowland Evergreen
+piratic_flycatcher,Open Country:  Habitat Mosaic; Forests:  Tropical Lowland Evergreen
+tropical_kingbird,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+couchs_kingbird,Open Country:  Habitat Mosaic
+cassins_kingbird,Open Country:  Habitat Mosaic
+thick_billed_kingbird,Forests:  Tropical Dry
+western_kingbird,Grasslands:  Temperate; Aridlands:  Desert Scrub; Open Country:  Habitat Mosaic
+eastern_kingbird,Open Country:  Habitat Mosaic; Grasslands:  Temperate; Forests:  Tropical Lowland Evergreen
+gray_kingbird,Coasts:  Mangroves; Islands:  Terrestrial Habitats; Forests:  Tropical Dry
+scissor_tailed_flycatcher,Grasslands:  Temperate; Forests:  Tropical Dry; Open Country:  Developed/Disturbed
+fork_tailed_flycatcher,Grasslands:  Tropical
+bran_colored_flycatcher,Open Country:  Habitat Mosaic
+tawny_chested_flycatcher,Forests:  Tropical Lowland Evergreen
+black_billed_flycatcher,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+stellers_eider,Wetlands:  Tundra; Coasts:  Marine Waters
+spectacled_eider,Wetlands:  Tundra; Coasts:  Tundra; Oceans:  Arctic Polynyas
+king_eider,Wetlands:  Tundra; Coasts:  Tundra; Coasts:  Marine Waters
+common_eider,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+hooded_merganser,Wetlands:  Forested; Wetlands:  Lakes and Rivers
+common_merganser,Wetlands:  Forested; Wetlands:  Lakes and Rivers
+red_breasted_merganser,Wetlands:  Tundra; Wetlands:  Boreal; Coasts:  Marine Waters; Coasts:  Beach and Estuary
+masked_duck,Wetlands:  Freshwater Marsh
+ruddy_duck,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+plain_chachalaca,Forests:  Tropical Lowland Evergreen
+gray_headed_chachalaca,Forests:  Tropical Lowland Evergreen
+rufous_bellied_chachalaca,Forests:  Tropical Dry
+west_mexican_chachalaca,Forests:  Tropical Dry
+ocellated_quail,Forests:  Mesoamerican Pine-Oak
+singing_quail,Forests:  Tropical Montane Evergreen
+marbled_wood_quail,Forests:  Tropical Lowland Evergreen
+black_eared_wood_quail,Forests:  Tropical Lowland Evergreen
+tacarcuna_wood_quail,Forests:  Tropical Montane Evergreen
+red_necked_grebe,Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+eared_grebe,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+western_grebe,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+clarks_grebe,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers
+rock_pigeon,Open Country:  Developed/Disturbed
+pale_vented_pigeon,Forests:  Tropical Lowland Evergreen
+scaled_pigeon,Forests:  Tropical Lowland Evergreen
+white_crowned_pigeon,Coasts:  Mangroves
+red_billed_pigeon,Forests:  Tropical Dry
+caribbean_dove,Forests:  Tropical Dry; Islands:  Terrestrial Habitats
+gray_chested_dove,Forests:  Tropical Lowland Evergreen
+gray_headed_dove,Forests:  Tropical Lowland Evergreen
+tuxtla_quail_dove,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+buff_fronted_quail_dove,Forests:  Tropical Montane Evergreen
+purplish_backed_quail_dove,Forests:  Tropical Montane Evergreen
+white_faced_quail_dove,Forests:  Tropical Montane Evergreen
+chiriqui_quail_dove,Forests:  Tropical Montane Evergreen
+russet_crowned_quail_dove,Forests:  Tropical Montane Evergreen
+white_winged_dove,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+belted_flycatcher,Forests:  Mesoamerican Pine-Oak; Aridlands:  Tropical Arid Scrub
+pileated_flycatcher,Forests:  Tropical Dry; Aridlands:  Tropical Arid Scrub
+tufted_flycatcher,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+olive_sided_flycatcher,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+greater_pewee,Forests:  Mesoamerican Pine-Oak
+yellow_bellied_flycatcher,Forests:  Boreal; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+acadian_flycatcher,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+alder_flycatcher,Wetlands:  Boreal; Wetlands:  Forested; Forests:  Tropical Generalist
+willow_flycatcher,Open Country:  Habitat Mosaic; Forests:  Temperate Western
+white_throated_flycatcher,Open Country:  Habitat Mosaic; Wetlands:  Freshwater Marsh; Wetlands:  Seasonally Wet Grasslands
+least_flycatcher,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Generalist
+hammonds_flycatcher,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+gray_flycatcher,Forests:  Temperate Western; Aridlands:  Desert Scrub; Forests:  Tropical Dry
+dusky_flycatcher,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+pine_flycatcher,Forests:  Mesoamerican Pine-Oak
+pacific_slope_flycatcher,Forests:  Temperate Western; Forests:  Tropical Dry
+cordilleran_flycatcher,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+yellowish_flycatcher,Forests:  Tropical Montane Evergreen
+buff_breasted_flycatcher,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland; Forests:  Tropical Dry
+black_capped_flycatcher,Forests:  Tropical Montane Evergreen
+black_phoebe,Wetlands:  Generalist
+eastern_phoebe,Open Country:  Habitat Mosaic; Forests:  Temperate Eastern
+says_phoebe,Aridlands:  Desert Scrub; Forests:  Temperate Western; Open Country:  Habitat Mosaic
+vermilion_flycatcher,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub
+pied_water_tyrant,Wetlands:  Freshwater Marsh
+northern_scrub_flycatcher,Coasts:  Mangroves; Forests:  Tropical Dry
+long_tailed_tyrant,Forests:  Tropical Lowland Evergreen
+black_crowned_antpitta,Forests:  Tropical Lowland Evergreen
+fasciated_antshrike,Forests:  Tropical Lowland Evergreen
+great_antshrike,Forests:  Tropical Lowland Evergreen
+barred_antshrike,Forests:  Tropical Lowland Evergreen
+black_antshrike,Forests:  Tropical Lowland Evergreen
+black_hooded_antshrike,Forests:  Tropical Lowland Evergreen
+black_crowned_antshrike,Forests:  Tropical Lowland Evergreen
+spiny_faced_antshrike,Forests:  Tropical Lowland Evergreen
+russet_antshrike,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+plain_antvireo,Forests:  Tropical Lowland Evergreen
+streak_crowned_antvireo,Forests:  Tropical Lowland Evergreen
+spot_crowned_antvireo,Forests:  Tropical Lowland Evergreen
+moustached_antwren,Forests:  Tropical Lowland Evergreen
+pacific_antwren,Forests:  Tropical Lowland Evergreen
+white_flanked_antwren,Forests:  Tropical Lowland Evergreen
+slaty_antwren,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+checker_throated_stipplethroat,Forests:  Tropical Lowland Evergreen
+rusty_winged_antwren,Forests:  Tropical Lowland Evergreen
+dot_winged_antwren,Forests:  Tropical Lowland Evergreen
+white_fringed_antwren,Forests:  Tropical Dry
+rufous_rumped_antwren,Forests:  Tropical Montane Evergreen
+dusky_antbird,Forests:  Tropical Lowland Evergreen
+jet_antbird,Forests:  Tropical Lowland Evergreen
+bare_crowned_antbird,Forests:  Tropical Lowland Evergreen
+zeledons_antbird,Forests:  Tropical Lowland Evergreen
+white_bellied_antbird,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+chestnut_backed_antbird,Forests:  Tropical Lowland Evergreen
+dull_mantled_antbird,Forests:  Tropical Lowland Evergreen
+spotted_antbird,Forests:  Tropical Lowland Evergreen
+wing_banded_antbird,Forests:  Tropical Lowland Evergreen
+zenaida_dove,Islands:  Terrestrial Habitats; Forests:  Tropical Dry
+mourning_dove,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+socorro_dove,Islands:  Terrestrial Habitats
+greater_ani,Forests:  Tropical Lowland Evergreen; Wetlands:  Forested
+smooth_billed_ani,Open Country:  Developed/Disturbed
+yucatan_nightjar,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+buff_collared_nightjar,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+eastern_whip_poor_will,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+dusky_nightjar,Forests:  Tropical Montane Evergreen
+mexican_whip_poor_will,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+white_tailed_nightjar,Grasslands:  Tropical
+spot_tailed_nightjar,Grasslands:  Tropical
+oilbird,Forests:  Tropical Lowland Evergreen
+great_potoo,Forests:  Tropical Lowland Evergreen
+common_potoo,Forests:  Tropical Lowland Evergreen
+northern_potoo,Forests:  Tropical Lowland Evergreen; Coasts:  Mangroves
+white_collared_swift,Forest Aerial:  Tropical Montane Evergreen; Forests Aerial:  Tropical Lowland Evergreen; Forest Aerial:  Tropical Lowland Evergreen
+white_naped_swift,Forest Aerial:  Mesoamerican Pine-Oak; Forests Aerial:  Tropical Dry; Forest Aerial:  Tropical Dry
+gray_rumped_swift,Forest Aerial:  Tropical Lowland Evergreen
+band_rumped_swift,Forest Aerial:  Tropical Lowland Evergreen
+costa_rican_swift,Forest Aerial:  Tropical Lowland Evergreen
+chimney_swift,Open Country Aerial:  Developed/Disturbed; Open Country Aerial:  Habitat Mosaic; Forest Aerial:  Tropical Lowland Evergreen
+vauxs_swift,Forest Aerial:  Temperate Western; Forests Aerial:  Mesoamerican Highland; Forest Aerial:  Tropical Generalist
+chapmans_swift,Forest Aerial:  Tropical Lowland Evergreen
+short_tailed_swift,Forest Aerial:  Tropical Lowland Evergreen
+white_throated_swift,Open Country Aerial:  Habitat Mosaic
+lesser_swallow_tailed_swift,Forest Aerial:  Tropical Lowland Evergreen
+great_swallow_tailed_swift,Forest Aerial:  Mesoamerican Highland; Forests Aerial:  Tropical Lowland Evergreen; Forest Aerial:  Tropical Montane Evergreen
+white_necked_jacobin,Forests:  Tropical Lowland Evergreen
+white_tipped_sicklebill,Forests:  Tropical Montane Evergreen
+bronzy_hermit,Forests:  Tropical Lowland Evergreen
+rufous_breasted_hermit,Forests:  Tropical Lowland Evergreen
+band_tailed_barbthroat,Forests:  Tropical Lowland Evergreen
+green_hermit,Forests:  Tropical Montane Evergreen
+mexican_hermit,Forests:  Tropical Lowland Evergreen
+long_billed_hermit,Forests:  Tropical Lowland Evergreen
+black_crested_coquette,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+white_crested_coquette,Forests:  Tropical Lowland Evergreen
+greenish_puffleg,Forests:  Tropical Montane Evergreen
+green_crowned_brilliant,Forests:  Tropical Montane Evergreen
+rivolis_hummingbird,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+bicolored_antbird,Forests:  Tropical Lowland Evergreen
+ocellated_antbird,Forests:  Tropical Lowland Evergreen
+scaled_antpitta,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+streak_chested_antpitta,Forests:  Tropical Lowland Evergreen
+thicket_antpitta,Forests:  Tropical Lowland Evergreen
+ochre_breasted_antpitta,Forests:  Tropical Montane Evergreen
+tacarcuna_tapaculo,Forests:  Tropical Montane Evergreen
+silvery_fronted_tapaculo,Forests:  Tropical Montane Evergreen
+mayan_antthrush,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+black_faced_antthrush,Forests:  Tropical Lowland Evergreen
+olivaceous_woodcreeper,Forests:  Tropical Lowland Evergreen
+long_tailed_woodcreeper,Forests:  Tropical Lowland Evergreen
+ruddy_woodcreeper,Forests:  Tropical Lowland Evergreen
+tawny_winged_woodcreeper,Forests:  Tropical Lowland Evergreen
+plain_brown_woodcreeper,Forests:  Tropical Lowland Evergreen
+wedge_billed_woodcreeper,Forests:  Tropical Lowland Evergreen
+buffy_tuftedcheek,Forests:  Tropical Montane Evergreen
+sharp_tailed_streamcreeper,Forests:  Tropical Montane Evergreen
+slaty_winged_foliage_gleaner,Forests:  Tropical Lowland Evergreen
+buff_fronted_foliage_gleaner,Forests:  Tropical Montane Evergreen
+scaly_throated_foliage_gleaner,Forests:  Tropical Montane Evergreen
+lineated_foliage_gleaner,Forests:  Tropical Montane Evergreen
+ruddy_foliage_gleaner,Forests:  Tropical Montane Evergreen
+streak_breasted_treehunter,Forests:  Tropical Montane Evergreen
+buff_throated_foliage_gleaner,Forests:  Tropical Lowland Evergreen
+chiriqui_foliage_gleaner,Forests:  Tropical Lowland Evergreen
+striped_woodhaunter,Forests:  Tropical Lowland Evergreen
+spotted_barbtail,Forests:  Tropical Montane Evergreen
+beautiful_treerunner,Forests:  Tropical Montane Evergreen
+ruddy_treerunner,Forests:  Tropical Montane Evergreen
+double_banded_graytail,Forests:  Tropical Lowland Evergreen
+red_faced_spinetail,Forests:  Tropical Montane Evergreen
+coiba_spinetail,Islands:  Terrestrial Habitats
+pale_breasted_spinetail,Open Country:  Habitat Mosaic
+slaty_spinetail,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+rufous_breasted_spinetail,Forests:  Tropical Lowland Evergreen
+rufous_browed_peppershrike,Forests:  Tropical Lowland Evergreen
+scrub_greenlet,Forests:  Tropical Dry
+chestnut_sided_shrike_vireo,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+green_shrike_vireo,Forests:  Tropical Lowland Evergreen
+yellow_browed_shrike_vireo,Forests:  Tropical Lowland Evergreen
+tawny_crowned_greenlet,Forests:  Tropical Lowland Evergreen
+lesser_greenlet,Forests:  Tropical Lowland Evergreen
+golden_fronted_greenlet,Forests:  Tropical Dry
+golden_vireo,Forests:  Tropical Dry
+slaty_vireo,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+black_capped_vireo,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+dwarf_vireo,Aridlands:  Tropical Arid Scrub
+white_eyed_vireo,Forests:  Temperate Eastern; Forests:  Tropical Dry; Forests:  Generalist
+mangrove_vireo,Coasts:  Mangroves
+cozumel_vireo,Islands:  Terrestrial Habitats
+bells_vireo,Aridlands:  Desert Riparian; Forests:  Temperate Eastern; Forests:  Tropical Dry
+gray_vireo,Forests:  Temperate Western; Aridlands:  Chaparral; Aridlands:  Desert Scrub
+huttons_vireo,Forests:  Temperate Western; Forests:  Mesoamerican Highland
+yellow_throated_vireo,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+yellow_winged_vireo,Forests:  Tropical Montane Evergreen
+loggerhead_shrike,Grasslands:  Temperate; Aridlands:  Desert Scrub
+northern_shrike,Forests:  Boreal; Tundra:  Arctic; Open Country:  Habitat Mosaic
+canada_jay,Forests:  Boreal; Forests:  Temperate Western
+white_throated_jay,Forests:  Tropical Montane Evergreen
+dwarf_jay,Forests:  Mesoamerican Highland
+black_throated_jay,Forests:  Tropical Montane Evergreen
+silvery_throated_jay,Forests:  Tropical Montane Evergreen
+azure_hooded_jay,Forests:  Tropical Montane Evergreen
+black_throated_magpie_jay,Forests:  Tropical Dry
+white_throated_magpie_jay,Forests:  Tropical Dry
+brown_jay,Forests:  Tropical Lowland Evergreen
+tufted_jay,Forests:  Mesoamerican Pine-Oak
+black_chested_jay,Forests:  Tropical Lowland Evergreen
+green_jay,Forests:  Tropical Lowland Evergreen
+bushy_crested_jay,Forests:  Tropical Montane Evergreen
+san_blas_jay,Forests:  Tropical Dry
+yucatan_jay,Forests:  Tropical Dry
+purplish_backed_jay,Forests:  Tropical Dry
+pinyon_jay,Forests:  Temperate Western
+stellers_jay,Forests:  Temperate Western; Forests:  Mesoamerican Highland
+blue_jay,Forests:  Temperate Eastern
+florida_scrub_jay,Forests:  Temperate Eastern
+island_scrub_jay,Islands:  Terrestrial Habitats
+california_scrub_jay,Forests:  Temperate Western; Aridlands:  Chaparral
+woodhouses_scrub_jay,Forests:  Temperate Western; Aridlands:  Chaparral
+transvolcanic_jay,Forests:  Mesoamerican Pine-Oak
+mexican_jay,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+unicolored_jay,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Pine-Oak
+clarks_nutcracker,Forests:  Temperate Western
+black_billed_magpie,Open Country:  Habitat Mosaic
+yellow_billed_magpie,Forests:  Temperate Western
+american_crow,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+tamaulipas_crow,Forests:  Tropical Dry
+sinaloa_crow,Forests:  Tropical Dry
+fish_crow,Open Country:  Habitat Mosaic; Wetlands:  Generalist
+chihuahuan_raven,Grasslands:  Chihuahuan; Aridlands:  Desert Scrub; Open Country:  Developed/Disturbed
+common_raven,Open Country:  Habitat Mosaic
+verdin,Aridlands:  Desert Scrub
+carolina_chickadee,Forests:  Temperate Eastern
+black_capped_chickadee,Forests:  Temperate Generalist
+mountain_chickadee,Forests:  Temperate Western
+mexican_chickadee,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+chestnut_backed_chickadee,Forests:  Temperate Western
+boreal_chickadee,Forests:  Boreal
+gray_headed_chickadee,Forests:  Boreal
+bridled_titmouse,Forests:  Mesoamerican Pine-Oak
+oak_titmouse,Forests:  Temperate Western
+juniper_titmouse,Forests:  Temperate Western
+talamanca_hummingbird,Forests: Tropical Montane Evergreen
+fiery_throated_hummingbird,Forests:  Tropical Montane Evergreen
+long_billed_starthroat,Forests:  Tropical Lowland Evergreen
+plain_capped_starthroat,Forests:  Tropical Dry
+green_throated_mountain_gem,Forests:  Tropical Montane Evergreen
+green_breasted_mountain_gem,Forests:  Tropical Montane Evergreen
+amethyst_throated_mountain_gem,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Pine-Oak
+blue_throated_mountain_gem,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+white_bellied_mountain_gem,Forests:  Tropical Montane Evergreen
+purple_throated_mountain_gem,Forests:  Tropical Montane Evergreen
+white_throated_mountain_gem,Forests:  Tropical Montane Evergreen
+garnet_throated_hummingbird,Forests:  Tropical Montane Evergreen
+magenta_throated_woodstar,Forests:  Tropical Montane Evergreen
+purple_throated_woodstar,Forests:  Tropical Montane Evergreen
+slender_sheartail,Forests:  Tropical Montane Evergreen
+mexican_sheartail,Forests:  Tropical Dry
+sparkling_tailed_hummingbird,Forests:  Mesoamerican Pine-Oak
+lucifer_hummingbird,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+beautiful_hummingbird,Forests:  Tropical Dry
+ruby_throated_hummingbird,Forests:  Temperate Eastern; Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+black_chinned_hummingbird,Forests:  Temperate Western; Aridlands:  Desert Riparian; Forests:  Tropical Dry
+annas_hummingbird,Aridlands:  Chaparral; Forests:  Temperate Western
+costas_hummingbird,Aridlands:  Desert Scrub
+calliope_hummingbird,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+broad_billed_hummingbird,Forests:  Tropical Dry; Aridlands:  Desert Riparian; Aridlands:  Tropical Arid Scrub
+tres_marias_hummingbird,Islands:  Terrestrial Habitats; Forests:  Tropical Dry; Aridlands:  Tropical Arid Scrub
+turquoise_crowned_hummingbird,Forests:  Tropical Dry; Aridlands:  Desert Riparian
+golden_crowned_emerald,Forests:  Tropical Dry
+green_fronted_hummingbird,Forests:  Tropical Dry
+azure_crowned_hummingbird,Forests:  Mesoamerican Pine-Oak
+blue_vented_hummingbird,Forests:  Tropical Lowland Evergreen
+berylline_hummingbird,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+blue_tailed_hummingbird,Forests:  Tropical Lowland Evergreen
+snowy_bellied_hummingbird,Forests:  Tropical Lowland Evergreen
+cinnamon_hummingbird,Forests:  Tropical Dry
+buff_bellied_hummingbird,Forests:  Tropical Dry
+escudo_hummingbird,Forests:  Tropical Lowland Evergreen
+rufous_tailed_hummingbird,Forests:  Tropical Lowland Evergreen
+honduran_emerald,Forests:  Tropical Dry
+mangrove_hummingbird,Coasts:  Mangroves
+sapphire_throated_hummingbird,Forests:  Tropical Lowland Evergreen
+humboldts_sapphire,Forests:  Tropical Lowland Evergreen
+blue_chested_hummingbird,Forests:  Tropical Lowland Evergreen
+charming_hummingbird,Forests:  Tropical Lowland Evergreen
+white_bellied_emerald,Forests:  Tropical Lowland Evergreen
+blue_throated_goldentail,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+violet_bellied_hummingbird,Forests:  Tropical Lowland Evergreen
+colombian_crake,Grasslands:  Tropical; Wetlands:  Seasonally Wet Grasslands
+paint_billed_crake,Grasslands:  Tropical; Wetlands:  Seasonally Wet Grasslands
+spotted_rail,Wetlands:  Freshwater Marsh
+uniform_crake,Forests:  Tropical Lowland Evergreen; Wetlands:  Forested
+rufous_necked_wood_rail,Coasts:  Mangroves; Forests:  Tropical Lowland Evergreen
+russet_naped_wood_rail,Wetlands:  Generalist
+gray_cowled_wood_rail,Wetlands:  Generalist
+ridgways_rail,Coasts:  Saltmarsh; Wetlands:  Freshwater Marsh
+aztec_rail,Wetlands:  Freshwater Marsh
+mangrove_rail,Coasts:  Saltmarsh; Coasts:  Mangroves
+king_rail,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+clapper_rail,Coasts:  Saltmarsh
+virginia_rail,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+sora,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh
+american_avocet,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+american_oystercatcher,Coasts:  Beach and Estuary
+black_oystercatcher,Coasts:  Rocky Intertidal
+southern_lapwing,Open Country:  Developed/Disturbed
+black_bellied_plover,Wetlands:  Tundra; Tundra:  Arctic; Coasts:  Beach and Estuary
+american_golden_plover,Tundra:  Arctic; Grasslands:  Pampas and Campos
+pacific_golden_plover,Wetlands:  Tundra; Coasts:  Beach and Estuary
+killdeer,Open Country:  Habitat Mosaic; Wetlands:  Generalist
+common_ringed_plover,Wetlands:  Tundra; Coasts:  Beach and Estuary
+semipalmated_plover,Coasts:  Beach and Estuary; Tundra:  Arctic
+piping_plover,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+wilsons_plover,Coasts:  Beach and Estuary
+collared_plover,Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary
+mountain_plover,Grasslands:  Temperate; Grasslands:  Chihuahuan
+snowy_plover,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+northern_jacana,Wetlands:  Freshwater Marsh
+wattled_jacana,Wetlands:  Freshwater Marsh
+upland_sandpiper,Grasslands:  Temperate; Grasslands:  Pampas and Campos
+bristle_thighed_curlew,Tundra:  Arctic; Coasts:  Beach and Estuary
+whimbrel,Tundra:  Arctic; Wetlands:  Boreal; Coasts:  Beach and Estuary; Coasts:  Saltmarsh
+eskimo_curlew,Tundra:  Arctic; Grasslands:  Pampas and Campos
+long_billed_curlew,Grasslands:  Temperate; Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers
+bar_tailed_godwit,Tundra:  Arctic; Coasts:  Beach and Estuary
+hudsonian_godwit,Wetlands:  Boreal; Coasts:  Beach and Estuary
+marbled_godwit,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Tundra; Coasts:  Beach and Estuary
+stilt_sandpiper,Wetlands:  Tundra; Tundra:  Arctic; Wetlands:  Lakes and Rivers; Wetlands:  Seasonally Wet Grasslands
+sanderling,Tundra:  Arctic; Wetlands:  Tundra; Coasts:  Beach and Estuary
+dunlin,Wetlands:  Tundra; Coasts:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Seasonally Wet Grasslands
+rock_sandpiper,Tundra:  Arctic; Wetlands:  Tundra; Coasts:  Rocky Intertidal
+buff_breasted_sandpiper,Tundra:  Arctic; Grasslands:  Pampas and Campos
+pectoral_sandpiper,Wetlands:  Tundra; Grasslands:  Pampas and Campos; Wetlands:  Seasonally Wet Grasslands
+semipalmated_sandpiper,Wetlands:  Tundra; Coasts:  Beach and Estuary
+western_sandpiper,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Seasonally Wet Grasslands
+short_billed_dowitcher,Wetlands:  Boreal; Coasts:  Beach and Estuary
+long_billed_dowitcher,Wetlands:  Tundra; Wetlands:  Generalist
+american_woodcock,Forests:  Temperate Eastern; Forests:  Boreal
+wilsons_snipe,Wetlands:  Generalist
+spotted_sandpiper,Wetlands:  Generalist; Wetlands:  Lakes and Rivers
+solitary_sandpiper,Wetlands:  Boreal; Wetlands:  Lakes and Rivers
+wandering_tattler,Tundra:  Alpine; Wetlands:  Tundra; Coasts:  Beach and Estuary
+lesser_yellowlegs,Wetlands:  Boreal; Wetlands:  Generalist
+willet,Wetlands:  Seasonally Wet Grasslands; Coasts:  Saltmarsh; Coasts:  Beach and Estuary
+greater_yellowlegs,Wetlands:  Boreal; Wetlands:  Generalist
+wilsons_phalarope,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers
+red_necked_phalarope,Wetlands:  Tundra; Oceans:  Pelagic; Coasts:  Marine Waters
+red_phalarope,Wetlands:  Tundra; Oceans:  Pelagic; Coasts:  Marine Waters
+great_skua,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+south_polar_skua,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+pomarine_jaeger,Wetlands:  Tundra; Oceans:  Pelagic
+parasitic_jaeger,Wetlands:  Tundra; Tundra:  Arctic; Oceans:  Pelagic; Coasts:  Marine Waters
+long_tailed_jaeger,Tundra:  Arctic; Tundra:  Alpine; Oceans:  Pelagic
+black_capped_swallow,Forest Aerial:  Mesoamerican Pine-Oak
+white_thighed_swallow,Forest Aerial:  Tropical Lowland Evergreen
+blue_and_white_swallow,Open Country Aerial:  Habitat Mosaic; Open Country Aerial:  Developed/Disturbed
+northern_rough_winged_swallow,Open Country Aerial:  Habitat Mosaic; Wetlands Aerial:  Lakes and Rivers
+southern_rough_winged_swallow,Open Country Aerial:  Habitat Mosaic
+brown_chested_martin,Open Country Aerial:  Habitat Mosaic; Wetlands Aerial:  Lakes and Rivers
+purple_martin,Open Country Aerial:  Habitat Mosaic; Wetlands Aerial:  Lakes and Rivers
+gray_breasted_martin,Open Country Aerial:  Habitat Mosaic; Open Country Aerial:  Developed/Disturbed
+sinaloa_martin,Forest Aerial:  Mesoamerican Pine-Oak; Unknown
+barn_swallow,Open Country Aerial:  Habitat Mosaic
+cliff_swallow,Open Country Aerial:  Habitat Mosaic
+cave_swallow,Aridlands Aerial:  Desert Scrub; Open Country Aerial:  Habitat Mosaic
+bushtit,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+arctic_warbler,Tundra:  Arctic; Forests:  Tropical Generalist
+wrentit,Aridlands:  Chaparral
+ruby_crowned_kinglet,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+golden_crowned_kinglet,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+bohemian_waxwing,Forests:  Boreal
+cedar_waxwing,Forests:  Temperate Generalist
+black_and_yellow_silky_flycatcher,Forests:  Tropical Montane Evergreen
+pygmy_nuthatch,Forests:  Temperate Western; Forests:  Mesoamerican Highland
+brown_headed_nuthatch,Forests:  Temperate Eastern
+brown_creeper,Forests:  Temperate Generalist
+long_billed_gnatwren,Forests:  Tropical Lowland Evergreen
+tawny_faced_gnatwren,Forests:  Tropical Lowland Evergreen
+slate_throated_gnatcatcher,Forests:  Tropical Lowland Evergreen
+yucatan_gnatcatcher,Forests:  Tropical Dry
+white_browed_gnatcatcher,Forests:  Tropical Generalist
+blue_gray_gnatcatcher,Forests:  Generalist
+rock_wren,Aridlands:  Desert Scrub
+nightingale_wren,Forests:  Tropical Lowland Evergreen
+scaly_breasted_wren,Forests:  Tropical Lowland Evergreen
+canyon_wren,Aridlands:  Desert Scrub
+sumichrasts_wren,Forests:  Tropical Lowland Evergreen
+white_breasted_wood_wren,Forests:  Tropical Lowland Evergreen
+gray_breasted_wood_wren,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+song_wren,Forests:  Tropical Lowland Evergreen
+white_bellied_wren,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+rufous_and_white_wren,Forests:  Tropical Dry
+cactus_wren,Aridlands:  Desert Scrub
+bewicks_wren,Aridlands:  Desert Scrub; Forests:  Temperate Western
+carolina_wren,Forests:  Temperate Eastern
+house_wren,Forests:  Generalist; Open Country:  Developed/Disturbed; Open Country:  Habitat Mosaic
+socorro_wren,Islands:  Terrestrial Habitats
+clarion_wren,Islands:  Terrestrial Habitats
+rufous_browed_wren,Forests:  Tropical Montane Evergreen
+ochraceous_wren,Forests:  Tropical Montane Evergreen
+pacific_wren,Forests:  Temperate Western
+winter_wren,Forests:  Boreal; Forests:  Temperate Eastern
+sedge_wren,Grasslands:  Temperate; Wetlands:  Seasonally Wet Grasslands
+grass_wren,Wetlands:  Seasonally Wet Grasslands; Grasslands:  Pampas and Campos
+marsh_wren,Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh
+timberline_wren,Tundra:  Paramo
+blue_mockingbird,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+blue_and_white_mockingbird,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Pine-Oak
+black_catbird,Forests:  Tropical Dry
+gray_catbird,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Generalist
+curve_billed_thrasher,Aridlands:  Desert Scrub
+ocellated_thrasher,Aridlands:  Desert Scrub; Forests:  Mesoamerican Pine-Oak
+brown_thrasher,Forests:  Temperate Eastern
+long_billed_thrasher,Forests:  Tropical Dry
+cozumel_thrasher,Forests:  Tropical Dry
+bendires_thrasher,Aridlands:  Desert Scrub
+mountain_thrush,Forests:  Tropical Montane Evergreen
+pale_vented_thrush,Forests:  Tropical Montane Evergreen
+clay_colored_thrush,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+white_throated_thrush,Forests:  Tropical Generalist
+rufous_backed_robin,Forests:  Tropical Dry
+rufous_collared_robin,Forests:  Mesoamerican Pine-Oak
+american_robin,Forests:  Temperate Generalist
+varied_thrush,Forests:  Temperate Western
+aztec_thrush,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+bluethroat,Tundra:  Arctic; Wetlands:  Generalist
+northern_wheatear,Tundra:  Arctic; Tundra:  Alpine; Open Country:  Habitat Mosaic
+olive_warbler,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+scaly_breasted_munia,Open Country:  Developed/Disturbed
+tricolored_munia,Open Country:  Developed/Disturbed
+house_sparrow,Open Country:  Developed/Disturbed
+eurasian_tree_sparrow,Open Country:  Developed/Disturbed
+eastern_yellow_wagtail,Tundra:  Arctic; Open Country:  Habitat Mosaic
+white_wagtail,Coasts:  Cliffs and Islands; Wetlands:  Lakes and Rivers; Open Country:  Habitat Mosaic
+red_throated_pipit,Tundra:  Arctic; Wetlands:  Seasonally Wet Grasslands
+american_pipit,Tundra:  Alpine; Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Beach and Estuary
+spragues_pipit,Grasslands:  Temperate; Grasslands:  Chihuahuan
+yellowish_pipit,Grasslands:  Tropical
+elegant_euphonia,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+blue_crowned_chlorophonia,Forests:  Tropical Montane Evergreen
+golden_browed_chlorophonia,Forests:  Tropical Montane Evergreen
+west_mexican_euphonia,Forests:  Tropical Dry; Open Country:  Habitat Mosaic
+scrub_euphonia,Forests:  Tropical Dry
+yellow_crowned_euphonia,Forests:  Tropical Lowland Evergreen
+white_vented_euphonia,Forests:  Tropical Lowland Evergreen
+yellow_throated_euphonia,Forests:  Tropical Lowland Evergreen
+brown_capped_rosy_finch,Tundra:  Alpine; Aridlands:  Sagebrush
+house_finch,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub
+purple_finch,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Eastern
+cassins_finch,Forests:  Temperate Western
+common_redpoll,Tundra:  Arctic; Forests:  Boreal; Open Country:  Habitat Mosaic
+hoary_redpoll,Tundra:  Arctic; Open Country:  Habitat Mosaic
+red_crossbill,Forests:  Temperate Generalist
+cassia_crossbill,Forests:  Temperate Western
+white_winged_crossbill,Forests:  Boreal; Forests:  Temperate Western
+pine_siskin,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+american_goldfinch,Open Country:  Habitat Mosaic
+rosy_thrush_tanager,Forests:  Tropical Dry
+lapland_longspur,Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Beach and Estuary
+chestnut_collared_longspur,Grasslands:  Temperate; Grasslands:  Chihuahuan
+smiths_longspur,Tundra:  Arctic; Grasslands:  Temperate
+thick_billed_longspur,Grasslands:  Temperate; Grasslands:  Chihuahuan
+snow_bunting,Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Beach and Estuary
+mc_kays_bunting,Tundra:  Arctic; Coasts:  Saltmarsh; Coasts:  Beach and Estuary
+yellow_throated_chlorospingus,Forests:  Tropical Montane Evergreen
+ashy_throated_chlorospingus,Forests:  Tropical Montane Evergreen
+sooty_capped_chlorospingus,Forests:  Tropical Montane Evergreen
+common_chlorospingus,Forests:  Tropical Montane Evergreen
+tacarcuna_chlorospingus,Forests:  Tropical Montane Evergreen
+pirre_chlorospingus,Forests:  Tropical Montane Evergreen
+rufous_winged_sparrow,Aridlands:  Desert Scrub
+cinnamon_tailed_sparrow,Forests:  Tropical Dry
+stripe_headed_sparrow,Forests:  Tropical Dry
+black_chested_sparrow,Forests:  Tropical Dry
+bridled_sparrow,Forests:  Tropical Dry
+botteris_sparrow,Grasslands:  Chihuahuan; Grasslands:  Tropical
+cassins_sparrow,Grasslands:  Temperate; Grasslands:  Chihuahuan
+bachmans_sparrow,Forests:  Temperate Eastern
+grasshopper_sparrow,Grasslands:  Temperate; Grasslands:  Chihuahuan
+olive_sparrow,Forests:  Tropical Dry
+green_backed_sparrow,Forests:  Tropical Lowland Evergreen
+black_striped_sparrow,Forests:  Tropical Lowland Evergreen
+five_striped_sparrow,Forests:  Tropical Dry; Aridlands:  Desert Scrub
+black_throated_sparrow,Aridlands:  Desert Scrub
+lark_sparrow,Open Country:  Habitat Mosaic
+lark_bunting,Grasslands:  Temperate; Grasslands:  Chihuahuan; Aridlands:  Desert Scrub
+chipping_sparrow,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic
+clay_colored_sparrow,Grasslands:  Temperate; Open Country:  Habitat Mosaic; Grasslands:  Chihuahuan
+black_chinned_sparrow,Aridlands:  Chaparral; Aridlands:  Desert Scrub
+field_sparrow,Open Country:  Habitat Mosaic; Forests:  Temperate Eastern
+brewers_sparrow,Aridlands:  Sagebrush; Aridlands:  Desert Scrub
+worthens_sparrow,Grasslands:  Chihuahuan
+costa_rican_brushfinch,Forests:  Tropical Lowland Evergreen
+orange_billed_sparrow,Forests:  Tropical Lowland Evergreen
+green_striped_brushfinch,Forests:  Mesoamerican Highland
+chestnut_capped_brushfinch,Forests:  Tropical Montane Evergreen
+sooty_faced_finch,Forests:  Tropical Montane Evergreen
+fox_sparrow,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Eastern; Aridlands:  Chaparral
+american_tree_sparrow,Tundra:  Arctic; Forests:  Boreal; Open Country:  Habitat Mosaic
+volcano_junco,Tundra:  Paramo
+guadalupe_junco,Islands:  Terrestrial Habitats
+dark_eyed_junco,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic
+yellow_eyed_junco,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+bairds_junco,Forests:  Mesoamerican Pine-Oak
+rufous_collared_sparrow,Open Country:  Developed/Disturbed; Forests:  Tropical Montane Evergreen
+white_crowned_sparrow,Tundra:  Arctic; Forests:  Boreal; Open Country:  Habitat Mosaic
+golden_crowned_sparrow,Tundra:  Alpine; Forests:  Temperate Western; Open Country:  Habitat Mosaic
+harriss_sparrow,Tundra:  Arctic; Forests:  Boreal; Forests:  Temperate Eastern; Grasslands:  Temperate
+white_throated_sparrow,Forests:  Boreal; Forests:  Temperate Eastern
+bells_sparrow,Aridlands:  Chaparral; Aridlands:  Desert Scrub
+sagebrush_sparrow,Aridlands:  Sagebrush; Aridlands:  Desert Scrub
+striped_sparrow,Grasslands:  Tropical
+vesper_sparrow,Grasslands:  Temperate; Grasslands:  Chihuahuan
+le_contes_sparrow,Wetlands:  Seasonally Wet Grasslands; Grasslands:  Temperate
+seaside_sparrow,Coasts:  Saltmarsh
+nelsons_sparrow,Wetlands:  Seasonally Wet Grasslands; Coasts:  Saltmarsh
+saltmarsh_sparrow,Coasts:  Saltmarsh
+bairds_sparrow,Grasslands:  Temperate; Grasslands:  Chihuahuan
+henslows_sparrow,Grasslands:  Temperate; Forests:  Temperate Eastern
+savannah_sparrow,Grasslands:  Temperate; Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Saltmarsh
+rufous_capped_brushfinch,Forests:  Mesoamerican Pine-Oak
+white_naped_brushfinch,Forests:  Tropical Montane Evergreen
+yellow_thighed_brushfinch,Forests:  Tropical Montane Evergreen
+yellow_green_brushfinch,Forests:  Tropical Montane Evergreen
+wrenthrush,Forests:  Tropical Montane Evergreen
+western_spindalis,Islands:  Terrestrial Habitats
+yellow_breasted_chat,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Generalist
+yellow_headed_blackbird,Wetlands:  Freshwater Marsh; Open Country:  Habitat Mosaic
+bobolink,Grasslands:  Temperate; Grasslands:  Pampas and Campos; Grasslands:  Tropical
+chihuahuan_meadowlark,Grasslands:  Temperate
+eastern_meadowlark,Grasslands:  Temperate; Grasslands:  Tropical
+western_meadowlark,Grasslands:  Temperate; Grasslands:  Chihuahuan
+red_breasted_meadowlark,Open Country:  Developed/Disturbed
+yellow_billed_cacique,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+yellow_winged_cacique,Forests:  Tropical Dry
+crested_oropendola,Forests:  Tropical Lowland Evergreen
+chestnut_headed_oropendola,Forests:  Tropical Lowland Evergreen
+montezuma_oropendola,Forests:  Tropical Lowland Evergreen
+black_oropendola,Forests:  Tropical Lowland Evergreen
+scarlet_rumped_cacique,Forests:  Tropical Montane Evergreen
+yellow_rumped_cacique,Forests:  Tropical Lowland Evergreen
+black_vented_oriole,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+bar_winged_oriole,Forests:  Tropical Dry
+black_cowled_oriole,Forests:  Tropical Lowland Evergreen
+orchard_oriole,Forests:  Temperate Eastern; Forests:  Tropical Generalist
+hooded_oriole,Forests:  Generalist
+yellow_backed_oriole,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+orange_crowned_oriole,Forests:  Tropical Dry
+yellow_tailed_oriole,Forests:  Tropical Lowland Evergreen
+streak_backed_oriole,Forests:  Tropical Dry
+bullocks_oriole,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+orange_oriole,Forests:  Tropical Dry
+spot_breasted_oriole,Forests:  Tropical Dry
+altamira_oriole,Forests:  Tropical Dry
+tricolored_blackbird,Wetlands:  Freshwater Marsh; Open Country:  Developed/Disturbed
+shiny_cowbird,Open Country:  Habitat Mosaic
+bronzed_cowbird,Open Country:  Habitat Mosaic; Forests:  Tropical Dry
+brown_headed_cowbird,Open Country:  Habitat Mosaic
+giant_cowbird,Open Country:  Habitat Mosaic
+melodious_blackbird,Open Country:  Habitat Mosaic
+rusty_blackbird,Wetlands:  Boreal; Wetlands:  Forested; Forests:  Temperate Eastern
+brewers_blackbird,Open Country:  Habitat Mosaic
+common_grackle,Open Country:  Habitat Mosaic
+boat_tailed_grackle,Coasts:  Saltmarsh; Wetlands:  Freshwater Marsh
+great_tailed_grackle,Open Country:  Developed/Disturbed
+nicaraguan_grackle,Wetlands:  Freshwater Marsh
+yellow_hooded_blackbird,Wetlands:  Freshwater Marsh
+ovenbird,Forests:  Temperate Eastern; Forests:  Boreal; Forests:  Tropical Generalist; Coasts:  Mangroves
+worm_eating_warbler,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+louisiana_waterthrush,Wetlands:  Lakes and Rivers; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen
+northern_waterthrush,Forests:  Boreal; Forests:  Temperate Eastern; Coasts:  Mangroves; Wetlands:  Forested
+golden_winged_warbler,Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen
+blue_winged_warbler,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+black_and_white_warbler,Forests:  Temperate Eastern; Forests:  Boreal; Forests:  Tropical Generalist; Coasts:  Mangroves
+prothonotary_warbler,Wetlands:  Forested; Forests:  Temperate Eastern; Coasts:  Mangroves; Forests:  Tropical Dry
+swainsons_warbler,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+crescent_chested_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+flame_throated_warbler,Forests:  Tropical Montane Evergreen
+tennessee_warbler,Forests:  Boreal; Forests:  Tropical Generalist
+orange_crowned_warbler,Forests:  Temperate Western; Forests:  Boreal; Forests:  Generalist
+colima_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+lucys_warbler,Aridlands:  Desert Riparian; Aridlands:  Desert Scrub; Forests:  Tropical Dry
+nashville_warbler,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Generalist
+virginias_warbler,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+connecticut_warbler,Forests:  Boreal; Forests:  Tropical Lowland Evergreen
+gray_crowned_yellowthroat,Open Country:  Habitat Mosaic
+mac_gillivrays_warbler,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+mourning_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+kentucky_warbler,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+olive_crowned_yellowthroat,Forests:  Tropical Montane Evergreen; Wetlands:  Freshwater Marsh
+black_polled_yellowthroat,Wetlands:  Freshwater Marsh
+beldings_yellowthroat,Wetlands:  Freshwater Marsh
+altamira_yellowthroat,Wetlands:  Freshwater Marsh
+common_yellowthroat,Open Country:  Habitat Mosaic; Wetlands:  Freshwater Marsh
+hooded_yellowthroat,Aridlands:  Tropical Arid Scrub
+hooded_warbler,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+american_redstart,Forests:  Temperate Generalist; Forests:  Tropical Generalist; Coasts:  Mangroves
+magnolia_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Open Country:  Habitat Mosaic
+bay_breasted_warbler,Forests:  Boreal; Forests:  Tropical Lowland Evergreen
+blackburnian_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen
+yellow_warbler,Forests:  Temperate Generalist; Wetlands:  Generalist; Open Country:  Habitat Mosaic
+chestnut_sided_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+blackpoll_warbler,Forests:  Boreal; Forests:  Tropical Lowland Evergreen
+black_throated_blue_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Islands:  Terrestrial Habitats; Coasts:  Mangroves
+palm_warbler,Wetlands:  Boreal; Open Country:  Habitat Mosaic
+pine_warbler,Forests:  Temperate Eastern
+yellow_rumped_warbler,Forests:  Boreal; Forests:  Temperate Western; Forests:  Generalist; Open Country:  Habitat Mosaic
+yellow_throated_warbler,Forests:  Temperate Eastern; Forests:  Tropical Generalist
+vitelline_warbler,Islands:  Terrestrial Habitats
+prairie_warbler,Forests:  Temperate Eastern; Islands:  Terrestrial Habitats; Coasts:  Mangroves
+graces_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+black_throated_gray_warbler,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+townsends_warbler,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+hermit_warbler,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+golden_cheeked_warbler,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+black_throated_green_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+buff_rumped_warbler,Forests:  Tropical Lowland Evergreen; Wetlands:  Forested
+fan_tailed_warbler,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+rufous_capped_warbler,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+chestnut_capped_warbler,Forests:  Tropical Dry
+black_cheeked_warbler,Forests:  Tropical Montane Evergreen
+pirre_warbler,Forests:  Tropical Montane Evergreen
+golden_browed_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+golden_crowned_warbler,Forests:  Tropical Lowland Evergreen
+costa_rican_warbler,Forests:  Tropical Montane Evergreen
+tacarcuna_warbler,Forests:  Tropical Montane Evergreen
+canada_warbler,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen
+wilsons_warbler,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Generalist
+red_faced_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+red_warbler,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+pink_headed_warbler,Forests:  Tropical Montane Evergreen
+painted_redstart,Forests:  Mesoamerican Pine-Oak
+slate_throated_redstart,Forests:  Mesoamerican Highland; Forests:  Tropical Montane Evergreen
+collared_redstart,Forests:  Tropical Montane Evergreen
+rose_throated_tanager,Forests:  Tropical Dry
+hepatic_tanager,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+summer_tanager,Forests:  Temperate Eastern; Forests:  Tropical Generalist
+scarlet_tanager,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+western_tanager,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+flame_colored_tanager,Forests:  Mesoamerican Pine-Oak
+white_winged_tanager,Forests:  Tropical Montane Evergreen
+red_headed_tanager,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+red_crowned_ant_tanager,Forests:  Tropical Lowland Evergreen
+red_throated_ant_tanager,Forests:  Tropical Lowland Evergreen
+black_cheeked_ant_tanager,Forests:  Tropical Lowland Evergreen
+carmiols_tanager,Forests:  Tropical Lowland Evergreen
+lemon_spectacled_tanager,Forests:  Tropical Lowland Evergreen
+black_faced_grosbeak,Forests:  Tropical Lowland Evergreen
+yellow_green_grosbeak,Forests:  Tropical Lowland Evergreen
+crimson_collared_grosbeak,Forests:  Tropical Dry
+northern_cardinal,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub
+pyrrhuloxia,Aridlands:  Desert Scrub
+yellow_grosbeak,Forests:  Tropical Dry
+black_thighed_grosbeak,Forests:  Tropical Montane Evergreen
+rose_breasted_grosbeak,Forests:  Temperate Eastern; Forests:  Tropical Generalist
+black_headed_grosbeak,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+red_breasted_chat,Forests:  Tropical Dry
+gray_throated_chat,Forests:  Tropical Dry
+blue_seedeater,Forests:  Tropical Montane Evergreen
+blue_black_grosbeak,Forests:  Tropical Lowland Evergreen
+blue_bunting,Forests:  Tropical Dry
+blue_grosbeak,Forests:  Temperate Eastern; Aridlands:  Desert Riparian; Open Country:  Habitat Mosaic
+lazuli_bunting,Forests:  Temperate Western; Open Country:  Habitat Mosaic
+indigo_bunting,Forests:  Temperate Eastern; Open Country:  Habitat Mosaic
+rose_bellied_bunting,Forests:  Tropical Dry
+orange_breasted_bunting,Forests:  Tropical Dry
+varied_bunting,Forests:  Tropical Dry; Aridlands:  Desert Scrub
+painted_bunting,Forests:  Temperate Eastern; Forests:  Tropical Dry; Open Country:  Habitat Mosaic
+dickcissel,Grasslands:  Temperate; Grasslands:  Tropical
+dusky_faced_tanager,Forests:  Tropical Lowland Evergreen
+blue_and_gold_tanager,Forests:  Tropical Montane Evergreen
+speckled_tanager,Forests:  Tropical Montane Evergreen
+gray_and_gold_tanager,Forests:  Tropical Lowland Evergreen
+azure_rumped_tanager,Forests:  Tropical Montane Evergreen
+blue_gray_tanager,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+yellow_winged_tanager,Forests:  Tropical Lowland Evergreen
+palm_tanager,Open Country:  Habitat Mosaic
+golden_hooded_tanager,Forests:  Tropical Lowland Evergreen
+green_naped_tanager,Forests:  Tropical Montane Evergreen
+spangle_cheeked_tanager,Forests:  Tropical Montane Evergreen
+plain_colored_tanager,Forests:  Tropical Lowland Evergreen
+rufous_winged_tanager,Forests:  Tropical Lowland Evergreen
+bay_headed_tanager,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+emerald_tanager,Forests:  Tropical Montane Evergreen
+silver_throated_tanager,Forests:  Tropical Montane Evergreen
+white_eared_conebill,Forests:  Tropical Lowland Evergreen
+saffron_finch,Aridlands:  Tropical Arid Scrub
+grassland_yellow_finch,Grasslands:  Tropical
+slaty_finch,Forests:  Tropical Montane Evergreen
+peg_billed_finch,Forests:  Tropical Montane Evergreen
+cinnamon_bellied_flowerpiercer,Forests:  Tropical Montane Evergreen
+slaty_flowerpiercer,Forests:  Tropical Montane Evergreen
+green_honeycreeper,Forests:  Tropical Lowland Evergreen
+black_and_yellow_tanager,Forests:  Tropical Montane Evergreen
+sulphur_rumped_tanager,Forests:  Tropical Lowland Evergreen
+scarlet_browed_tanager,Forests:  Tropical Lowland Evergreen
+yellow_backed_tanager,Forests:  Tropical Lowland Evergreen
+blue_black_grassquit,Open Country:  Developed/Disturbed
+gray_headed_tanager,Forests:  Tropical Lowland Evergreen
+white_shouldered_tanager,Forests:  Tropical Lowland Evergreen
+tawny_crested_tanager,Forests:  Tropical Lowland Evergreen
+white_lined_tanager,Forests:  Tropical Lowland Evergreen
+black_throated_shrike_tanager,Forests:  Tropical Lowland Evergreen
+white_throated_shrike_tanager,Forests:  Tropical Lowland Evergreen
+crimson_collared_tanager,Forests:  Tropical Lowland Evergreen
+flame_rumped_tanager,Forests:  Tropical Lowland Evergreen
+scarlet_rumped_tanager,Forests:  Tropical Lowland Evergreen
+crimson_backed_tanager,Forests:  Tropical Lowland Evergreen
+swallow_tanager,Forests:  Tropical Lowland Evergreen
+cinnamon_bellied_saltator,Forests:  Tropical Dry
+streaked_saltator,Forests:  Tropical Generalist
+tufted_puffin,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+black_legged_kittiwake,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+red_legged_kittiwake,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+ivory_gull,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Arctic Polynyas
+pacific_loon,Wetlands:  Tundra; Coasts:  Marine Waters
+common_loon,Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+yellow_billed_loon,Wetlands:  Tundra; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters
+laysan_albatross,Islands:  Oceanic; Oceans:  Pelagic
+short_tailed_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+sooty_shearwater,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+great_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+pink_footed_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+flesh_footed_shearwater,Islands:  Oceanic; Oceans:  Pelagic
+nazca_booby,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+blue_footed_booby,Coasts:  Cliffs and Islands; Coasts:  Marine Waters
+brown_booby,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+red_footed_booby,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic
+northern_gannet,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic
+anhinga,Wetlands:  Generalist
+brandts_cormorant,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+red_faced_cormorant,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+pelagic_cormorant,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal
+snowy_egret,Wetlands:  Generalist; Coasts:  Saltmarsh
+little_blue_heron,Wetlands:  Generalist; Coasts:  Saltmarsh
+tricolored_heron,Wetlands:  Generalist; Coasts:  Saltmarsh
+reddish_egret,Coasts:  Mangroves; Coasts:  Beach and Estuary
+glossy_ibis,Coasts:  Saltmarsh; Wetlands:  Freshwater Marsh; Wetlands:  Generalist
+white_faced_ibis,Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh
+green_ibis,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen
+roseate_spoonbill,Coasts:  Mangroves; Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh
+california_condor,Aridlands:  Chaparral; Forests:  Temperate Western
+king_vulture,Forests:  Tropical Lowland Evergreen
+black_vulture,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+turkey_vulture,Open Country:  Habitat Mosaic
+lesser_yellow_headed_vulture,Grasslands:  Tropical; Wetlands:  Freshwater Marsh
+osprey,Wetlands:  Lakes and Rivers; Coasts:  Saltmarsh; Wetlands:  Generalist
+pearl_kite,Open Country:  Habitat Mosaic
+white_tailed_kite,Open Country:  Habitat Mosaic
+hook_billed_kite,Forests:  Tropical Lowland Evergreen
+gray_headed_kite,Forests:  Tropical Lowland Evergreen
+black_and_white_hawk_eagle,Forests:  Tropical Lowland Evergreen
+ornate_hawk_eagle,Forests:  Tropical Lowland Evergreen
+double_toothed_kite,Forests:  Tropical Lowland Evergreen
+northern_harrier,Grasslands:  Temperate; Wetlands:  Freshwater Marsh; Open Country:  Habitat Mosaic; Coasts:  Saltmarsh
+tiny_hawk,Forests:  Tropical Lowland Evergreen
+sharp_shinned_hawk,Forests:  Temperate Generalist
+coopers_hawk,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic
+bicolored_hawk,Forests:  Tropical Lowland Evergreen
+northern_goshawk,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+bald_eagle,Wetlands:  Generalist; Coasts:  Beach and Estuary; Coasts:  Saltmarsh
+white_hawk,Forests:  Tropical Lowland Evergreen
+semiplumbeous_hawk,Forests:  Tropical Lowland Evergreen
+gray_hawk,Forests:  Tropical Dry; Aridlands:  Desert Riparian; Open Country:  Habitat Mosaic
+gray_lined_hawk,Open Country:  Habitat Mosaic
+red_shouldered_hawk,Forests:  Temperate Eastern; Forests:  Temperate Western
+bare_shanked_screech_owl,Forests:  Tropical Montane Evergreen
+tropical_screech_owl,Forests:  Tropical Lowland Evergreen
+bearded_screech_owl,Forests:  Tropical Montane Evergreen
+pacific_screech_owl,Forests:  Tropical Dry
+western_screech_owl,Forests:  Temperate Western; Aridlands:  Desert Riparian
+boreal_owl,Forests:  Boreal
+northern_saw_whet_owl,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+unspotted_saw_whet_owl,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+lattice_tailed_trogon,Forests:  Tropical Lowland Evergreen
+slaty_tailed_trogon,Forests:  Tropical Lowland Evergreen
+blue_capped_motmot,Forests:  Tropical Lowland Evergreen
+lessons_motmot,Forests:  Tropical Lowland Evergreen
+whooping_motmot,Forests:  Tropical Lowland Evergreen
+rufous_motmot,Forests:  Tropical Lowland Evergreen
+keel_billed_motmot,Forests:  Tropical Lowland Evergreen
+broad_billed_motmot,Forests:  Tropical Lowland Evergreen
+turquoise_browed_motmot,Forests:  Tropical Dry
+ringed_kingfisher,Wetlands:  Generalist
+belted_kingfisher,Wetlands:  Generalist; Coasts:  Saltmarsh
+stricklands_woodpecker,Forests:  Mesoamerican Pine-Oak
+red_rumped_woodpecker,Forests:  Tropical Lowland Evergreen
+rufous_winged_woodpecker,Forests:  Tropical Lowland Evergreen
+stripe_cheeked_woodpecker,Forests:  Tropical Lowland Evergreen
+golden_green_woodpecker,Forests:  Tropical Lowland Evergreen
+golden_olive_woodpecker,Forests:  Tropical Generalist
+gray_crowned_woodpecker,Forests:  Tropical Dry
+spot_breasted_woodpecker,Forests:  Tropical Lowland Evergreen
+northern_flicker,Forests:  Generalist; Forests:  Temperate Generalist
+gilded_flicker,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+cinnamon_woodpecker,Forests:  Tropical Lowland Evergreen
+chestnut_colored_woodpecker,Forests:  Tropical Lowland Evergreen
+lineated_woodpecker,Forests:  Tropical Lowland Evergreen
+pileated_woodpecker,Forests:  Temperate Generalist
+crimson_bellied_woodpecker,Forests:  Tropical Montane Evergreen
+crimson_crested_woodpecker,Forests:  Tropical Lowland Evergreen
+pale_billed_woodpecker,Forests:  Tropical Lowland Evergreen
+ivory_billed_woodpecker,Forests:  Temperate Eastern
+imperial_woodpecker,Forests:  Mesoamerican Pine-Oak
+laughing_falcon,Forests:  Tropical Lowland Evergreen
+barred_forest_falcon,Forests:  Tropical Lowland Evergreen
+slaty_backed_forest_falcon,Forests:  Tropical Lowland Evergreen
+collared_forest_falcon,Forests:  Tropical Lowland Evergreen
+red_throated_caracara,Forests:  Tropical Lowland Evergreen
+crested_caracara,Open Country:  Habitat Mosaic
+yellow_headed_caracara,Open Country:  Habitat Mosaic; Grasslands:  Tropical
+american_kestrel,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+merlin,Forests:  Boreal; Open Country:  Habitat Mosaic
+aplomado_falcon,Grasslands:  Tropical; Grasslands:  Chihuahuan
+bat_falcon,Forests:  Tropical Lowland Evergreen
+orange_breasted_falcon,Forests:  Tropical Lowland Evergreen
+bare_necked_umbrellabird,Forests:  Tropical Lowland Evergreen
+lovely_cotinga,Forests:  Tropical Lowland Evergreen
+turquoise_cotinga,Forests:  Tropical Lowland Evergreen
+blue_cotinga,Forests:  Tropical Lowland Evergreen
+rufous_piha,Forests:  Tropical Lowland Evergreen
+three_wattled_bellbird,Forests:  Tropical Montane Evergreen
+black_tipped_cotinga,Forests:  Tropical Lowland Evergreen
+yellow_billed_cotinga,Coasts:  Mangroves; Forests:  Tropical Lowland Evergreen
+snowy_cotinga,Forests:  Tropical Lowland Evergreen
+northern_schiffornis,Forests:  Tropical Lowland Evergreen
+russet_winged_schiffornis,Forests:  Tropical Lowland Evergreen
+speckled_mourner,Forests:  Tropical Lowland Evergreen
+masked_tityra,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+black_crowned_tityra,Forests:  Tropical Lowland Evergreen
+barred_becard,Forests:  Tropical Montane Evergreen
+cinereous_becard,Forests:  Tropical Lowland Evergreen
+cinnamon_becard,Forests:  Tropical Lowland Evergreen
+white_winged_becard,Forests:  Tropical Lowland Evergreen
+black_and_white_becard,Forests:  Tropical Montane Evergreen
+gray_collared_becard,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+rose_throated_becard,Forests:  Tropical Dry
+ochre_bellied_flycatcher,Forests:  Tropical Lowland Evergreen
+sepia_capped_flycatcher,Forests:  Tropical Lowland Evergreen
+slaty_capped_flycatcher,Forests:  Tropical Montane Evergreen
+yellow_green_tyrannulet,Forests:  Tropical Lowland Evergreen
+rufous_browed_tyrannulet,Forests:  Tropical Montane Evergreen
+bronze_olive_pygmy_tyrant,Forests:  Tropical Montane Evergreen
+black_capped_pygmy_tyrant,Forests:  Tropical Lowland Evergreen
+scale_crested_pygmy_tyrant,Forests:  Tropical Montane Evergreen
+pale_eyed_pygmy_tyrant,Forests:  Tropical Dry
+northern_bentbill,Forests:  Tropical Lowland Evergreen
+southern_bentbill,Forests:  Tropical Lowland Evergreen
+slate_headed_tody_flycatcher,Forests:  Tropical Lowland Evergreen
+common_tody_flycatcher,Open Country:  Habitat Mosaic
+black_headed_tody_flycatcher,Forests:  Tropical Lowland Evergreen
+brownish_twistwing,Forests:  Tropical Lowland Evergreen
+eye_ringed_flatbill,Forests:  Tropical Lowland Evergreen
+olivaceous_flatbill,Forests:  Tropical Lowland Evergreen
+yellow_olive_flycatcher,Forests:  Tropical Lowland Evergreen
+yellow_margined_flycatcher,Forests:  Tropical Lowland Evergreen
+yellow_bellied_tyrannulet,Forests:  Tropical Lowland Evergreen
+brown_capped_tyrannulet,Forests:  Tropical Lowland Evergreen
+northern_beardless_tyrannulet,Forests:  Tropical Dry; Aridlands:  Desert Riparian; Aridlands:  Desert Scrub
+southern_beardless_tyrannulet,Forests:  Tropical Lowland Evergreen
+cocos_flycatcher,Islands:  Terrestrial Habitats
+mouse_colored_tyrannulet,Aridlands:  Tropical Arid Scrub
+yellow_tyrannulet,Open Country:  Habitat Mosaic
+yellow_crowned_tyrannulet,Forests:  Tropical Lowland Evergreen
+forest_elaenia,Forests:  Tropical Lowland Evergreen
+gray_elaenia,Forests:  Tropical Lowland Evergreen
+greenish_elaenia,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+caribbean_elaenia,Open Country:  Habitat Mosaic
+yellow_bellied_elaenia,Open Country:  Habitat Mosaic
+lesser_elaenia,Open Country:  Habitat Mosaic
+mountain_elaenia,Forests:  Tropical Montane Evergreen
+torrent_tyrannulet,Wetlands:  Lakes and Rivers; Forests:  Tropical Montane Evergreen
+rough_legged_tyrannulet,Forests:  Tropical Lowland Evergreen
+guatemalan_tyrannulet,Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+mistletoe_tyrannulet,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+bright_rumped_attila,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+choco_sirystes,Forests:  Tropical Lowland Evergreen
+rufous_mourner,Forests:  Tropical Lowland Evergreen
+yucatan_flycatcher,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+dusky_capped_flycatcher,Forests:  Tropical Generalist
+panama_flycatcher,Forests:  Tropical Dry; Coasts:  Mangroves
+ash_throated_flycatcher,Aridlands:  Desert Scrub; Forests:  Temperate Western; Forests:  Tropical Dry
+nuttings_flycatcher,Forests:  Tropical Dry
+great_crested_flycatcher,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+brown_crested_flycatcher,Forests:  Tropical Dry; Aridlands:  Desert Riparian
+flammulated_flycatcher,Forests:  Tropical Dry
+lesser_kiskadee,Wetlands:  Lakes and Rivers; Forests:  Tropical Lowland Evergreen
+great_kiskadee,Open Country:  Habitat Mosaic; Forests:  Tropical Dry
+cattle_tyrant,Open Country:  Developed/Disturbed; Grasslands:  Tropical
+boat_billed_flycatcher,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry
+rusty_margined_flycatcher,Forests:  Tropical Lowland Evergreen
+dark_pewee,Forests:  Tropical Montane Evergreen
+ochraceous_pewee,Forests:  Tropical Montane Evergreen
+western_wood_pewee,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+eastern_wood_pewee,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen
+tropical_pewee,Open Country:  Habitat Mosaic
+black_headed_antthrush,Forests:  Tropical Montane Evergreen
+rufous_breasted_antthrush,Forests:  Tropical Montane Evergreen
+tawny_throated_leaftosser,Forests:  Tropical Lowland Evergreen
+gray_throated_leaftosser,Forests:  Tropical Montane Evergreen
+scaly_throated_leaftosser,Forests:  Tropical Lowland Evergreen
+northern_barred_woodcreeper,Forests:  Tropical Lowland Evergreen
+black_banded_woodcreeper,Forests:  Mesoamerican Highland; Forests:  Tropical Montane Evergreen
+strong_billed_woodcreeper,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+cocoa_woodcreeper,Forests:  Tropical Lowland Evergreen
+ivory_billed_woodcreeper,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+black_striped_woodcreeper,Forests:  Tropical Lowland Evergreen
+spotted_woodcreeper,Forests:  Tropical Montane Evergreen
+straight_billed_woodcreeper,Forests:  Tropical Lowland Evergreen
+red_billed_scythebill,Forests:  Tropical Lowland Evergreen
+brown_billed_scythebill,Forests:  Tropical Montane Evergreen
+white_striped_woodcreeper,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+streak_headed_woodcreeper,Forests:  Tropical Lowland Evergreen
+spot_crowned_woodcreeper,Forests:  Tropical Montane Evergreen
+plain_xenops,Forests:  Tropical Lowland Evergreen
+streaked_xenops,Forests:  Tropical Montane Evergreen
+cassins_vireo,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+blue_headed_vireo,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Generalist
+plumbeous_vireo,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry
+philadelphia_vireo,Forests:  Boreal; Forests:  Tropical Generalist
+warbling_vireo,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Generalist
+brown_capped_vireo,Forests:  Tropical Montane Evergreen
+red_eyed_vireo,Forests:  Temperate Generalist; Forests:  Tropical Lowland Evergreen
+yellow_green_vireo,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen
+black_whiskered_vireo,Coasts:  Mangroves; Forests:  Tropical Lowland Evergreen
+yucatan_vireo,Coasts:  Mangroves; Forests:  Tropical Dry
+tufted_titmouse,Forests:  Temperate Eastern
+black_crested_titmouse,Forests:  Tropical Dry
+eurasian_skylark,Open Country:  Developed/Disturbed
+horned_lark,Grasslands:  Temperate; Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Beach and Estuary
+black_capped_donacobius,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers
+bank_swallow,Wetlands Aerial:  Lakes and Rivers; Open Country Aerial:  Habitat Mosaic
+tree_swallow,Wetlands Aerial:  Generalist; Coasts:  Saltmarsh
+violet_green_swallow,Forest Aerial:  Temperate Western; Forests Aerial:  Mesoamerican Pine-Oak; Open Country Aerial:  Habitat Mosaic; Open Country Aerial:  Developed/Disturbed
+mangrove_swallow,Coasts Aerial:  Mangroves; Wetlands Aerial:  Lakes and Rivers
+gray_silky_flycatcher,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+long_tailed_silky_flycatcher,Forests:  Tropical Montane Evergreen
+phainopepla,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+red_breasted_nuthatch,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+white_breasted_nuthatch,Forests:  Temperate Eastern; Forests:  Temperate Western
+black_tailed_gnatcatcher,Aridlands:  Desert Scrub
+california_gnatcatcher,Aridlands:  Chaparral
+black_capped_gnatcatcher,Aridlands:  Desert Scrub; Forests:  Tropical Dry
+white_lored_gnatcatcher,Forests:  Tropical Dry
+navas_wren,Forests:  Tropical Lowland Evergreen
+sooty_headed_wren,Forests:  Tropical Montane Evergreen
+black_throated_wren,Forests:  Tropical Lowland Evergreen
+rufous_breasted_wren,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+spot_breasted_wren,Forests:  Tropical Lowland Evergreen
+happy_wren,Forests:  Tropical Dry
+black_bellied_wren,Forests:  Tropical Lowland Evergreen
+stripe_throated_wren,Forests:  Tropical Lowland Evergreen
+stripe_breasted_wren,Forests:  Tropical Lowland Evergreen
+cabaniss_wren,Open Country:  Habitat Mosaic
+canebrake_wren,Open Country:  Habitat Mosaic
+isthmian_wren,Open Country:  Habitat Mosaic
+bay_wren,Forests:  Tropical Lowland Evergreen
+riverside_wren,Forests:  Tropical Lowland Evergreen
+buff_breasted_wren,Forests:  Tropical Lowland Evergreen
+sinaloa_wren,Forests:  Tropical Dry
+banded_wren,Forests:  Tropical Dry
+white_headed_wren,Forests:  Tropical Lowland Evergreen
+band_backed_wren,Forests:  Tropical Lowland Evergreen; Forests:  Mesoamerican Pine-Oak
+gray_barred_wren,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+giant_wren,Forests:  Tropical Dry
+rufous_naped_wren,Forests:  Tropical Dry
+spotted_wren,Forests:  Mesoamerican Pine-Oak
+boucards_wren,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+yucatan_wren,Forests:  Tropical Dry
+gray_thrasher,Aridlands:  Desert Scrub
+california_thrasher,Aridlands:  Chaparral
+le_contes_thrasher,Aridlands:  Desert Scrub
+crissal_thrasher,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+sage_thrasher,Aridlands:  Sagebrush; Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+socorro_mockingbird,Islands:  Terrestrial Habitats
+tropical_mockingbird,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed
+northern_mockingbird,Open Country:  Habitat Mosaic
+european_starling,Open Country:  Developed/Disturbed
+common_myna,Open Country:  Developed/Disturbed
+american_dipper,Wetlands:  Lakes and Rivers
+eastern_bluebird,Forests:  Temperate Eastern; Forests:  Mesoamerican Pine-Oak
+western_bluebird,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Aridlands:  Desert Scrub
+mountain_bluebird,Open Country:  Habitat Mosaic; Tundra:  Alpine; Forests:  Temperate Western; Open Country:  Developed/Disturbed
+townsends_solitaire,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak
+brown_backed_solitaire,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak
+black_faced_solitaire,Forests:  Tropical Montane Evergreen
+varied_solitaire,Forests:  Tropical Montane Evergreen
+slate_colored_solitaire,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+black_billed_nightingale_thrush,Forests:  Tropical Montane Evergreen
+orange_billed_nightingale_thrush,Forests:  Tropical Generalist
+slaty_backed_nightingale_thrush,Forests:  Tropical Montane Evergreen
+russet_nightingale_thrush,Forests:  Mesoamerican Pine-Oak
+ruddy_capped_nightingale_thrush,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+black_headed_nightingale_thrush,Forests:  Tropical Montane Evergreen
+yellow_throated_nightingale_thrush,Forests:  Tropical Montane Evergreen
+veery,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Lowland Evergreen
+gray_cheeked_thrush,Forests:  Boreal; Forests:  Tropical Lowland Evergreen
+bicknells_thrush,Forests:  Boreal; Forests:  Tropical Montane Evergreen
+swainsons_thrush,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen
+hermit_thrush,Forests:  Temperate Generalist
+wood_thrush,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+sooty_thrush,Forests:  Tropical Montane Evergreen
+black_thrush,Forests:  Tropical Montane Evergreen
+thick_billed_euphonia,Forests:  Tropical Lowland Evergreen
+spot_crowned_euphonia,Forests:  Tropical Lowland Evergreen
+olive_backed_euphonia,Forests:  Tropical Lowland Evergreen
+fulvous_vented_euphonia,Forests:  Tropical Lowland Evergreen
+tawny_capped_euphonia,Forests:  Tropical Lowland Evergreen
+orange_bellied_euphonia,Forests:  Tropical Montane Evergreen
+hooded_grosbeak,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland
+evening_grosbeak,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist
+pine_grosbeak,Forests:  Boreal
+gray_crowned_rosy_finch,Tundra:  Alpine; Open Country:  Habitat Mosaic
+black_rosy_finch,Tundra:  Alpine; Aridlands:  Sagebrush
+black_capped_siskin,Forests:  Mesoamerican Pine-Oak
+black_headed_siskin,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen
+yellow_bellied_siskin,Forests:  Tropical Montane Evergreen
+lesser_goldfinch,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Open Country:  Habitat Mosaic
+lawrences_goldfinch,Aridlands:  Chaparral; Aridlands:  Desert Riparian; Aridlands:  Desert Scrub
+sierra_madre_sparrow,Grasslands:  Tropical
+song_sparrow,Open Country:  Habitat Mosaic
+lincolns_sparrow,Wetlands:  Boreal; Forests:  Temperate Western; Forests:  Generalist
+swamp_sparrow,Wetlands:  Boreal; Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh
+large_footed_finch,Forests:  Tropical Montane Evergreen
+rusty_crowned_ground_sparrow,Forests:  Tropical Dry
+canyon_towhee,Aridlands:  Desert Scrub
+white_throated_towhee,Aridlands:  Desert Scrub
+aberts_towhee,Aridlands:  Desert Riparian; Aridlands:  Desert Scrub
+california_towhee,Aridlands:  Chaparral
+white_eared_ground_sparrow,Forests:  Tropical Montane Evergreen
+white_faced_ground_sparrow,Open Country:  Habitat Mosaic
+cabaniss_ground_sparrow,Open Country:  Habitat Mosaic
+rusty_sparrow,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+rufous_crowned_sparrow,Aridlands:  Desert Scrub
+oaxaca_sparrow,Forests:  Tropical Dry
+green_tailed_towhee,Aridlands:  Sagebrush; Aridlands:  Desert Scrub; Aridlands:  Desert Riparian
+spotted_towhee,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Temperate Generalist
+eastern_towhee,Forests:  Temperate Eastern
+collared_towhee,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland
+audubons_oriole,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak
+baltimore_oriole,Forests:  Temperate Eastern; Forests:  Tropical Generalist
+black_backed_oriole,Forests:  Mesoamerican Highland
+scotts_oriole,Forests:  Mesoamerican Pine-Oak; Aridlands:  Desert Scrub; Forests:  Tropical Dry
+red_winged_blackbird,Open Country:  Habitat Mosaic; Wetlands:  Freshwater Marsh
+kirtlands_warbler,Forests:  Temperate Eastern; Forests:  Tropical Dry
+cape_may_warbler,Forests:  Boreal; Islands:  Terrestrial Habitats
+cerulean_warbler,Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen
+northern_parula,Forests:  Temperate Eastern; Forests:  Boreal; Forests:  Tropical Generalist
+tropical_parula,Forests:  Tropical Generalist
+shining_honeycreeper,Forests:  Tropical Lowland Evergreen
+purple_honeycreeper,Forests:  Tropical Lowland Evergreen
+red_legged_honeycreeper,Forests:  Tropical Lowland Evergreen
+scarlet_thighed_dacnis,Forests:  Tropical Montane Evergreen
+blue_dacnis,Forests:  Tropical Lowland Evergreen
+viridian_dacnis,Forests:  Tropical Lowland Evergreen
+bananaquit,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen
+yellow_faced_grassquit,Open Country:  Habitat Mosaic
+cocos_finch,Islands:  Terrestrial Habitats
+thick_billed_seed_finch,Forests:  Tropical Lowland Evergreen
+large_billed_seed_finch,Forests:  Tropical Lowland Evergreen
+nicaraguan_seed_finch,Forests:  Tropical Lowland Evergreen
+variable_seedeater,Open Country:  Habitat Mosaic
+slate_colored_seedeater,Forests:  Tropical Lowland Evergreen
+cinnamon_rumped_seedeater,Open Country:  Developed/Disturbed
+morelets_seedeater,Open Country:  Developed/Disturbed
+yellow_bellied_seedeater,Open Country:  Developed/Disturbed
+ruddy_breasted_seedeater,Open Country:  Habitat Mosaic; Grasslands:  Tropical
+wedge_tailed_grass_finch,Grasslands:  Tropical
+black_headed_saltator,Forests:  Tropical Lowland Evergreen
+buff_throated_saltator,Forests:  Tropical Lowland Evergreen
+slate_colored_grosbeak,Forests:  Tropical Lowland Evergreen
