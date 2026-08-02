@@ -340,3 +340,13 @@ beta_categorical %>%
     by = "species"
   ) %>% 
   write_csv("data/processed/for_analysis/beta_categorical.csv")
+
+# Other categorical table for analysis:
+
+beta_categorical %>% 
+  semi_join(
+    species_classified %>% 
+      filter(include),
+    by = "species"
+  ) %>% 
+  write_csv("data/processed/for_analysis/other_categorical.csv")
