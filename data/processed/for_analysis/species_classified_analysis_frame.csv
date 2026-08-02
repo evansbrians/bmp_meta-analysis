@@ -13,9 +13,11 @@ american_robin,1,Open Woodlands,NA,forest; woodland; shrub; grasslands; artifici
 american_tree_sparrow,0,Open Woodlands,NA,woodland; shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,Tundra:  Arctic; Forests:  Boreal; Open Country:  Habitat Mosaic,NA,NA,facultative grassland,NA,facultative,TRUE
 american_wigeon,0,Lakes and Ponds,NA,woodland; grasslands; coastal; wetlands_lakes_marsh,NA,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Generalist,NA,NA,NA,facultative grassland,facultative,TRUE
 american_woodcock,0,Forests,NA,forest; woodland; shrub; artificial,NA,Forests:  Temperate Eastern; Forests:  Boreal,NA,NA,facultative grassland,NA,facultative,TRUE
+annas_hummingbird,0,Open Woodlands,NA,woodland; shrub; savannah; riparian; coastal,NA,Aridlands:  Chaparral; Forests:  Temperate Western,NA,NA,NA,NA,facultative,TRUE
 antillean_nighthawk,0,NA,NA,forest; shrub; savannah; artificial; coastal,NA,Open Country Aerial:  Habitat Mosaic; Unknown,NA,NA,NA,NA,facultative,TRUE
 aplomado_falcon,0,NA,NA,shrub; savannah; grasslands; artificial,NA,Grasslands:  Tropical; Grasslands:  Chihuahuan,NA,NA,NA,grassland obligate,obligate,TRUE
 arctic_tern,0,Shorelines,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Wetlands:  Tundra; Forests:  Boreal; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,NA,NA,facultative,TRUE
+ash_throated_flycatcher,1,Open Woodlands,NA,forest; woodland; shrub; riparian,NA,Aridlands:  Desert Scrub; Forests:  Temperate Western; Forests:  Tropical Dry,NA,NA,NA,facultative grassland,facultative,TRUE
 bachmans_sparrow,1,Open Woodlands,NA,woodland; shrub,NA,Forests:  Temperate Eastern,NA,NA,NA,grassland obligate,obligate,TRUE
 bairds_sandpiper,0,NA,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Tundra:  Arctic; Grasslands:  Pampas and Campos; Wetlands:  Lakes and Rivers,NA,NA,NA,grassland obligate,obligate,TRUE
 bairds_sparrow,1,Grasslands,NA,shrub; grasslands; artificial,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan,NA,NA,NA,grassland obligate,obligate,TRUE
@@ -25,6 +27,7 @@ bank_swallow,1,Lakes and Ponds,NA,NA,NA,Wetlands Aerial:  Lakes and Rivers; Open
 bar_tailed_godwit,0,Tundra,NA,woodland; grasslands; riparian; coastal; wetlands_lakes_marsh,NA,Tundra:  Arctic; Coasts:  Beach and Estuary,NA,NA,NA,NA,facultative,TRUE
 barn_owl,0,Grasslands,NA,NA,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,NA,facultative grassland,facultative grassland,facultative,TRUE
 barn_swallow,1,Grasslands,NA,grasslands; plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,Open Country Aerial:  Habitat Mosaic,NA,NA,facultative grassland,NA,facultative,TRUE
+bendires_thrasher,0,Deserts,NA,grasslands; desert,NA,Aridlands:  Desert Scrub,NA,NA,NA,facultative grassland,facultative,TRUE
 black_bellied_plover,0,NA,NA,NA,NA,Wetlands:  Tundra; Tundra:  Arctic; Coasts:  Beach and Estuary,NA,NA,NA,facultative grassland,facultative,TRUE
 black_billed_cuckoo,0,Forests,NA,forest; woodland; shrub; artificial; riparian,NA,Forests:  Temperate Eastern; Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen,shrubland,NA,facultative grassland,NA,facultative,TRUE
 black_billed_magpie,1,Open Woodlands,NA,forest; shrub; grasslands; plains; artificial; riparian,NA,Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
@@ -94,6 +97,7 @@ common_yellowthroat,1,Scrub,NA,shrub; wetlands_lakes_marsh,NA,Open Country:  Hab
 coopers_hawk,0,Forests,NA,forest; artificial; riparian,NA,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic,NA,NA,facultative grassland,NA,facultative,TRUE
 corn_bunting,1,NA,NA,shrub; grasslands; rocky_areas; artificial,NA,NA,NA,grassland,NA,NA,obligate,TRUE
 corncrake,1,NA,NA,forest; savannah; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
+costas_hummingbird,0,Deserts,NA,shrub; savannah; grasslands; plains; desert; artificial; coastal,NA,Aridlands:  Desert Scrub,NA,NA,NA,NA,facultative,TRUE
 couchs_kingbird,0,Open Woodlands,NA,woodland; shrub; artificial,NA,Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
 crested_bobwhite,0,NA,NA,woodland; shrub; savannah; artificial,NA,Open Country:  Habitat Mosaic,NA,NA,NA,facultative grassland,facultative,TRUE
 crested_caracara,0,Scrub,NA,shrub; savannah; grasslands; artificial,NA,Open Country:  Habitat Mosaic,NA,NA,NA,facultative grassland,facultative,TRUE
@@ -111,6 +115,7 @@ eastern_towhee,1,Scrub,NA,forest; woodland; shrub; artificial; riparian,NA,Fores
 eastern_yellow_wagtail,0,Tundra,NA,forest; grasslands; artificial; wetlands_lakes_marsh,NA,Tundra:  Arctic; Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
 edge_species,1,NA,facultative,NA,NA,NA,NA,NA,NA,NA,facultative,TRUE
 elegant_quail,0,NA,NA,forest; shrub,NA,Forests:  Tropical Dry; Aridlands:  Desert Scrub,NA,NA,NA,facultative grassland,facultative,TRUE
+elf_owl,0,Deserts,NA,woodland; plains; desert; riparian,NA,Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,NA,NA,facultative,TRUE
 emperor_goose,0,NA,NA,coastal; wetlands_lakes_marsh,NA,Coasts:  Saltmarsh; Coasts:  Marine Waters; Coasts:  Rocky Intertidal,NA,NA,NA,facultative grassland,facultative,TRUE
 eskimo_curlew,0,NA,NA,shrub; grasslands; coastal,NA,Tundra:  Arctic; Grasslands:  Pampas and Campos,NA,NA,NA,grassland obligate,obligate,TRUE
 eurasian_collared_dove,1,Towns,NA,shrub; savannah; plains; desert; artificial,NA,Open Country:  Developed/Disturbed,NA,NA,NA,NA,facultative,TRUE
@@ -125,6 +130,7 @@ fox_sparrow,0,Forests,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Fo
 franklins_gull,0,Lakes and Ponds,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,NA,NA,facultative grassland,facultative,TRUE
 gadwall,0,Marshes,NA,grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Generalist,NA,NA,NA,facultative grassland,facultative,TRUE
 giant_cowbird,0,NA,NA,shrub; artificial,NA,Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
+gila_woodpecker,0,Deserts,NA,forest; plains; desert; artificial; riparian,NA,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,NA,NA,facultative,TRUE
 golden_crowned_sparrow,0,Scrub,NA,forest; woodland; shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,Tundra:  Alpine; Forests:  Temperate Western; Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
 golden_eagle,1,Grasslands,NA,woodland; shrub; grasslands; plains; desert; wetlands_lakes_marsh,NA,Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
 golden_fronted_woodpecker,0,Open Woodlands,NA,forest; woodland; shrub; plains; artificial; riparian,NA,Forests:  Tropical Dry,NA,NA,NA,NA,facultative,TRUE
@@ -174,11 +180,13 @@ le_contes_sparrow,1,NA,NA,shrub; grasslands; wetlands_lakes_marsh,NA,Wetlands:  
 least_sandpiper,0,Marshes,NA,grasslands; coastal; wetlands_lakes_marsh,NA,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Generalist,NA,NA,NA,facultative grassland,facultative,TRUE
 lesser_elaenia,0,NA,NA,forest; woodland; shrub; artificial,NA,Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
 lesser_goldfinch,0,Open Woodlands,NA,forest; woodland; artificial,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
+lesser_nighthawk,0,Deserts,NA,shrub; savannah; plains; desert; artificial; coastal,NA,Aridlands Aerial:  Desert Scrub; Open Country Aerial:  Habitat Mosaic,NA,NA,NA,facultative grassland,facultative,TRUE
 lesser_prairie_chicken,1,Grasslands,NA,shrub; grasslands; artificial,NA,Grasslands:  Temperate,NA,NA,NA,grassland obligate,obligate,TRUE
 lesser_yellow_headed_vulture,0,NA,NA,shrub; savannah; grasslands; coastal; wetlands_lakes_marsh,NA,Grasslands:  Tropical; Wetlands:  Freshwater Marsh,NA,NA,NA,facultative grassland,facultative,TRUE
 lesser_yellowlegs,0,Marshes,NA,shrub; grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Wetlands:  Boreal; Wetlands:  Generalist,NA,NA,NA,facultative grassland,facultative,TRUE
 lincolns_sparrow,0,Scrub,NA,woodland; shrub; grasslands; artificial; wetlands_lakes_marsh,NA,Wetlands:  Boreal; Forests:  Temperate Western; Forests:  Generalist,NA,NA,NA,NA,facultative,TRUE
 little_blue_heron,0,Marshes,NA,grasslands; coastal; wetlands_lakes_marsh,NA,Wetlands:  Generalist; Coasts:  Saltmarsh,NA,NA,NA,NA,facultative,TRUE
+loggerhead_shrike,1,Open Woodlands,NA,woodland; shrub; savannah; grasslands; artificial,NA,Grasslands:  Temperate; Aridlands:  Desert Scrub,NA,NA,facultative grassland,facultative grassland,facultative,TRUE
 long_billed_curlew,1,Grasslands,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Grasslands:  Temperate; Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers,NA,NA,NA,grassland obligate,obligate,TRUE
 long_billed_dowitcher,0,NA,NA,grasslands; wetlands_lakes_marsh,NA,Wetlands:  Tundra; Wetlands:  Generalist,NA,NA,NA,facultative grassland,facultative,TRUE
 long_eared_owl,0,Forests,NA,forest; woodland; shrub; grasslands; artificial; wetlands_lakes_marsh,NA,Forests:  Temperate Generalist,NA,NA,NA,grassland obligate,obligate,TRUE
@@ -201,6 +209,7 @@ mourning_dove,1,Open Woodlands,NA,woodland; savannah; plains; artificial; ripari
 nelsons_sparrow,0,Marshes,NA,grasslands; coastal; wetlands_lakes_marsh,NA,Wetlands:  Seasonally Wet Grasslands; Coasts:  Saltmarsh,NA,NA,NA,NA,facultative,TRUE
 northern_beardless_tyrannulet,0,Rivers and Streams,NA,forest; shrub; savannah; riparian,NA,Forests:  Tropical Dry; Aridlands:  Desert Riparian; Aridlands:  Desert Scrub,NA,NA,NA,NA,facultative,TRUE
 northern_bobwhite,1,Grasslands,NA,woodland; shrub; artificial,NA,Open Country:  Habitat Mosaic; Forests:  Tropical Dry,shrubland,NA,facultative grassland,facultative grassland,facultative,TRUE
+northern_cardinal,1,Open Woodlands,NA,forest; shrub,NA,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub,shrubland,NA,facultative grassland,NA,facultative,TRUE
 northern_flicker,1,Open Woodlands,NA,NA,NA,Forests:  Generalist; Forests:  Temperate Generalist,NA,NA,facultative grassland,NA,facultative,TRUE
 northern_harrier,1,Grasslands,NA,shrub; grasslands; desert; artificial; wetlands_lakes_marsh,NA,Grasslands:  Temperate; Wetlands:  Freshwater Marsh; Open Country:  Habitat Mosaic; Coasts:  Saltmarsh,NA,NA,NA,grassland obligate,obligate,TRUE
 northern_hawk_owl,0,Forests,NA,woodland; grasslands; artificial,NA,Forests:  Boreal,NA,NA,NA,NA,facultative,TRUE
@@ -305,6 +314,7 @@ vesper_sparrow,1,Grasslands,NA,forest; shrub; savannah; grasslands; artificial,N
 violet_green_swallow,0,Open Woodlands,NA,forest; woodland; coastal,NA,Forest Aerial:  Temperate Western; Forests Aerial:  Mesoamerican Pine-Oak; Open Country Aerial:  Habitat Mosaic; Open Country Aerial:  Developed/Disturbed,NA,NA,NA,NA,facultative,TRUE
 virginia_rail,0,Marshes,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh,NA,NA,NA,NA,facultative,TRUE
 west_mexican_euphonia,0,NA,NA,woodland,NA,Forests:  Tropical Dry; Open Country:  Habitat Mosaic,NA,NA,NA,NA,facultative,TRUE
+western_bluebird,1,Open Woodlands,NA,woodland; shrub; grasslands,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Aridlands:  Desert Scrub,NA,NA,NA,facultative grassland,facultative,TRUE
 western_kingbird,1,Grasslands,NA,shrub,NA,Grasslands:  Temperate; Aridlands:  Desert Scrub; Open Country:  Habitat Mosaic,NA,NA,NA,facultative grassland,facultative,TRUE
 western_meadowlark,1,Grasslands,NA,savannah; grasslands; desert; artificial,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan,NA,NA,NA,grassland obligate,obligate,TRUE
 western_sandpiper,0,Shorelines,NA,shrub; coastal; wetlands_lakes_marsh,NA,Wetlands:  Tundra; Coasts:  Beach and Estuary; Wetlands:  Seasonally Wet Grasslands,NA,NA,NA,facultative grassland,facultative,TRUE

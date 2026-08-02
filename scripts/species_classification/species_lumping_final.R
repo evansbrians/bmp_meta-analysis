@@ -266,11 +266,6 @@ species_classified <-
             is.na(.x)
         ) ~ "shrub",
         
-        # All About Birds & Partners in Flight combination for shrub class:
-        
-        str_detect(partners_in_flight, "[sS](hrub|crub)|[Cc]hap") &
-          str_detect(all_about_birds, "Desert|Woodland") ~ "shrub",
-        
         # Obligate if any of the sources classify the species as such:
         
         if_any(
@@ -300,6 +295,12 @@ species_classified <-
         # Facultative if Partners in Flight class includes mosaic:
         
         str_detect(partners_in_flight, "[Mm]osaic") ~ "facultative",
+        
+        # All About Birds & Partners in Flight combination for shrub class:
+        
+        str_detect(partners_in_flight, "[sS](hrub|crub)|[Cc]hap") &
+          str_detect(all_about_birds, "Desert|Woodland") ~ "shrub",
+        
         .default = "other"
       ),
     include = 
