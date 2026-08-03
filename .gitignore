@@ -5,3 +5,5 @@
 brian_sandbox
 tara_sandbox
 _to_delete
+/.quarto/
+**/*.quarto_ipynb

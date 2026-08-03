@@ -1,0 +1,11 @@
+# The results page is the only document rendered as a project; everything else
+# in the repository is left alone. Quarto will not write a standalone document
+# outside its own folder, so the page is written beside its source as
+# index.html and moved to the repository root by the post-render script.
+
+project:
+  type: default
+  render:
+    - brian_sandbox/bmp_results.qmd
+  post-render:
+    - brian_sandbox/R/move_results_page.R
