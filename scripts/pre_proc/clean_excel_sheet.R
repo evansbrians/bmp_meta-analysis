@@ -25,7 +25,17 @@ analysis_subset_list <-
       janitor::clean_names()
   )
 
-# fix bmps ----------------------------------------------------------------
+# Function to clean common names:
+
+fix_common_names <-
+  function(.common_name) {
+    .common_name %>% 
+      str_replace_all("-", " ") %>% 
+      str_remove_all("'") %>% 
+      str_to_snake()
+  }
+
+# clean bmps --------------------------------------------------------------
 
 analysis_subset_list_bmp_edits <-
   analysis_subset_list %>% 
@@ -63,6 +73,50 @@ analysis_subset_list_bmp_edits <-
           str_replace("__", "_") %>% 
           str_replace("--", "; ")
       )
+  )
+
+# clean species names -----------------------------------------------------
+
+analysis_subset_list_species_edits <- 
+  analysis_subset_list_bmp_edits %>% 
+  map(
+    ~ .x %>% 
+      mutate(
+        species = 
+          species %>% 
+          fix_common_names() %>% 
+          str_replace("^lapwing", "northern_lapwing") %>% 
+          str_replace("^skylark", "eurasian_skylark") %>% 
+          str_replace("florida_grasshopper_sparrow", "grasshopper_sparrow") %>% 
+          str_replace("yellow_wagtail", "western_yellow_wagtail") %>% 
+          str_replace("mc_cowns", "mccowns") %>% 
+          str_replace("alpine_whinchat", "whinchat") %>% 
+          str_replace("thick_billed_longspur", "mccowns_longspur") %>% 
+          str_replace("tengmalms", "boreal") %>% 
+          str_replace("plain_titmouse", "oak_titmouse") %>% 
+          str_replace("swaintsonts_hawk", "swainsons_hawk") %>% 
+          str_replace("western_western_", "western_") %>% 
+          str_replace("swainsonts", "swainsons")
+      ) %>% 
+      filter(
+        nchar(species) > 1
+      )
+  )
+  
+
+# Write to file:
+
+analysis_subset_list_species_edits %>% 
+  iwalk(
+    \ (.table, idx) {
+      write_csv(
+        .table,
+        file.path(
+          "data/processed/for_analysis", 
+          glue::glue("{idx}.csv")
+        )
+      )
+    }
   )
 
 # fix treatment and responses ---------------------------------------------
