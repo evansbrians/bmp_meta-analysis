@@ -12,16 +12,6 @@
 library(here)
 library(tidyverse)
 
-# Function to clean common names:
-
-fix_common_names <-
-  function(.common_name) {
-    .common_name %>% 
-      str_replace_all("-", " ") %>% 
-      str_remove_all("'") %>% 
-      str_to_snake()
-  }
-
 # Grab classification frames:
 
 list(
@@ -109,6 +99,7 @@ species_classes_combined <-
 
 species_classified_hand_classes <- 
   species_classes_combined %>% 
+  select(!analysis) %>% 
   mutate(
     source = 
       if_else(
@@ -119,69 +110,92 @@ species_classified_hand_classes <-
   ) %>% 
   bind_rows(
     tribble(
-      ~ species, ~ source, ~ classification, ~ analysis,
+      ~ species, ~ source, ~ classification,
       
       # Classes we had to define by hand:
       
-      "breeding_shrub_scrub_species", "hand_entered", "shrub", 1,
-      "indigo_bunting_blue_grosbeak", "hand_entered", "facultative", 1,
-      "meadowlark_spp", "hand_entered", "obligate", 1,
+      "breeding_shrub_scrub_species", "hand_entered", "shrub",
+      "indigo_bunting_blue_grosbeak", "hand_entered", "facultative",
+      "meadowlark_spp", "hand_entered", "obligate",
       
       # Classes defined in the articles themselves:
       
-      "all_species", "article-classified", NA, 1,
-      "artificial_nests", "article-classified", NA, 0,
-      "artificial_nests_chestnut_sided_warbler", "article-classified", NA, 0,
-      "artificial_nests_northern_bobwhite", "article-classified", NA, 0,
-      "artificial_nests_ovenbird", "article-classified", NA, 0,
-      "bird_and_mammal_species", "article-classified", NA, 1,
-      "breeding_grassland_species", "article-classified", "obligate", 1,
-      "breeding_species", "article-classified", NA, 1,
-      "carnivores", "article-classified", NA, 1,
-      "edge_species", "article-classified", "facultative", 1,
-      "farmland_bird_indicator_species", "article-classified", "obligate", 1,
-      "frugivores", "article-classified", NA, 1,
-      "generalists", "article-classified", NA, 1,
-      "granivores", "article-classified", NA, 1,
-      "grassland_facultative_species", "article-classified", "facultative", 1,
-      "grassland_obligates", "article-classified", "obligate", 1,
-      "grassland_species", "article-classified", "facultative", 1,
-      "ground_nesters", "article-classified", NA, 1,
-      "insectivores", "article-classified", NA, 1,
-      "obligate_grassland_species", "article-classified", "obligate", 1,
-      "omnivores", "article-classified", NA, 1,
-      "passerines", "article-classified", NA, 1,
-      "resident_species", "article-classified", NA, 1,
-      "residents", "article-classified", NA, 1,
-      "shrub_species", "article-classified", "shrub", 1,
-      "sparrows", "article-classified", NA, 1,
-      "specialists", "article-classified", NA, 1,
-      "tits", "article-classified", NA, 1,
-      "wintering_shrub_scrub_species", "article-classified", "shrub", 1,
-      "wintering_species", "article-classified", NA, 1,
-      "woodland_species", "article-classified", "woodland", 1,
+      "acadian_flycatcher_indigo_bunting", "shrub; forest", NA,
+      "all_species", "article-classified", NA,
+      "artificial_nests", "article-classified", NA,
+      "artificial_nests_chestnut_sided_warbler", "article-classified", NA,
+      "artificial_nests_northern_bobwhite", "article-classified", NA,
+      "artificial_nests_ovenbird", "article-classified", NA,
+      "bird_and_mammal_species", "article-classified", NA,
+      "breeding_grassland_species", "article-classified", "obligate",
+      "breeding_species", "article-classified", NA,
+      "carnivores", "article-classified", NA,
+      "edge_species", "article-classified", "facultative",
+      "facultative_grassland_species", "article-classified", "facultative",
+      "farmland_bird_indicator_species", "article-classified", "obligate",
+      "farmland_specialists", "article-classified", "obligate",
+      "frugivores", "article-classified", NA,
+      "generalists", "article-classified", NA,
+      "granivores", "article-classified", NA,
+      "grasshopper_sparrow_henslows_sparrow", "article-classified", "facultative",
+      "grassland_facultative_species", "article-classified", "facultative",
+      "grassland_obligates", "article-classified", "obligate",
+      "grassland_specialists", "article-classified", "obligate",
+      "grassland_species", "article-classified", "facultative",
+      "ground_nesters", "article-classified", NA,
+      "insectivores", "article-classified", NA,
+      "non_grassland_species", "article-classified", NA,
+      "non_insectivores", "article-classified", NA,
+      "obligate_grassland_species", "article-classified", "obligate",
+      "omnivores", "article-classified", NA,
+      "passerines", "article-classified", NA,
+      "resident_species", "article-classified", NA,
+      "residents", "article-classified", NA,
+      "shrub_species", "article-classified", "shrub",
+      "sparrows", "article-classified", NA,
+      "specialists", "article-classified", NA,
+      "tits", "article-classified", NA,
+      "wintering_shrub_scrub_species", "article-classified", "shrub",
+      "wintering_species", "article-classified", NA,
+      "waders", "article-classified", NA,
+      "woodland_species", "article-classified", "woodland",
       
       # Classes defined in traitdata (Storchova and Horak 2018):
       
-      "black_tailed_godwit", "traitdata", "grassland; swamp", 1,
-      "corn_bunting", "traitdata", "grassland", 1,
-      "eurasian_blue_tit", "traitdata", "woodland", 1,
-      "eurasian_skylark", "traitdata", "grassland; mountain_meadow", 1,
-      "eurasian_wryneck", "traitdata", "woodland", 1,
-      "great_tit", "traitdata", "woodland", 1,
-      "meadow_pipit", "traitdata", "grassland; mountain_meadow", 1,
-      "northern_lapwing", "traitdata", "grassland", 1,
-      "ortolan_bunting", "traitdata", "woodland; shrub", 1,
-      "western_yellow_wagtail", "traitdata", "grassland; shrub; swamp", 1,
-      "whinchat", "traitdata", "grassland", 1,
-      "wild_turkey", "traitdata", "woodland; grassland", 1
+      "black_tailed_godwit", "traitdata", "grassland; swamp",
+      "common_wood_pigeon", "traitdata", "deciduous_forest; coniferous_forest; woodland; human_settlements",
+      "corn_bunting", "traitdata", "grassland",
+      "corncrake", "traitdata", "grassland",
+      "eurasian_blue_tit", "traitdata", "woodland",
+      "eurasian_skylark", "traitdata", "grassland; mountain_meadow",
+      "eurasian_wryneck", "traitdata", "woodland",
+      "great_tit", "traitdata", "woodland",
+      "meadow_pipit", "traitdata", "grassland; mountain_meadow",
+      "northern_lapwing", "traitdata", "grassland",
+      "ortolan_bunting", "traitdata", "woodland; shrub",
+      "red_backed_shrike", "traitdata", "shrub",
+      "tree_pipit", "traitdata", "deciduous_forest; coniferous_forest; woodland; savanna",
+      "western_yellow_wagtail", "traitdata", "grassland; shrub; swamp",
+      "wheatear", "traitdata", "tundra; grassland; mountain_meadows; rocks",
+      "whinchat", "traitdata", "grassland",
+      "wild_turkey", "traitdata", "woodland; grassland",
+      "yellowhammer", "traitdata", "woodland; shrub; grassland",
       
       # Classes that we had to look up in Birds of the World:
       
-      # "european_starling", "birds_of_the_world", "facultative", 1,
+      "spotted_nothura", "birds_of_the_world", "obligate",
+      "red_billed_leiothrix", "birds_of_the_world", "forest; scrub"
       # "eurasian_collared_dove", "birds_of_the_world", "facultative", 1,
     )
   )
+
+species_classified_hand_classes %>% 
+  arrange(source, species) %>% 
+  pivot_wider(
+    names_from = source,
+    values_from = classification
+  )
+
 
 # pass 3: analysis subset -------------------------------------------------
 
@@ -223,7 +237,7 @@ bmp_review_analysis_edit <-
   bmp_review_analysis_subset_name_fix %>% 
   select(species) %>% 
   bind_rows(
-    beta_categorical_cleaned %>% 
+    beta_categorical %>% 
       select(species),
     other_categorical_cleaned %>% 
       select(species)
@@ -343,7 +357,7 @@ beta_categorical %>%
 
 # Other categorical table for analysis:
 
-beta_categorical %>% 
+other_categorical_cleaned %>% 
   semi_join(
     species_classified %>% 
       filter(include),
