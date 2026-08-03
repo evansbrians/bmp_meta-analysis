@@ -196,63 +196,7 @@ species_classified_hand_classes %>%
     values_from = classification
   )
 
-
-# pass 3: analysis subset -------------------------------------------------
-
-# Clean species names for the mean_diff table:
-
-mean_diff_species_cleaned <-
-  mean_diff %>% 
-  mutate(
-    species = 
-      species %>% 
-      str_replace("^lapwing", "northern_lapwing") %>% 
-      str_replace("^skylark", "eurasian_skylark") %>% 
-      str_replace("florida_grasshopper_sparrow", "grasshopper_sparrow") %>% 
-      str_replace("yellow_wagtail", "western_yellow_wagtail") %>% 
-      str_replace("mc_cowns", "mccowns") %>% 
-      str_replace("thick_billed_longspur", "mccowns_longspur") %>% 
-      str_replace("tengmalms", "boreal") %>% 
-      str_replace("plain_titmouse", "oak_titmouse") %>% 
-      str_replace("indigo_bunting_blue_grosbeak", "")
-  ) %>% 
-  filter(
-    nchar(species) > 1
-  )
-
-# Other categorical (beta_categorical was fine):
-
-other_categorical_cleaned <-
-  other_categorical %>% 
-  mutate(
-    species =
-      species %>% 
-      str_replace("mc_cowns", "mccowns") %>% 
-      str_replace("alpine_whinchat", "whinchat")
-  )
-
-# Combine species list from the two study results frames:
-
-bmp_review_analysis_edit <-
-  bmp_review_analysis_subset_name_fix %>% 
-  select(species) %>% 
-  bind_rows(
-    beta_categorical %>% 
-      select(species),
-    other_categorical_cleaned %>% 
-      select(species)
-  )
-
-# Check the species list to ensure matching names:
-
-bmp_review_analysis_edit %>% 
-  select(species) %>% 
-  distinct() %>% 
-  anti_join(species_classified_hand_classes, by = "species") %>% 
-  arrange(species) %>% 
-  print(n = Inf)
-
-# pass 4: lumping classes -------------------------------------------------
+# pass 3: lumping classes -------------------------------------------------
 
 species_classified <- 
   species_classified_hand_classes %>% 
@@ -334,33 +278,3 @@ species_classified <-
 species_classified %>% 
   filter(include) %>% 
   write_csv("data/processed/for_analysis/species_classified_analysis_frame.csv")
-
-# Mean-diff frame for analysis:
-
-mean_diff_species_cleaned %>% 
-  semi_join(
-    species_classified %>% 
-      filter(include),
-    by = "species"
-  ) %>% 
-  write_csv("data/processed/for_analysis/mean_diff.csv")
-
-# Beta categorical table for analysis:
-
-beta_categorical %>% 
-  semi_join(
-    species_classified %>% 
-      filter(include),
-    by = "species"
-  ) %>% 
-  write_csv("data/processed/for_analysis/beta_categorical.csv")
-
-# Other categorical table for analysis:
-
-other_categorical_cleaned %>% 
-  semi_join(
-    species_classified %>% 
-      filter(include),
-    by = "species"
-  ) %>% 
-  write_csv("data/processed/for_analysis/other_categorical.csv")
