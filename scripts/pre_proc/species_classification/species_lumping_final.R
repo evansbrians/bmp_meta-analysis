@@ -120,7 +120,7 @@ species_classified_hand_classes <-
       
       # Classes defined in the articles themselves:
       
-      "acadian_flycatcher_indigo_bunting", "shrub; forest", NA,
+      "acadian_flycatcher_indigo_bunting", "article-classified", "shrub; forest", NA,
       "all_species", "article-classified", NA,
       "artificial_nests", "article-classified", NA,
       "artificial_nests_chestnut_sided_warbler", "article-classified", NA,
@@ -277,4 +277,10 @@ species_classified <-
 
 species_classified %>% 
   filter(include) %>% 
-  write_csv("data/processed/for_analysis/species_classified_analysis_frame.csv")
+  write_csv(
+    file.path(
+      "data/processed/for_analysis",
+      "species_classified_analysis_frame.csv"
+    )
+  )
+    
