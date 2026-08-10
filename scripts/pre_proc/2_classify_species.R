@@ -1,7 +1,7 @@
 
 # Purpose: This script:
 
-# - Cleans the species lists in the two study results frames (mean_diff and
+# - Cleans the species lists in the three study results frames (mean_diff and
 #   beta_categorical)
 # - Defines facultative and grassland grassland species
 # - Subsets the frames for analysis to just those associated with facultative 
@@ -20,7 +20,7 @@ list(
   species_classes_bb = "species_classification_birdbase.csv"
 ) %>% 
   map(
-    ~ here::here("data/processed/species_classification", .x) %>% 
+    ~ here("data/processed/species_classification", .x) %>% 
       read_csv()
   ) %>% 
   list2env(.GlobalEnv)
@@ -278,7 +278,7 @@ species_classified <-
 species_classified %>% 
   filter(include) %>% 
   write_csv(
-    file.path(
+    here(
       "data/processed/for_analysis",
       "species_classified_analysis_frame.csv"
     )
