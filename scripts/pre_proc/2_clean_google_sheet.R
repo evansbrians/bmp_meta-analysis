@@ -66,6 +66,7 @@ analysis_subset_list_bmp_edits <-
             str_detect(bmp, "[Gg]raz") ~ "reduce_grazing_intensity",
             str_detect(bmp, "[Ii]ndoors") ~ "keep_cats_indoors",
             str_detect(bmp, "[Uu]nmown") ~ "set_aside_adjacent_unmowed",
+            str_detect(bmp, "[Ss]ummer") ~ "rotational_grazing",
             .default = bmp
           )
       )
