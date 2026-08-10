@@ -117,7 +117,11 @@ species_classified_hand_classes <-
       "breeding_shrub_scrub_species", "hand_entered", "shrub",
       "indigo_bunting_blue_grosbeak", "hand_entered", "facultative",
       "meadowlark_spp", "hand_entered", "obligate",
-      
+      "artificial_nests", "hand_entered", NA,
+      "artificial_nests_northern_bobwhite", "hand_entered", NA,
+      "artificial_nests_chestnut_sided_warbler", "hand_entered", NA,
+      "artificial_nests_ovenbird", "hand_entered", NA,
+
       # Classes defined in the articles themselves:
       
       "acadian_flycatcher_indigo_bunting", "article-classified",
@@ -219,6 +223,10 @@ species_classified <-
         
         str_detect(species, "artificial") ~ NA,
         
+        # All species:
+        
+        species == "all_species" ~ NA,
+        
         # Shrub species if all includes a shrub class or NA:
         
         if_all(
@@ -279,7 +287,6 @@ species_classified <-
 # Species-analysis frame:
 
 species_classified %>% 
-  filter(include) %>% 
   write_csv(
     here(
       "data/processed/species_classification",
