@@ -1,0 +1,1 @@
+(ALL=((nest AND survival OR success OR predation)) OR (ALL=(survival OR abundance OR density OR occupancy)))
