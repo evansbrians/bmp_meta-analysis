@@ -1,0 +1,24 @@
+(
+TS=(
+  (
+  "nest success" OR
+  "daily survival rate" OR
+  "daily nest survival" OR
+  "Mayfield method" OR 
+  (
+    (nest OR brood) AND
+    (
+    survival OR
+    success OR
+    predat* OR
+    mortality OR
+    fate OR
+    failure
+    )
+  ) OR
+  "hatching success" OR
+  "reproductive success"
+  )
+  )
+)
+  

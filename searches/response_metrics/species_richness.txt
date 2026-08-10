@@ -1,0 +1,1 @@
+(TS=((species OR local OR alpha) AND (richness OR diversity)))

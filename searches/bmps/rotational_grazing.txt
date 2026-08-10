@@ -1,0 +1,9 @@
+(ALL=(
+"amp grazing" OR 
+"Adaptive multi-paddock" OR 
+"pasture stockpiling" OR 
+"rotational grazing" OR 
+"mob grazing" OR 
+"adaptive grazing" OR 
+"twice-over grazing"
+))

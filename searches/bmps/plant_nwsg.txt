@@ -1,0 +1,35 @@
+(TS=(
+"warm-season grass*" OR 
+"NWSG" OR 
+"WSG" OR 
+"C4 grass*" OR 
+"native grass*" OR 
+"native prairie*" OR 
+"warm-season species" OR 
+"warm-season taxa" OR 
+"savanna grass*" OR 
+"prairie grass*" OR 
+"warm-season forage" OR 
+"native pasture" OR 
+"native range grass*" OR 
+"pollinator meadow" OR 
+"pollinator habitat" OR 
+"native wildflower*" OR 
+"native forb*" OR 
+"quail habitat" OR 
+"bobwhite habitat"
+)) AND 
+(TS=(
+"cool-season grass*" OR 
+"C3 grass*" OR 
+"CSG" OR 
+"cold-season grass*" OR 
+"cold-adapted grass*" OR 
+"winter-active grass*" OR 
+"cool-season forage" OR 
+"cold-hardy pasture grass" OR 
+"winter pasture grass" OR 
+"early-growth range grasses" OR 
+"cool-weather turfgrass" OR 
+"non-native grass*"
+))

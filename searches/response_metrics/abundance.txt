@@ -1,0 +1,19 @@
+(
+TS=(
+("abundance" OR
+"relative abundance" OR
+"population size" OR
+"population estimate*" OR
+"density" OR
+"occupancy" OR
+"count data" OR
+"counts" OR
+"detection probability"
+) AND
+("estimate*" OR
+"variation" OR
+"trend*" OR
+"pattern*" OR
+"change*")
+)
+)

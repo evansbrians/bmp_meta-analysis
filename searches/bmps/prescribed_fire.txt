@@ -1,0 +1,27 @@
+(TS=(
+"prescribe* fire" OR 
+"prescribe* burn*" OR 
+"patch-burn-graz*" OR 
+"fire graz* management" OR 
+"rotation* burn-graz*" OR 
+"integrat* fire and graz*" OR 
+"integrat* fire and graz*" OR 
+"target* burn-graz*" OR 
+"adaptive fire-graz*" OR 
+"control* burn*" OR 
+"control* fire*" OR 
+"supervise* fire*" OR 
+"supervise* burn*" OR 
+"regulate* fire*" OR 
+"regulate* burn*" OR 
+"ecolog* burn*" OR 
+"restorat* fire" OR 
+"restorat* burn*" OR 
+"fire-based land management" OR 
+"rejuvenation fire" OR 
+"rejuvenation burn*" OR 
+"traditional fire" OR 
+"traditional burn*" OR 
+"indigenous fire" OR 
+"indigenous burn*"
+))

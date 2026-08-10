@@ -1,0 +1,9 @@
+(TS=(
+"flushing bar" OR 
+"flushing device" OR 
+"deterrent bar" OR 
+"mower-mounted flushing system" OR 
+"disturbance bar" OR 
+"mowing attachment"
+)) AND 
+(TS=("hay*" OR "mow*"))

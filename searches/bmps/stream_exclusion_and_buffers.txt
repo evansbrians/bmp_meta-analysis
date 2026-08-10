@@ -1,0 +1,43 @@
+(TS=(
+"riparian buffer*" OR 
+"stream exclusion*" OR 
+"hedgerow*" OR 
+"exclusion fencing" OR 
+"buffer*" OR 
+"filter strip*" OR 
+"transitional zone*" OR 
+"riparian zone*" OR 
+"vegetated buffer*" OR 
+"vegetation buffer*" OR 
+"stream buffer*" OR 
+"river bank buffer*" OR 
+"streamside management zone*" OR 
+"streamside zone*" OR 
+"riverbank vegetation*" OR 
+"water quality buffer*" OR 
+"erosion control zone*" OR 
+"buffer strip*" OR 
+"ecoscaping" OR 
+"riparian corridor*" OR 
+"riparian habitat*" OR 
+"waterside buffer*" OR 
+"streamside vegetation*" OR 
+"floodplain buffer*" OR 
+"stream buffer zone*" OR 
+"watershed buffer*" OR 
+"riverbank buffer*" OR 
+"aquatic buffer zone*" OR 
+"riparian forest*" OR 
+"riparian fenc*" OR 
+"riparian exclusion fenc*" OR 
+"alternative watering system*" OR 
+"livestock stream cross*" OR 
+"livestock exclusion*"
+)) AND 
+(TS=(
+"stream" OR 
+"river" OR 
+"floodplain" OR 
+"waterway" OR 
+"riparian"
+))

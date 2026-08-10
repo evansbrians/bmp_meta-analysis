@@ -1,0 +1,5 @@
+(TS=(
+("mow*" OR "hay*" OR "cut*") AND 
+("blade" OR "grass*") AND 
+ "height"
+))

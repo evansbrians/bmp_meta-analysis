@@ -1,0 +1,12 @@
+(TS=(
+"grazing intensity" OR 
+"stocking intensity" OR 
+"stocking rate" OR 
+"grazing pressure" OR 
+"density" OR 
+"duration"
+) AND 
+(TS=(
+"grazing" OR 
+"stocking"
+)))

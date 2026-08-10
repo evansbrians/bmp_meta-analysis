@@ -1,0 +1,12 @@
+(TS=(
+"edge habitat" OR 
+"edge effect" OR 
+"edge" OR 
+"shrub*" OR 
+"scrub*" OR 
+"early succession*" OR 
+"hinge cutting" OR 
+"edge feather*" OR 
+"fencerow" OR 
+"hedgerow"
+))

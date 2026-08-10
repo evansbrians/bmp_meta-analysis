@@ -1,0 +1,27 @@
+(TS=(
+early-hay* OR 
+late-hay* OR 
+"early hay*" OR 
+"late hay*" OR 
+"hay timing" OR 
+hay-tim* OR 
+hay-crop* OR 
+"hay harvest*" OR 
+mowing OR 
+"hayfield management" OR 
+"early hay" OR 
+"late hay" OR 
+"delayed mowing" OR 
+"postpone*"
+) OR 
+(TS= (
+hay AND 
+cut*
+)) OR 
+(TS=(
+"mowing" AND 
+("regime" OR "dates")
+)) OR 
+(TS=
+"mowed and unmowed"
+))

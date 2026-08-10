@@ -1,0 +1,20 @@
+(
+TS=(
+(
+"adult survival" OR 
+"annual survival" OR
+"apparent survival" OR
+("adult" AND "survival") OR
+"adult mortality" OR
+"survivorship"
+) AND 
+(
+"estimate*" OR
+"variation" OR
+"trend*" OR
+"pattern*" OR
+"model*" OR
+"determinant*"
+)
+)
+)

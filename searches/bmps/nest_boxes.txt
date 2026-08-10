@@ -1,0 +1,9 @@
+(TS=(
+"nest-box*" OR 
+"nestbox" OR 
+"bird-house*" OR 
+"birdhouse*" OR 
+"artificial nest" OR 
+"artificial cavit*"
+)) NOT 
+(ALL=("plasticine"))

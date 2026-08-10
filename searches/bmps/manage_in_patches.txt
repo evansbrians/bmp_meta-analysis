@@ -1,0 +1,24 @@
+(TS=(
+"patch*" OR 
+"spatial heterogene*" OR 
+"habitat heterogene*" OR 
+"section*" OR 
+"divide*" OR 
+"landscape complex*" OR 
+"landscape heterogene*" OR 
+"mosaic habitat" OR 
+"habitat mosaic" OR 
+"selective mow*" OR 
+"conservation mow*" OR 
+"block mow*" OR 
+"rotat*"
+) AND 
+(TS=(
+"cut*" OR 
+"mow*" OR 
+"burn*" OR 
+"clip*" OR 
+"hay*" OR 
+"manag*" OR 
+"graz*"
+)))

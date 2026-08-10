@@ -1,0 +1,17 @@
+(TS=(
+"inside out" OR 
+"outside in" OR 
+"strip*" OR 
+"flush*" OR 
+"pattern*"
+)) AND 
+(TS=(
+"mow*" OR 
+"hay*" OR 
+"cut*"
+)) AND 
+(TS=(
+"unmowed" OR 
+"refug*" OR 
+"uncut*"
+))

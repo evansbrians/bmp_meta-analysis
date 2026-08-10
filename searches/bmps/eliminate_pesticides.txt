@@ -1,0 +1,9 @@
+(TS=(
+"pesticide" OR 
+"insecticide" OR 
+"herbicide" OR 
+"fungicide" OR 
+"rodenticide" OR 
+"neonicotinoid" OR 
+(("organic" OR "conventional" OR "traditional") AND ("farm*" OR "agricultur*"))
+))

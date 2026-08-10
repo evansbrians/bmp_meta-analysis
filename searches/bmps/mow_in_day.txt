@@ -1,0 +1,5 @@
+(TS=(
+("mow*" OR "hay" OR "cut") AND 
+("night" OR "evening") NOT 
+("forest*")
+))

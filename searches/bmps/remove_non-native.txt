@@ -1,0 +1,20 @@
+(ALL=(
+"invasive" OR 
+"non-native" OR 
+"invasive plant management" OR 
+"woody encroachment")
+) AND 
+(ALL=(
+"plant" OR 
+"vegetation" OR 
+"shrub" OR 
+"tree"
+)) AND 
+ALL=("removal" OR "control")) NOT  
+(ALL = (
+"invasive grass*" OR 
+"cool-season grass*" OR 
+"exotic grass*" OR 
+"non-native grass*" OR 
+"non-native graze*"
+))
