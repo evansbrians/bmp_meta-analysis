@@ -120,7 +120,8 @@ species_classified_hand_classes <-
       
       # Classes defined in the articles themselves:
       
-      "acadian_flycatcher_indigo_bunting", "article-classified", "shrub; forest", NA,
+      "acadian_flycatcher_indigo_bunting", "article-classified",
+      "shrub; forest",
       "all_species", "article-classified", NA,
       "artificial_nests", "article-classified", NA,
       "artificial_nests_chestnut_sided_warbler", "article-classified", NA,
@@ -137,7 +138,8 @@ species_classified_hand_classes <-
       "frugivores", "article-classified", NA,
       "generalists", "article-classified", NA,
       "granivores", "article-classified", NA,
-      "grasshopper_sparrow_henslows_sparrow", "article-classified", "facultative",
+      "grasshopper_sparrow_henslows_sparrow", "article-classified",
+      "facultative",
       "grassland_facultative_species", "article-classified", "facultative",
       "grassland_obligates", "article-classified", "obligate",
       "grassland_specialists", "article-classified", "obligate",
@@ -163,7 +165,8 @@ species_classified_hand_classes <-
       # Classes defined in traitdata (Storchova and Horak 2018):
       
       "black_tailed_godwit", "traitdata", "grassland; swamp",
-      "common_wood_pigeon", "traitdata", "deciduous_forest; coniferous_forest; woodland; human_settlements",
+      "common_wood_pigeon", "traitdata",
+      "deciduous_forest; coniferous_forest; woodland; human_settlements",
       "corn_bunting", "traitdata", "grassland",
       "corncrake", "traitdata", "grassland",
       "eurasian_blue_tit", "traitdata", "woodland",
@@ -174,7 +177,8 @@ species_classified_hand_classes <-
       "northern_lapwing", "traitdata", "grassland",
       "ortolan_bunting", "traitdata", "woodland; shrub",
       "red_backed_shrike", "traitdata", "shrub",
-      "tree_pipit", "traitdata", "deciduous_forest; coniferous_forest; woodland; savanna",
+      "tree_pipit", "traitdata",
+      "deciduous_forest; coniferous_forest; woodland; savanna",
       "western_yellow_wagtail", "traitdata", "grassland; shrub; swamp",
       "wheatear", "traitdata", "tundra; grassland; mountain_meadows; rocks",
       "whinchat", "traitdata", "grassland",
@@ -185,7 +189,6 @@ species_classified_hand_classes <-
       
       "spotted_nothura", "birds_of_the_world", "obligate",
       "red_billed_leiothrix", "birds_of_the_world", "forest; scrub"
-      # "eurasian_collared_dove", "birds_of_the_world", "facultative", 1,
     )
   )
 
@@ -279,7 +282,7 @@ species_classified %>%
   filter(include) %>% 
   write_csv(
     here(
-      "data/processed/for_analysis",
+      "data/processed/species_classification",
       "species_classified_analysis_frame.csv"
     )
   )
