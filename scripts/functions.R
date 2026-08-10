@@ -125,6 +125,16 @@ read_effect_size_tables <-
       )
   }
 
+# Function to clean common names:
+
+fix_common_names <-
+  function(.common_name) {
+    .common_name %>% 
+      str_replace_all("-", " ") %>% 
+      str_remove_all("'") %>% 
+      str_to_snake()
+  }
+
 # Get standard deviation: -------------------------------------------------
 
 get_sd <-
