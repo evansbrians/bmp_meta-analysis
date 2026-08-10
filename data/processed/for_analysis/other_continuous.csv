@@ -7,5 +7,5 @@ PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,distance to edge,n
 PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,distance to edge,nest_success,indigo_bunting,confidence_intervals,Odds ratio,Odds ratio,1,NA,223,NA,NA,0.999,1,NA,facultative,TRUE
 8Q8KIGBU,Sims et al. 2008,keep_cats_indoors,species_richness,cat density,species_richness,all_species,NA,NA,r squared,0.156,29,30,NA,NA,NA,NA,NA,NA,TRUE
 8Q8KIGBU,Sims et al. 2008,keep_cats_indoors,abundance,cat density,Log density,all_species,NA,NA,r squared,0.049,29,30,NA,NA,NA,NA,NA,NA,TRUE
-T5H59RVD,Wilcox and Beck 2007,remove_non-native_species,abundance,Proportion of privet cover,abundance,all_species,NA,Spearman rank correlation,r,-0.26,13,14,NA,NA,NA,NA,NA,NA,TRUE
-T5H59RVD,Wilcox and Beck 2007,remove_non-native_species,species_richness,Proportion of privet cover,species_richness,all_species,NA,Spearman rank correlation,r,-0.23,13,14,NA,NA,NA,NA,NA,NA,TRUE
+T5H59RVD,Wilcox and Beck 2007,remove_non_native_species,abundance,Proportion of privet cover,abundance,all_species,NA,Spearman rank correlation,r,-0.26,13,14,NA,NA,NA,NA,NA,NA,TRUE
+T5H59RVD,Wilcox and Beck 2007,remove_non_native_species,species_richness,Proportion of privet cover,species_richness,all_species,NA,Spearman rank correlation,r,-0.23,13,14,NA,NA,NA,NA,NA,NA,TRUE
