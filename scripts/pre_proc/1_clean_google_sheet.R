@@ -1,8 +1,13 @@
-# Reformats the Google sheet and saves each tab as individual csv files.
+# This script:
+# - Reformats the Google sheets
+# - Cleans grouping variables (e.g., BMPs, species)
+# - Saves each tab as an individual csv file in data/processed.
 
 # set-up ------------------------------------------------------------------
 
 library(tidyverse)
+
+source("scripts/functions.R")
 
 # Google sheet url:
 
@@ -25,59 +30,50 @@ analysis_subset_list <-
       janitor::clean_names()
   )
 
-# Function to clean common names:
+# Read in the species classification frame:
 
-fix_common_names <-
-  function(.common_name) {
-    .common_name %>% 
-      str_replace_all("-", " ") %>% 
-      str_remove_all("'") %>% 
-      str_to_snake()
-  }
+species_guilds <-
+  here::here(
+    "data/processed/species_classification",
+    "species_classified_analysis_frame.csv"
+  ) %>% 
+  read_csv() %>% 
+  select(
+    species, 
+    analysis_class,
+    species_include = include
+  )
 
 # clean bmps --------------------------------------------------------------
 
 analysis_subset_list_bmp_edits <-
   analysis_subset_list %>% 
   map(
-    ~ pluck(.x) %>% 
-      # distinct(.x, bmp) %>% 
+    ~ .x %>% 
+      separate_longer_delim(bmp, ";") %>% 
       mutate(
         bmp = 
-          bmp %>% 
-          str_to_lower() %>% 
-          str_replace_all("; ", "--") %>% 
-          str_replace_all(" ", "_") %>% 
-          str_trim() %>% 
-          str_replace(
-            "plant_native_warm_season_grasses",
-            "plant_nwsg"
-          ) %>% 
-          str_remove("_\\(nwsgs\\)_and_wildflowers") %>% 
-          str_replace("nwsgs", "nwsg") %>% 
-          str_remove(",_including_insecticides_and_rodenticides") %>% 
-          str_replace(
-            "_the_use_of_pesticides",
-            "_pesticides"
-          ) %>% 
-          str_replace("manage_fields_in_patches", "manage_in_patches") %>% 
-          str_replace("_plantings", "s") %>%  
-          str_replace(
-            "delay_your_first_cutting_of_hay",
-            "delay_hay"
-          ) %>% 
-          str_replace(
-            "keep_all_cats_indoors",
-            "keep_cats_indoors"
-          ) %>% 
-          str_replace("__", "_") %>% 
-          str_replace("--", "; ")
+          case_when(
+            str_detect(bmp, "[Rr]emove") ~ "remove_non-native_species",
+            str_detect(bmp, "[Pp]rescribed") ~ "prescribed_fire",
+            str_detect(bmp, "[Ss]hrub") ~ "edge_and_shrub_habitat",
+            str_detect(bmp, "nwsg|[Nn]ative") ~ "plant_nwsg",
+            str_detect(bmp, "[Pp]atches") ~ "manage_in_patches",
+            str_detect(bmp, "[Ee]xclusion") ~ "stream_exclusion_and_buffers",
+            str_detect(bmp, "[Bb]oxes") ~ "install_nest_boxes",
+            str_detect(bmp, "[Dd]elay") ~ "delay_hay",
+            str_detect(bmp, "[Oo]verw") ~ "provide_overwintering_habitat",
+            str_detect(bmp, "[Gg]raz") ~ "reduce_grazing_intensity",
+            str_detect(bmp, "[Ii]ndoors") ~ "keep_cats_indoors",
+            str_detect(bmp, "[Uu]nmown") ~ "set_aside_adjacent_unmowed",
+            .default = bmp
+          )
       )
   )
 
 # clean species names -----------------------------------------------------
 
-analysis_subset_list_species_edits <- 
+analysis_subset_list_species_edits <-
   analysis_subset_list_bmp_edits %>% 
   map(
     ~ .x %>% 
@@ -102,10 +98,19 @@ analysis_subset_list_species_edits <-
         nchar(species) > 1
       )
   )
-  
+
+# add species class variable ----------------------------------------------
+
+analysis_subset_list_species_guilds <-
+  analysis_subset_list_species_edits %>% 
+  map(
+    ~ .x %>% 
+      left_join(species_guilds, by = "species")
+  )
+
 # write to file -----------------------------------------------------------
 
-analysis_subset_list_species_edits %>% 
+analysis_subset_list_species_guilds %>% 
   iwalk(
     \ (.table, idx) {
       write_csv(
