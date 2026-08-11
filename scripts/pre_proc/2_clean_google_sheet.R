@@ -54,7 +54,7 @@ analysis_subset_list_bmp_edits <-
       mutate(
         bmp = 
           case_when(
-            str_detect(bmp, "[Rr]emove") ~ "remove_non_native_species",
+            str_detect(bmp, "[Rr]emove") ~ "remove_non_native_shrubs",
             str_detect(bmp, "[Pp]rescribed") ~ "prescribed_fire",
             str_detect(bmp, "[Ss]hrub") ~ "edge_and_shrub_habitat",
             str_detect(bmp, "nwsg|[Nn]ative") ~ "plant_nwsg",
