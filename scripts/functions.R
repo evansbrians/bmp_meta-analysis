@@ -1,6 +1,4 @@
-# Purpose: Every named function the project uses, for the cleaning scripts in
-# scripts/pre_proc and the analysis in scripts/analysis alike. No numbered
-# script defines a function of its own.
+# Every named function the project uses, cleaning and analysis alike.
 
 # utility functions -------------------------------------------------------
 
@@ -1241,11 +1239,8 @@ write_output_figure <-
 
 # shared readers and writers -----------------------------------------------
 
-# Guild and label type per record. 2_clean_google_sheet.R already attached
-# each species' analysis class, so the guild is read off the record rather
-# than joined back from the classification frame. A species the
-# classification never reached carries a missing class and is marked here,
-# not dropped in silence and not joined blind.
+# Guild and label type, read off the record's own analysis class. A species
+# with no class is marked, not dropped in silence.
 
 add_species_guilds <-
   function(
@@ -1483,8 +1478,7 @@ add_row_id <-
   }
 
 # The coarser practice the models group on. Practice strings arrive canonical
-# and one per row from 2_clean_google_sheet.R, so all that is left is the
-# grouping, which db_vocab carries for the database and the analysis alike.
+# and one per row, so only the grouping is left.
 
 add_analysis_bmp <-
   function(.data) {
@@ -1520,11 +1514,8 @@ add_analysis_bmp <-
       )
   }
 
-# The one read path for all five cleaned extraction tables, and the only
-# source the analysis reads. Names, practices and species are canonical there
-# already, and each row carries its species' analysis class, so nothing is
-# cleaned here. `sign` and the review flags are absent from the two continuous
-# tables.
+# The one read path for the five cleaned extraction tables. Everything is
+# canonical there already, so nothing is cleaned here.
 
 read_extraction <-
   function(
@@ -1650,9 +1641,8 @@ build_pooled_pool <-
 
 # Inclusion thresholds applied at the guild x BMP cell level.
 
-# Practices with an estimable cell in BOTH guilds. The pooled x practice model
-# is restricted to these, so a pooled estimate never stands on one guild's
-# evidence while being read as an assemblage-level result.
+# Practices with an estimable cell in BOTH guilds, so a pooled estimate never
+# rests on one guild while reading as an assemblage result.
 
 practices_in_both_guilds <-
   function(.guild_bmp_pool) {
@@ -2186,12 +2176,8 @@ read_effect_size_pool <-
 
 # The effects held out by the flagged-records specification.
 
-# Keyed on the extraction content rather than on a row number: `row_id` is
-# assigned by position after filtering, and the analysis sheets and the source
-# database no longer share a surrogate key, so neither survives a re-export.
-# A row marked resolved has been corrected upstream and is no longer held out,
-# which is what keeps the specification answering "how much rests on records we
-# have not yet verified" as verification proceeds.
+# Keyed on the extraction content, not a row number, so it survives a
+# re-export. A row marked resolved is no longer held out.
 
 excluded_effect_columns <-
   c(
@@ -2297,11 +2283,8 @@ write_partial_estimates <-
     invisible(.estimates)
   }
 
-# One effect's studentized deleted residual, following Viechtbauer and Cheung
-# (2010). The effect is compared with a random-effects mean fitted WITHOUT it,
-# so it is never measured against an interval it helped produce. The
-# DerSimonian-Laird estimator is closed form and so cannot fail to converge on
-# the small cells this is applied to.
+# Studentized deleted residual, Viechtbauer and Cheung (2010): the effect
+# against a DerSimonian-Laird mean fitted without it.
 
 studentized_deleted_residual <-
   function(
@@ -2328,9 +2311,8 @@ studentized_deleted_residual <-
     (yi[index] - as.numeric(fit$beta)) / sqrt(residual_variance)
   }
 
-# Residuals for every effect in one cell. A cell too small to leave one out
-# returns missing residuals rather than unstable ones, so the shortfall is
-# visible downstream instead of being silently scored as "no outliers".
+# Residuals for one cell. A cell too small to leave one out returns missing
+# residuals rather than unstable ones.
 
 cell_deleted_residuals <-
   function(
@@ -2354,10 +2336,8 @@ cell_deleted_residuals <-
     )
   }
 
-# An outlier is an effect whose studentized deleted residual clears the
-# critical value. Viechtbauer and Cheung (2010) put that at 1.96, which about
-# 5% will clear by chance -- so a flagged effect is refitted as a sensitivity
-# check and never dropped.
+# An outlier clears the critical value. Flagged for the sensitivity refit,
+# never dropped -- about 5% clear 1.96 by chance.
 
 flag_outliers <-
   function(
