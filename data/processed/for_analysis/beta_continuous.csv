@@ -10,12 +10,12 @@ YBANTZ24,Boatman et al. 2004,eliminate_pesticides,nest_success,Proportion of yel
 VEK3WELY,Byers et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,bobolink,standard_error,0.04,11,NA,0.01,NA,NA,NA,obligate,TRUE
 VEK3WELY,Byers et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,eastern_meadowlark,standard_error,-0.017,11,NA,0.007,NA,NA,NA,obligate,TRUE
 3GEK5IU7,Crimmins et al. 2016,prescribed_fire,nest_success,Time since burn,DSR,henslows_sparrow,confidence_intervals,-0.0239,135,NA,NA,-0.2624,0.2146,NA,obligate,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,blue_grosbeak,standard_deviation; confident_intervals,-2.31,20,0.57,NA,-3.43,-1.19,NA,facultative,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,common_yellowthroat,standard_deviation; confident_intervals,-0.73,20,0.8,NA,-2.33,0.82,NA,facultative,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,lazuli_bunting,standard_deviation; confident_intervals,7,20,1.67,NA,3.85,10.48,NA,facultative,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,song_sparrow,standard_deviation; confident_intervals,3.43,20,2.83,NA,-1.98,9.24,NA,facultative,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_breasted_chat,standard_deviation; confident_intervals,-2.02,20,0.38,NA,-2.76,-1.27,NA,facultative,TRUE
-JTXBRT46,Darrah and van Riper 2018,remove_non_native_species,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_warbler,standard_deviation; confident_intervals,-2.15,20,0.71,NA,-3.56,-0.78,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,blue_grosbeak,standard_deviation; confident_intervals,-2.31,20,0.57,NA,-3.43,-1.19,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,common_yellowthroat,standard_deviation; confident_intervals,-0.73,20,0.8,NA,-2.33,0.82,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,lazuli_bunting,standard_deviation; confident_intervals,7,20,1.67,NA,3.85,10.48,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,song_sparrow,standard_deviation; confident_intervals,3.43,20,2.83,NA,-1.98,9.24,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_breasted_chat,standard_deviation; confident_intervals,-2.02,20,0.38,NA,-2.76,-1.27,NA,facultative,TRUE
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_warbler,standard_deviation; confident_intervals,-2.15,20,0.71,NA,-3.56,-0.78,NA,facultative,TRUE
 HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,mccowns_longspur,confidence_intervals,0.049,20,NA,NA,-0.462,0.489,NA,obligate,TRUE
 HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,horned_lark,confidence_intervals,-0.134,20,NA,NA,-0.222,-0.05,NA,obligate,TRUE
 HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,lark_bunting,confidence_intervals,0.054,20,NA,NA,0.008,0.1,NA,obligate,TRUE
@@ -132,15 +132,15 @@ V5IZTLTK,Müller et al. 2005,delay_hay,nest_success,Date at which 50% of the are
 V5IZTLTK,Müller et al. 2005,delay_hay,nest_success,Date at which 90% of the area has been hayed in Pradellas,Breeding success,whinchat,standard_error,1.96,90,NA,0.41,NA,NA,Breeding success is the proportion of pairs with fledged young; 90% mowed not provided,obligate,TRUE
 PUDW4DXM,Murphy et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,savannah_sparrow,standard_error,-0.458,141,NA,0.24,NA,NA,NA,obligate,TRUE
 PUDW4DXM,Murphy et al. 2017,edge_and_shrub_habitat,nest_success,Shrub cover,Nest survival,savannah_sparrow,standard_error,0.44,141,NA,0.387,NA,NA,NA,obligate,TRUE
-9AEJZWAW,Nelson et al. 2018,remove_non_native_species,nest_success,Proportion of fescue cover,nest_survival,dickcissel,standard_error,-0.008,477,NA,0.003,NA,NA,NA,obligate,TRUE
+9AEJZWAW,Nelson et al. 2018,remove_non_native_shrubs,nest_success,Proportion of fescue cover,nest_survival,dickcissel,standard_error,-0.008,477,NA,0.003,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,upland_sandpiper,standard_error,0.2,16250,NA,0.05,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,lark_bunting,standard_error,0.21,16250,NA,0.05,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,savannah_sparrow,standard_error,-0.06,16250,NA,0.03,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,grasshopper_sparrow,standard_error,0.24,16250,NA,0.04,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,bobolink,standard_error,-0.55,16250,NA,0.09,NA,NA,NA,obligate,TRUE
 R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover (%),occupancy,eastern_meadowlark,standard_error,4.59,16250,NA,1.19,NA,NA,NA,obligate,TRUE
-8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_species,species_richness,Bitou bush cover,species_richness,all_species,standard_error,0.02,54,NA,0.01,NA,NA,NA,NA,TRUE
-8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_species,abundance,Bitou bush cover,abundance,all_species,standard_error,0.06,54,NA,0.02,NA,NA,NA,NA,TRUE
+8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_shrubs,species_richness,Bitou bush cover,species_richness,all_species,standard_error,0.02,54,NA,0.01,NA,NA,NA,NA,TRUE
+8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_shrubs,abundance,Bitou bush cover,abundance,all_species,standard_error,0.06,54,NA,0.02,NA,NA,NA,NA,TRUE
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,american_robin,standard_error,0.324,710,NA,0.165,NA,NA,NA,facultative,TRUE
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,gray_catbird,standard_error,-0.224,1592,NA,0.102,NA,NA,NA,other,FALSE
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,house_wren,standard_error,-0.505,1012,NA,0.163,NA,NA,NA,facultative,TRUE
@@ -152,7 +152,7 @@ FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,NWSG (% co
 FQ4DXWJU,Saalfeld et al. 2016,plant_nwsg,abundance,NWSG (% cover),Density,spragues_pipit,standard_error; confidence_intervals,1.4183,260,NA,0.3655,0.8347,1.9834,NA,obligate,TRUE
 FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,NWSG (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8165,260,NA,0.151,0.5318,1.1022,NA,obligate,TRUE
 FQ4DXWJU,Saalfeld et al. 2016,plant_nwsg,abundance,NWSG (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8165,260,NA,0.151,0.5318,1.1022,NA,obligate,TRUE
-PNLEJZJE,Scheiman et al. 2003,remove_non_native_species,nest_success,Percent spurge cover,nest_success,western_meadowlark,standard_error,0.17,20,NA,0.1,NA,NA,NA,obligate,TRUE
+PNLEJZJE,Scheiman et al. 2003,remove_non_native_shrubs,nest_success,Percent spurge cover,nest_success,western_meadowlark,standard_error,0.17,20,NA,0.1,NA,NA,NA,obligate,TRUE
 JUHBU5DS,Sinnot et al. 2022,prescribed_fire,survival,Shrub cover,Juvenile survival,northern_bobwhite,confidence_intervals,0.205,212,NA,NA,-0.078,0.51,NA,facultative,TRUE
 AW4YIE65,Sinnot et al. 2023,plant_nwsg,nest_success,Native grass,Nest survival,northern_bobwhite,confidence_intervals,0.05,459,NA,NA,-0.09,0.19,NA,facultative,TRUE
 AW4YIE65,Sinnot et al. 2023,plant_nwsg,survival,Native grass,Adult breeding season survival,northern_bobwhite,confidence_intervals,0.05,955,NA,NA,-0.07,0.18,NA,facultative,TRUE
@@ -262,7 +262,7 @@ CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survi
 CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survival,chestnut_collared_longspur,standard_error,2.52,47,NA,1.54,NA,NA,Weird betas,obligate,TRUE
 CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survival,vesper_sparrow,standard_error,-17.88,23,NA,11.66,NA,NA,Weird betas,obligate,TRUE
 ZFSHRHGL,Arbeiter and Franke 2018,edge_and_shrub_habitat,nest_success,Distance to meadow edge,nest predation probability,artificial_nests,standard_error,-0.812,234,NA,0.309,NA,NA,Artificial nests,NA,NA
-BQVLGCUS,Bernath-Plaisted et al. 2017,remove_non_native_species,nest_success,Exotic vegetation cover,Brood parasitism probability,savannah_sparrow,standard_error,0.017,427,NA,0.007,NA,NA,NA,obligate,TRUE
+BQVLGCUS,Bernath-Plaisted et al. 2017,remove_non_native_shrubs,nest_success,Exotic vegetation cover,Brood parasitism probability,savannah_sparrow,standard_error,0.017,427,NA,0.007,NA,NA,NA,obligate,TRUE
 58NC2AN3,Colombo and Segura 2021,edge_and_shrub_habitat,nest_success,Distances to continuous forest,DSR,spotted_nothura,standard_error,0.608,80,NA,0.291,NA,NA,NA,obligate,TRUE
 PGGQ2M3G,Cox et al. 2012,edge_and_shrub_habitat,nest_success,Distance to forest edge,Nest predation rate,acadian_flycatcher_indigo_bunting,confidence_intervals,-0.0015,290,NA,NA,-0.0029,-1e-4,NA,shrub,FALSE
 I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within shrubland landscapes,species_richness,grassland_specialists,standard_error,0.1714,127,NA,1e-4,NA,NA,NA,obligate,TRUE
@@ -323,7 +323,7 @@ YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,northern_cardinal,standard_error,-0.0458,1644,NA,0.1564,NA,NA,Traced from plot,facultative,TRUE
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,carolina_wren,standard_error,0.1116,793,NA,0.2826,NA,NA,Traced from plot,other,FALSE
 YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,carolina_chickadee,standard_error,0.1251,699,NA,0.3476,NA,NA,Traced from plot,other,FALSE
-9TTSRV56,Pulliam et al. 2021,remove_non_native_species,nest_success,Exotic vegetation cover,nest survival,chestnut_collared_longspur,confidence_intervals,0.1061,263,NA,NA,-0.035,0.2472,Traced from plot,obligate,TRUE
+9TTSRV56,Pulliam et al. 2021,remove_non_native_shrubs,nest_success,Exotic vegetation cover,nest survival,chestnut_collared_longspur,confidence_intervals,0.1061,263,NA,NA,-0.035,0.2472,Traced from plot,obligate,TRUE
 9TTSRV56,Pulliam et al. 2021,edge_and_shrub_habitat,nest_success,Shrub cover,nest survival,chestnut_collared_longspur,confidence_intervals,0.0154,263,NA,NA,-0.09230000000000001,0.1231,Traced from plot,obligate,TRUE
 TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,species_richness,shrub cover,species_richness,grassland_species,confidence_intervals,0.172,36,NA,NA,-0.08410000000000001,0.4281,Traced from plot; Sample size is number of transects,facultative,TRUE
 TPZAX73L,Sadoti et al. 2018,provide_overwintering_habitat,species_richness,shrub cover,species_richness,grassland_species,confidence_intervals,0.172,36,NA,NA,-0.08410000000000001,0.4281,Traced from plot; Sample size is number of transects,facultative,TRUE
