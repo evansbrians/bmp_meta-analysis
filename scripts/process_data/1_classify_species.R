@@ -13,11 +13,20 @@ library(tidyverse)
 # Grab classification frames:
 
 species_classes_combined <- 
-  list.files("data/raw/species_classification_sources") %>% 
+  list.files(
+    here(
+      "data/raw/for_species_classification",
+      "species_classified_by_source"
+    )
+  ) %>% 
   set_names() %>% 
   imap(
     \ (.x, idx) {
-      here("data/raw/species_classification_sources", .x) %>% 
+      here(
+        "data/raw/for_species_classification",
+        "species_classified_by_source",
+        .x
+      ) %>% 
         read_csv() %>% 
         
         # Remove primary habitat (birdbase) because it is already listed in
@@ -41,6 +50,7 @@ species_classes_combined <-
             case_when(
               str_detect(idx, "aab\\.csv$") ~ "all_about_birds",
               str_detect(idx, "birdbase\\.csv$") ~ "birdbase",
+              str_detect(idx, "eubirds\\.csv$") ~ "eubirds",
               str_detect(idx, "john_2006\\.csv$") ~ "peterjohn_2006",
               str_detect(idx, "pif\\.csv$") ~ "partners_in_flight",
               str_detect(idx, "vgbi\\.csv$") ~ "vgbi",
@@ -124,31 +134,6 @@ species_classified_hand_classes <-
       "wintering_species", "article-classified", NA,
       "waders", "article-classified", NA,
       "woodland_species", "article-classified", "woodland",
-      
-      # Classes defined in traitdata (Storchova and Horak 2018):
-      
-      "black_tailed_godwit", "traitdata", "grassland; swamp",
-      "common_wood_pigeon", "traitdata",
-      "deciduous_forest; coniferous_forest; woodland; human_settlements",
-      "common_quail", "traitdata", "grassland",
-      "corn_bunting", "traitdata", "grassland",
-      "corncrake", "traitdata", "grassland",
-      "eurasian_blue_tit", "traitdata", "woodland",
-      "eurasian_skylark", "traitdata", "grassland; mountain_meadow",
-      "eurasian_wryneck", "traitdata", "woodland",
-      "great_tit", "traitdata", "woodland",
-      "meadow_pipit", "traitdata", "grassland; mountain_meadow",
-      "northern_lapwing", "traitdata", "grassland",
-      "ortolan_bunting", "traitdata", "woodland; shrub",
-      "red_backed_shrike", "traitdata", "shrub",
-      "tree_pipit", "traitdata",
-      "deciduous_forest; coniferous_forest; woodland; savanna",
-      "western_yellow_wagtail", "traitdata", "grassland; shrub; swamp",
-      "wheatear", "traitdata", "tundra; grassland; mountain_meadows; rocks",
-      "whinchat", "traitdata", "grassland",
-      "white_stork", "traitdata", "shrub; grassland; swamps; freshwater",
-      "wild_turkey", "traitdata", "woodland; grassland",
-      "yellowhammer", "traitdata", "woodland; shrub; grassland",
       
       # Classes that we had to look up in Birds of the World:
       
