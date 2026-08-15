@@ -1,0 +1,406 @@
+key,paper,bmp,response_class,predictor_var,response_var,species,error_class,beta,n,sd,se,lcl,ucl,notes,survival_scale
+XL4JC3D8,Assandri et al. 2019,delay_hay,occupancy,Percent cover of early mown meadows (before the end of the fourth week of June),occupancy,tree_pipit,standard_error; confidence_intervals,-2.34,63,NA,0.71,-4.31,-1.24,"Model-averaged beta; Bernouilli error distribution, converted to 0-1",NA
+XL4JC3D8,Assandri et al. 2019,delay_hay,abundance,Percent cover of early mown meadows (before the end of the fourth week of June),density,whinchat,standard_error; confidence_intervals,-1.3,63,NA,0.29,-1.66,-0.64,Model-averaged beta; A little unclear whether this refers to abundance or density,NA
+TMHIYH9Y,Besnard and Secondi 2014,stream_exclusion_and_buffers,abundance,Hedge density wthin 250-m,abundance,grassland_species,standard_error,-0.001,99,NA,2e-4,NA,NA,"Values are from table 2; The paper also looks at buffer length, but provides a plot without quantitative results ... may be in supplemental, but this was not accessible",NA
+TMHIYH9Y,Besnard and Secondi 2014,edge_and_shrub_habitat,abundance,Hedge density wthin 250-m,abundance,grassland_species,standard_error,-0.001,99,NA,2e-4,NA,NA,"Values are from table 2; The paper also looks at buffer length, but provides a plot without quantitative results ... may be in supplemental, but this was not accessible",NA
+TMHIYH9Y,Besnard and Secondi 2014,stream_exclusion_and_buffers,species_richness,Hedge density wthin 250-m,species_richness,grassland_species,standard_error,-0.001,99,NA,2e-4,NA,NA,"Values are from table 2; The paper also looks at buffer length, but provides a plot without quantitative results ... may be in supplemental, but this was not accessible",NA
+TMHIYH9Y,Besnard and Secondi 2014,edge_and_shrub_habitat,species_richness,Hedge density wthin 250-m,species_richness,grassland_species,standard_error,-0.001,99,NA,2e-4,NA,NA,"Values are from table 2; The paper also looks at buffer length, but provides a plot without quantitative results ... may be in supplemental, but this was not accessible",NA
+YBANTZ24,Boatman et al. 2004,eliminate_pesticides,nest_success,Proportion of yellowhammer range sprayed with pesticides,Brood reduction of nests in which at least one chick survived to fledging,yellowhammer,standard_error,2.6,64,NA,0.928,NA,NA,This response could introduce bias by not including all nests!,period_survival
+YBANTZ24,Boatman et al. 2004,eliminate_pesticides,nest_success,Proportion of yellowhammer range sprayed with pesticides,Brood reduction of nests in which brood reduction was observed,yellowhammer,standard_error,2.08,95,NA,0.845,NA,NA,This response could introduce bias by not including all nests!,period_survival
+VEK3WELY,Byers et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,bobolink,standard_error,0.04,11,NA,0.01,NA,NA,NA,period_survival
+VEK3WELY,Byers et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,eastern_meadowlark,standard_error,-0.017,11,NA,0.007,NA,NA,NA,period_survival
+3GEK5IU7,Crimmins et al. 2016,prescribed_fire,nest_success,Time since burn,DSR,henslows_sparrow,confidence_intervals,-0.0239,135,NA,NA,-0.2624,0.2146,NA,daily_survival
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,blue_grosbeak,standard_deviation; confidence_intervals,-2.31,20,0.57,NA,-3.43,-1.19,NA,NA
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,common_yellowthroat,standard_deviation; confidence_intervals,-0.73,20,0.8,NA,-2.33,0.82,NA,NA
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,lazuli_bunting,standard_deviation; confidence_intervals,7,20,1.67,NA,3.85,10.48,NA,NA
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,song_sparrow,standard_deviation; confidence_intervals,3.43,20,2.83,NA,-1.98,9.24,NA,NA
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_breasted_chat,standard_deviation; confidence_intervals,-2.02,20,0.38,NA,-2.76,-1.27,NA,NA
+JTXBRT46,Darrah and van Riper 2018,remove_non_native_shrubs,abundance,Percent defoliation of invasive tamarisk by tamarisk beetles,Density,yellow_warbler,standard_deviation; confidence_intervals,-2.15,20,0.71,NA,-3.56,-0.78,NA,NA
+HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,mccowns_longspur,confidence_intervals,0.049,20,NA,NA,-0.462,0.489,NA,NA
+HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,horned_lark,confidence_intervals,-0.134,20,NA,NA,-0.222,-0.05,NA,NA
+HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,lark_bunting,confidence_intervals,0.054,20,NA,NA,0.008,0.1,NA,NA
+HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,western_meadowlark,confidence_intervals,-0.022,20,NA,NA,-0.09,0.043,NA,NA
+HXFI5KV4,Davis et al. 2021,edge_and_shrub_habitat,abundance,Shrub cover,abundance,grasshopper_sparrow,confidence_intervals,0.009,20,NA,NA,-0.1,0.114,NA,NA
+4A6H3F33,Docherty et al. 2020,prescribed_fire,species_richness,Fire frequency,species_richness,all_species,standard_error,0.092,1266,NA,0.049,NA,NA,NA,NA
+4A6H3F33,Docherty et al. 2020,prescribed_fire,species_richness,Proportion of landscape recently burned (<1 year),species_richness,all_species,standard_error,0.104,1266,NA,0.033,NA,NA,NA,NA
+ZYYQ9F33,Faria et al. 2016,delay_hay,survival,Date of mowing,Juvenile and adult mortality,all_species,standard_error,0.18,41,NA,0.17,NA,NA,"Juvenile and adult mortality ... corn bunting, little bustard, crested and thekla larks, common quail, Montagu harrier, others",NA
+U5J5P8HL,Fetcher et al. 2023,plant_nwsg,species_richness,Proportion C4 primary productivity,species_richness per sampling point,all_species,standard_error,-2.6761,17,NA,0.97054,NA,NA,NA,NA
+U5J5P8HL,Fetcher et al. 2023,edge_and_shrub_habitat,species_richness,Area:edge ratio,species_richness per sampling point,all_species,standard_error,0.03889,17,NA,0.01048,NA,NA,NA,NA
+U5J5P8HL,Fetcher et al. 2023,plant_nwsg,abundance,Proportion C4 primary productivity,total abundance per sampling point,all_species,standard_error,-4.9204,17,NA,1.644,NA,NA,NA,NA
+U5J5P8HL,Fetcher et al. 2023,edge_and_shrub_habitat,abundance,Area:edge ratio,total abundance per sampling point,all_species,standard_error,0.07608,17,NA,0.017973,NA,NA,NA,NA
+YS5JV4EW,Fokkema et al. 2024,keep_cats_indoors,nest_success,NA,Proportion of nest predation events by domestic cats,black_tailed_godwit,confidence_intervals,0.02,NA,NA,NA,0,0.06,Explanatory study -- no predictor variable,period_survival
+XYFBIX43,Fromberger et al. 2020,reduce_grazing_intensity,nest_success,Stocking rate (number cattle x days grazed/area grazed),DSR,bobolink,confidence_intervals,-0.01,159,NA,NA,-0.013,-0.007,NA,daily_survival
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,abundance,Edge-interior ratio,Abundance,dickcissel,confidence_intervals,-0.6,40,NA,NA,-0.92,-0.27,NA,NA
+5LF5W5A9,Glass and Eichholz 2023,prescribed_fire,abundance,Time since fire,Abundance,field_sparrow,confidence_intervals,-0.19,40,NA,NA,-0.38,-0.01,NA,NA
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,abundance,Edge-interior ratio,Abundance,common_yellowthroat,confidence_intervals,-0.09,40,NA,NA,-0.27,0.08,NA,NA
+5LF5W5A9,Glass and Eichholz 2023,prescribed_fire,nest_success,Time since fire,Daily survival rate,dickcissel,confidence_intervals,1.09,40,NA,NA,0.06,2.13,NA,daily_survival
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,nest_success,Distance to edge,Daily survival rate,field_sparrow,confidence_intervals,0.38,136,NA,NA,0.1,0.66,NA,daily_survival
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,nest_success,Distance to edge,Daily survival rate,common_yellowthroat,confidence_intervals,0.52,31,NA,NA,-0.17,1.2,NA,daily_survival
+5LF5W5A9,Glass and Eichholz 2023,prescribed_fire,abundance,Time since fire,Nest density,dickcissel,confidence_intervals,0.49,40,NA,NA,0.21,0.77,NA,NA
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,abundance,Distance to edge,Nest density,dickcissel,confidence_intervals,-0.34,40,NA,NA,-0.62,-0.06,NA,NA
+5LF5W5A9,Glass and Eichholz 2023,edge_and_shrub_habitat,abundance,Proportion of forested edge,Nest density,field_sparrow,confidence_intervals,0.44,40,NA,NA,0.18,0.71,NA,NA
+9BKYJB9V,Glass et al. 2020,prescribed_fire,abundance,Months since burning,Probability of a captured bird being a hatch-year bird,grasshopper_sparrow,confidence_intervals,-0.8178,16,NA,NA,-1.176,-0.459,NA,NA
+9BKYJB9V,Glass et al. 2020,reduce_grazing_intensity,abundance,AUM/ha for the sampling year and previous 4 years,abundance,grasshopper_sparrow,confidence_intervals,0.02875,16,NA,NA,-0.011,0.069,NA,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,bairds_sparrow,standard_error,-3.87,140,NA,3.24,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,chestnut_collared_longspur,standard_error,2.861,140,NA,2.89,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,clay_colored_sparrow,standard_error,14.207,140,NA,7.42,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,grasshopper_sparrow,standard_error,28.129,140,NA,13.89,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,horned_lark,standard_error,0.299,140,NA,3.26,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,mccowns_longspur,standard_error,-11.684,140,NA,5.92,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,savannah_sparrow,standard_error,6.697,140,NA,3.22,NA,NA,Betas seem big,NA
+N29AAJPM,Henderson and Davis 2014,edge_and_shrub_habitat,abundance,Shrub cover,abundance,spragues_pipit,standard_error,-3.145,140,NA,3.51,NA,NA,Betas seem big,NA
+5HV7T7SJ,Herse et al. 2020,edge_and_shrub_habitat,occupancy,Edge density (meters/ha),occupancy,grasshopper_sparrow,standard_error,-0.71,1425,NA,0.09,NA,NA,NA,NA
+5HV7T7SJ,Herse et al. 2020,edge_and_shrub_habitat,occupancy,Edge density (meters/ha),occupancy,henslows_sparrow,standard_error,-1.17,1425,NA,0.25,NA,NA,NA,NA
+5HV7T7SJ,Herse et al. 2020,edge_and_shrub_habitat,occupancy,Edge density (meters/ha),occupancy,greater_prairie_chicken,standard_error,-0.76,1425,NA,0.18,NA,NA,NA,NA
+5HV7T7SJ,Herse et al. 2020,edge_and_shrub_habitat,occupancy,Edge density (meters/ha),occupancy,upland_sandpiper,standard_error,-1.36,1425,NA,0.11,NA,NA,NA,NA
+RQ3HNXCK,Hill and Diefenbach 2013,edge_and_shrub_habitat,nest_success,Distance to nearest shrub,daily nest survival,grasshopper_sparrow_henslows_sparrow,standard_error; confidence_intervals,0.03,215,NA,0.14,-0.24,0.31,NA,daily_survival
+CG2GVC3K,Hill et al. 2014,eliminate_pesticides,population_trend,Lethal insecticide risk,Population trend,all_species,standard_error,0.47,51750,NA,0.34,NA,NA,Positive values represent correlation between the population trend and the predictor variable,NA
+U6X2F2MA,Hovick et al. 2014,prescribed_fire,occupancy,Time since burned and grazed,Occupancy,savannah_sparrow,confidence_intervals,-0.56,24,NA,NA,-3.15,2.03,NA,NA
+U6X2F2MA,Hovick et al. 2014,provide_overwintering_habitat,occupancy,Time since burned and grazed,Occupancy,savannah_sparrow,confidence_intervals,-0.56,24,NA,NA,-3.15,2.03,NA,NA
+U6X2F2MA,Hovick et al. 2014,prescribed_fire,occupancy,Time since burned and grazed,Occupancy,meadowlark_spp,confidence_intervals,0.38,24,NA,NA,-0.86,1.62,NA,NA
+U6X2F2MA,Hovick et al. 2014,provide_overwintering_habitat,occupancy,Time since burned and grazed,Occupancy,meadowlark_spp,confidence_intervals,0.38,24,NA,NA,-0.86,1.62,NA,NA
+U6X2F2MA,Hovick et al. 2014,prescribed_fire,occupancy,Time since burned and grazed,Occupancy,smiths_longspur,confidence_intervals,-0.81,24,NA,NA,-1.86,0.23,NA,NA
+U6X2F2MA,Hovick et al. 2014,provide_overwintering_habitat,occupancy,Time since burned and grazed,Occupancy,smiths_longspur,confidence_intervals,-0.81,24,NA,NA,-1.86,0.23,NA,NA
+U6X2F2MA,Hovick et al. 2014,prescribed_fire,occupancy,Time since burned and grazed,Occupancy,le_contes_sparrow,confidence_intervals,18.6,24,NA,NA,18.2,19.1,NA,NA
+U6X2F2MA,Hovick et al. 2014,provide_overwintering_habitat,occupancy,Time since burned and grazed,Occupancy,le_contes_sparrow,confidence_intervals,18.6,24,NA,NA,18.2,19.1,NA,NA
+FSN2F7S7,Irvin et al. 2013,edge_and_shrub_habitat,occupancy,Shrubland percent landcover,occupancy,grasshopper_sparrow,confidence_intervals,-0.5,342,NA,NA,-0.73,-0.27,NA,NA
+VLD8MM52,Jorge et al. 2022,prescribed_fire,species_richness,Pyrodiversity,species_richness,all_species,confidence_intervals,0.136,34,NA,NA,0.009,0.26,"Pyrodiversity is described as the number of unique times since fire (years; 2001–2018) values, based on growing seasons, at the time of the survey within a 500 m buffer around the survey site",NA
+VLD8MM52,Jorge et al. 2022,manage_in_patches,species_richness,Pyrodiversity,species_richness,all_species,confidence_intervals,0.136,34,NA,NA,0.009,0.26,"Pyrodiversity is described as the number of unique times since fire (years; 2001–2018) values, based on growing seasons, at the time of the survey within a 500 m buffer around the survey site",NA
+HS58V728,Kalinowski and Johnson 2010,edge_and_shrub_habitat,species_richness,Shrub cover,species_richness,all_species,standard_error,39.99,75,NA,13.75,NA,NA,NA,NA
+HS58V728,Kalinowski and Johnson 2010,provide_overwintering_habitat,species_richness,Shrub cover,species_richness,all_species,standard_error,39.99,75,NA,13.75,NA,NA,NA,NA
+HS58V728,Kalinowski and Johnson 2010,edge_and_shrub_habitat,abundance,Shrub cover,total abundance,all_species,standard_error,123.92,75,NA,44.09,NA,NA,NA,NA
+HS58V728,Kalinowski and Johnson 2010,provide_overwintering_habitat,abundance,Shrub cover,total abundance,all_species,standard_error,123.92,75,NA,44.09,NA,NA,NA,NA
+2DXYTUJ6,Kempema et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,density,grasshopper_sparrow,standard_error,4.11,12,NA,6.47,NA,NA,NA,NA
+2DXYTUJ6,Kempema et al. 2023,reduce_grazing_intensity,abundance,Growing season stocking rate,density,lark_sparrow,standard_error,-5.728,12,NA,2.42,NA,NA,NA,NA
+2DXYTUJ6,Kempema et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,density,upland_sandpiper,standard_error,-1.06,12,NA,0.47,NA,NA,NA,NA
+2DXYTUJ6,Kempema et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,density,lark_sparrow,standard_error,1.63,12,NA,1.91,NA,NA,NA,NA
+2DXYTUJ6,Kempema et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,density,western_meadowlark,standard_error,0.26,12,NA,1.99,NA,NA,NA,NA
+9DBEECAJ,Kraft et al. 2021,reduce_grazing_intensity,nest_success,Grazing pressure (Animal unit months),DSR,lesser_prairie_chicken,confidence_intervals,-1.53,37,NA,NA,-3.36,0.29,NA,daily_survival
+2BU4YWHR,Lennon et al. 2019,eliminate_pesticides,population_trend,Cumulative pesticide use (1994 - year of observation),population growth rate (1995 - 2014),corn_bunting,standard_error,4.49e-4,NA,NA,5.42e-4,NA,NA,NA,NA
+2BU4YWHR,Lennon et al. 2019,eliminate_pesticides,population_trend,Cumulative pesticide use (1994 - year of observation),population growth rate (1995 - 2014),northern_lapwing,standard_error,7.22e-4,NA,NA,3.96e-4,NA,NA,NA,NA
+2BU4YWHR,Lennon et al. 2019,eliminate_pesticides,population_trend,Cumulative pesticide use (1994 - year of observation),population growth rate (1995 - 2014),eurasian_skylark,standard_error,-2.98e-4,NA,NA,1.43e-4,NA,NA,NA,NA
+2BU4YWHR,Lennon et al. 2019,eliminate_pesticides,population_trend,Cumulative pesticide use (1994 - year of observation),population growth rate (1995 - 2014),yellowhammer,standard_error,4.48e-4,15096,NA,2.12e-4,NA,NA,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,species_richness,grassland_species,confidence_intervals,-0.5,NA,NA,NA,-0.8,-0.2,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,shannon index,grassland_species,confidence_intervals,-0.4,NA,NA,NA,-0.6,-0.2,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,abundance,100 kg increase per county in aggregate neonicitinoid use,bird abundance,grassland_species,confidence_intervals,-2.2,NA,NA,NA,-3.3,-1.1,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,species_richness,non_grassland_species,confidence_intervals,-0.5,NA,NA,NA,-0.8,-0.2,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,shannon index,non_grassland_species,confidence_intervals,-0.05,NA,NA,NA,-0.12,0.02,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,abundance,100 kg increase per county in aggregate neonicitinoid use,bird abundance,non_grassland_species,confidence_intervals,-1.4,NA,NA,NA,-0.8,-0.2,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,species_richness,insectivores,confidence_intervals,-0.08,NA,NA,NA,-0.48,0.32,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,shannon index,insectivores,confidence_intervals,-0.1,NA,NA,NA,-0.3,0.1,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,abundance,100 kg increase per county in aggregate neonicitinoid use,abundance,insectivores,confidence_intervals,-1.6,NA,NA,NA,-2.5,-0.7,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,species_richness,non_insectivores,confidence_intervals,-0.5,NA,NA,NA,-0.8,-0.2,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,species_richness,100 kg increase per county in aggregate neonicitinoid use,shannon index,non_insectivores,confidence_intervals,-0.07,NA,NA,NA,-0.14,0,NA,NA
+TT2CGMG8,Li et al. 2020,eliminate_pesticides,abundance,100 kg increase per county in aggregate neonicitinoid use,abundance,non_insectivores,confidence_intervals,-1.5,NA,NA,NA,-2.1,-0.9,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,bairds_sparrow,standard_error,-1.26,818,NA,0.788,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,savannah_sparrow,standard_error,-0.72,818,NA,1.266,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,grasshopper_sparrow,standard_error,-0.37,818,NA,0.556,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,spragues_pipit,standard_error,-0.1,818,NA,0.557,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,horned_lark,standard_error,0.11,818,NA,0.405,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,mccowns_longspur,standard_error,0.47,818,NA,1.005,NA,NA,NA,NA
+ZMNWEWJF,Lipsey and Naugle 2017,reduce_grazing_intensity,abundance,Proportion dry weight removed by livestock,abundance,chestnut_collared_longspur,standard_error,1.18,818,NA,0.341,NA,NA,NA,NA
+R2NSJ9PI,Lituma et al. 2022,edge_and_shrub_habitat,abundance,Forest edge in the landscape,abundance,red_winged_blackbird,confidence_intervals,-0.053,14,NA,NA,-0.091,-0.016,NA,NA
+R2NSJ9PI,Lituma et al. 2022,edge_and_shrub_habitat,abundance,Forest edge in the landscape,abundance,henslows_sparrow,confidence_intervals,-0.021,14,NA,NA,-0.092,0.049,NA,NA
+R2NSJ9PI,Lituma et al. 2022,edge_and_shrub_habitat,abundance,Forest edge in the landscape,abundance,field_sparrow,confidence_intervals,0.03,14,NA,NA,0.008,0.06,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,obligate_grassland_species,standard_error; confidence_intervals,-0.318,188,NA,0.077,-0.469,-0.167,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,species_richness,Landscape shape index,species_richness,obligate_grassland_species,standard_error; confidence_intervals,-0.137,188,NA,0.034,-0.204,-0.07,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,grasshopper_sparrow,standard_error; confidence_intervals,-0.173,188,NA,0.116,-0.4,0.054,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,savannah_sparrow,standard_error; confidence_intervals,-0.064,188,NA,0.023,-0.109,-0.019,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,facultative_grassland_species,standard_error; confidence_intervals,0.006,188,NA,0.018,-0.006,0.01,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,species_richness,Landscape shape index,abundance,facultative_grassland_species,standard_error; confidence_intervals,0.003,188,NA,0.012,-0.021,0.026,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,brown_headed_cowbird,standard_error; confidence_intervals,-0.055,188,NA,0.017,-0.088,-0.022,NA,NA
+KWCVCTJ9,Lockhart and Koper 2018,edge_and_shrub_habitat,abundance,Landscape shape index,abundance,red_winged_blackbird,standard_error; confidence_intervals,0.118,188,NA,0.058,0.004,0.232,NA,NA
+DNJ2A44M,Long et al. 2012,prescribed_fire,nest_success,Shrub density,Daily survival rate,lark_sparrow,confidence_intervals,-0.001,318,NA,NA,-1e-4,1e-4,NA,daily_survival
+A4K99KR6,Massa et al. 2024,prescribed_fire,occupancy,A point being burned within the last 2 years,occupancy,grasshopper_sparrow,confidence_intervals,1.34,101,NA,NA,0.52,2.16,85% confidence interval,NA
+W27GJ5EW,McDonald and Koper 2022,edge_and_shrub_habitat,abundance,Shrub cover,abundance,le_contes_sparrow,standard_error; confidence_intervals,-0.032,20,NA,0.02,-0.061,-0.00358,85% confidence interval,NA
+NC58WG7N,McLaughlin et al. 2014,edge_and_shrub_habitat,occupancy,Edge-to-interior ratio,occupancy,dickcissel,standard_error,-160.9,28,NA,66.3,NA,NA,Totally normal and fine beta,NA
+NC58WG7N,McLaughlin et al. 2014,edge_and_shrub_habitat,occupancy,Shrub density,occupancy,grasshopper_sparrow,standard_error,7.4,28,NA,3.4,NA,NA,Totally normal and fine beta,NA
+NC58WG7N,McLaughlin et al. 2014,edge_and_shrub_habitat,abundance,Shrub density,density,grasshopper_sparrow,standard_error,0.19,28,NA,0.09,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),american_goldfinch,standard_error,-0.08,29,NA,0.06,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),bobolink,standard_error,-0.26,29,NA,0.14,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),grasshopper_sparrow,standard_error,-0.19,29,NA,0.3,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),horned_lark,standard_error,-0.19,29,NA,0.07,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),loggerhead_shrike,standard_error,0.17,29,NA,0.08,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),northern_harrier,standard_error,0.11,29,NA,0.1,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),red_winged_blackbird,standard_error,-0.03,29,NA,0.04,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),savannah_sparrow,standard_error,0.01,29,NA,0.08,NA,NA,NA,NA
+SKTLJM84,Mineau et al. 2005,eliminate_pesticides,population_trend,Granular pesticide index,population trend (1971 - 1996),western_meadowlark,standard_error,-0.17,29,NA,0.05,NA,NA,NA,NA
+4AIDB2L3,Monroe and O'Connell 2014,prescribed_fire,occupancy,Time since fire,Occurrence,le_contes_sparrow,standard_error; confidence_intervals,0.3993,78,NA,0.2572,0.0291,0.7696,NA,NA
+4AIDB2L3,Monroe and O'Connell 2014,provide_overwintering_habitat,occupancy,Time since fire,Occurrence,le_contes_sparrow,standard_error; confidence_intervals,0.3993,78,NA,0.2572,0.0291,0.7696,NA,NA
+EM65W494,Monroe et al. 2021,edge_and_shrub_habitat,abundance,Average shrub cover,abundance,obligate_grassland_species,confidence_intervals,-0.2,617,NA,NA,-0.39,-0.04,NA,NA
+V5IZTLTK,Müller et al. 2005,delay_hay,nest_success,Date at which 50% of the area has been hayed in Vna,Breeding success,whinchat,standard_error,1.22,90,NA,0.52,NA,NA,Breeding success is the proportion of pairs with fledged young; 90% mowed not provided,period_survival
+V5IZTLTK,Müller et al. 2005,delay_hay,nest_success,Date at which 90% of the area has been hayed in Pradellas,Breeding success,whinchat,standard_error,1.96,90,NA,0.41,NA,NA,Breeding success is the proportion of pairs with fledged young; 90% mowed not provided,period_survival
+PUDW4DXM,Murphy et al. 2017,edge_and_shrub_habitat,nest_success,Distance to edge,Nest survival,savannah_sparrow,standard_error,-0.458,141,NA,0.24,NA,NA,NA,period_survival
+PUDW4DXM,Murphy et al. 2017,edge_and_shrub_habitat,nest_success,Shrub cover,Nest survival,savannah_sparrow,standard_error,0.44,141,NA,0.387,NA,NA,NA,period_survival
+9AEJZWAW,Nelson et al. 2018,remove_non_native_shrubs,nest_success,Proportion of fescue cover,nest_survival,dickcissel,standard_error,-0.008,477,NA,0.003,NA,NA,NA,period_survival
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,upland_sandpiper,standard_error,0.2,16250,NA,0.05,NA,NA,NA,NA
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,lark_bunting,standard_error,0.21,16250,NA,0.05,NA,NA,NA,NA
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,savannah_sparrow,standard_error,-0.06,16250,NA,0.03,NA,NA,NA,NA
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,grasshopper_sparrow,standard_error,0.24,16250,NA,0.04,NA,NA,NA,NA
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover,occupancy,bobolink,standard_error,-0.55,16250,NA,0.09,NA,NA,NA,NA
+R9KBFI6I,Niemuth et al. 2017,edge_and_shrub_habitat,occupancy,Proportion of shrub cover (%),occupancy,eastern_meadowlark,standard_error,4.59,16250,NA,1.19,NA,NA,NA,NA
+8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_shrubs,species_richness,Bitou bush cover,species_richness,all_species,standard_error,0.02,54,NA,0.01,NA,NA,NA,NA
+8Q698FZ7,O'Loughlin et al. 2019,remove_non_native_shrubs,abundance,Bitou bush cover,abundance,all_species,standard_error,0.06,54,NA,0.02,NA,NA,NA,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,american_robin,standard_error,0.324,710,NA,0.165,NA,NA,NA,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,gray_catbird,standard_error,-0.224,1592,NA,0.102,NA,NA,NA,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,house_wren,standard_error,-0.505,1012,NA,0.163,NA,NA,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,Shrub cover (% cover),Density,spragues_pipit,standard_error; confidence_intervals,-2.3408,260,NA,0.7264,-3.8061,-0.9026,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,edge_and_shrub_habitat,abundance,Shrub cover (% cover),Density,spragues_pipit,standard_error; confidence_intervals,-2.3408,260,NA,0.7264,-3.8061,-0.9026,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,Shrub cover (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8474,260,NA,0.1232,0.6112,1.0845,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,edge_and_shrub_habitat,abundance,Shrub cover (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8474,260,NA,0.1232,0.6112,1.0845,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,NWSG (% cover),Density,spragues_pipit,standard_error; confidence_intervals,1.4183,260,NA,0.3655,0.8347,1.9834,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,plant_nwsg,abundance,NWSG (% cover),Density,spragues_pipit,standard_error; confidence_intervals,1.4183,260,NA,0.3655,0.8347,1.9834,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,provide_overwintering_habitat,abundance,NWSG (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8165,260,NA,0.151,0.5318,1.1022,NA,NA
+FQ4DXWJU,Saalfeld et al. 2016,plant_nwsg,abundance,NWSG (% cover),Density,savannah_sparrow,standard_error; confidence_intervals,0.8165,260,NA,0.151,0.5318,1.1022,NA,NA
+PNLEJZJE,Scheiman et al. 2003,remove_non_native_shrubs,nest_success,Percent spurge cover,nest_success,western_meadowlark,standard_error,0.17,20,NA,0.1,NA,NA,NA,period_survival
+JUHBU5DS,Sinnot et al. 2022,prescribed_fire,survival,Shrub cover,Juvenile survival,northern_bobwhite,confidence_intervals,0.205,212,NA,NA,-0.078,0.51,NA,NA
+AW4YIE65,Sinnot et al. 2023,plant_nwsg,nest_success,Native grass,Nest survival,northern_bobwhite,confidence_intervals,0.05,459,NA,NA,-0.09,0.19,NA,period_survival
+AW4YIE65,Sinnot et al. 2023,plant_nwsg,survival,Native grass,Adult breeding season survival,northern_bobwhite,confidence_intervals,0.05,955,NA,NA,-0.07,0.18,NA,NA
+AW4YIE65,Sinnot et al. 2023,edge_and_shrub_habitat,nest_success,Distance to woody vegetation,Nest survival,northern_bobwhite,confidence_intervals,0.26,459,NA,NA,0.12,0.41,NA,period_survival
+AW4YIE65,Sinnot et al. 2023,edge_and_shrub_habitat,survival,Distance to woody vegetation,Adult breeding season survival,northern_bobwhite,confidence_intervals,0.29,955,NA,NA,0.18,0.4,NA,NA
+WJIHQE52,Thieme et al. 2015,keep_cats_indoors,abundance,Cat activity,density,common_yellowthroat,standard_error; confidence_intervals,0.01,57,NA,0.01,-0.01,0.04,Values are from table 5 (plot level),NA
+WJIHQE52,Thieme et al. 2015,keep_cats_indoors,abundance,Cat activity,density,field_sparrow,standard_error; confidence_intervals,0.01,57,NA,0.01,-0.02,0.01,Values are from table 5 (plot level),NA
+WJIHQE52,Thieme et al. 2015,keep_cats_indoors,abundance,Cat activity,density,savannah_sparrow,standard_error; confidence_intervals,0.02,57,NA,0.02,-0.02,0.05,Values are from table 5 (plot level),NA
+WJIHQE52,Thieme et al. 2015,keep_cats_indoors,abundance,Cat activity,density,song_sparrow,standard_error; confidence_intervals,-0.01,57,NA,0.01,-0.02,0.01,Values are from table 5 (plot level),NA
+WJIHQE52,Thieme et al. 2015,keep_cats_indoors,abundance,Cat activity,density,eastern_meadowlark,standard_error; confidence_intervals,0.01,57,NA,0.04,-0.08,0.09,Values are from table 5 (plot level),NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,sharp_tailed_grouse,standard_deviation; confidence_intervals,0.127,44849,0.182,NA,-0.223,0.483,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,greater_prairie_chicken,standard_deviation; confidence_intervals,0.347,44849,0.246,NA,-0.125,0.835,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,lesser_prairie_chicken,standard_deviation; confidence_intervals,0.104,44849,0.245,NA,-0.362,0.578,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,mountain_plover,standard_deviation; confidence_intervals,0.093,44849,0.168,NA,-0.242,0.425,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,upland_sandpiper,standard_deviation; confidence_intervals,0.251,44849,0.077,NA,0.097,0.398,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,long_billed_curlew,standard_deviation; confidence_intervals,-0.365,44849,0.129,NA,-0.619,-0.114,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,marbled_godwit,standard_deviation; confidence_intervals,0.043,44849,0.141,NA,-0.232,0.315,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,wilsons_snipe,standard_deviation; confidence_intervals,-0.35,44849,0.153,NA,-0.658,-0.065,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,willet,standard_deviation; confidence_intervals,0.028,44849,0.181,NA,-0.323,0.381,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,wilsons_phalarope,standard_deviation; confidence_intervals,-0.113,44849,0.141,NA,-0.398,0.154,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,golden_eagle,standard_deviation; confidence_intervals,0.417,44849,0.254,NA,-0.072,0.937,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,northern_harrier,standard_deviation; confidence_intervals,0.157,44849,0.199,NA,-0.213,0.578,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,swainsons_hawk,standard_deviation; confidence_intervals,0.212,44849,0.183,NA,-0.132,0.587,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,ferruginous_hawk,standard_deviation; confidence_intervals,0.144,44849,0.21,NA,-0.264,0.563,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,burrowing_owl,standard_deviation; confidence_intervals,0.083,44849,0.19,NA,-0.277,0.468,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,short_eared_owl,standard_deviation; confidence_intervals,-0.012,44849,0.195,NA,-0.402,0.369,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,prairie_falcon,standard_deviation; confidence_intervals,-0.02,44849,0.227,NA,-0.477,0.419,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,eastern_kingbird,standard_deviation; confidence_intervals,-0.012,44849,0.054,NA,-0.118,0.092,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,chihuahuan_raven,standard_deviation; confidence_intervals,-0.045,44849,0.164,NA,-0.358,0.278,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,horned_lark,standard_deviation; confidence_intervals,-0.239,44849,0.036,NA,-0.311,-0.168,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,sedge_wren,standard_deviation; confidence_intervals,-0.113,44849,0.262,NA,-0.637,0.384,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,spragues_pipit,standard_deviation; confidence_intervals,0.057,44849,0.172,NA,-0.278,0.408,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,chestnut_collared_longspur,standard_deviation; confidence_intervals,-0.165,44849,0.087,NA,-0.337,-0.001,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,mccowns_longspur,standard_deviation; confidence_intervals,-0.452,44849,0.118,NA,-0.689,-0.228,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,cassins_sparrow,standard_deviation; confidence_intervals,0.504,44849,0.067,NA,0.373,0.635,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,grasshopper_sparrow,standard_deviation; confidence_intervals,0,44849,0.039,NA,-0.076,0.077,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,lark_sparrow,standard_deviation; confidence_intervals,0.273,44849,0.038,NA,0.197,0.347,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,lark_bunting,standard_deviation; confidence_intervals,0.251,44849,0.041,NA,0.17,0.333,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,clay_colored_sparrow,standard_deviation; confidence_intervals,0.271,44849,0.094,NA,0.088,0.452,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,vesper_sparrow,standard_deviation; confidence_intervals,0.377,44849,0.05,NA,0.28,0.475,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,bairds_sparrow,standard_deviation; confidence_intervals,-0.233,44849,0.123,NA,-0.483,0.006,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,savannah_sparrow,standard_deviation; confidence_intervals,-0.292,44849,0.089,NA,-0.473,-0.122,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,yellow_headed_blackbird,standard_deviation; confidence_intervals,-0.094,44849,0.135,NA,-0.36,0.175,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,bobolink,standard_deviation; confidence_intervals,-0.301,44849,0.121,NA,-0.553,-0.07,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,eastern_meadowlark,standard_deviation; confidence_intervals,0.176,44849,0.096,NA,-0.012,0.36,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,western_meadowlark,standard_deviation; confidence_intervals,-0.009,44849,0.047,NA,-0.103,0.08,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,brown_headed_cowbird,standard_deviation; confidence_intervals,0.191,44849,0.045,NA,0.106,0.28,NA,NA
+BXJHLH2E,Pavlacky et al. 2022,edge_and_shrub_habitat,occupancy,Area (km2) of shrubland within 9 km2 landscapes,occupancy,brewers_blackbird,standard_deviation; confidence_intervals,0.312,44849,0.056,NA,0.202,0.423,NA,NA
+X4XTED4A,Pulliam et al. 2020,edge_and_shrub_habitat,abundance,Shrub cover,abundance,mccowns_longspur,standard_error,-0.81,22,NA,0.36,NA,NA,NA,NA
+FK52S6PF,Robinson and McChesney 2022,edge_and_shrub_habitat,nest_success,Distance to edge,Fledgling success (all nests),red_winged_blackbird,standard_error,-0.05,1293,NA,0.05,NA,NA,NA,period_survival
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,northern_bobwhite,confidence_intervals,0.14,990,NA,NA,-0.1,0.39,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,common_grackle,confidence_intervals,-0.16,990,NA,NA,-0.37,0.05,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,dickcissel,confidence_intervals,-0.84,990,NA,NA,-1.76,0.08,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,eastern_meadowlark,confidence_intervals,0.12,990,NA,NA,-0.02,0.44,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,european_starling,confidence_intervals,0.03,990,NA,NA,-0.19,0.25,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,grasshopper_sparrow,confidence_intervals,-0.14,990,NA,NA,-0.65,0.38,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,horned_lark,confidence_intervals,-1.07,990,NA,NA,-1.56,-0.58,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,red_winged_blackbird,confidence_intervals,0.02,990,NA,NA,-0.11,0.14,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,ring_necked_pheasant,confidence_intervals,-1.12,990,NA,NA,-1.35,1.11,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,savannah_sparrow,confidence_intervals,-0.91,990,NA,NA,-1.74,-0.09,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,vesper_sparrow,confidence_intervals,-1.08,990,NA,NA,-2.04,-0.11,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,common_yellowthroat,confidence_intervals,0.11,990,NA,NA,-0.06,0.28,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,eastern_towhee,confidence_intervals,0.23,990,NA,NA,0.01,0.45,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,gray_catbird,confidence_intervals,0.17,990,NA,NA,-0.04,0.37,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,prairie_warbler,confidence_intervals,0.59,990,NA,NA,-0.19,1.37,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,white_eyed_vireo,confidence_intervals,-0.32,990,NA,NA,-0.88,0.24,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,willow_flycatcher,confidence_intervals,-0.09,990,NA,NA,-0.6,0.41,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,yellow_breasted_chat,confidence_intervals,0.03,990,NA,NA,-0.33,0.39,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,baltimore_oriole,confidence_intervals,-0.08,990,NA,NA,-0.49,0.33,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,carolina_wren,confidence_intervals,0.31,990,NA,NA,0.06,0.56,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,eastern_phoebe,confidence_intervals,0.3,990,NA,NA,-0.12,0.73,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,northern_cardinal,confidence_intervals,0.06,990,NA,NA,-0.06,0.19,NA,NA
+BT92EEE8,Rosenblatt et al. 2022,edge_and_shrub_habitat,abundance,Count of edgees between forest and agriculture land covers,abundance,song_sparrow,confidence_intervals,0.06,990,NA,NA,-0.06,0.17,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to shrubs,resource selection,grasshopper_sparrow,standard_error,2.457,1200,NA,3.3784,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to shrubs,resource selection,eastern_meadowlark,standard_error,1.8005,95,NA,26.7817,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to shrubs,resource selection,dickcissel,standard_error,-2.6811,180,NA,16.398,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to trees,resource selection,grasshopper_sparrow,standard_error,3.8485,1200,NA,1.2534,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to trees,resource selection,eastern_meadowlark,standard_error,7.3861,95,NA,10.2108,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Distance to trees,resource selection,dickcissel,standard_error,4.9421,180,NA,7.9259,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Proportion of shrubs,resource selection,grasshopper_sparrow,standard_error,-4.1662,1200,NA,0.5304,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Proportion of shrubs,resource selection,eastern_meadowlark,standard_error,-4.4675,95,NA,4.2483,NA,NA,NA,NA
+WZAFZTLQ,Silber et al. 2024,edge_and_shrub_habitat,occupancy,Proportion of shrubs,resource selection,dickcissel,standard_error,-0.5749,180,NA,3.0959,NA,NA,NA,NA
+2F9Q2KZV,Söderström et al. 1998,edge_and_shrub_habitat,nest_success,Distance to edge,nest_success,artificial_nests,standard_error,0,228,NA,0.01,NA,NA,NA,period_survival
+NXUHSS5J,Thompson et al. 2014,edge_and_shrub_habitat,abundance,Count of shrubs within 50 m,density,bobolink,standard_error,-0.23,446,NA,0.09,NA,NA,NA,NA
+NXUHSS5J,Thompson et al. 2014,edge_and_shrub_habitat,abundance,Count of shrubs within 50 m,density,clay_colored_sparrow,standard_error,0.13,446,NA,0.05,NA,NA,NA,NA
+NXUHSS5J,Thompson et al. 2014,edge_and_shrub_habitat,abundance,Count of shrubs within 50 m,density,savannah_sparrow,standard_error,-0.26,446,NA,0.09,NA,NA,NA,NA
+NXUHSS5J,Thompson et al. 2014,edge_and_shrub_habitat,abundance,Count of shrubs within 50 m,density,sedge_wren,standard_error,-0.08,446,NA,0.1,NA,NA,NA,NA
+43J4RKSJ,Vold et al. 2019,edge_and_shrub_habitat,abundance,ln(shrub cover),abundance,vesper_sparrow,standard_error,0.17,610,NA,0.05,NA,NA,NA,NA
+43J4RKSJ,Vold et al. 2019,reduce_grazing_intensity,abundance,Stocking rate,abundance,grasshopper_sparrow,standard_error,-0.1,610,NA,0.03,NA,NA,NA,NA
+JAHCYCIP,Walk et al. 2010,edge_and_shrub_habitat,nest_success,Distance to edge,daily nest survival,dickcissel,confidence_intervals,0.0015,505,NA,NA,-0.02162,0.01855,NA,daily_survival
+JAHCYCIP,Walk et al. 2010,edge_and_shrub_habitat,nest_success,Distance to edge,daily nest survival,eastern_meadowlark,confidence_intervals,-0.0109,311,NA,NA,-0.00635,0.03836,NA,daily_survival
+MRPSC6G6,Young et al. 2019,edge_and_shrub_habitat,survival,Shrub area,Juvenile survival,henslows_sparrow,standard_error,-1.11,46,NA,0.34,NA,NA,NA,NA
+MRPSC6G6,Young et al. 2019,prescribed_fire,survival,second year post-burn,Juvenile survival,henslows_sparrow,standard_error,1.56,46,NA,0.62,NA,NA,NA,NA
+MRPSC6G6,Young et al. 2019,prescribed_fire,survival,third year post-burn,Juvenile survival,henslows_sparrow,standard_error,2.65,46,NA,0.85,NA,NA,NA,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (National Bison Range),clay_colored_sparrow,confidence_intervals,0.28,70,NA,NA,-0.73,1.23,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (National Bison Range),grasshopper_sparrow,confidence_intervals,1.77,70,NA,NA,0.8,3.29,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (National Bison Range),vesper_sparrow,confidence_intervals,1.68,70,NA,NA,0.9,2.87,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (National Bison Range),western_meadowlark,confidence_intervals,0.89,70,NA,NA,0.07,1.81,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (Yellowstone National Park),brewers_sparrow,confidence_intervals,1.44,60,NA,NA,0.44,2.64,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (Yellowstone National Park),green_tailed_towhee,confidence_intervals,-0.44,60,NA,NA,-1.48,0.46,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (Yellowstone National Park),sage_thrasher,confidence_intervals,2.23,60,NA,NA,0.64,4.71,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (Yellowstone National Park),vesper_sparrow,confidence_intervals,1.68,60,NA,NA,0.9,2.87,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,occupancy,Patties,occupancy (Yellowstone National Park),western_meadowlark,confidence_intervals,0.89,60,NA,NA,0.07,1.81,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,abundance,Patties,abundance,vesper_sparrow,confidence_intervals,0.36,130,NA,NA,0.21,0.51,Patty counts as a measurement of bison grazing intensity,NA
+ET6MPIYJ,Fagre et al. 2022,reduce_grazing_intensity,abundance,Patties,abundance,western_meadowlark,confidence_intervals,0.17,130,NA,NA,0.05,0.29,Patty counts as a measurement of bison grazing intensity,NA
+CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survival,spragues_pipit,standard_error,-16,28,NA,6.91,NA,NA,Weird betas,period_survival
+CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survival,chestnut_collared_longspur,standard_error,2.52,47,NA,1.54,NA,NA,Weird betas,period_survival
+CAGIEGRC,Pipher et al. 2016,reduce_grazing_intensity,nest_success,AUM,nest survival,vesper_sparrow,standard_error,-17.88,23,NA,11.66,NA,NA,Weird betas,period_survival
+ZFSHRHGL,Arbeiter and Franke 2018,edge_and_shrub_habitat,nest_success,Distance to meadow edge,nest predation probability,artificial_nests,standard_error,-0.812,234,NA,0.309,NA,NA,Artificial nests,period_survival
+BQVLGCUS,Bernath-Plaisted et al. 2017,remove_non_native_shrubs,nest_success,Exotic vegetation cover,Brood parasitism probability,savannah_sparrow,standard_error,0.017,427,NA,0.007,NA,NA,NA,period_survival
+58NC2AN3,Colombo and Segura 2021,edge_and_shrub_habitat,nest_success,Distances to continuous forest,DSR,spotted_nothura,standard_error,0.608,80,NA,0.291,NA,NA,NA,daily_survival
+PGGQ2M3G,Cox et al. 2012,edge_and_shrub_habitat,nest_success,Distance to forest edge,Nest predation rate,acadian_flycatcher_indigo_bunting,confidence_intervals,-0.0015,290,NA,NA,-0.0029,-1e-4,NA,period_survival
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within shrubland landscapes,species_richness,grassland_specialists,standard_error,0.1714,127,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within shrubland landscapes,species_richness,generalists,standard_error,0.1714,127,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,abundance,Edge density within open landscapes,abundance,all_species,standard_error,0.0258,117,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,abundance,Edge density within open forest landscapes,abundance,all_species,standard_error,0.0473,46,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within open landscapes,species_richness,all_species,standard_error,0.04,117,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within open landscapes,shannon diversity index,all_species,standard_error,0.2797,117,NA,1e-4,NA,NA,NA,NA
+I43EGUDG,Dyulgerova and Biserkov 2024,edge_and_shrub_habitat,species_richness,Edge density within shrubland landscapes,shannon diversity index,all_species,standard_error,0.1882,127,NA,1e-4,NA,NA,NA,NA
+CXWJRPTX,Ellison et al. 2013,edge_and_shrub_habitat,nest_success,Distance to nearest edge,DSR,bobolink,standard_error,0.009,911,NA,0.004,NA,NA,NA,daily_survival
+CXWJRPTX,Ellison et al. 2013,edge_and_shrub_habitat,nest_success,Distance to nearest edge,DSR,eastern_meadowlark,standard_error,0.006,1703,NA,0.003,NA,NA,NA,daily_survival
+BC4ABSSC,Hazler et al. 2006,edge_and_shrub_habitat,nest_success,Vertical density (shrub cover),DSR,acadian_flycatcher,standard_error,0.05,163,NA,0.02,NA,NA,NA,daily_survival
+PH82K6GT,Kaasiku et al. 2022,edge_and_shrub_habitat,nest_success,Distance to forest,DSR,waders,standard_error,7e-4,753,NA,2e-4,NA,NA,"The ""Forest"" variable is distance to forest; species are Northern lapwing, Common ringed plover, Common redshank, Southern dunlin, Black-tailed godwit, Ruff, Common snipe, Eurasian oystercatcher, Eurasian curlew, and Little ringed plover",daily_survival
+DILVTS4M,Klug et al. 2010,edge_and_shrub_habitat,nest_success,Percent shrub cover,DSR,grassland_obligates,confidence_intervals,-0.3,222,NA,NA,-0.48,-0.12,NA,daily_survival
+IBIS6U5N,Laux et al. 2024,edge_and_shrub_habitat,nest_success,Edge length,Predation probability,gray_partridge,standard_deviation,-0.88,4697,0.62,NA,NA,NA,Response is probably daily nest predation; unsure about sample size,period_survival
+IBIS6U5N,Laux et al. 2024,edge_and_shrub_habitat,nest_success,"Distance to nearest wood, hedge, or forest",Predation probability,gray_partridge,standard_deviation,-0.11,6318,0.61,NA,NA,NA,Response is probably daily nest predation; unsure about sample size,period_survival
+WIGT6A3G,Richardson et al. 2020,plant_nwsg,occupancy,Percentage of sample points in contact with NWSGs,Nest-site selection,northern_bobwhite,standard_error,0.02,192,NA,0.008,NA,NA,Sample size is number of points 20 - 250 m from nests,NA
+WIGT6A3G,Richardson et al. 2020,edge_and_shrub_habitat,occupancy,Percentage of sample points in contact with shrubs,Nest-site selection,northern_bobwhite,standard_error,0.021,192,NA,0.008,NA,NA,Sample size is number of points 20 - 250 m from nests,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,species_richness,Total length of woody edge habitat,species_richness,all_species,confidence_intervals,0.0778,180,NA,NA,0.0586,0.09699999999999999,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,species_richness,Total length of woody edge habitat,species_richness,farmland_specialists,confidence_intervals,0.0231,180,NA,NA,5.000000000000004e-4,0.0457,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,species_richness,Total length of woody edge habitat,species_richness,shrub_species,confidence_intervals,0.052,180,NA,NA,0.013199999999999996,0.09079999999999999,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,white_stork,confidence_intervals,0.0776,180,NA,NA,0.001799999999999996,0.1534,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,common_quail,confidence_intervals,-0.1209,180,NA,NA,-0.2333,-0.008499999999999994,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,northern_lapwing,confidence_intervals,-0.2369,180,NA,NA,-0.45330000000000004,-0.02049999999999999,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,common_wood_pigeon,confidence_intervals,0.1585,180,NA,NA,0.0737,0.24330000000000002,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,eurasian_skylark,confidence_intervals,-0.0746,180,NA,NA,-0.11299999999999999,-0.0362,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,western_yellow_wagtail,confidence_intervals,-0.1962,180,NA,NA,-0.2894,-0.10300000000000001,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,red_backed_shrike,confidence_intervals,0.2746,180,NA,NA,0.1786,0.37060000000000004,NA,NA
+ZQEAV9ZK,Sanderson et al. 2009,edge_and_shrub_habitat,abundance,Total length of woody edge habitat,abundance,yellowhammer,confidence_intervals,0.1979,180,NA,NA,0.1357,0.2601,NA,NA
+3CD3EZNC,Schindler et al. 2020,edge_and_shrub_habitat,abundance,Edge density within 3 km,abundance,lesser_prairie_chicken,confidence_intervals,0.737,17,NA,NA,0.082,3.94,NA,NA
+3CD3EZNC,Schindler et al. 2020,edge_and_shrub_habitat,abundance,Edge density within 3 km,abundance,greater_prairie_chicken,confidence_intervals,-0.498,33,NA,NA,-0.692,-0.21,NA,NA
+3CD3EZNC,Schindler et al. 2020,edge_and_shrub_habitat,abundance,Edge density within 3 km,abundance,northern_bobwhite,confidence_intervals,0.14,74,NA,NA,0.088,0.196,NA,NA
+3CD3EZNC,Schindler et al. 2020,edge_and_shrub_habitat,abundance,Edge density within 3 km,abundance,ring_necked_pheasant,confidence_intervals,-0.028,66,NA,NA,-0.129,-0.74,NA,NA
+HSWCQNBC,Schneider et al. 2012,edge_and_shrub_habitat,nest_success,Distance from woodland,nest predation risk,wheatear,standard_error,-0.018,923,NA,0.342,NA,NA,NA,period_survival
+QIAZV4LA,Shake et al. 2011,edge_and_shrub_habitat,nest_success,Distance from forest edge,daily nest predation,all_species,standard_error,0.0014,2827,NA,0.0018,NA,NA,NA,daily_survival
+QIAZV4LA,Shake et al. 2011,edge_and_shrub_habitat,nest_success,Distance from forest edge,daily nest predation,field_sparrow,standard_error,0.0025,1188,NA,0.0024,NA,NA,NA,daily_survival
+QIAZV4LA,Shake et al. 2011,edge_and_shrub_habitat,nest_success,Distance from forest edge,daily nest predation,indigo_bunting,standard_error,-6e-4,722,NA,0.004,NA,NA,NA,daily_survival
+UCK86GY9,Skagen et al. 2005,edge_and_shrub_habitat,nest_success,Distance from edge,DSR,artificial_nests,standard_error,-0.03,1492,NA,0.07,NA,NA,Effective sample size calculated 570 nests x 15 exposure days,daily_survival
+UCK86GY9,Skagen et al. 2005,edge_and_shrub_habitat,nest_success,Distance from edge,DSR,lark_bunting,standard_error,-0.02,204,NA,0.1,NA,NA,Effective sample size calculated 570 nests x 15 exposure days,daily_survival
+UCK86GY9,Skagen et al. 2005,edge_and_shrub_habitat,nest_success,Distance from edge,DSR,horned_lark,standard_error,-0.04,321,NA,0.12,NA,NA,Effective sample size calculated 570 nests x 15 exposure days,daily_survival
+GR8C2HMM,Sosa and Lopez de Casenave 2017,edge_and_shrub_habitat,nest_success,Distance from edge,Nest predation rate,artificial_nests,standard_error,-0.005,8550,NA,8e-4,NA,NA,Effective sample size calculated 570 nests x 15 exposure days,period_survival
+J5QM4UHJ,Suvorov et al. 2014,edge_and_shrub_habitat,nest_success,Meadow edge,Nest predation probability,artificial_nests,standard_error,1.199,354,NA,0.363,NA,NA,Proportion of eggs hatched for a given clutch size (Unsure about this note),period_survival
+NJWV66SX,Winter et al. 2000,edge_and_shrub_habitat,nest_success,Distance to edge,DSR,henslows_sparrow,standard_error,-0.25,49,NA,0.11,NA,NA,NA,daily_survival
+NJWV66SX,Winter et al. 2000,edge_and_shrub_habitat,nest_success,Distance to edge,Brood parasitism,dickcissel,standard_error,1.14,111,NA,0.14,NA,NA,NA,period_survival
+ZUVT3TNS,Zhang et al. 2016,edge_and_shrub_habitat,occupancy,Distance to forest edge,Nest-site selection,red_billed_leiothrix,standard_error,-1.57,123,NA,0.25,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,horned_lark,standard_error,-0.14,279,NA,0.05,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,spragues_pipit,standard_error,0.3,279,NA,0.13,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,chestnut_collared_longspur,standard_error,-0.57,279,NA,0.13,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,lark_bunting,standard_error,-0.14,279,NA,0.07,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,savannah_sparrow,standard_error,0.08,279,NA,0.02,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,grasshopper_sparrow,standard_error,0.09,279,NA,0.01,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,bairds_sparrow,standard_error,-0.04,279,NA,0.02,NA,NA,NA,NA
+APW8GBU8,Shamon et al. 2021,edge_and_shrub_habitat,abundance,Percent shrub cover (80 ha),abundance,western_meadowlark,standard_error,0.04,279,NA,0.02,NA,NA,NA,NA
+EREI5ZVC,Landry-DeBoer et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,abundance,spragues_pipit,standard_error,-0.4539,617,NA,0.3672,NA,NA,"Traced from plot; They seem to use point counts as sample size, but it's funky",NA
+EREI5ZVC,Landry-DeBoer et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,abundance,mccowns_longspur,standard_error,-5.0217,617,NA,2.0487,NA,NA,"Traced from plot; They seem to use point counts as sample size, but it's funky",NA
+EREI5ZVC,Landry-DeBoer et al. 2023,edge_and_shrub_habitat,abundance,Shrub cover,abundance,chestnut_collared_longspur,standard_error,-1.4264,617,NA,0.3908,NA,NA,"Traced from plot; They seem to use point counts as sample size, but it's funky",NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,song_sparrow,standard_error,0.2034,901,NA,0.227,NA,NA,Traced from plot,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,northern_cardinal,standard_error,-0.0458,1644,NA,0.1564,NA,NA,Traced from plot,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,carolina_wren,standard_error,0.1116,793,NA,0.2826,NA,NA,Traced from plot,NA
+YSAVDL5T,Pharr et al. 2023,upgrade_to_darksky,survival,Light pollution,survival,carolina_chickadee,standard_error,0.1251,699,NA,0.3476,NA,NA,Traced from plot,NA
+9TTSRV56,Pulliam et al. 2021,remove_non_native_shrubs,nest_success,Exotic vegetation cover,nest survival,chestnut_collared_longspur,confidence_intervals,0.1061,263,NA,NA,-0.035,0.2472,Traced from plot,period_survival
+9TTSRV56,Pulliam et al. 2021,edge_and_shrub_habitat,nest_success,Shrub cover,nest survival,chestnut_collared_longspur,confidence_intervals,0.0154,263,NA,NA,-0.09230000000000001,0.1231,Traced from plot,period_survival
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,species_richness,shrub cover,species_richness,grassland_species,confidence_intervals,0.172,36,NA,NA,-0.08410000000000001,0.4281,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,provide_overwintering_habitat,species_richness,shrub cover,species_richness,grassland_species,confidence_intervals,0.172,36,NA,NA,-0.08410000000000001,0.4281,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,abundance,shrub cover,abundance,grassland_species,confidence_intervals,0.2968,36,NA,NA,-0.0413,0.6349,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,provide_overwintering_habitat,abundance,shrub cover,abundance,grassland_species,confidence_intervals,0.2968,36,NA,NA,-0.0413,0.6349,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,species_richness,shrub cover,species_richness,grassland_species,confidence_intervals,0.0708,36,NA,NA,-0.1833,0.32489999999999997,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,abundance,shrub cover,abundance,grassland_species,confidence_intervals,0.1096,36,NA,NA,-0.24889999999999998,0.46809999999999996,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,species_richness,shrub cover,species_richness,shrub_species,confidence_intervals,0.3698,36,NA,NA,0.20720000000000002,0.5324,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,provide_overwintering_habitat,species_richness,shrub cover,species_richness,shrub_species,confidence_intervals,0.3698,36,NA,NA,0.20720000000000002,0.5324,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,abundance,shrub cover,abundance,shrub_species,confidence_intervals,0.6237,36,NA,NA,0.42660000000000003,0.8208,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,provide_overwintering_habitat,abundance,shrub cover,abundance,shrub_species,confidence_intervals,0.6237,36,NA,NA,0.42660000000000003,0.8208,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,species_richness,shrub cover,species_richness,shrub_species,confidence_intervals,0.1352,36,NA,NA,0,0.2704,Traced from plot; Sample size is number of transects,NA
+TPZAX73L,Sadoti et al. 2018,edge_and_shrub_habitat,abundance,shrub cover,abundance,shrub_species,confidence_intervals,0.1188,36,NA,NA,-0.049899999999999986,0.2875,Traced from plot; Sample size is number of transects,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,black_and_white_warbler,confidence_intervals,0.7827,653,NA,NA,0.45239999999999997,1.113,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,chestnut_sided_warbler,confidence_intervals,0.5463,653,NA,NA,0.2973,0.7953,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,least_flycatcher,confidence_intervals,0.3557,653,NA,NA,0.09910000000000002,0.6123000000000001,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,vesper_sparrow,confidence_intervals,0.2768,653,NA,NA,-2.0000000000003348e-4,0.5538000000000001,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,brown_headed_cowbird,confidence_intervals,0.2641,653,NA,NA,0.0736,0.4546,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,gray_catbird,confidence_intervals,0.264,653,NA,NA,0.1446,0.3834,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,house_wren,confidence_intervals,0.236,653,NA,NA,0.1445,0.3275,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,common_grackle,confidence_intervals,0.208,653,NA,NA,0.1369,0.2791,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,baltimore_oriole,confidence_intervals,0.2003,653,NA,NA,0.04780000000000001,0.3528,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,indigo_bunting,confidence_intervals,0.185,653,NA,NA,-0.08939999999999998,0.4594,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,warbling_vireo,confidence_intervals,0.1646,653,NA,NA,0.04519999999999999,0.28400000000000003,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,common_yellowthroat,confidence_intervals,0.162,653,NA,NA,0.0858,0.23820000000000002,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,eastern_kingbird,confidence_intervals,0.1594,653,NA,NA,0.001899999999999985,0.31689999999999996,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,cedar_waxwing,confidence_intervals,0.1441,653,NA,NA,0.0121,0.2761,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,yellow_warbler,confidence_intervals,0.1364,653,NA,NA,0.055099999999999996,0.2177,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,blue_jay,confidence_intervals,0.1364,653,NA,NA,0.04239999999999999,0.2304,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,red_eyed_vireo,confidence_intervals,0.1312,653,NA,NA,0.03970000000000001,0.2227,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,eastern_phoebe,confidence_intervals,0.1312,653,NA,NA,-0.04669999999999999,0.30910000000000004,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,great_crested_flycatcher,confidence_intervals,0.1133,653,NA,NA,-0.05700000000000001,0.2836,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,mourning_dove,confidence_intervals,0.1057,653,NA,NA,0.032,0.1794,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,northern_cardinal,confidence_intervals,0.1031,653,NA,NA,-0.0519,0.2581,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,scarlet_tanager,confidence_intervals,0.0903,653,NA,NA,-0.4459,0.6265000000000001,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,chipping_sparrow,confidence_intervals,0.0877,653,NA,NA,-0.024099999999999996,0.1995,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,american_goldfinch,confidence_intervals,0.0826,653,NA,NA,0.01150000000000001,0.1537,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,song_sparrow,confidence_intervals,0.08,653,NA,NA,0.034300000000000004,0.1257,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,american_robin,confidence_intervals,0.0672,653,NA,NA,0.018899999999999993,0.11549999999999999,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,red_winged_blackbird,confidence_intervals,0.0443,653,NA,NA,-0.029400000000000003,0.118,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,black_capped_chickadee,confidence_intervals,0.0417,653,NA,NA,-0.1057,0.1891,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,alder_flycatcher,confidence_intervals,0.0365,653,NA,NA,-0.30400000000000005,0.377,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,brown_thrasher,confidence_intervals,0.0111,653,NA,NA,-0.1134,0.1356,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,american_redstart,confidence_intervals,0.00337,653,NA,NA,-0.33213000000000004,0.33887,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,eastern_wood_pewee,confidence_intervals,-0.0196,653,NA,NA,-0.3347,0.2955,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,eastern_towhee,confidence_intervals,-0.0374,653,NA,NA,-0.2203,0.14550000000000002,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,eastern_meadowlark,confidence_intervals,-0.0527,653,NA,NA,-0.12129999999999999,0.015899999999999997,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,bobolink,confidence_intervals,-0.0604,653,NA,NA,-0.1341,0.0133,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,grasshopper_sparrow,confidence_intervals,-0.0681,653,NA,NA,-0.2841,0.1479,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,wood_thrush,confidence_intervals,-0.0732,653,NA,NA,-0.4468,0.3004,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,veery,confidence_intervals,-0.1088,653,NA,NA,-0.5432,0.3256,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,savannah_sparrow,confidence_intervals,-0.1572,653,NA,NA,-0.2309,-0.0835,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,swamp_sparrow,confidence_intervals,-0.1776,653,NA,NA,-0.4165,0.06129999999999999,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,ovenbird,confidence_intervals,-0.1954,653,NA,NA,-0.5511,0.16030000000000003,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,field_sparrow,confidence_intervals,-0.2285,653,NA,NA,-0.3759,-0.0811,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,rose_breasted_grosbeak,confidence_intervals,-0.3048,653,NA,NA,-0.6072,-0.0024000000000000132,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,white_throated_sparrow,confidence_intervals,-0.3074,653,NA,NA,-0.6174,0.002599999999999991,Traced from plot,NA
+926Z83RQ,de Zwaan et al. 2024,edge_and_shrub_habitat,abundance,Proportion of linear woody features,abundance,willow_flycatcher,confidence_intervals,-0.6073,653,NA,NA,-1.1638,-0.050799999999999956,Traced from plot,NA
+J6MAVCRC,Lindenmayer et al. 2023,edge_and_shrub_habitat,species_richness,Sapling cover,species_richness,all_species,confidence_intervals,0.1861,95,NA,NA,0.12009999999999998,0.2521,Traced from plot,NA
+GYHE8CSK,Gray et al. 2026,delay_hay,nest_success,Difference between the predicted fledging date and the mowing date,nest_success,whinchat,standard_error,0.099,43,NA,0.051,NA,NA,NA,period_survival
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (1-year),abundance,bobolink,standard_error,0.065,298,NA,0.078,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (2-year),abundance,bobolink,standard_error,-0.375,298,NA,0.084,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (3-year),abundance,bobolink,standard_error,-0.46,298,NA,0.107,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (>3 years),abundance,bobolink,standard_error,-0.24,298,NA,0.078,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (1-year),abundance,dickcissel,standard_error,0.608,298,NA,0.098,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (2-year),abundance,dickcissel,standard_error,0.133,298,NA,0.12,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (3-year),abundance,dickcissel,standard_error,-0.41,298,NA,0.21,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (>3 years),abundance,dickcissel,standard_error,0.125,298,NA,0.102,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (1-year),abundance,eastern_meadowlark,standard_error,0.926,298,NA,0.469,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (2-year),abundance,eastern_meadowlark,standard_error,-0.286,298,NA,0.526,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (3-year),abundance,eastern_meadowlark,standard_error,0.077,298,NA,0.707,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (>3 years),abundance,eastern_meadowlark,standard_error,0.398,298,NA,0.485,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (1-year),abundance,grasshopper_sparrow,standard_error,0.278,298,NA,0.134,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (2-year),abundance,grasshopper_sparrow,standard_error,0.317,298,NA,0.137,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (3-year),abundance,grasshopper_sparrow,standard_error,0.22,298,NA,0.167,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (>3 years),abundance,grasshopper_sparrow,standard_error,0.628,298,NA,0.125,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (1-year),abundance,savannah_sparrow,standard_error,0.353,298,NA,0.13,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (2-year),abundance,savannah_sparrow,standard_error,0.469,298,NA,0.134,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (3-year),abundance,savannah_sparrow,standard_error,0.947,298,NA,0.148,NA,NA,NA,NA
+6S3L3WXJ,Ahlering et al. 2019,prescribed_fire,abundance,Time since fire (>3 years),abundance,savannah_sparrow,standard_error,0.543,298,NA,0.132,NA,NA,NA,NA

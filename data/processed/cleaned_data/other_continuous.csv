@@ -1,0 +1,11 @@
+key,paper,bmp,response_class,predictor_var,response_var,species,error_class,model,test_statistic,test_stat_value,df,global_n,global_sd,global_se,global_lcl,global_ucl,notes,survival_scale
+6DZHYDEB,Paker et al. 2014,keep_cats_indoors,species_richness,number of cats,species_richness,all_species,NA,canonical correspondence analysis,correlation,-0.298,24,25,NA,NA,NA,NA,NA,NA
+LU7TGZGG,Palasz et al. 2010,prescribed_fire,abundance,Number of growing seasons since fire,density,henslows_sparrow,NA,ANOVA,F,0.5,64,65,NA,NA,NA,NA,NA,NA
+LU7TGZGG,Palasz et al. 2010,provide_overwintering_habitat,abundance,Number of growing seasons since fire,density,henslows_sparrow,NA,ANOVA,F,0.5,64,65,NA,NA,NA,NA,NA,NA
+PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,distance to edge,nest_success,gray_catbird,confidence_intervals,Odds ratio,Odds ratio,1,NA,175,NA,NA,0.999,1.002,NA,period_survival
+PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,distance to edge,nest_success,northern_cardinal,confidence_intervals,Odds ratio,Odds ratio,1.006,NA,55,NA,NA,0.999,1.014,NA,period_survival
+PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,distance to edge,nest_success,indigo_bunting,confidence_intervals,Odds ratio,Odds ratio,1,NA,223,NA,NA,0.999,1,NA,period_survival
+8Q8KIGBU,Sims et al. 2008,keep_cats_indoors,species_richness,cat density,species_richness,all_species,NA,NA,r squared,0.156,29,30,NA,NA,NA,NA,NA,NA
+8Q8KIGBU,Sims et al. 2008,keep_cats_indoors,abundance,cat density,Log density,all_species,NA,NA,r squared,0.049,29,30,NA,NA,NA,NA,NA,NA
+T5H59RVD,Wilcox and Beck 2007,remove_non_native_shrubs,abundance,Proportion of privet cover,abundance,all_species,NA,Spearman rank correlation,r,-0.26,13,14,NA,NA,NA,NA,NA,NA
+T5H59RVD,Wilcox and Beck 2007,remove_non_native_shrubs,species_richness,Proportion of privet cover,species_richness,all_species,NA,Spearman rank correlation,r,-0.23,13,14,NA,NA,NA,NA,NA,NA
