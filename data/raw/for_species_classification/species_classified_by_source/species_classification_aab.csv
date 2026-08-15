@@ -1,0 +1,535 @@
+common_name,habitat
+black-bellied whistling-duck,Marshes
+fulvous whistling-duck,Marshes
+greater white-fronted goose,Lakes and Ponds
+canada goose,Marshes
+mute swan,Lakes and Ponds
+trumpeter swan,Lakes and Ponds
+tundra swan,Lakes and Ponds
+wood duck,Lakes and Ponds
+blue-winged teal,Marshes
+cinnamon teal,Marshes
+northern shoveler,Marshes
+gadwall,Marshes
+american wigeon,Lakes and Ponds
+american black duck,Lakes and Ponds
+mottled duck,Marshes
+northern pintail,Marshes
+green-winged teal,Marshes
+canvasback,Lakes and Ponds
+redhead,Lakes and Ponds
+ring-necked duck,Lakes and Ponds
+greater scaup,Lakes and Ponds
+lesser scaup,Lakes and Ponds
+common eider,Oceans
+harlequin duck,Rivers and Streams
+surf scoter,Oceans
+white-winged scoter,Lakes and Ponds
+black scoter,Oceans
+long-tailed duck,Lakes and Ponds
+bufflehead,Lakes and Ponds
+common goldeneye,Lakes and Ponds
+barrows goldeneye,Lakes and Ponds
+hooded merganser,Lakes and Ponds
+common merganser,Lakes and Ponds
+red-breasted merganser,Lakes and Ponds
+ruddy duck,Marshes
+plain chachalaca,Forests
+mountain quail,Forests
+northern bobwhite,Grasslands
+scaled quail,Grasslands
+california quail,Scrub
+gambels quail,Scrub
+montezuma quail,Open Woodlands
+chukar,Scrub
+gray partridge,Grasslands
+ring-necked pheasant,Grasslands
+ruffed grouse,Forests
+greater sage-grouse,Grasslands
+spruce grouse,Forests
+willow ptarmigan,Tundra
+rock ptarmigan,Tundra
+dusky grouse,Forests
+sooty grouse,Forests
+sharp-tailed grouse,Grasslands
+greater prairie-chicken,Grasslands
+lesser prairie-chicken,Grasslands
+wild turkey,Open Woodlands
+least grebe,Lakes and Ponds
+pied-billed grebe,Lakes and Ponds
+horned grebe,Lakes and Ponds
+red-necked grebe,Lakes and Ponds
+eared grebe,Lakes and Ponds
+rock pigeon,Towns
+white-crowned pigeon,Forests
+band-tailed pigeon,Forests
+eurasian collared-dove,Towns
+inca dove,Towns
+common ground-dove,Scrub
+white-tipped dove,Open Woodlands
+white-winged dove,Towns
+mourning dove,Open Woodlands
+yellow-billed cuckoo,Open Woodlands
+mangrove cuckoo,Forests
+black-billed cuckoo,Forests
+greater roadrunner,Scrub
+smooth-billed ani,Scrub
+groove-billed ani,Scrub
+lesser nighthawk,Deserts
+common nighthawk,Grasslands
+common pauraque,Forests
+common poorwill,Scrub
+chuck-wills-widow,Open Woodlands
+eastern whip-poor-will,Open Woodlands
+black swift,Forests
+chimney swift,Towns
+vauxs swift,Forests
+white-throated swift,Scrub
+rivolis hummingbird,Forests
+blue-throated hummingbird,Open Woodlands
+ruby-throated hummingbird,Open Woodlands
+black-chinned hummingbird,Open Woodlands
+annas hummingbird,Open Woodlands
+costas hummingbird,Deserts
+broad-tailed hummingbird,Open Woodlands
+rufous hummingbird,Open Woodlands
+allens hummingbird,Open Woodlands
+calliope hummingbird,Open Woodlands
+broad-billed hummingbird,Forests
+buff-bellied hummingbird,Open Woodlands
+yellow rail,Marshes
+black rail,Marshes
+clapper rail,Marshes
+king rail,Marshes
+virginia rail,Marshes
+sora,Marshes
+purple gallinule,Marshes
+common gallinule,Marshes
+american coot,Lakes and Ponds
+limpkin,Marshes
+sandhill crane,Marshes
+black-necked stilt,Marshes
+american avocet,Marshes
+american oystercatcher,Shorelines
+black oystercatcher,Shorelines
+american golden-plover,Grasslands
+pacific golden-plover,Grasslands
+snowy plover,Shorelines
+wilsons plover,Shorelines
+semipalmated plover,Shorelines
+killdeer,Grasslands
+mountain plover,Grasslands
+upland sandpiper,Grasslands
+whimbrel,Shorelines
+long-billed curlew,Grasslands
+bar-tailed godwit,Tundra
+marbled godwit,Grasslands
+ruddy turnstone,Shorelines
+least sandpiper,Marshes
+western sandpiper,Shorelines
+short-billed dowitcher,Marshes
+american woodcock,Forests
+wilsons snipe,Marshes
+spotted sandpiper,Shorelines
+solitary sandpiper,Marshes
+wandering tattler,Shorelines
+lesser yellowlegs,Marshes
+willet,Shorelines
+greater yellowlegs,Marshes
+wilsons phalarope,Lakes and Ponds
+red-necked phalarope,Oceans
+parasitic jaeger,Tundra
+long-tailed jaeger,Tundra
+black guillemot,Oceans
+pigeon guillemot,Oceans
+marbled murrelet,Oceans
+rhinoceros auklet,Oceans
+black-legged kittiwake,Oceans
+bonapartes gull,Lakes and Ponds
+laughing gull,Shorelines
+franklins gull,Lakes and Ponds
+mew gull,Shorelines
+ring-billed gull,Lakes and Ponds
+western gull,Oceans
+california gull,Lakes and Ponds
+herring gull,Shorelines
+glaucous-winged gull,Shorelines
+glaucous gull,Shorelines
+great black-backed gull,Shorelines
+least tern,Shorelines
+gull-billed tern,Shorelines
+caspian tern,Shorelines
+black tern,Marshes
+common tern,Shorelines
+arctic tern,Shorelines
+forsters tern,Marshes
+royal tern,Shorelines
+sandwich tern,Shorelines
+black skimmer,Shorelines
+red-throated loon,Lakes and Ponds
+pacific loon,Lakes and Ponds
+common loon,Lakes and Ponds
+wood stork,Marshes
+magnificent frigatebird,Oceans
+northern gannet,Oceans
+brandts cormorant,Oceans
+neotropic cormorant,Lakes and Ponds
+double-crested cormorant,Lakes and Ponds
+pelagic cormorant,Shorelines
+anhinga,Marshes
+american white pelican,Lakes and Ponds
+brown pelican,Oceans
+american bittern,Marshes
+least bittern,Marshes
+great egret,Marshes
+snowy egret,Marshes
+little blue heron,Marshes
+tricolored heron,Marshes
+reddish egret,Marshes
+cattle egret,Grasslands
+green heron,Marshes
+black-crowned night-heron,Marshes
+yellow-crowned night-heron,Marshes
+white ibis,Marshes
+glossy ibis,Marshes
+white-faced ibis,Marshes
+roseate spoonbill,Marshes
+black vulture,Grasslands
+turkey vulture,Open Woodlands
+osprey,Oceans
+white-tailed kite,Grasslands
+swallow-tailed kite,Forests
+golden eagle,Grasslands
+northern harrier,Grasslands
+sharp-shinned hawk,Forests
+coopers hawk,Forests
+northern goshawk,Forests
+bald eagle,Forests
+mississippi kite,Open Woodlands
+harriss hawk,Scrub
+white-tailed hawk,Grasslands
+gray hawk,Forests
+red-shouldered hawk,Forests
+broad-winged hawk,Forests
+short-tailed hawk,Forests
+swainsons hawk,Grasslands
+zone-tailed hawk,Forests
+rough-legged hawk,Grasslands
+ferruginous hawk,Grasslands
+barn owl,Grasslands
+western screech-owl,Open Woodlands
+eastern screech-owl,Forests
+great horned owl,Forests
+northern hawk owl,Forests
+northern pygmy-owl,Forests
+elf owl,Deserts
+burrowing owl,Grasslands
+spotted owl,Forests
+barred owl,Forests
+great gray owl,Forests
+long-eared owl,Forests
+short-eared owl,Grasslands
+boreal owl,Forests
+northern saw-whet owl,Forests
+elegant trogon,Forests
+belted kingfisher,Lakes and Ponds
+green kingfisher,Rivers and Streams
+lewiss woodpecker,Open Woodlands
+red-headed woodpecker,Open Woodlands
+acorn woodpecker,Open Woodlands
+gila woodpecker,Deserts
+golden-fronted woodpecker,Open Woodlands
+red-bellied woodpecker,Forests
+williamsons sapsucker,Forests
+yellow-bellied sapsucker,Forests
+red-naped sapsucker,Forests
+red-breasted sapsucker,Forests
+american three-toed woodpecker,Forests
+black-backed woodpecker,Forests
+downy woodpecker,Forests
+nuttalls woodpecker,Open Woodlands
+ladder-backed woodpecker,Deserts
+red-cockaded woodpecker,Open Woodlands
+hairy woodpecker,Forests
+white-headed woodpecker,Forests
+arizona woodpecker,Open Woodlands
+gilded flicker,Deserts
+pileated woodpecker,Forests
+crested caracara,Scrub
+american kestrel,Grasslands
+merlin,Forests
+gyrfalcon,Tundra
+peregrine falcon,Shorelines
+prairie falcon,Grasslands
+monk parakeet,Forests
+northern beardless-tyrannulet,Rivers and Streams
+dusky-capped flycatcher,Forests
+ash-throated flycatcher,Open Woodlands
+great crested flycatcher,Open Woodlands
+brown-crested flycatcher,Forests
+great kiskadee,Open Woodlands
+sulphur-bellied flycatcher,Forests
+couchs kingbird,Open Woodlands
+cassins kingbird,Open Woodlands
+thick-billed kingbird,Open Woodlands
+western kingbird,Grasslands
+eastern kingbird,Grasslands
+gray kingbird,Open Woodlands
+scissor-tailed flycatcher,Grasslands
+olive-sided flycatcher,Open Woodlands
+greater pewee,Open Woodlands
+western wood-pewee,Open Woodlands
+eastern wood-pewee,Forests
+yellow-bellied flycatcher,Forests
+acadian flycatcher,Forests
+least flycatcher,Forests
+hammonds flycatcher,Forests
+gray flycatcher,Open Woodlands
+dusky flycatcher,Open Woodlands
+black phoebe,Open Woodlands
+eastern phoebe,Open Woodlands
+says phoebe,Grasslands
+vermilion flycatcher,Grasslands
+loggerhead shrike,Open Woodlands
+northern shrike,Open Woodlands
+black-capped vireo,Scrub
+white-eyed vireo,Scrub
+bells vireo,Scrub
+gray vireo,Scrub
+huttons vireo,Forests
+yellow-throated vireo,Open Woodlands
+cassins vireo,Forests
+blue-headed vireo,Forests
+plumbeous vireo,Forests
+philadelphia vireo,Forests
+warbling vireo,Open Woodlands
+red-eyed vireo,Forests
+black-whiskered vireo,Forests
+canada jay,Forests
+green jay,Open Woodlands
+pinyon jay,Open Woodlands
+stellers jay,Forests
+blue jay,Forests
+florida scrub-jay,Scrub
+mexican jay,Open Woodlands
+clarks nutcracker,Forests
+black-billed magpie,Open Woodlands
+yellow-billed magpie,Open Woodlands
+american crow,Open Woodlands
+fish crow,Shorelines
+chihuahuan raven,Scrub
+common raven,Forests
+horned lark,Grasslands
+purple martin,Lakes and Ponds
+tree swallow,Lakes and Ponds
+violet-green swallow,Open Woodlands
+northern rough-winged swallow,Rivers and Streams
+bank swallow,Lakes and Ponds
+cliff swallow,Lakes and Ponds
+cave swallow,Grasslands
+barn swallow,Grasslands
+carolina chickadee,Forests
+black-capped chickadee,Forests
+mountain chickadee,Forests
+chestnut-backed chickadee,Forests
+boreal chickadee,Forests
+bridled titmouse,Forests
+oak titmouse,Open Woodlands
+juniper titmouse,Open Woodlands
+tufted titmouse,Forests
+black-crested titmouse,Forests
+verdin,Scrub
+bushtit,Scrub
+red-breasted nuthatch,Forests
+white-breasted nuthatch,Forests
+pygmy nuthatch,Forests
+brown-headed nuthatch,Forests
+brown creeper,Forests
+rock wren,Deserts
+canyon wren,Deserts
+house wren,Scrub
+pacific wren,Forests
+winter wren,Forests
+sedge wren,Grasslands
+marsh wren,Marshes
+carolina wren,Open Woodlands
+bewicks wren,Open Woodlands
+cactus wren,Deserts
+blue-gray gnatcatcher,Forests
+california gnatcatcher,Scrub
+black-tailed gnatcatcher,Scrub
+american dipper,Rivers and Streams
+golden-crowned kinglet,Forests
+ruby-crowned kinglet,Forests
+arctic warbler,Forests
+wrentit,Scrub
+bluethroat,Tundra
+northern wheatear,Tundra
+eastern bluebird,Grasslands
+western bluebird,Open Woodlands
+mountain bluebird,Open Woodlands
+townsends solitaire,Open Woodlands
+veery,Forests
+gray-cheeked thrush,Forests
+bicknells thrush,Forests
+swainsons thrush,Forests
+hermit thrush,Open Woodlands
+wood thrush,Forests
+american robin,Open Woodlands
+varied thrush,Forests
+gray catbird,Open Woodlands
+curve-billed thrasher,Scrub
+brown thrasher,Scrub
+long-billed thrasher,Scrub
+bendires thrasher,Deserts
+california thrasher,Scrub
+lecontes thrasher,Scrub
+crissal thrasher,Scrub
+sage thrasher,Scrub
+northern mockingbird,Towns
+european starling,Towns
+bohemian waxwing,Forests
+cedar waxwing,Open Woodlands
+phainopepla,Scrub
+olive warbler,Forests
+house sparrow,Towns
+eurasian tree sparrow,Towns
+eastern yellow wagtail,Tundra
+american pipit,Tundra
+spragues pipit,Grasslands
+evening grosbeak,Forests
+pine grosbeak,Open Woodlands
+house finch,Towns
+purple finch,Forests
+cassins finch,Forests
+common redpoll,Open Woodlands
+hoary redpoll,Open Woodlands
+red crossbill,Forests
+white-winged crossbill,Forests
+pine siskin,Open Woodlands
+lesser goldfinch,Open Woodlands
+lawrences goldfinch,Open Woodlands
+american goldfinch,Open Woodlands
+lapland longspur,Grasslands
+chestnut-collared longspur,Grasslands
+mccowns longspur,Grasslands
+olive sparrow,Scrub
+green-tailed towhee,Scrub
+spotted towhee,Scrub
+eastern towhee,Scrub
+rufous-crowned sparrow,Scrub
+canyon towhee,Scrub
+california towhee,Scrub
+aberts towhee,Deserts
+rufous-winged sparrow,Scrub
+botteris sparrow,Grasslands
+cassins sparrow,Grasslands
+bachmans sparrow,Open Woodlands
+american tree sparrow,Open Woodlands
+chipping sparrow,Open Woodlands
+clay-colored sparrow,Scrub
+brewers sparrow,Scrub
+field sparrow,Scrub
+black-chinned sparrow,Scrub
+vesper sparrow,Grasslands
+lark sparrow,Grasslands
+black-throated sparrow,Scrub
+lark bunting,Grasslands
+savannah sparrow,Grasslands
+grasshopper sparrow,Grasslands
+bairds sparrow,Grasslands
+henslows sparrow,Grasslands
+lecontes sparrow,Grasslands
+seaside sparrow,Marshes
+nelsons sparrow,Marshes
+saltmarsh sparrow,Marshes
+fox sparrow,Forests
+song sparrow,Open Woodlands
+lincolns sparrow,Scrub
+swamp sparrow,Marshes
+white-throated sparrow,Forests
+white-crowned sparrow,Scrub
+golden-crowned sparrow,Scrub
+yellow-eyed junco,Open Woodlands
+yellow-breasted chat,Scrub
+yellow-headed blackbird,Marshes
+bobolink,Grasslands
+eastern meadowlark,Grasslands
+western meadowlark,Grasslands
+orchard oriole,Open Woodlands
+hooded oriole,Open Woodlands
+bullocks oriole,Open Woodlands
+spot-breasted oriole,Towns
+altamira oriole,Open Woodlands
+audubons oriole,Open Woodlands
+baltimore oriole,Forests
+scotts oriole,Open Woodlands
+red-winged blackbird,Marshes
+tricolored blackbird,Marshes
+bronzed cowbird,Towns
+brown-headed cowbird,Grasslands
+rusty blackbird,Forests
+brewers blackbird,Towns
+common grackle,Open Woodlands
+boat-tailed grackle,Marshes
+great-tailed grackle,Scrub
+ovenbird,Forests
+worm-eating warbler,Forests
+louisiana waterthrush,Rivers and Streams
+northern waterthrush,Forests
+golden-winged warbler,Open Woodlands
+blue-winged warbler,Open Woodlands
+black-and-white warbler,Forests
+prothonotary warbler,Forests
+swainsons warbler,Forests
+tennessee warbler,Forests
+orange-crowned warbler,Forests
+lucys warbler,Scrub
+nashville warbler,Forests
+virginias warbler,Open Woodlands
+connecticut warbler,Forests
+macgillivrays warbler,Open Woodlands
+mourning warbler,Forests
+kentucky warbler,Forests
+common yellowthroat,Scrub
+hooded warbler,Forests
+american redstart,Forests
+kirtlands warbler,Scrub
+cape may warbler,Forests
+cerulean warbler,Forests
+northern parula,Forests
+magnolia warbler,Forests
+bay-breasted warbler,Forests
+blackburnian warbler,Forests
+yellow warbler,Open Woodlands
+chestnut-sided warbler,Open Woodlands
+blackpoll warbler,Forests
+black-throated blue warbler,Forests
+palm warbler,Open Woodlands
+pine warbler,Forests
+yellow-throated warbler,Forests
+prairie warbler,Scrub
+graces warbler,Forests
+black-throated gray warbler,Forests
+townsends warbler,Forests
+hermit warbler,Forests
+golden-cheeked warbler,Forests
+black-throated green warbler,Forests
+canada warbler,Forests
+wilsons warbler,Scrub
+red-faced warbler,Forests
+painted redstart,Forests
+hepatic tanager,Forests
+summer tanager,Open Woodlands
+scarlet tanager,Forests
+western tanager,Forests
+northern cardinal,Open Woodlands
+pyrrhuloxia,Scrub
+rose-breasted grosbeak,Forests
+black-headed grosbeak,Forests
+blue grosbeak,Open Woodlands
+lazuli bunting,Open Woodlands
+indigo bunting,Open Woodlands
+varied bunting,Scrub
+painted bunting,Scrub
+dickcissel,Grasslands
