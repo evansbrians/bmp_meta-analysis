@@ -268,6 +268,17 @@ reported_cells <-
     by = "response_metric"
   )
 
+# A reported cell with no recomputed counterpart joins to NA, which is a
+# failure to reconcile, not a pass.
+
+reconciliation_mismatches <-
+  verification_reconciliation %>%
+  filter(
+    !replace_na(k_matches, FALSE) |
+      !replace_na(studies_match, FALSE)
+  ) %>%
+  nrow()
+
 sub_threshold_flags <-
   reported_cells %>%
   filter(n_studies < 3) %>%
@@ -349,3 +360,110 @@ pooled_metrics_reported <-
   table_pooled_bmp %>%
   pull(response_metric) %>%
   unique()
+
+# The pooled model set is a decision, not an accident: abundance only, and only
+# practices clearing the thresholds in both guilds.
+
+pooled_practices_expected <-
+  model_pools %>%
+  pluck("abundance_guild_bmp") %>%
+  practices_in_both_guilds()
+
+pooled_practices_reported <-
+  table_pooled_bmp %>%
+  pull(bmp) %>%
+  as.character()
+
+verification_assertions <-
+  tribble(
+    ~ assertion, ~ passed, ~ detail,
+    "Every reported cell meets its metric's effect-size threshold",
+    all(reported_cells$k >= reported_cells$metric_min_effect_sizes),
+    glue::glue("Minimum k reported: {min(reported_cells$k)}"),
+    "Every reported cell meets its metric's independent-study threshold",
+    all(reported_cells$n_studies >= reported_cells$metric_min_studies),
+    glue::glue("Minimum studies reported: {min(reported_cells$n_studies)}"),
+    "Cells below the primary threshold are flagged provisional",
+    all(!sub_threshold_flags),
+    glue::glue(
+      "Provisional cells: ",
+      "{sum(!reported_cells$meets_primary_threshold)} ",
+      "of {nrow(reported_cells)}"
+    ),
+    "Reported sample sizes reconcile with the effect-size table",
+    reconciliation_mismatches == 0,
+    glue::glue("Mismatched cells: {reconciliation_mismatches}"),
+    "No species resolves to more than one guild",
+    max(guilds_per_species) == 1,
+    glue::glue("Species checked: {length(guilds_per_species)}"),
+    "No shrubland guild appears in any results table",
+    !any(shrubland_flags),
+    glue::glue(
+      "Shrubland rows in the results tables: {sum(shrubland_flags)}"
+    ),
+    "Bayesian and REML fits agree on the sign of every non-null cell mean",
+    all(verification_bayes_vs_reml$agrees_on_sign),
+    glue::glue(
+      "Disagreements: {sum(!verification_bayes_vs_reml$agrees_on_sign)}"
+    ),
+    str_c(
+      "Bayesian and REML fits agree on which intervals exclude zero, ",
+      "for cells above the primary threshold"
+    ),
+    all(primary_exclusion_agreement),
+    glue::glue(
+      "Disagreements above the primary threshold: ",
+      "{sum(!primary_exclusion_agreement)}"
+    ),
+    "Provisional cells where REML and Bayes disagree on excluding zero",
+    TRUE,
+    glue::glue(
+      "{sum(!provisional_exclusion_agreement)} of ",
+      "{length(provisional_exclusion_agreement)} provisional cells ",
+      "(informational)"
+    ),
+    "No assemblage-level effect size enters a pooled model",
+    nrow(pooled_community_rows) == 0,
+    glue::glue(
+      "Community rows in the pooled pool: {nrow(pooled_community_rows)}"
+    ),
+    "Every pooled cell holds at least the effect sizes of its guild cells",
+    all(pooled_coverage$covers_guilds),
+    glue::glue(
+      "Pooled cells smaller than their guild cells: ",
+      "{sum(!pooled_coverage$covers_guilds)}"
+    ),
+    "Pooled estimates are labelled pooled, and guild estimates are not",
+    all(pooled_rows_labelled) &&
+      !any(guild_rows_mislabelled),
+    glue::glue("Pooled cells reported: {length(pooled_rows_labelled)}"),
+    str_c(
+      "Abundance is the only pooled metric, and it pools only ",
+      "practices found in both guilds"
+    ),
+    setequal(pooled_metrics_reported, "abundance") &&
+      setequal(pooled_practices_reported, pooled_practices_expected),
+    glue::glue(
+      "Metrics pooled: {str_flatten_comma(pooled_metrics_reported)}; ",
+      "eligible practices: {length(pooled_practices_expected)}"
+    )
+  )
+
+verification_assertions %>%
+  write_output_table(
+    file_name = "verification_assertions.csv",
+    directory = "output/diagnostics"
+  )
+
+failed_assertions <-
+  verification_assertions %>%
+  filter(
+    !replace_na(passed, FALSE)
+  ) %>%
+  pull(assertion)
+
+if (length(failed_assertions) > 0) {
+  cli::cli_warn(
+    "Verification assertions failed: {failed_assertions}."
+  )
+}

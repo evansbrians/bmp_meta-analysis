@@ -11,6 +11,19 @@ library(tidyverse)
 
 source("scripts/functions.R")
 
+# Sentinels that mean missing in the source workbook. "unknown" is not among
+# them: in the screening columns it is a real category and is kept.
+
+null_tokens <-
+  c(
+    "",
+    "-",
+    "na",
+    "n/a",
+    "none",
+    "nan"
+  )
+
 # Google sheet url:
 
 url <-
@@ -41,15 +54,17 @@ paper_metadata_cleaned_fields <-
   paper_metadata %>%
   mutate(
     
-    # Character columns get squished (trim whitespace):
-    
+    # Character columns get squished, and the sentinels are blanked:
+
     across(
       where(is.character),
       \(.column) {
-        .column %>%
-          str_squish() %>%
-          na_if("-") %>%
-          na_if("")
+        squished <- str_squish(.column)
+        if_else(
+          str_to_lower(squished) %in% null_tokens,
+          NA_character_,
+          squished
+        )
       }
     ),
     
@@ -71,6 +86,36 @@ paper_metadata_cleaned_fields <-
           str_replace_all("[^a-z0-9]+", "_")
       }
     )
+  )
+
+# canonical bmps ----------------------------------------------------------
+
+# Ensuring that BMP names are equivalent across the data:
+
+paper_metadata_canonical_bmps <-
+  paper_metadata_cleaned_fields %>%
+  mutate(
+    bmp =
+      case_when(
+        bmp == "grazing_intensity" ~ "reduce_grazing_intensity",
+        bmp == "summer_pasture_stockpiling" ~ "rotational_grazing",
+        bmp == "remove_non-native_species" ~ "remove_non_native_shrubs",
+        .default = bmp
+      ),
+    multiple_bmps =
+      multiple_bmps %>%
+      str_replace_all(
+        "\\bgrazing_intensity\\b",
+        "reduce_grazing_intensity"
+      ) %>%
+      str_replace_all(
+        "summer_pasture_stockpiling",
+        "rotational_grazing"
+      ) %>%
+      str_replace_all(
+        "remove_non-native_species",
+        "remove_non_native_shrubs"
+      )
   )
 
 # reference geography -----------------------------------------------------
@@ -167,7 +212,7 @@ geography_lookup <-
 # clean geographies -------------------------------------------------------
 
 paper_metadata_cleaned_geographies <-
-  paper_metadata_cleaned_fields %>%
+  paper_metadata_canonical_bmps %>%
   
   # Long format for non-atomic geographies:
   

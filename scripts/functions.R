@@ -1477,41 +1477,65 @@ add_row_id <-
       )
   }
 
+# Every practice the cleaned sheets may carry. A value outside this list is an
+# uncanonicalised string 2_clean_extraction_gsheet.R should have folded.
+
+canonical_practices <-
+  c(
+    "delay_hay",
+    "edge_and_shrub_habitat",
+    "eliminate_pesticides",
+    "install_nest_boxes",
+    "keep_cats_indoors",
+    "manage_in_patches",
+    "mow_towards_refugia",
+    "no_bmp",
+    "plant_nwsg",
+    "prescribed_fire",
+    "provide_overwintering_habitat",
+    "reduce_grazing_intensity",
+    "remove_non_native_shrubs",
+    "rotational_grazing",
+    "set_aside_adjacent_unmowed",
+    "stream_exclusion_and_buffers",
+    "upgrade_to_darksky"
+  )
+
+# No practice is pooled for the models at present. Add a row to pool one
+# practice into another; the extraction stays canonical either way.
+
+practice_analysis_groups <-
+  tibble(
+    bmp = character(),
+    analysis_bmp = character()
+  )
+
 # The coarser practice the models group on. Practice strings arrive canonical
 # and one per row, so only the grouping is left.
 
 add_analysis_bmp <-
   function(.data) {
-    renamed <-
-      .data %>%
-      left_join(
-        db_vocab$bmp_renames,
-        by = join_by(bmp == recorded_code)
-      ) %>%
-      mutate(bmp = coalesce(bmp_code, bmp)) %>%
-      select(!bmp_code)
-
     unknown <-
-      renamed %>%
+      .data %>%
       pull(bmp) %>%
       unique() %>%
-      setdiff(db_vocab$bmp_canonical$bmp_code)
+      setdiff(canonical_practices)
 
     if (length(unknown) > 0) {
       cli::cli_abort(
-        "Practices missing from db_vocab$bmp_canonical: {unknown}."
+        "Practices missing from {.var canonical_practices}: {unknown}."
       )
     }
 
-    renamed %>%
+    .data %>%
       left_join(
-        db_vocab$bmp_analysis_groups,
-        by = join_by(bmp == bmp_code)
+        practice_analysis_groups,
+        by = join_by(bmp)
       ) %>%
-      mutate(bmp = coalesce(analysis_bmp_code, bmp)) %>%
-      select(
-        !c(analysis_bmp_code, analysis_bmp_label)
-      )
+      mutate(
+        bmp = coalesce(analysis_bmp, bmp)
+      ) %>%
+      select(!analysis_bmp)
   }
 
 # The one read path for the five cleaned extraction tables. Everything is

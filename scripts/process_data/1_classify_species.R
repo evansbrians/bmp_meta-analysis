@@ -1,11 +1,9 @@
 
 # Purpose: This script:
 
-# - Cleans the species lists in the three study results frames (mean_diff and
-#   beta_categorical)
+# - Combines the habitat classifications from multiple sources
 # - Defines facultative and grassland grassland species
-# - Subsets the frames for analysis to just those associated with facultative 
-#   and grassland species.
+# - Provides a reference to subset to facultative and obligate grassland species
 
 # setup -------------------------------------------------------------------
 
@@ -25,40 +23,12 @@ list(
   ) %>% 
   list2env(.GlobalEnv)
 
-# Study results tables:
-
-list(
-  "mean_diff",
-  "beta_categorical",
-  "other_categorical"
-) %>% 
-  set_names() %>% 
-  map(
-    ~ readxl::read_xlsx(
-      "data/raw/bmp_review_analysis_subset.xlsx",
-      sheet = .x
-    ) %>% 
-      mutate(
-        species = fix_common_names(species)
-      )
-  ) %>% 
-  list2env(.GlobalEnv)
-
 # pass 1: class combination -----------------------------------------------
 
 # Remove hand-entered and pif, combine with pif and birdbase:
 
 species_classes_combined <-
   species_classes_start %>% 
-  filter(
-    !source %in%
-      c(
-        "palearctic_extension",
-        "hand_entered",
-        "partners_in_flight"
-      )
-  ) %>% 
-  select(!analysis) %>% 
   
   # Add partners in flight (subset to the species searched for):
   
@@ -85,12 +55,7 @@ species_classes_combined <-
         .keep = "none"
       )
   ) %>% 
-  arrange(species) %>% 
-  left_join(
-    species_classes_start %>% 
-      distinct(species, analysis),
-    by = "species"
-  )
+  arrange(species)
 
 # pass 2: hand classes ----------------------------------------------------
 
@@ -99,7 +64,6 @@ species_classes_combined <-
 
 species_classified_hand_classes <- 
   species_classes_combined %>% 
-  select(!analysis) %>% 
   mutate(
     source = 
       if_else(
@@ -171,6 +135,7 @@ species_classified_hand_classes <-
       "black_tailed_godwit", "traitdata", "grassland; swamp",
       "common_wood_pigeon", "traitdata",
       "deciduous_forest; coniferous_forest; woodland; human_settlements",
+      "common_quail", "traitdata", "grassland",
       "corn_bunting", "traitdata", "grassland",
       "corncrake", "traitdata", "grassland",
       "eurasian_blue_tit", "traitdata", "woodland",
@@ -186,6 +151,7 @@ species_classified_hand_classes <-
       "western_yellow_wagtail", "traitdata", "grassland; shrub; swamp",
       "wheatear", "traitdata", "tundra; grassland; mountain_meadows; rocks",
       "whinchat", "traitdata", "grassland",
+      "white_stork", "traitdata", "shrub; grassland; swamps; freshwater",
       "wild_turkey", "traitdata", "woodland; grassland",
       "yellowhammer", "traitdata", "woodland; shrub; grassland",
       
@@ -282,11 +248,67 @@ species_classified <-
   ) %>% 
   arrange(species)
 
+# species group -----------------------------------------------------------
+
+# Not every label in the extraction is one bird species. Anything the four
+# tests below miss is taken to be a species.
+
+species_classified <-
+  species_classified %>%
+  mutate(
+    species_group =
+      case_when(
+        str_detect(species, "^artificial_nests") ~ "artificial_nest",
+        species == "carnivores" ~ "non_bird",
+        species %in%
+          c(
+            "all_species",
+            "bird_and_mammal_species",
+            "breeding_species",
+            "wintering_species"
+          ) ~ "aggregate",
+        species %in%
+          c(
+            "breeding_grassland_species",
+            "breeding_shrub_scrub_species",
+            "edge_species",
+            "facultative_grassland_species",
+            "farmland_bird_indicator_species",
+            "farmland_specialists",
+            "frugivores",
+            "generalists",
+            "granivores",
+            "grassland_facultative_species",
+            "grassland_obligates",
+            "grassland_specialists",
+            "grassland_species",
+            "ground_nesters",
+            "insectivores",
+            "meadowlark_spp",
+            "non_grassland_species",
+            "non_insectivores",
+            "obligate_grassland_species",
+            "omnivores",
+            "passerines",
+            "resident_species",
+            "residents",
+            "shrub_species",
+            "sparrows",
+            "specialists",
+            "tits",
+            "waders",
+            "wintering_shrub_scrub_species",
+            "woodland_species"
+          ) ~ "guild",
+        .default = "species"
+      )
+  )
+
 # final edits and write data ----------------------------------------------
 
 # Species-analysis frame:
 
-species_classified %>% 
+species_classified %>%
   write_csv(
     here(
       "data/processed/species_classification",
