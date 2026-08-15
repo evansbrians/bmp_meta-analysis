@@ -1,0 +1,501 @@
+species,classification
+levant_sparrowhawk,deciduous_forest; woodland
+northern_goshawk,coniferous_forest
+eurasian_sparrowhawk,deciduous_forest; coniferous_forest; woodland
+cinereous_vulture,deciduous_forest; coniferous_forest; grassland; desert; rocks
+spanish_imperial_eagle,woodland; savanna; grassland
+bonellis_eagle,shrub; savanna; grassland; desert
+eastern_imperial_eagle,woodland; savanna; grassland
+golden_eagle,woodland; grassland; mountain_meadows
+steppe_eagle,grassland; desert
+eurasian_buzzard,deciduous_forest; coniferous_forest; woodland
+rough_legged_buzzard,tundra
+long_legged_buzzard,grassland; desert
+short_toed_snake_eagle,deciduous_forest; coniferous_forest; woodland; shrub; grassland; desert; rocks
+western_marsh_harrier,reed; freshwater
+hen_harrier,shrub; grassland; swamps
+pallid_harrier,grassland
+montagus_harrier,shrub; grassland; swamps
+greater_spotted_eagle,coniferous_forest; swamps
+lesser_spotted_eagle,deciduous_forest; coniferous_forest; woodland; swamps
+black_winged_kite,woodland; shrub; savanna; grassland; desert
+bearded_vulture,rocks
+griffon_vulture,grassland; desert
+white_tailed_sea_eagle,deciduous_forest; coniferous_forest; tundra; swamps; freshwater
+booted_eagle,deciduous_forest; coniferous_forest
+black_kite,deciduous_forest; coniferous_forest; grassland; swamps; freshwater; human_settlements
+red_kite,deciduous_forest; woodland; savanna; grassland
+egyptian_vulture,savanna; grassland; rocks; human_settlements
+european_honey_buzzard,deciduous_forest; coniferous_forest; woodland
+osprey,freshwater; marine
+mandarin_duck,deciduous_forest; freshwater; human_settlements
+wood_duck,deciduous_forest; coniferous_forest; freshwater
+egyptian_goose,freshwater; human_settlements
+northern_pintail,tundra; grassland; freshwater
+common_teal,tundra; grassland; freshwater
+mallard,freshwater
+greater_white_fronted_goose,tundra; freshwater
+greylag_goose,tundra; grassland; swamps; freshwater
+pink_footed_goose,grassland; freshwater
+lesser_white_fronted_goose,tundra; freshwater
+bean_goose,coniferous_forest; tundra; freshwater
+common_pochard,freshwater
+tufted_duck,freshwater
+greater_scaup,tundra; freshwater; marine
+ferruginous_duck,freshwater
+brent_goose,tundra; marine
+canada_goose,freshwater; human_settlements
+barnacle_goose,tundra; freshwater; marine
+common_goldeneye,coniferous_forest; tundra; freshwater
+barrows_goldeneye,tundra; freshwater
+long_tailed_duck,tundra; freshwater; marine
+tundra_swan,tundra; swamps; freshwater
+whooper_swan,swamps; freshwater
+mute_swan,freshwater
+harlequin_duck,freshwater
+eurasian_wigeon,deciduous_forest; coniferous_forest; freshwater
+gadwall,grassland; freshwater
+marbled_duck,freshwater
+velvet_scoter,tundra; freshwater
+black_scoter,tundra; freshwater
+smew,deciduous_forest; coniferous_forest; woodland; tundra; freshwater
+goosander,deciduous_forest; freshwater
+red_breasted_merganser,deciduous_forest; coniferous_forest; tundra; freshwater; marine
+red_crested_pochard,freshwater
+ruddy_duck,freshwater
+white_headed_duck,freshwater
+stellers_eider,tundra; swamps; freshwater; marine
+common_eider,marine
+king_eider,tundra; freshwater; marine
+northern_shoveler,woodland; grassland; freshwater
+garganey,grassland; swamps; freshwater
+ruddy_shelduck,freshwater
+common_shelduck,freshwater; marine
+common_swift,rocks; human_settlements
+white_rumped_swift,rocks; human_settlements
+pallid_swift,marine; rocks; human_settlements
+plain_swift,rocks
+alpine_swift,rocks; human_settlements
+european_nightjar,deciduous_forest; coniferous_forest; woodland
+red_necked_nightjar,deciduous_forest; coniferous_forest; woodland
+white_stork,shrub; grassland; swamps; freshwater
+black_stork,deciduous_forest; swamps
+rock_dove,grassland; marine; rocks; human_settlements
+stock_dove,deciduous_forest; coniferous_forest; woodland
+common_woodpigeon,deciduous_forest; coniferous_forest; woodland; human_settlements
+madeira_laurel_pigeon,deciduous_forest; coniferous_forest; woodland
+laughing_dove,woodland; human_settlements
+eurasian_collared_dove,human_settlements
+european_turtle_dove,woodland
+common_kingfisher,freshwater
+european_roller,deciduous_forest; coniferous_forest; woodland
+european_bee_eater,woodland; shrub; grassland
+blue_cheeked_bee_eater,shrub; grassland
+common_hoopoe,woodland; grassland
+great_spotted_cuckoo,woodland; shrub; grassland
+common_cuckoo,deciduous_forest; coniferous_forest; woodland; shrub; grassland; reed; swamps
+oriental_cuckoo,deciduous_forest; coniferous_forest
+himalayan_cuckoo,deciduous_forest; coniferous_forest
+lanner_falcon,shrub; grassland; desert
+merlin,grassland
+eleonoras_falcon,marine; rocks
+saker_falcon,woodland; grassland
+lesser_kestrel,grassland; rocks
+peregrine_falcon,woodland; grassland; rocks
+gyrfalcon,coniferous_forest; tundra
+eurasian_hobby,deciduous_forest; coniferous_forest; woodland
+common_kestrel,savanna; grassland; human_settlements
+red_footed_falcon,woodland; grassland
+california_quail,coniferous_forest; shrub
+northern_bobwhite,woodland; grassland
+barbary_partridge,woodland; shrub; grassland; rocks
+rock_partridge,deciduous_forest; coniferous_forest; mountain_meadows; rocks
+chukar,shrub; desert; rocks
+red_legged_partridge,grassland; mountain_meadows; rocks
+hazel_grouse,deciduous_forest; coniferous_forest
+common_quail,grassland
+black_francolin,shrub; grassland
+lady_amhersts_pheasant,deciduous_forest; coniferous_forest; woodland
+golden_pheasant,shrub
+willow_grouse,tundra; swamps
+rock_ptarmigan,rocks
+caucasian_grouse,coniferous_forest; mountain_meadows
+black_grouse,deciduous_forest; coniferous_forest; woodland
+wild_turkey,woodland; grassland
+grey_partridge,grassland
+common_pheasant,woodland; grassland
+reevess_pheasant,deciduous_forest; coniferous_forest
+western_capercaillie,coniferous_forest
+caspian_snowcock,shrub; mountain_meadows; rocks
+caucasian_snowcock,mountain_meadows; rocks
+yellow_billed_loon,freshwater
+arctic_loon,freshwater
+common_loon,freshwater
+red_throated_loon,freshwater
+demoiselle_crane,grassland
+common_crane,reed; swamps; freshwater
+corncrake,grassland; mountain_meadows
+eurasian_coot,freshwater
+red_knobbed_coot,freshwater
+common_moorhen,woodland; freshwater
+purple_swamphen,reed; swamps; freshwater
+spotted_crake,reed; swamps; freshwater
+western_water_rail,reed; swamps; freshwater
+little_crake,reed; swamps; freshwater
+baillons_crake,reed; swamps; freshwater
+razorbill,marine
+little_auk,marine
+black_guillemot,marine
+atlantic_puffin,marine
+common_murre,marine
+thick_billed_murre,marine; rocks
+eurasian_thick_knee,shrub; grassland
+black_winged_pratincole,grassland
+collared_pratincole,grassland; desert
+eurasian_oystercatcher,freshwater; marine
+eurasian_dotterel,tundra; rocks
+kentish_plover,marine
+caspian_plover,desert
+little_ringed_plover,freshwater
+common_ringed_plover,tundra; freshwater; marine
+greater_sandplover,desert; freshwater; marine
+eurasian_golden_plover,tundra
+grey_plover,tundra
+sociable_lapwing,grassland
+white_tailed_lapwing,swamps; freshwater
+spur_winged_lapwing,swamps; freshwater
+northern_lapwing,grassland
+common_gull_billed_tern,freshwater; marine
+little_gull,reed; swamps; freshwater
+caspian_tern,freshwater; marine
+whiskered_tern,reed; swamps; freshwater
+white_winged_tern,reed; swamps; freshwater
+black_tern,reed; swamps; freshwater
+european_herring_gull,marine; rocks; human_settlements
+armenian_gull,freshwater
+audouins_gull,marine; rocks
+mew_gull,freshwater; marine
+lesser_black_backed_gull,freshwater; marine; human_settlements
+slender_billed_gull,freshwater; marine
+iceland_gull,marine; rocks
+glaucous_gull,freshwater; marine; rocks
+pallass_gull,reed; freshwater
+great_black_backed_gull,marine; rocks
+mediterranean_gull,grassland; swamps; freshwater; marine
+yellow_legged_gull,freshwater; marine; rocks
+black_headed_gull,swamps; freshwater; marine
+sooty_tern,marine
+ivory_gull,marine
+black_legged_kittiwake,marine; rocks
+roseate_tern,marine
+common_tern,freshwater; marine
+arctic_tern,freshwater; marine
+little_tern,freshwater; marine
+lesser_crested_tern,marine
+sandwich_tern,marine
+sabines_gull,tundra; swamps; marine
+black_winged_stilt,freshwater
+pied_avocet,freshwater; marine
+common_sandpiper,freshwater
+ruddy_turnstone,marine
+sanderling,tundra
+dunlin,tundra; freshwater; marine
+red_knot,tundra; swamps
+broad_billed_sandpiper,tundra; swamps
+purple_sandpiper,tundra; marine; rocks
+pectoral_sandpiper,tundra
+little_stint,tundra; freshwater
+ruff,tundra; swamps; freshwater
+temmincks_stint,tundra; freshwater; marine
+common_snipe,tundra; swamps; freshwater
+great_snipe,woodland; tundra; reed; swamps
+pin_tailed_snipe,tundra; swamps
+bar_tailed_godwit,tundra; marine
+black_tailed_godwit,grassland; swamps
+jack_snipe,tundra; swamps
+eurasian_curlew,tundra; grassland; swamps
+whimbrel,tundra
+red_phalarope,tundra; marine
+red_necked_phalarope,tundra; swamps; freshwater; marine
+eurasian_woodcock,deciduous_forest; coniferous_forest; woodland; swamps
+spotted_redshank,tundra; swamps
+wood_sandpiper,coniferous_forest; tundra; swamps
+common_greenshank,coniferous_forest; tundra; swamps
+green_sandpiper,woodland; swamps; freshwater
+marsh_sandpiper,swamps; freshwater
+common_redshank,grassland; swamps
+terek_sandpiper,grassland; swamps; freshwater
+great_skua,tundra; marine
+long_tailed_jaeger,tundra; marine
+arctic_jaeger,tundra; marine
+pomarine_jaeger,tundra; freshwater; marine
+common_buttonquail,shrub
+great_bustard,grassland
+little_bustard,grassland
+paddyfield_warbler,reed
+great_reed_warbler,reed; swamps; freshwater
+blyths_reed_warbler,deciduous_forest; woodland; shrub
+moustached_warbler,reed; freshwater
+aquatic_warbler,swamps; freshwater
+marsh_warbler,woodland; shrub
+common_reed_warbler,reed; freshwater
+sedge_warbler,shrub; reed; swamps; freshwater
+icterine_warbler,deciduous_forest; woodland; shrub
+olive_tree_warbler,deciduous_forest; woodland; shrub
+melodious_warbler,deciduous_forest; woodland; shrub
+booted_warbler,deciduous_forest; coniferous_forest; woodland; shrub; reed
+eastern_olivaceous_warbler,woodland; shrub
+long_tailed_tit,deciduous_forest; woodland; shrub
+eurasian_skylark,grassland; mountain_meadows
+white_winged_lark,grassland
+lesser_short_toed_lark,grassland; desert
+mediterranean_short_toed_lark,grassland; desert
+greater_short_toed_lark,grassland
+horned_lark,tundra
+crested_lark,grassland; desert
+theklas_lark,shrub; grassland
+duponts_lark,grassland
+woodlark,woodland; shrub; grassland
+calandra_lark,grassland
+bohemian_waxwing,coniferous_forest
+lapland_longspur,tundra
+snow_bunting,tundra; rocks
+short_toed_treecreeper,deciduous_forest; coniferous_forest; woodland
+eurasian_treecreeper,deciduous_forest; coniferous_forest
+white_throated_dipper,freshwater
+zitting_cisticola,savanna; grassland; swamps
+common_raven,deciduous_forest; coniferous_forest; rocks
+carrion_crow,woodland; human_settlements
+rook,deciduous_forest; coniferous_forest; woodland; human_settlements
+eurasian_jackdaw,woodland; human_settlements
+asian_azure_winged_magpie,deciduous_forest; coniferous_forest; woodland
+eurasian_jay,deciduous_forest; coniferous_forest
+northern_nutcracker,coniferous_forest
+siberian_jay,coniferous_forest
+eurasian_magpie,deciduous_forest; coniferous_forest; woodland; human_settlements
+yellow_billed_chough,mountain_meadows; rocks; human_settlements
+red_billed_chough,grassland; mountain_meadows; rocks
+yellow_breasted_bunting,deciduous_forest; coniferous_forest; woodland; mountain_meadows
+red_headed_bunting,shrub; grassland; desert
+cretzschmars_bunting,shrub; rocks
+corn_bunting,grassland
+rock_bunting,shrub; rocks
+cinereous_bunting,shrub; rocks
+cirl_bunting,woodland; shrub
+yellowhammer,woodland; shrub; grassland
+ortolan_bunting,coniferous_forest; woodland; shrub
+pine_bunting,deciduous_forest; coniferous_forest; woodland
+black_headed_bunting,shrub
+pallass_bunting,shrub; tundra
+little_bunting,deciduous_forest; coniferous_forest; tundra
+rustic_bunting,deciduous_forest; coniferous_forest; swamps
+reed_bunting,tundra; reed; swamps
+red_avadavat,reed
+common_waxbill,reed
+orange_cheeked_waxbill,shrub; savanna; grassland
+redpoll,deciduous_forest; coniferous_forest; woodland; tundra; mountain_meadows; deciduous_forest; coniferous_forest; tundra
+trumpeter_finch,desert; rocks
+mongolian_finch,mountain_meadows; desert; rocks
+european_goldfinch,deciduous_forest; woodland; human_settlements
+citril_finch,coniferous_forest; shrub; mountain_meadows
+common_rosefinch,woodland; shrub
+great_rosefinch,mountain_meadows
+hawfinch,deciduous_forest
+common_chaffinch,deciduous_forest; coniferous_forest; human_settlements
+brambling,deciduous_forest; coniferous_forest
+european_greenfinch,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements
+common_linnet,woodland; shrub; mountain_meadows
+twite,tundra; grassland
+red_crossbill,coniferous_forest
+two_barred_crossbill,coniferous_forest
+parrot_crossbill,coniferous_forest
+scottish_crossbill,coniferous_forest; woodland
+pine_grosbeak,deciduous_forest; coniferous_forest
+azores_bullfinch,deciduous_forest
+eurasian_bullfinch,deciduous_forest; coniferous_forest
+island_canary,woodland; shrub
+red_fronted_serin,coniferous_forest; mountain_meadows; rocks
+european_serin,coniferous_forest; woodland; human_settlements
+eurasian_siskin,deciduous_forest; coniferous_forest
+red_rumped_swallow,rocks
+northern_house_martin,rocks; human_settlements
+barn_swallow,grassland; human_settlements
+eurasian_crag_martin,rocks
+collared_sand_martin,freshwater
+red_backed_shrike,shrub
+great_grey_shrike,woodland; shrub
+lesser_grey_shrike,woodland; shrub
+masked_shrike,deciduous_forest; coniferous_forest; woodland
+woodchat_shrike,deciduous_forest; woodland
+river_warbler,deciduous_forest; woodland; swamps; freshwater
+lanceolated_warbler,shrub; reed; swamps
+savis_warbler,reed; swamps; freshwater
+common_grasshopper_warbler,shrub; grassland; swamps
+berthelots_pipit,coniferous_forest; shrub; rocks
+tawny_pipit,grassland
+red_throated_pipit,tundra
+olive_backed_pipit,coniferous_forest; woodland
+rock_pipit,rocks
+meadow_pipit,tundra; grassland; mountain_meadows
+water_pipit,mountain_meadows; mountain_meadows
+tree_pipit,deciduous_forest; coniferous_forest; woodland; savanna
+white_wagtail,grassland; freshwater; human_settlements
+grey_wagtail,shrub; freshwater
+citrine_wagtail,tundra; mountain_meadows
+western_yellow_wagtail,shrub; grassland; swamps
+siberian_rubythroat,deciduous_forest; coniferous_forest; shrub
+rufous_tailed_scrub_robin,shrub; human_settlements
+bluethroat,woodland; shrub; tundra; reed; swamps; freshwater
+european_robin,deciduous_forest; coniferous_forest; woodland; shrub
+collared_flycatcher,deciduous_forest
+european_pied_flycatcher,deciduous_forest; coniferous_forest; woodland
+red_breasted_flycatcher,deciduous_forest; coniferous_forest
+semi_collared_flycatcher,deciduous_forest
+thrush_nightingale,woodland; shrub
+common_nightingale,woodland; shrub
+rufous_tailed_rock_thrush,shrub; rocks
+blue_rock_thrush,rocks; human_settlements
+spotted_flycatcher,deciduous_forest; coniferous_forest; woodland; human_settlements
+desert_wheatear,shrub
+finschs_wheatear,rocks
+black_eared_wheatear,shrub; grassland; rocks
+isabelline_wheatear,grassland
+black_wheatear,rocks
+northern_wheatear,tundra; grassland; mountain_meadows; rocks
+pied_wheatear,rocks
+kurdish_wheatear,rocks
+black_redstart,rocks; human_settlements
+common_redstart,deciduous_forest; woodland
+whinchat,grassland
+common_stonechat,shrub
+orange_flanked_bush_robin,coniferous_forest
+eurasian_golden_oriole,deciduous_forest; woodland
+bearded_reedling,reed; swamps; freshwater
+eurasian_blue_tit,deciduous_forest; woodland; human_settlements
+azure_tit,deciduous_forest; woodland
+crested_tit,deciduous_forest; coniferous_forest
+great_tit,deciduous_forest; coniferous_forest; woodland; human_settlements
+coal_tit,coniferous_forest
+siberian_tit,deciduous_forest; coniferous_forest
+sombre_tit,deciduous_forest; coniferous_forest; woodland
+willow_tit,deciduous_forest; coniferous_forest; woodland
+marsh_tit,deciduous_forest
+white_winged_snowfinch,mountain_meadows; rocks
+house_sparrow,woodland; shrub; human_settlements
+spanish_sparrow,woodland; shrub; reed
+italian_sparrow,woodland; shrub; human_settlements
+eurasian_tree_sparrow,deciduous_forest; woodland; shrub
+rock_sparrow,shrub; grassland; mountain_meadows; rocks
+western_bonellis_warbler,deciduous_forest; coniferous_forest
+arctic_warbler,deciduous_forest; coniferous_forest
+common_chiffchaff,deciduous_forest; coniferous_forest
+yellow_browed_warbler,deciduous_forest
+wood_warbler,deciduous_forest; coniferous_forest
+mountain_chiffchaff,deciduous_forest; coniferous_forest; mountain_meadows
+greenish_warbler,deciduous_forest; coniferous_forest; woodland
+willow_warbler,deciduous_forest; coniferous_forest; woodland; shrub; tundra
+black_throated_accentor,deciduous_forest; coniferous_forest; shrub
+alpine_accentor,mountain_meadows; rocks
+dunnock,deciduous_forest; coniferous_forest; woodland; shrub
+siberian_accentor,deciduous_forest; coniferous_forest; woodland
+common_firecrest,deciduous_forest; coniferous_forest; woodland
+goldcrest,coniferous_forest
+eurasian_penduline_tit,reed; swamps; freshwater
+cettis_warbler,shrub; reed; swamps
+eurasian_nuthatch,deciduous_forest; coniferous_forest
+kruepers_nuthatch,coniferous_forest
+western_rock_nuthatch,rocks
+corsican_nuthatch,coniferous_forest
+wallcreeper,rocks
+crested_myna,grassland
+common_myna,woodland; shrub; grassland; desert
+rosy_starling,grassland; desert; rocks
+spotless_starling,woodland; grassland; human_settlements
+common_starling,deciduous_forest; woodland; grassland; human_settlements
+eurasian_blackcap,deciduous_forest; coniferous_forest
+garden_warbler,deciduous_forest; woodland; shrub
+subalpine_warbler,deciduous_forest; woodland; shrub
+common_whitethroat,woodland; shrub
+spectacled_warbler,shrub
+lesser_whitethroat,woodland; shrub
+western_orphean_warbler,deciduous_forest; woodland; shrub
+sardinian_warbler,shrub
+menetriess_warbler,woodland; shrub
+barred_warbler,shrub
+rüppells_warbler,deciduous_forest; shrub
+marmoras_warbler,shrub
+dartford_warbler,coniferous_forest; shrub
+northern_wren,deciduous_forest; coniferous_forest; woodland
+redwing,deciduous_forest; coniferous_forest; woodland; shrub
+eurasian_blackbird,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements
+song_thrush,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements
+fieldfare,deciduous_forest; coniferous_forest; woodland
+rufous_throated_thrush,deciduous_forest; coniferous_forest; tundra
+ring_ouzel,coniferous_forest; grassland; rocks
+mistle_thrush,deciduous_forest; coniferous_forest
+whites_thrush,deciduous_forest; coniferous_forest
+great_white_egret,swamps; freshwater
+grey_heron,freshwater
+purple_heron,reed; freshwater
+squacco_heron,freshwater
+eurasian_bittern,reed; swamps; freshwater
+cattle_egret,grassland; swamps; freshwater
+little_egret,grassland; swamps; freshwater; marine
+common_little_bittern,reed; swamps; freshwater
+black_crowned_night_heron,swamps; freshwater
+dalmatian_pelican,freshwater
+great_white_pelican,freshwater
+eurasian_spoonbill,freshwater
+glossy_ibis,reed; swamps; freshwater
+red_billed_tropicbird,marine
+greater_flamingo,freshwater
+white_backed_woodpecker,deciduous_forest; coniferous_forest
+great_spotted_woodpecker,deciduous_forest; coniferous_forest; human_settlements
+syrian_woodpecker,deciduous_forest; woodland; human_settlements
+lesser_spotted_woodpecker,deciduous_forest; woodland
+black_woodpecker,deciduous_forest; coniferous_forest
+eurasian_wryneck,deciduous_forest; woodland
+middle_spotted_woodpecker,deciduous_forest; woodland
+three_toed_woodpecker,coniferous_forest
+grey_faced_woodpecker,deciduous_forest; woodland
+eurasian_green_woodpecker,coniferous_forest; woodland
+horned_grebe,freshwater
+great_crested_grebe,freshwater
+red_necked_grebe,freshwater
+black_necked_grebe,freshwater
+little_grebe,freshwater
+band_rumped_storm_petrel,marine
+leachs_storm_petrel,marine
+european_storm_petrel,marine
+white_faced_storm_petrel,marine
+bulwers_petrel,marine
+corys_shearwater,marine
+northern_fulmar,marine
+cape_verde_petrel,marine
+zinos_petrel,marine
+little_shearwater,marine
+balearic_shearwater,marine
+manx_shearwater,marine
+yelkouan_shearwater,marine
+monk_parakeet,human_settlements
+rose_ringed_parakeet,woodland; savanna; human_settlements
+pin_tailed_sandgrouse,grassland; desert
+black_bellied_sandgrouse,grassland; desert
+boreal_owl,coniferous_forest
+short_eared_owl,tundra; grassland; swamps
+long_eared_owl,coniferous_forest; woodland
+little_owl,woodland; human_settlements
+eurasian_eagle_owl,coniferous_forest; woodland; rocks
+snowy_owl,tundra
+eurasian_pygmy_owl,coniferous_forest
+eurasian_scops_owl,deciduous_forest; coniferous_forest; woodland
+common_scops_owl,deciduous_forest; coniferous_forest; woodland
+tawny_owl,deciduous_forest; coniferous_forest; human_settlements
+great_grey_owl,coniferous_forest
+ural_owl,deciduous_forest; coniferous_forest; woodland
+northern_hawk_owl,coniferous_forest; woodland
+common_barn_owl,woodland; human_settlements
+pygmy_cormorant,swamps; freshwater; swamps; freshwater
+european_shag,marine
+great_cormorant,freshwater; marine
+northern_gannet,marine
