@@ -1,8 +1,8 @@
 -- ==========================================================================
 -- bmp_meta-analysis :: relational schema (DuckDB)
 -- ==========================================================================
--- Ten tables, one per level of observation, loaded by 3_build_database.R from
--- data/processed/cleaned_data and data/processed/species_classification.
+-- Nine tables, one per level of observation, loaded by 3_build_database.R
+-- from data/processed.
 --
 -- Keys are natural. study_key is the bibliographic key the sheets record.
 -- effect_id is <sheet code>_<index>, assigned over the rows of a cleaned sheet
@@ -57,17 +57,8 @@ CREATE TABLE study_bmp_response (
 
 CREATE TABLE species (
     species         TEXT PRIMARY KEY,
-    species_group   TEXT,
     analysis_class  TEXT,
     include         BOOLEAN
-);
-
-
-CREATE TABLE species_classification (
-    species         TEXT NOT NULL REFERENCES species (species),
-    source          TEXT NOT NULL,
-    classification  TEXT NOT NULL,
-    PRIMARY KEY (species, source, classification)
 );
 
 

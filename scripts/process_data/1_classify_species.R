@@ -93,60 +93,53 @@ species_classified_hand_classes <-
       
       # Classes defined in the articles themselves:
       
-      "acadian_flycatcher_indigo_bunting", "article-classified",
+      "acadian_flycatcher_indigo_bunting", "article_classified",
       "shrub; forest",
-      "all_species", "article-classified", NA,
-      "artificial_nests", "article-classified", NA,
-      "artificial_nests_chestnut_sided_warbler", "article-classified", NA,
-      "artificial_nests_northern_bobwhite", "article-classified", NA,
-      "artificial_nests_ovenbird", "article-classified", NA,
-      "bird_and_mammal_species", "article-classified", NA,
-      "breeding_grassland_species", "article-classified", "obligate",
-      "breeding_species", "article-classified", NA,
-      "carnivores", "article-classified", NA,
-      "edge_species", "article-classified", "facultative",
-      "facultative_grassland_species", "article-classified", "facultative",
-      "farmland_bird_indicator_species", "article-classified", "obligate",
-      "farmland_specialists", "article-classified", "obligate",
-      "frugivores", "article-classified", NA,
-      "generalists", "article-classified", NA,
-      "granivores", "article-classified", NA,
-      "grasshopper_sparrow_henslows_sparrow", "article-classified",
+      "all_species", "article_classified", NA,
+      "artificial_nests", "article_classified", NA,
+      "artificial_nests_chestnut_sided_warbler", "article_classified", NA,
+      "artificial_nests_northern_bobwhite", "article_classified", NA,
+      "artificial_nests_ovenbird", "article_classified", NA,
+      "bird_and_mammal_species", "article_classified", NA,
+      "breeding_grassland_species", "article_classified", "obligate",
+      "breeding_species", "article_classified", NA,
+      "carnivores", "article_classified", NA,
+      "edge_species", "article_classified", "facultative",
+      "facultative_grassland_species", "article_classified", "facultative",
+      "farmland_bird_indicator_species", "article_classified", "obligate",
+      "farmland_specialists", "article_classified", "obligate",
+      "frugivores", "article_classified", NA,
+      "generalists", "article_classified", NA,
+      "granivores", "article_classified", NA,
+      "grasshopper_sparrow_henslows_sparrow", "article_classified",
       "facultative",
-      "grassland_facultative_species", "article-classified", "facultative",
-      "grassland_obligates", "article-classified", "obligate",
-      "grassland_specialists", "article-classified", "obligate",
-      "grassland_species", "article-classified", "facultative",
-      "ground_nesters", "article-classified", NA,
-      "insectivores", "article-classified", NA,
-      "non_grassland_species", "article-classified", NA,
-      "non_insectivores", "article-classified", NA,
-      "obligate_grassland_species", "article-classified", "obligate",
-      "omnivores", "article-classified", NA,
-      "passerines", "article-classified", NA,
-      "resident_species", "article-classified", NA,
-      "residents", "article-classified", NA,
-      "shrub_species", "article-classified", "shrub",
-      "sparrows", "article-classified", NA,
-      "specialists", "article-classified", NA,
-      "tits", "article-classified", NA,
-      "wintering_shrub_scrub_species", "article-classified", "shrub",
-      "wintering_species", "article-classified", NA,
-      "waders", "article-classified", NA,
-      "woodland_species", "article-classified", "woodland",
+      "grassland_facultative_species", "article_classified", "facultative",
+      "grassland_obligates", "article_classified", "obligate",
+      "grassland_specialists", "article_classified", "obligate",
+      "grassland_species", "article_classified", "facultative",
+      "ground_nesters", "article_classified", NA,
+      "insectivores", "article_classified", NA,
+      "non_grassland_species", "article_classified", NA,
+      "non_insectivores", "article_classified", NA,
+      "obligate_grassland_species", "article_classified", "obligate",
+      "omnivores", "article_classified", NA,
+      "passerines", "article_classified", NA,
+      "resident_species", "article_classified", NA,
+      "residents", "article_classified", NA,
+      "shrub_species", "article_classified", "shrub",
+      "sparrows", "article_classified", NA,
+      "specialists", "article_classified", NA,
+      "tits", "article_classified", NA,
+      "wintering_shrub_scrub_species", "article_classified", "shrub",
+      "wintering_species", "article_classified", NA,
+      "waders", "article_classified", NA,
+      "woodland_species", "article_classified", "woodland",
       
       # Classes that we had to look up in Birds of the World:
       
       "spotted_nothura", "birds_of_the_world", "obligate",
       "red_billed_leiothrix", "birds_of_the_world", "forest; scrub"
     )
-  )
-
-species_classified_hand_classes %>% 
-  arrange(source, species) %>% 
-  pivot_wider(
-    names_from = source,
-    values_from = classification
   )
 
 # pass 3: lumping classes -------------------------------------------------
@@ -183,7 +176,7 @@ species_classified <-
         # Shrub species if all includes a shrub class or NA:
         
         if_all(
-          `article-classified`:vickery_1999,
+          article_classified:vickery_1999,
           ~ str_detect(.x, "[sS](hrub|crub)|[Cc]hap") | 
             is.na(.x)
         ) ~ "shrub",
@@ -191,18 +184,18 @@ species_classified <-
         # Obligate if any of the sources classify the species as such:
         
         if_any(
-          `article-classified`:vickery_1999,
+          article_classified:vickery_1999,
           ~ str_detect(.x, "[Oo]bligate")
         ) ~ "obligate",
         
         # Obligates defined by traitdata (Storchova and Horak 2018): 
         
-        traitdata == "grassland" ~ "obligate",
+        eubirds == "grassland" ~ "obligate",
         
         # Facultative if any of the sources classify the species as such:
         
         if_any(
-          `article-classified`:vickery_1999,
+          `article_classified`:vickery_1999,
           ~ str_detect(.x, "[Ff]acultative")
         ) ~ "facultative",
         
@@ -210,7 +203,7 @@ species_classified <-
         # include grassland, savannah, or plains:
         
         if_any(
-          c(birdbase, traitdata),
+          c(birdbase, eubirds),
           ~ str_detect(.x, "[Gg]rassland|[Ss]avannah|[Pp]lains"),
         ) ~ "facultative",
         
@@ -239,7 +232,7 @@ species_classified <-
 # Not every label in the extraction is one bird species. Anything the four
 # tests below miss is taken to be a species.
 
-species_classified <-
+species_classified_includes_grouping <-
   species_classified %>%
   mutate(
     species_group =
@@ -287,7 +280,8 @@ species_classified <-
             "woodland_species"
           ) ~ "guild",
         .default = "species"
-      )
+      ),
+    .after = species
   )
 
 # final edits and write data ----------------------------------------------
@@ -297,7 +291,7 @@ species_classified <-
 species_classified %>%
   write_csv(
     here(
-      "data/processed/species_classification",
+      "data/processed",
       "species_classified_analysis_frame.csv"
     )
   )

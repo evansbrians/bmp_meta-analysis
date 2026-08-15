@@ -48,7 +48,7 @@ analysis_subset_list <-
 
 species_guilds <-
   here::here(
-    "data/processed/species_classification",
+    "data/processed",
     "species_classified_analysis_frame.csv"
   ) %>%
   read_csv() %>%

@@ -1,6 +1,6 @@
 # This script:
-# - Reads the cleaned inputs from data/processed/cleaned_data
-# - Normalises them into ten tables, one per level of observation
+# - Reads the cleaned inputs from data/processed
+# - Normalises them into nine tables, one per level of observation
 # - Writes data/raw/bmp_meta.duckdb
 
 # setup --------------------------------------------------------------------
@@ -9,13 +9,7 @@ library(tidyverse)
 
 source("scripts/functions.R")
 
-cleaned_directory <- "data/processed/cleaned_data"
-
-species_directory <- "data/processed/species_classification"
-
 database_path <- "data/raw/bmp_meta.duckdb"
-
-schema_path <- "scripts/process_data/schema.sql"
 
 # One entry per extraction sheet. `prefix` fixes the effect_id namespace, so
 # these codes are as load-bearing as the file names beside them.
@@ -48,9 +42,7 @@ arm_column_names <-
 # read the cleaned inputs --------------------------------------------------
 
 paper_metadata <-
-  cleaned_directory %>%
-  fs::path("paper_metadata", ext = "csv") %>%
-  read_csv(show_col_types = FALSE)
+  read_csv("data/processed/paper_metadata.csv", show_col_types = FALSE)
 
 # The practice split in 2_clean_extraction_gsheet.R makes one effect several
 # rows, so grouping on everything but the practice recovers the observation.
@@ -59,8 +51,7 @@ extraction <-
   extraction_sheets %>%
   pmap(
     \(source_sheet, prefix, extraction_type, design) {
-      cleaned_directory %>%
-        fs::path(source_sheet, ext = "csv") %>%
+      fs::path("data/processed/cleaned_data", source_sheet, ext = "csv") %>%
         read_csv(show_col_types = FALSE) %>%
         rename(any_of(arm_column_names)) %>%
         mutate(
@@ -165,34 +156,23 @@ study_bmp_response <-
 
 # species ------------------------------------------------------------------
 
-# What each source said about each species, carried as the file records it:
-
-species_classification <-
-  species_directory %>%
-  fs::path("classification", ext = "csv") %>%
-  read_csv(show_col_types = FALSE) %>%
-  filter(!is.na(classification))
-
-# Every species label anything references, so the key holds. A label with no
-# resolved class joins in here rather than breaking the effect table.
+# The union keeps the key: a species the extraction uses but the frame has yet
+# to classify joins in here rather than breaking the effect table.
 
 species <-
-  species_directory %>%
-  fs::path("species_classified_analysis_frame", ext = "csv") %>%
-  read_csv(show_col_types = FALSE) %>%
+  read_csv(
+    "data/processed/species_classified_analysis_frame.csv",
+    show_col_types = FALSE
+  ) %>%
   select(
     species,
-    species_group,
     analysis_class,
     include
   ) %>%
   full_join(
-    bind_rows(
-      distinct(species_classification, species),
-      distinct(extraction_effects, species)
-    ) %>%
-      filter(!is.na(species)) %>%
-      distinct(),
+    extraction_effects %>%
+      distinct(species) %>%
+      filter(!is.na(species)),
     by = join_by(species)
   )
 
@@ -325,6 +305,13 @@ effect_estimate <-
 
 # write --------------------------------------------------------------------
 
+# A run that errors leaves the database open, and duckdb hands an already-open
+# instance back to the next connection, so any instance is shut down first.
+
+duckdb::duckdb_shutdown(
+  duckdb::duckdb(dbdir = database_path)
+)
+
 # The build is not incremental, so the file and its write-ahead log are removed
 # rather than opened: a rebuild cannot inherit a stale table.
 
@@ -337,14 +324,13 @@ c(
 
 database <-
   DBI::dbConnect(
-    duckdb::duckdb(),
-    dbdir = database_path
+    duckdb::duckdb(dbdir = database_path)
   )
 
 # Comments are stripped per line before the file is split, so a `--` cannot
 # swallow the statement it sits above.
 
-schema_path %>%
+"scripts/process_data/schema.sql" %>%
   read_lines() %>%
   str_remove("--.*$") %>%
   str_flatten("\n") %>%
@@ -369,7 +355,6 @@ list(
   study_bmp = study_bmp,
   study_bmp_response = study_bmp_response,
   species = species,
-  species_classification = species_classification,
   effect = effect,
   effect_bmp = effect_bmp,
   effect_arm = effect_arm,
