@@ -55,7 +55,11 @@ species_classes_combined <-
               str_detect(idx, "pif\\.csv$") ~ "partners_in_flight",
               str_detect(idx, "vgbi\\.csv$") ~ "vgbi",
               str_detect(idx, "vickery") ~ "vickery_1999"
-            )
+            ),
+        
+          # Repair names, if necessary:
+          
+          species = str_to_snake(species)
         )
     } 
   ) %>% 

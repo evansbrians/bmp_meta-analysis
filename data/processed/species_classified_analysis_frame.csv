@@ -6,7 +6,6 @@ abd_al_kuri_sparrow,NA,shrub; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FA
 abdims_stork,NA,shrub; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 aberdare_cisticola,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 aberrant_bush_warbler,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-aberts towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 aberts_towhee,NA,woodland; shrub; desert; artificial; riparian,NA,NA,NA,Aridlands:  Desert Riparian; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 abyssinian_catbird,NA,bamboo; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 abyssinian_citril,NA,forest; shrub; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -22,11 +21,9 @@ abyssinian_wheatear,NA,grasslands; plains; rocky_areas; artificial,NA,NA,NA,NA,N
 abyssinian_white_eye,NA,woodland; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 abyssinian_woodpecker,NA,woodland; savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 acacia_pied_barbet,NA,woodland; shrub; desert; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-acadian flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 acadian_flycatcher,NA,forest; woodland; artificial,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 acadian_flycatcher_indigo_bunting,shrub; forest,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 aceh_bulbul,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
-acorn woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 acorn_woodpecker,NA,forest; woodland; grasslands; desert,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Temperate Western,NA,NA,facultative,TRUE
 acre_antshrike,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 acre_tody_tyrant,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -137,7 +134,6 @@ aleutian_tern,NA,grasslands; rocky_areas; riparian; coastal; wetlands_lakes_mars
 alexandrine_parakeet,NA,woodland; desert; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 algerian_nuthatch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 all_species,NA,NA,NA,NA,NA,NA,NA,NA,NA,TRUE
-allens hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 allens_gallinule,NA,grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 allens_hummingbird,NA,forest; shrub; artificial; riparian,NA,NA,NA,Aridlands:  Chaparral; Forests:  Mesoamerican Pine-Oak,NA,NA,shrub,FALSE
 allpahuayo_antbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -152,7 +148,6 @@ alströms_warbler,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 alta_floresta_antpitta,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 altai_accentor,NA,grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,facultative,TRUE
 altai_snowcock,NA,grasslands; plains,NA,NA,NA,NA,NA,NA,facultative,TRUE
-altamira oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 altamira_oriole,NA,forest; woodland; shrub; savannah; wetlands_lakes_marsh,NA,NA,NA,Forests:  Tropical Dry,NA,NA,facultative,TRUE
 altamira_yellowthroat,NA,riparian; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 amami_jay,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -185,24 +180,6 @@ amazonian_woodhaunter,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 amber_mountain_rock_thrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 ambon_white_eye,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ameline_swiftlet,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-american avocet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american bittern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american black duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american coot,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american crow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american dipper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american golden-plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american goldfinch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american kestrel,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american oystercatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american pipit,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american redstart,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american robin,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american three-toed woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american tree sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american white pelican,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american wigeon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-american woodcock,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 american_avocet,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 american_barn_owl,NA,woodland; shrub; savannah; grasslands; rocky_areas; desert; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 american_bittern,NA,grasslands; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh,NA,facultative,facultative,TRUE
@@ -315,7 +292,6 @@ annam_barbet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 annam_prinia,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 annamite_crested_argus,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 annamite_limestone_babbler,NA,forest; woodland; shrub; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
-annas hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 annas_hummingbird,NA,woodland; shrub; savannah; riparian; coastal,NA,NA,NA,Aridlands:  Chaparral; Forests:  Temperate Western,NA,NA,shrub,FALSE
 annobon_scops_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 annobon_white_eye,NA,forest; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -372,8 +348,6 @@ archbolds_newtonia,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 archbolds_nightjar,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 archbolds_owlet_nightjar,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 archers_robin_chat,NA,forest; bamboo; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-arctic tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-arctic warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 arctic_herring_gull,NA,forest; grasslands; rocky_areas; artificial; coastal; wetlands_lakes_marsh; pelagic,NA,NA,NA,NA,NA,NA,facultative,TRUE
 arctic_jaeger,NA,grasslands; coastal; pelagic,NA,tundra; marine,NA,NA,NA,NA,facultative,TRUE
 arctic_loon,NA,coastal; wetlands_lakes_marsh,NA,freshwater,NA,Wetlands:  Lakes and Rivers; Wetlands:  Tundra; Coasts:  Marine Waters,NA,NA,other,FALSE
@@ -386,7 +360,6 @@ arfak_honeyeater,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 arfak_robin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 ariel_toucan,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 aripuana_antwren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-arizona woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 arizona_woodpecker,NA,forest; woodland; artificial; riparian,NA,NA,NA,Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 armenian_gull,NA,artificial; coastal; wetlands_lakes_marsh,NA,freshwater,NA,NA,NA,NA,other,FALSE
 arnots_chat,NA,woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -401,7 +374,6 @@ aru_flowerpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 ascension_crake,NA,desert,NA,NA,NA,NA,NA,NA,other,FALSE
 ascension_frigatebird,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 ascension_night_heron,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
-ash-throated flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ash_bellied_hermit,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ash_breasted_antbird,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 ash_breasted_sierra_finch,NA,forest; woodland; shrub; grasslands; rocky_areas; desert; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
@@ -493,7 +465,6 @@ auckland_islands_shag,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,F
 auckland_snipe,NA,woodland; shrub; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
 auckland_teal,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 audouins_gull,NA,rocky_areas; artificial; coastal,NA,marine; rocks,NA,NA,NA,NA,other,FALSE
-audubons oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 audubons_oriole,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 audubons_shearwater,NA,rocky_areas; coastal; pelagic,NA,NA,NA,Islands:  Oceanic; Oceans:  Pelagic,NA,NA,other,FALSE
 audubons_warbler,NA,forest; woodland; shrub; desert; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -565,7 +536,6 @@ azure_tit,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,NA,deciduou
 babar_whistler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 babbling_starling,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 bacan_myzomela,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-bachmans sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bachmans_sparrow,NA,woodland; shrub,NA,NA,NA,Forests:  Temperate Eastern,NA,obligate,obligate,TRUE
 bachmans_warbler,NA,forest; shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 baers_pochard,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -588,7 +558,6 @@ bahian_nighthawk,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 baikal_grasshopper_warbler,NA,forest; plains; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 baikal_teal,NA,grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 baillons_crake,NA,grasslands; artificial; wetlands_lakes_marsh,NA,reed; swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
-bairds sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bairds_flycatcher,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bairds_junco,NA,forest; woodland; riparian,NA,NA,NA,Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 bairds_sandpiper,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Tundra:  Arctic; Grasslands:  Pampas and Campos; Wetlands:  Lakes and Rivers,NA,facultative,facultative,TRUE
@@ -596,7 +565,6 @@ bairds_sparrow,NA,shrub; grasslands; artificial,NA,NA,NA,Grasslands:  Temperate;
 bairds_trogon,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 bairds_yellowthroat,NA,bamboo; woodland; shrub; grasslands; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 baja_pygmy_owl,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-bald eagle,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bald_eagle,NA,forest; grasslands; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist; Coasts:  Beach and Estuary; Coasts:  Saltmarsh,NA,NA,facultative,TRUE
 bald_parrot,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 balearic_shearwater,NA,rocky_areas; coastal; pelagic,NA,marine,NA,NA,NA,NA,other,FALSE
@@ -605,7 +573,6 @@ bali_myna,NA,forest; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
 balicassiao,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 baliem_whistler,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 balsas_screech_owl,NA,forest; woodland; desert,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
-baltimore oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 baltimore_oriole,NA,forest; woodland; grasslands; desert; artificial,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Generalist,NA,NA,facultative,TRUE
 bamboo_antshrike,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bamboo_warbler,NA,forest; bamboo; shrub; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -614,7 +581,6 @@ bamenda_apalis,NA,forest; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,N
 bananal_antbird,NA,shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bananaquit,NA,forest; woodland; shrub; artificial; coastal,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 banasura_chilappan,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-band-tailed pigeon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 band_backed_wren,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 band_bellied_crake,NA,forest; woodland; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 band_bellied_owl,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -666,7 +632,6 @@ banggai_golden_bulbul,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 banggai_jungle_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 banggai_scops_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bangwa_warbler,NA,forest; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bank swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bank_cormorant,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 bank_myna,NA,grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 bank_swallow,NA,NA,NA,NA,NA,Wetlands Aerial:  Lakes and Rivers; Open Country Aerial:  Habitat Mosaic,NA,NA,facultative,TRUE
@@ -674,7 +639,6 @@ bannermans_shearwater,NA,rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 bannermans_sunbird,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 bannermans_turaco,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bannermans_weaver,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-bar-tailed godwit,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bar_backed_partridge,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
 bar_bellied_cuckooshrike,NA,forest; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bar_bellied_pitta,NA,forest; bamboo; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -730,14 +694,11 @@ barids_sandpiper,NA,NA,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 barka_indigobird,NA,woodland; shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 barking_imperial_pigeon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 barking_owl,NA,forest; woodland; savannah; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-barn owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-barn swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 barn_owl,NA,NA,NA,NA,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,facultative; facultative,facultative,TRUE
 barn_swallow,NA,grasslands; plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,grassland; human_settlements,NA,Open Country Aerial:  Habitat Mosaic,NA,NA,facultative,TRUE
 barnacle_goose,NA,grasslands; rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,tundra; freshwater; marine,NA,NA,NA,NA,facultative,TRUE
 barolo_shearwater,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 barratts_warbler,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-barred owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 barred_antshrike,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 barred_antthrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 barred_becard,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
@@ -760,7 +721,6 @@ barred_rail,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA
 barred_tinamou,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 barred_warbler,NA,forest; woodland; shrub; grasslands; artificial; riparian,NA,shrub,NA,NA,NA,NA,shrub,FALSE
 barred_wren_warbler,NA,woodland; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
-barrows goldeneye,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 barrows_goldeneye,NA,riparian; coastal; wetlands_lakes_marsh,NA,tundra; freshwater,NA,Wetlands:  Forested; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters,NA,NA,other,FALSE
 bartletts_tinamou,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 barusan_cuckoo_dove,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -779,7 +739,6 @@ baudins_black_cockatoo,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,F
 baudo_guan,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 baudo_oropendola,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 baumanns_greenbul,NA,forest; savannah; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
-bay-breasted warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bay_antpitta,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bay_backed_shrike,NA,shrub; plains; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bay_breasted_cuckoo,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -831,13 +790,10 @@ beldings_yellowthroat,NA,artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetl
 belem_curassow,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 belfords_melidectes,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bell_miner,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bells vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bells_sparrow,NA,shrub; desert; coastal,NA,NA,NA,Aridlands:  Chaparral; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 bells_vireo,NA,woodland; shrub,NA,NA,NA,Aridlands:  Desert Riparian; Forests:  Temperate Eastern; Forests:  Tropical Dry,NA,NA,other,FALSE
-belted kingfisher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 belted_flycatcher,NA,woodland; shrub,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Aridlands:  Tropical Arid Scrub,NA,NA,shrub,FALSE
 belted_kingfisher,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist; Coasts:  Saltmarsh,NA,NA,other,FALSE
-bendires thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bendires_thrasher,NA,grasslands; desert,NA,NA,NA,Aridlands:  Desert Scrub,NA,facultative,facultative,TRUE
 bengal_bushlark,NA,shrub; savannah; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bengal_florican,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -860,7 +816,6 @@ bertrams_weaver,NA,woodland; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,fa
 beryl_spangled_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 berylline_hummingbird,NA,forest; shrub; artificial; riparian,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry,NA,NA,other,FALSE
 besra,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
-bewicks wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bewicks_wren,NA,shrub; artificial,NA,NA,NA,Aridlands:  Desert Scrub; Forests:  Temperate Western,NA,NA,shrub,FALSE
 bhutan_laughingthrush,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 biak_coucal,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -878,7 +833,6 @@ biak_triller,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 biak_whistler,NA,forest; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 biak_white_eye,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bianchis_warbler,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bicknells thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bicknells_thrush,NA,forest,NA,NA,NA,Forests:  Boreal; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 bicol_ground_warbler,NA,forest; rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
 bicolored_antbird,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -907,35 +861,6 @@ bismarck_island_thrush,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bismarck_kingfisher,NA,forest; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 bismarck_whistler,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bismarck_white_eye,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-black guillemot,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black oystercatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black phoebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black rail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black scoter,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black skimmer,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black swift,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black vulture,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-and-white warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-backed woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-bellied whistling-duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-billed cuckoo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-billed magpie,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-capped chickadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-capped vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-chinned hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-chinned sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-crested titmouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-crowned night-heron,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-headed grosbeak,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-legged kittiwake,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-necked stilt,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-tailed gnatcatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-throated blue warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-throated gray warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-throated green warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-throated sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-black-whiskered vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 black_and_buff_woodpecker,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
 black_and_chestnut_eagle,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 black_and_chestnut_warbling_finch,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1500,7 +1425,6 @@ black_winged_snowfinch,NA,grasslands; rocky_areas; riparian,NA,NA,NA,NA,NA,NA,fa
 black_winged_stilt,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,freshwater,NA,NA,NA,NA,other,FALSE
 black_winged_trumpeter,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 black_woodpecker,NA,forest; woodland; artificial; riparian,NA,deciduous_forest; coniferous_forest,NA,NA,NA,NA,other,FALSE
-blackburnian warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blackburnian_warbler,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 blackcap_babbler,NA,bamboo; woodland; shrub; grasslands; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blackish_antbird,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1516,7 +1440,6 @@ blackish_oystercatcher,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 blackish_pewee,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 blackish_rail,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 blackish_tapaculo,NA,forest; bamboo; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blackpoll warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blackpoll_warbler,NA,forest; woodland,NA,NA,NA,Forests:  Boreal; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 blacksmith_lapwing,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 blackstart,NA,shrub; rocky_areas; desert; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1530,13 +1453,6 @@ blond_crested_woodpecker,NA,forest; shrub; savannah; artificial; riparian,NA,NA,
 blood_colored_woodpecker,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 blood_pheasant,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blossom_headed_parakeet,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-blue grosbeak,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue-gray gnatcatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue-headed vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue-throated hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue-winged teal,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-blue-winged warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blue_and_black_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blue_and_gold_tanager,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 blue_and_white_flycatcher,NA,forest; woodland; shrub; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1685,6 +1601,7 @@ blue_throated_blue_flycatcher,NA,forest; bamboo; woodland; artificial; coastal,N
 blue_throated_brown_sunbird,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blue_throated_goldentail,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry,NA,NA,other,FALSE
 blue_throated_hillstar,NA,shrub; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
+blue_throated_hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 blue_throated_macaw,NA,forest; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
 blue_throated_motmot,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 blue_throated_mountain_gem,NA,forest; woodland; artificial; riparian,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
@@ -1727,7 +1644,6 @@ blyths_rosefinch,NA,forest; woodland; shrub; rocky_areas; artificial,NA,NA,NA,NA
 blyths_swift,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 blyths_tragopan,NA,forest; bamboo; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 boa_nova_tapaculo,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
-boat-tailed grackle,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 boat_billed_flycatcher,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry,NA,NA,other,FALSE
 boat_billed_heron,NA,forest; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist; Coasts:  Mangroves,NA,NA,other,FALSE
 boat_billed_tody_tyrant,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1739,7 +1655,6 @@ bocages_bushshrike,NA,forest; woodland; savannah; artificial; riparian,NA,NA,NA,
 bocages_sunbird,NA,forest; woodland; shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bocages_weaver,NA,shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bogota_rail,NA,savannah; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-bohemian waxwing,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bohemian_waxwing,NA,forest; woodland; shrub; artificial; riparian; wetlands_lakes_marsh,NA,coniferous_forest,NA,Forests:  Boreal,NA,NA,other,FALSE
 bokmakierie,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bold_striped_tit_babbler,NA,forest; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -1756,7 +1671,6 @@ bolivian_starfrontlet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bolivian_tapaculo,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 bolivian_tyrannulet,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 bolivian_warbling_finch,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bonapartes gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bonapartes_gull,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Boreal; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers,NA,NA,facultative,TRUE
 bonapartes_nightjar,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bonapartes_parakeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -1771,8 +1685,6 @@ booted_eagle,NA,forest; woodland,NA,deciduous_forest; coniferous_forest,NA,NA,NA
 booted_racket_tail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 booted_warbler,NA,forest; woodland; shrub; grasslands; plains; artificial,NA,deciduous_forest; coniferous_forest; woodland; shrub; reed,NA,NA,NA,NA,shrub,FALSE
 boran_cisticola,NA,woodland; shrub; savannah; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
-boreal chickadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-boreal owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 boreal_chickadee,NA,forest; woodland,NA,NA,NA,Forests:  Boreal,NA,NA,other,FALSE
 boreal_owl,NA,forest; woodland; artificial,NA,coniferous_forest,NA,Forests:  Boreal,NA,NA,other,FALSE
 bornean_banded_pitta,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -1802,7 +1714,6 @@ bornean_whistler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bornean_whistling_thrush,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 bornean_wren_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bothas_lark,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
-botteris sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 botteris_sparrow,NA,shrub; grasslands,NA,NA,NA,Grasslands:  Chihuahuan; Grasslands:  Tropical,NA,obligate,obligate,TRUE
 boucards_wren,NA,shrub; desert,NA,NA,NA,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 bougainville_bush_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -1830,7 +1741,6 @@ brahminy_kite,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,
 brahminy_starling,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brambling,NA,forest; woodland; shrub; grasslands; artificial,NA,deciduous_forest; coniferous_forest,NA,NA,NA,NA,facultative,TRUE
 bran_colored_flycatcher,NA,bamboo; woodland; shrub; grasslands; riparian,NA,NA,NA,Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
-brandts cormorant,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brandts_cormorant,NA,rocky_areas; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal,NA,NA,other,FALSE
 brandts_mountain_finch,NA,grasslands; rocky_areas; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 brant,NA,NA,NA,NA,NA,Coasts:  Saltmarsh; Coasts:  Tundra; Coasts:  Marine Waters; Coasts:  Rocky Intertidal,NA,facultative,facultative,TRUE
@@ -1850,12 +1760,9 @@ breeding_shrub_scrub_species,NA,NA,NA,NA,shrub,NA,NA,NA,shrub,FALSE
 breeding_species,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brehms_tiger_parrot,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brent_goose,NA,grasslands; riparian; coastal; wetlands_lakes_marsh,NA,tundra; marine,NA,NA,NA,NA,facultative,TRUE
-brewers blackbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brewers sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brewers_blackbird,NA,shrub; grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Open Country:  Habitat Mosaic,NA,facultative,facultative,TRUE
 brewers_sparrow,NA,shrub; grasslands,NA,NA,NA,Aridlands:  Sagebrush; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 briar_warbler,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bridled titmouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bridled_honeyeater,NA,forest; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bridled_quail_dove,NA,forest; woodland; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 bridled_sparrow,NA,woodland; shrub; rocky_areas,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
@@ -1869,9 +1776,6 @@ bristle_crowned_starling,NA,rocky_areas; artificial,NA,NA,NA,NA,NA,NA,other,FALS
 bristle_nosed_barbet,NA,forest; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 bristle_thighed_curlew,NA,shrub; grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Tundra:  Arctic; Coasts:  Beach and Estuary,NA,obligate,obligate,TRUE
 bristled_grassbird,NA,shrub; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-broad-billed hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-broad-tailed hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-broad-winged hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 broad_billed_fairywren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 broad_billed_flycatcher,NA,bamboo; woodland; shrub; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 broad_billed_hummingbird,NA,woodland; shrub; rocky_areas; desert; riparian,NA,NA,NA,Forests:  Tropical Dry; Aridlands:  Desert Riparian; Aridlands:  Tropical Arid Scrub,NA,NA,shrub,FALSE
@@ -1903,19 +1807,12 @@ bronze_winged_courser,NA,woodland; shrub; savannah; grasslands,NA,NA,NA,NA,NA,NA
 bronze_winged_jacana,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 bronze_winged_parrot,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bronze_winged_woodpecker,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-bronzed cowbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bronzed_cowbird,NA,forest; woodland; grasslands; desert; artificial,NA,NA,NA,Open Country:  Habitat Mosaic; Forests:  Tropical Dry,NA,facultative; facultative,facultative,TRUE
 bronzed_drongo,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bronzy_hermit,NA,forest; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 bronzy_inca,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 bronzy_jacamar,NA,forest; woodland; shrub; savannah; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brookss_leaf_warbler,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown creeper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown pelican,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown-crested flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown-headed cowbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-brown-headed nuthatch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brown_accentor,NA,shrub; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brown_and_white_barbet,NA,woodland; shrub; plains,NA,NA,NA,NA,NA,NA,shrub,FALSE
 brown_and_yellow_marshbird,NA,shrub; savannah; grasslands; rocky_areas; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,facultative,facultative,TRUE
@@ -2074,7 +1971,6 @@ bubbling_cisticola,NA,savannah; grasslands; coastal,NA,NA,NA,NA,NA,NA,facultativ
 buckleys_forest_falcon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 buckleys_ground_dove,NA,NA,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 budgerigar,NA,woodland; shrub; savannah; grasslands; plains; desert; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-buff-bellied hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 buff_banded_bushbird,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 buff_banded_rail,NA,forest; woodland; shrub; grasslands; rocky_areas; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 buff_banded_tyrannulet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2155,7 +2051,6 @@ bukidnon_woodcock,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 bull_headed_shrike,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bullers_albatross,NA,grasslands; coastal; pelagic,NA,NA,NA,NA,NA,NA,facultative,TRUE
 bullers_shearwater,NA,forest; rocky_areas; coastal; pelagic,NA,NA,NA,Islands:  Oceanic; Oceans:  Pelagic,NA,NA,other,FALSE
-bullocks oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 bullocks_oriole,NA,woodland; grasslands; desert,NA,NA,NA,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,facultative,TRUE
 bulwers_petrel,NA,rocky_areas; pelagic,NA,marine,NA,Islands:  Oceanic; Oceans:  Pelagic,NA,NA,other,FALSE
 bulwers_pheasant,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2173,7 +2068,6 @@ burmese_shrike,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FA
 burmese_yuhina,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 burnished_buff_tanager,NA,forest; woodland; shrub; grasslands; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 burnt_necked_eremomela,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-burrowing owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 burrowing_owl,NA,savannah; grasslands; desert; artificial,NA,NA,NA,Grasslands:  Temperate; Aridlands:  Desert Scrub,NA,obligate; obligate,obligate,TRUE
 burrowing_parakeet,NA,NA,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 burrowing_parrot,NA,woodland; shrub; savannah; plains; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2216,7 +2110,6 @@ cabots_tern,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 cabots_tragopan,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cachar_bulbul,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cackling_goose,NA,grasslands; rocky_areas; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Tundra; Coasts:  Tundra; Wetlands:  Generalist,NA,NA,facultative,TRUE
-cactus wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cactus_canastero,NA,shrub; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cactus_parakeet,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cactus_wren,NA,shrub; desert; artificial,NA,NA,NA,Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
@@ -2225,11 +2118,6 @@ cajamarca_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 calabarzon_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 calandra_lark,NA,grasslands; plains; artificial,NA,grassland,NA,NA,NA,NA,obligate,TRUE
 calayan_rail,NA,forest; rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
-california gnatcatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-california gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-california quail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-california thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-california towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 california_condor,NA,forest; woodland; grasslands,NA,NA,NA,Aridlands:  Chaparral; Forests:  Temperate Western,NA,NA,facultative,TRUE
 california_gnatcatcher,NA,shrub,NA,NA,NA,Aridlands:  Chaparral,NA,NA,shrub,FALSE
 california_gull,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters,NA,NA,facultative,TRUE
@@ -2237,7 +2125,6 @@ california_quail,NA,forest; shrub; grasslands; desert; artificial,NA,coniferous_
 california_scrub_jay,NA,forest; shrub; artificial; coastal,NA,NA,NA,Forests:  Temperate Western; Aridlands:  Chaparral,NA,NA,shrub,FALSE
 california_thrasher,NA,shrub; riparian,NA,NA,NA,Aridlands:  Chaparral,NA,NA,shrub,FALSE
 california_towhee,NA,shrub; artificial; riparian,NA,NA,NA,Aridlands:  Chaparral,NA,NA,shrub,FALSE
-calliope hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 calliope_hummingbird,NA,shrub; artificial,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 cambodian_blue_robin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cambodian_flowerpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2260,9 +2147,6 @@ campina_thrush,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 campo_flicker,NA,shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 campo_miner,NA,shrub; grasslands,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 campo_troupial,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-canada goose,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-canada jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-canada warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 canada_goose,NA,woodland; shrub; grasslands; plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,freshwater; human_settlements,NA,Wetlands:  Generalist; Coasts:  Saltmarsh,NA,facultative,facultative,TRUE
 canada_jay,NA,forest,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western,NA,NA,other,FALSE
 canada_warbler,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
@@ -2275,12 +2159,9 @@ canebrake_groundcreeper,NA,forest; bamboo; riparian,NA,NA,NA,NA,NA,NA,other,FALS
 canebrake_wren,NA,shrub,NA,NA,NA,Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 canivets_emerald,NA,woodland; savannah; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,facultative,TRUE
 canvasback,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters,NA,NA,other,FALSE
-canyon towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-canyon wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 canyon_canastero,NA,woodland; shrub; rocky_areas; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 canyon_towhee,NA,shrub; artificial; riparian,NA,NA,NA,Aridlands:  Desert Scrub,NA,facultative,facultative,TRUE
 canyon_wren,NA,shrub; rocky_areas; desert; artificial,NA,NA,NA,Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
-cape may warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cape_barren_goose,NA,shrub; grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cape_batis,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cape_bulbul,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2345,8 +2226,6 @@ carmiols_tanager,NA,forest; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergre
 carnabys_black_cockatoo,NA,woodland; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
 carnivores,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 carolas_parotia,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-carolina chickadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-carolina wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 carolina_chickadee,NA,forest; woodland; shrub; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Eastern,NA,NA,other,FALSE
 carolina_parakeet,NA,forest; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 carolina_wren,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Temperate Eastern,shrubland,NA,other,FALSE
@@ -2361,7 +2240,6 @@ carrizal_seedeater,NA,bamboo; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 carrutherss_cisticola,NA,grasslands; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 carunculated_caracara,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 carunculated_fruit_dove,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-caspian tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 caspian_gull,NA,plains; rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 caspian_plover,NA,shrub; plains; desert; artificial; riparian; wetlands_lakes_marsh,NA,desert,NA,NA,NA,NA,facultative,TRUE
 caspian_snowcock,NA,grasslands; rocky_areas,NA,shrub; mountain_meadows; rocks,NA,NA,NA,NA,facultative,TRUE
@@ -2369,10 +2247,6 @@ caspian_tern,NA,rocky_areas; artificial; coastal; wetlands_lakes_marsh,NA,freshw
 caspian_tit,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 casqued_cacique,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cassia_crossbill,NA,forest,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
-cassins finch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-cassins kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-cassins sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-cassins vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cassins_auklet,NA,rocky_areas; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,other,FALSE
 cassins_finch,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 cassins_flycatcher,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2384,14 +2258,12 @@ cassins_sparrow,NA,shrub; grasslands; artificial,NA,NA,NA,Grasslands:  Temperate
 cassins_spinetail,NA,forest; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 cassins_vireo,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 castelnaus_antshrike,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-cattle egret,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cattle_egret,NA,NA,NA,grassland; swamps; freshwater,NA,Wetlands:  Generalist; Open Country:  Developed/Disturbed; Wetlands:  Seasonally Wet Grasslands,NA,facultative; facultative,facultative,TRUE
 cattle_tyrant,NA,shrub; savannah; grasslands; artificial; coastal,NA,NA,NA,Open Country:  Developed/Disturbed; Grasslands:  Tropical,NA,facultative,facultative,TRUE
 cauca_guan,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 caucasian_grouse,NA,forest; shrub; grasslands,NA,coniferous_forest; mountain_meadows,NA,NA,NA,NA,facultative,TRUE
 caucasian_snowcock,NA,forest; rocky_areas,NA,mountain_meadows; rocks,NA,NA,NA,NA,other,FALSE
 caura_antbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-cave swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cave_swallow,NA,rocky_areas; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Aridlands Aerial:  Desert Scrub; Open Country Aerial:  Habitat Mosaic,NA,NA,facultative,TRUE
 cave_swiftlet,NA,forest; grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 cayenne_jay,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2401,14 +2273,12 @@ ceara_leaftosser,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cebu_boobook,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cebu_brown_dove,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cebu_flowerpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-cedar waxwing,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cedar_waxwing,NA,forest; woodland; shrub; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Generalist,NA,NA,other,FALSE
 celestial_monarch,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 central_american_pygmy_owl,NA,forest; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 central_melanesian_cicadabird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 central_superb_bird_of_paradise,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cerise_crowned_jacamar,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-cerulean warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cerulean_capped_manakin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cerulean_cuckooshrike,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cerulean_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2460,9 +2330,6 @@ cheer_pheasant,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chequer_throated_yellownape,NA,forest; shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cherries_antwren,NA,forest; woodland; shrub; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cherry_throated_tanager,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-chestnut-backed chickadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-chestnut-collared longspur,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-chestnut-sided warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chestnut_and_black_weaver,NA,forest; woodland; savannah; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 chestnut_antpitta,NA,forest; bamboo; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 chestnut_backed_antbird,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -2614,7 +2481,6 @@ chestnut_woodpecker,NA,forest; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALS
 chevron_breasted_babbler,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
 chicos_tyrannulet,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chiguanco_thrush,NA,woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-chihuahuan raven,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chihuahuan_meadowlark,NA,grasslands; desert; artificial,NA,NA,NA,Grasslands:  Temperate,NA,NA,facultative,TRUE
 chihuahuan_raven,NA,shrub; grasslands; desert; artificial,NA,NA,NA,Grasslands:  Chihuahuan; Aridlands:  Desert Scrub; Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 chilean_elaenia,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2630,7 +2496,6 @@ chilean_woodstar,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chiloe_wigeon,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 chimango_caracara,NA,woodland; shrub; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 chiming_wedgebill,NA,shrub; savannah; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-chimney swift,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chimney_swift,NA,forest; shrub; artificial; riparian; coastal,NA,NA,NA,Open Country Aerial:  Developed/Disturbed; Open Country Aerial:  Habitat Mosaic; Forest Aerial:  Tropical Lowland Evergreen,NA,NA,facultative,TRUE
 chin_hills_wren_babbler,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chinchipe_spinetail,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2664,7 +2529,6 @@ chinese_thrush,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FA
 chinese_white_browed_rosefinch,NA,forest; shrub; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chinspot_batis,NA,forest; woodland; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chinstrap_penguin,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
-chipping sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chipping_sparrow,NA,forest; woodland; shrub; savannah; artificial,NA,NA,NA,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 chiribiquete_emerald,NA,forest; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chirinda_apalis,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -2709,7 +2573,6 @@ christmas_sandpiper,NA,shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 christmas_shearwater,NA,rocky_areas; pelagic; other,NA,NA,NA,NA,NA,NA,other,FALSE
 chubbs_cisticola,NA,woodland; shrub; grasslands; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chucao_tapaculo,NA,forest; bamboo; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-chuck-wills-widow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 chuck_wills_widow,NA,forest; woodland; shrub; grasslands; artificial,NA,NA,NA,Forests:  Temperate Eastern; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 chukar,NA,forest; shrub; savannah; rocky_areas; artificial,NA,shrub; desert; rocks,NA,Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 churring_cisticola,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -2735,7 +2598,6 @@ cinereous_vulture,NA,forest; shrub; grasslands; plains,NA,deciduous_forest; coni
 cinereous_warbling_finch,NA,woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cinereus_harrier,NA,NA,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 cinnabar_boobook,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-cinnamon teal,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cinnamon_attila,NA,forest; woodland; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 cinnamon_banded_kingfisher,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cinnamon_becard,NA,forest; woodland; artificial; riparian; coastal,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -2789,21 +2651,17 @@ citron_crested_cockatoo,NA,woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 citron_headed_yellow_finch,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 citron_throated_toucan,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 clamorous_reed_warbler,NA,shrub; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-clapper rail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 clapper_rail,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Saltmarsh,NA,NA,other,FALSE
 clappertons_spurfowl,NA,woodland; savannah; grasslands; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 claret_breasted_fruit_dove,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 clarion_wren,NA,shrub; savannah,NA,NA,NA,Islands:  Terrestrial Habitats,NA,NA,facultative,TRUE
 clarkes_weaver,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-clarks nutcracker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 clarks_grebe,NA,artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 clarks_nutcracker,NA,forest; desert; artificial,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 claudias_leaf_warbler,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-clay-colored sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 clay_colored_sparrow,NA,forest; woodland; shrub; grasslands; riparian; wetlands_lakes_marsh,NA,NA,NA,Grasslands:  Temperate; Open Country:  Habitat Mosaic; Grasslands:  Chihuahuan,NA,facultative,facultative,TRUE
 clay_colored_thrush,NA,forest; woodland; shrub; grasslands; plains; artificial,NA,NA,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,NA,facultative,TRUE
 clicking_shrike_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-cliff swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 cliff_flycatcher,NA,rocky_areas; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cliff_parakeet,NA,rocky_areas; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 cliff_swallow,NA,grasslands; rocky_areas; artificial,NA,NA,NA,Open Country Aerial:  Habitat Mosaic,NA,NA,facultative,TRUE
@@ -2882,20 +2740,6 @@ colombian_wren,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 colorful_puffleg,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 comb_crested_jacana,NA,riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 comb_duck,NA,grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-common eider,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common gallinule,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common goldeneye,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common grackle,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common ground-dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common loon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common merganser,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common nighthawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common pauraque,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common poorwill,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common raven,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common redpoll,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-common yellowthroat,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 common_babbler,NA,forest; shrub; plains; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 common_barn_owl,NA,forest; woodland; shrub; savannah; grasslands; rocky_areas; artificial; coastal; wetlands_lakes_marsh,NA,woodland; human_settlements,NA,NA,NA,NA,facultative,TRUE
 common_black_hawk,NA,forest; riparian; coastal,NA,NA,NA,Wetlands:  Forested; Coasts:  Mangroves,NA,NA,other,FALSE
@@ -2995,12 +2839,10 @@ congo_pied_hornbill,NA,forest; woodland; artificial; riparian,NA,NA,NA,NA,NA,NA,
 congo_sand_martin,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 congo_serpent_eagle,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 congo_sunbird,NA,forest; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-connecticut warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 connecticut_warbler,NA,forest; woodland; shrub; wetlands_lakes_marsh,NA,NA,NA,Forests:  Boreal; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 cook_islands_reed_warbler,NA,forest; woodland; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 cooks_petrel,NA,forest; pelagic,NA,NA,NA,Islands:  Oceanic; Oceans:  Pelagic,NA,NA,other,FALSE
 cooks_swift,NA,rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
-coopers hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 coopers_hawk,NA,forest; artificial; riparian,NA,NA,NA,Forests:  Temperate Generalist; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 coopmanss_elaenia,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 coopmanss_tyrannulet,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3046,10 +2888,8 @@ costa_rican_ground_sparrow,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shru
 costa_rican_pygmy_owl,NA,forest,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 costa_rican_swift,NA,forest; shrub; artificial,NA,NA,NA,Forest Aerial:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 costa_rican_warbler,NA,forest,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
-costas hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 costas_hummingbird,NA,shrub; savannah; grasslands; plains; desert; artificial; coastal,NA,NA,NA,Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 cotton_pygmy_goose,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-couchs kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 couchs_kingbird,NA,woodland; shrub; artificial,NA,NA,NA,Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 coxens_fig_parrot,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 cozumel_emerald,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
@@ -3082,7 +2922,6 @@ crescent_chested_babbler,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 crescent_chested_warbler,NA,forest,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 crescent_faced_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 crescent_honeyeater,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-crested caracara,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 crested_ant_tanager,NA,forest; shrub; grasslands; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 crested_auklet,NA,grasslands; rocky_areas; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,facultative,TRUE
 crested_barbet,NA,woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3155,7 +2994,6 @@ crimson_sunbird,NA,forest; shrub; grasslands; artificial; riparian; wetlands_lak
 crimson_topaz,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 crimson_winged_woodpecker,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 crinkle_collared_manucode,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-crissal thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 crissal_thrasher,NA,woodland; shrub; desert; riparian,NA,NA,NA,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,shrub,FALSE
 croaking_cisticola,NA,woodland; shrub; savannah; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 croaking_ground_dove,NA,shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3212,7 +3050,6 @@ curl_crested_araçari,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 curl_crested_jay,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 curl_crested_manucode,NA,forest; shrub; savannah; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 curlew_sandpiper,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-curve-billed thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 curve_billed_reedhaunter,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 curve_billed_scythebill,NA,forest; bamboo; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 curve_billed_thrasher,NA,woodland; shrub; desert; artificial,NA,NA,NA,Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
@@ -3327,7 +3164,6 @@ dot_fronted_woodpecker,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 dot_winged_antwren,NA,forest; bamboo; woodland; shrub; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 dot_winged_crake,NA,grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 dotted_tanager,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-double-crested cormorant,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 double_banded_courser,NA,shrub; grasslands; plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 double_banded_graytail,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 double_banded_greytail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3343,7 +3179,6 @@ double_striped_thick_knee,NA,shrub; savannah; grasslands; artificial,NA,NA,NA,Gr
 double_toothed_barbet,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 double_toothed_kite,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 dovekie,NA,NA,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
-downy woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 downy_woodpecker,NA,forest; woodland; artificial; riparian,NA,NA,NA,Forests:  Temperate Generalist,NA,NA,other,FALSE
 drab_breasted_bamboo_tyrant,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 drab_hemispingus,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3372,9 +3207,6 @@ dunlin,NA,grasslands; coastal; wetlands_lakes_marsh,NA,tundra; freshwater; marin
 dunnock,NA,forest; woodland; shrub; grasslands; artificial; riparian,NA,deciduous_forest; coniferous_forest; woodland; shrub,NA,NA,NA,NA,shrub,FALSE
 dunns_lark,NA,plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
 duponts_lark,NA,shrub; grasslands; artificial,NA,grassland,NA,NA,NA,NA,obligate,TRUE
-dusky flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-dusky grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-dusky-capped flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 dusky_antbird,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 dusky_babbler,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 dusky_backed_jacamar,NA,forest; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -3450,7 +3282,6 @@ dwarf_tinamou,NA,forest; shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,
 dwarf_tyrant_manakin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 dwarf_vireo,NA,woodland; shrub,NA,NA,NA,Aridlands:  Tropical Arid Scrub,NA,NA,shrub,FALSE
 dybowskis_twinspot,NA,forest; shrub; savannah; grasslands; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eared grebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 eared_dove,NA,woodland; shrub; savannah; artificial; coastal,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 eared_grebe,NA,NA,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 eared_pitta,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3462,15 +3293,6 @@ east_andean_antbird,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
 east_brazilian_chachalaca,NA,forest; shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 east_coast_akalat,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 east_coast_batis,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern bluebird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern meadowlark,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern phoebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern screech-owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern whip-poor-will,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern wood-pewee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eastern yellow wagtail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 eastern_barn_owl,NA,woodland; shrub; grasslands; plains; rocky_areas; desert; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 eastern_barred_woodcreeper,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 eastern_bearded_greenbul,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3577,7 +3399,6 @@ egyptian_plover,NA,artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 egyptian_vulture,NA,shrub; grasslands; plains; rocky_areas; desert; artificial,NA,savanna; grassland; rocks; human_settlements,NA,NA,NA,NA,facultative,TRUE
 eiao_monarch,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 el_oro_parakeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-elegant trogon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 elegant_crescentchest,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 elegant_crested_tinamou,NA,shrub; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 elegant_euphonia,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
@@ -3592,7 +3413,6 @@ elegant_tit,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 elegant_trogon,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Dry,NA,NA,other,FALSE
 elegant_woodcreeper,NA,forest; bamboo; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 eleonoras_falcon,NA,forest; woodland; artificial; coastal; wetlands_lakes_marsh,NA,marine; rocks,NA,NA,NA,NA,other,FALSE
-elf owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 elf_owl,NA,woodland; plains; desert; riparian,NA,NA,NA,Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,facultative,TRUE
 elfin_woods_warbler,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 elgon_francolin,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -3644,8 +3464,6 @@ ethiopian_thrush,NA,bamboo; shrub; savannah; grasslands; plains; artificial,NA,N
 ethiopian_white_eye,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 eulers_flycatcher,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 eungella_honeyeater,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-eurasian collared-dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-eurasian tree sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 eurasian_bittern,NA,artificial; wetlands_lakes_marsh,NA,reed; swamps; freshwater,NA,NA,NA,NA,other,FALSE
 eurasian_blackbird,NA,forest; woodland; shrub; grasslands; artificial; riparian,NA,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements,NA,NA,NA,NA,shrub,FALSE
 eurasian_blackcap,NA,forest; woodland; shrub; savannah; artificial; riparian; coastal,NA,deciduous_forest; coniferous_forest,NA,NA,NA,NA,facultative,TRUE
@@ -3684,7 +3502,6 @@ eurasian_whimbrel,NA,forest; grasslands; plains; artificial; riparian; coastal; 
 eurasian_wigeon,NA,forest; coastal; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest; freshwater,NA,Wetlands:  Freshwater Marsh; Wetlands:  Generalist,NA,NA,other,FALSE
 eurasian_woodcock,NA,forest; woodland; grasslands; artificial; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest; woodland; swamps,NA,NA,NA,NA,facultative,TRUE
 eurasian_wryneck,NA,forest; woodland; shrub; grasslands; plains; desert; artificial; riparian; wetlands_lakes_marsh,NA,deciduous_forest; woodland,NA,NA,NA,NA,facultative,TRUE
-european starling,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 european_bee_eater,NA,woodland; shrub; savannah; grasslands; plains; artificial; riparian; wetlands_lakes_marsh,NA,woodland; shrub; grassland,NA,NA,NA,NA,shrub,FALSE
 european_goldfinch,NA,forest; woodland; shrub; grasslands; plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,deciduous_forest; woodland; human_settlements,NA,NA,NA,NA,facultative,TRUE
 european_greenfinch,NA,forest; grasslands; artificial; coastal,NA,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements,NA,NA,NA,NA,facultative,TRUE
@@ -3701,7 +3518,6 @@ european_starling,NA,NA,NA,NA,NA,Open Country:  Developed/Disturbed,NA,NA,other,
 european_stonechat,NA,woodland; shrub; grasslands; plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 european_storm_petrel,NA,rocky_areas; pelagic,NA,marine,NA,NA,NA,NA,other,FALSE
 european_turtle_dove,NA,forest; woodland; grasslands; plains,NA,woodland,NA,NA,NA,NA,facultative,TRUE
-evening grosbeak,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 evening_grosbeak,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist,NA,NA,other,FALSE
 everetts_thrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 everetts_white_eye,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3759,7 +3575,6 @@ feline_owlet_nightjar,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fernandinas_flicker,NA,woodland; savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 fernando_po_swift,NA,rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
 fernwren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-ferruginous hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ferruginous_antbird,NA,forest; bamboo; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 ferruginous_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 ferruginous_backed_antbird,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3769,7 +3584,6 @@ ferruginous_hawk,NA,savannah; grasslands; rocky_areas; artificial,NA,NA,NA,Grass
 ferruginous_partridge,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ferruginous_pygmy_owl,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Dry; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 festive_coquette,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-field sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 field_sparrow,NA,woodland; shrub; grasslands; artificial,NA,NA,NA,Open Country:  Habitat Mosaic; Forests:  Temperate Eastern,shrubland,NA,facultative,TRUE
 fieldfare,NA,forest; woodland; shrub; grasslands; artificial; riparian; coastal,NA,deciduous_forest; coniferous_forest; woodland,NA,NA,NA,NA,facultative,TRUE
 fiery_billed_aracari,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -3827,7 +3641,6 @@ fischers_lovebird,NA,forest; woodland; savannah; artificial,NA,NA,NA,NA,NA,NA,fa
 fischers_sparrow_lark,NA,grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 fischers_starling,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fischers_turaco,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-fish crow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fish_crow,NA,woodland; rocky_areas; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Open Country:  Habitat Mosaic; Wetlands:  Generalist,NA,NA,facultative,TRUE
 five_colored_barbet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 five_coloured_munia,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3878,7 +3691,6 @@ flores_scops_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 flores_sea_cuckoo_dove,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 flores_sea_sunbird,NA,forest; shrub; plains; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 flores_shortwing,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-florida scrub-jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 florida_scrub_jay,NA,shrub,NA,NA,NA,Forests:  Temperate Eastern,NA,NA,other,FALSE
 fluffy_backed_tit_babbler,NA,forest; bamboo; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 flutist_wren,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -3923,18 +3735,15 @@ fork_tailed_storm_petrel,NA,grasslands; rocky_areas; pelagic,NA,NA,NA,Coasts:  C
 fork_tailed_sunbird,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 fork_tailed_tody_tyrant,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fork_tailed_woodnymph,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-forsters tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 forsters_reed_warbler,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 forsters_tern,NA,rocky_areas; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary,NA,NA,other,FALSE
 forty_spotted_pardalote,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 four_banded_sandgrouse,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-fox sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fox_kestrel,NA,savannah; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
 fox_sparrow,NA,NA,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Eastern; Aridlands:  Chaparral,NA,NA,shrub,FALSE
 foxs_weaver,NA,shrub; grasslands; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 foxy_cisticola,NA,woodland; savannah; grasslands; desert; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 francess_sparrowhawk,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-franklins gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 franklins_grouse,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 franklins_gull,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,facultative,facultative,TRUE
 frasers_eagle_owl,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3957,7 +3766,6 @@ fuertess_oriole,NA,shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fuerteventura_stonechat,NA,shrub; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fujian_niltava,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 fulmar_prion,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
-fulvous whistling-duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fulvous_antshrike,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 fulvous_babbler,NA,shrub; grasslands; rocky_areas; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 fulvous_breasted_flatbill,NA,forest; rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -3999,7 +3807,6 @@ galapagos_petrel,NA,forest; shrub; pelagic,NA,NA,NA,NA,NA,NA,shrub,FALSE
 galapagos_rail,NA,forest; shrub; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 galapagos_shearwater,NA,rocky_areas; pelagic,NA,NA,NA,Islands:  Oceanic; Oceans:  Pelagic,NA,NA,other,FALSE
 gambaga_flycatcher,NA,forest; woodland; shrub; grasslands; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gambels quail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gambels_quail,NA,shrub; desert; artificial; riparian,NA,NA,NA,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,shrub,FALSE
 gang_gang_cockatoo,NA,woodland; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 gansu_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4045,11 +3852,9 @@ giant_white_eye,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 giant_wood_rail,NA,artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 giant_wren,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 gibberbird,NA,plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
-gila woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gila_woodpecker,NA,forest; plains; desert; artificial; riparian,NA,NA,NA,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,facultative,TRUE
 gilberts_honeyeater,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gilberts_whistler,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gilded flicker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gilded_barbet,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gilded_flicker,NA,woodland; shrub; desert; riparian,NA,NA,NA,Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,shrub,FALSE
 gilded_hummingbird,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -4058,8 +3863,6 @@ gilolo_fantail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 gilt_edged_tanager,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 gizo_white_eye,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glacier_finch,NA,forest; grasslands; rocky_areas; wetlands_lakes_marsh; other,NA,NA,NA,NA,NA,NA,facultative,TRUE
-glaucous gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-glaucous-winged gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glaucous_blue_grosbeak,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glaucous_gull,NA,rocky_areas; coastal; wetlands_lakes_marsh,NA,freshwater; marine; rocks,NA,Coasts:  Cliffs and Islands; Wetlands:  Tundra; Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,NA,other,FALSE
 glaucous_macaw,NA,forest; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -4070,7 +3873,6 @@ glistening_green_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glittering_bellied_emerald,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glittering_starfrontlet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 glittering_throated_emerald,NA,forest; woodland; shrub; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
-glossy ibis,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glossy_antshrike,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 glossy_backed_becard,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 glossy_black_cockatoo,NA,woodland; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -4089,12 +3891,6 @@ gold_naped_finch,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gold_ringed_tanager,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 gold_whiskered_barbet,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 goldcrest,NA,forest; woodland; shrub,NA,coniferous_forest,NA,NA,NA,NA,other,FALSE
-golden eagle,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-golden-cheeked warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-golden-crowned kinglet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-golden-crowned sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-golden-fronted woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-golden-winged warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 golden_babbler,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 golden_backed_bishop,NA,grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 golden_backed_honeyeater,NA,woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4225,7 +4021,6 @@ goulds_toucanet,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FAL
 graceful_honeyeater,NA,forest; woodland; shrub; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 graceful_pitta,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 graceful_prinia,NA,woodland; shrub; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-graces warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 graces_warbler,NA,forest; savannah,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,facultative,TRUE
 gran_canaria_blue_chaffinch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 grand_cayman_bullfinch,NA,forest; woodland; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4241,7 +4036,6 @@ granivores,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 grants_bluebill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 grass_green_tanager,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 grass_wren,NA,shrub; grasslands; plains; coastal,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Grasslands:  Pampas and Campos,NA,NA,facultative,TRUE
-grasshopper sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 grasshopper_buzzard,NA,forest; woodland; savannah; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 grasshopper_sparrow,NA,shrub; savannah; grasslands,NA,NA,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan,NA,obligate; obligate,obligate,TRUE
 grasshopper_sparrow_henslows_sparrow,facultative,NA,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -4255,13 +4049,6 @@ grauers_broadbill,NA,forest; bamboo; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 grauers_cuckooshrike,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 grauers_swamp_warbler,NA,shrub; grasslands; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 grauers_warbler,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray catbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray partridge,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gray-cheeked thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gray_and_gold_tanager,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 gray_barred_wren,NA,NA,NA,NA,NA,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 gray_breasted_crake,NA,NA,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
@@ -4299,13 +4086,6 @@ gray_vireo,NA,NA,NA,NA,NA,Forests:  Temperate Western; Aridlands:  Chaparral; Ar
 grays_grasshopper_warbler,NA,forest; bamboo; woodland; shrub; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 grays_hummingbird,NA,forest; woodland; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 grays_lark,NA,grasslands; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
-great black-backed gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great crested flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great egret,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great gray owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great horned owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great kiskadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-great-tailed grackle,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 great_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 great_antshrike,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 great_argus,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4379,13 +4159,6 @@ great_white_pelican,NA,coastal; wetlands_lakes_marsh; pelagic,NA,freshwater,NA,N
 great_winged_petrel,NA,pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 great_woodswallow,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 great_xenops,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater pewee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater prairie-chicken,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater roadrunner,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater sage-grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater scaup,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater white-fronted goose,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-greater yellowlegs,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 greater_adjutant,NA,forest; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 greater_amakihi,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 greater_ani,NA,forest; bamboo; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Wetlands:  Forested,NA,NA,other,FALSE
@@ -4433,11 +4206,6 @@ greater_yellow_finch,NA,grasslands; rocky_areas; artificial,NA,NA,NA,NA,NA,oblig
 greater_yellow_headed_vulture,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 greater_yellowlegs,NA,forest; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Boreal; Wetlands:  Generalist,NA,NA,other,FALSE
 greater_yellownape,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-green heron,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-green jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-green kingfisher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-green-tailed towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-green-winged teal,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 green_and_black_fruiteater,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 green_and_gold_tanager,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 green_and_rufous_kingfisher,NA,forest; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Forested; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -4828,7 +4596,6 @@ greyish_throated_toucanet,NA,forest; woodland; plains,NA,NA,NA,NA,NA,NA,facultat
 greylag_goose,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,tundra; grassland; swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
 griffon_vulture,NA,NA,NA,grassland; desert,NA,NA,NA,NA,facultative,TRUE
 grimwoods_longclaw,NA,grasslands; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
-groove-billed ani,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 groove_billed_ani,NA,shrub; grasslands; wetlands_lakes_marsh,NA,NA,NA,Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 groove_billed_toucanet,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 grosbeak_starling,NA,forest; woodland; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4880,7 +4647,6 @@ guianan_toucanet,NA,forest; savannah; riparian,NA,NA,NA,NA,NA,NA,facultative,TRU
 guianan_tyrannulet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 guira_cuckoo,NA,woodland; shrub; grasslands; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 guira_tanager,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-gull-billed tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 gull_billed_tern,NA,NA,NA,NA,NA,Coasts:  Beach and Estuary; Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 gundlachs_hawk,NA,forest; woodland; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 gunnison_grouse,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -4898,7 +4664,6 @@ hainan_partridge,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 hainan_peacock_pheasant,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 hainan_sunbird,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 hair_crested_drongo,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hairy woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hairy_backed_bulbul,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 hairy_breasted_barbet,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 hairy_crested_antbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4913,7 +4678,6 @@ halmahera_golden_bulbul,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,F
 halmahera_oriole,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 halmahera_paradise_crow,NA,forest; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hamerkop,NA,woodland; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-hammonds flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hammonds_flycatcher,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 handsome_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 handsome_fruiteater,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -4922,12 +4686,10 @@ handsome_sunbird,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hangnest_tody_tyrant,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 happy_wren,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 hardhead,NA,artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-harlequin duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 harlequin_antbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 harlequin_duck,NA,rocky_areas; riparian; coastal,NA,freshwater,NA,Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary; Coasts:  Marine Waters; Coasts:  Rocky Intertidal,NA,NA,other,FALSE
 harlequin_quail,NA,shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 harpy_eagle,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-harriss hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 harriss_hawk,NA,shrub; savannah; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,Aridlands:  Desert Scrub,NA,facultative,facultative,TRUE
 harriss_sparrow,NA,forest; woodland; shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Tundra:  Arctic; Forests:  Boreal; Forests:  Temperate Eastern; Grasslands:  Temperate,NA,NA,facultative,TRUE
 harterts_camaroptera,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -4981,19 +4743,14 @@ henderson_island_reed_warbler,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub
 henderson_lorikeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 henderson_petrel,NA,forest; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 henna_hooded_foliage_gleaner,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-henslows sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 henslows_sparrow,NA,woodland; shrub; grasslands,NA,NA,NA,Grasslands:  Temperate; Forests:  Temperate Eastern,NA,obligate,obligate,TRUE
 hensts_goshawk,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-hepatic tanager,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hepatic_tanager,NA,forest; woodland; shrub; savannah,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen,NA,NA,facultative,TRUE
 herald_petrel,NA,shrub; rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,shrub,FALSE
 herero_chat,NA,shrub; rocky_areas; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hermit thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hermit warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hermit_thrush,NA,forest; woodland; shrub; grasslands; rocky_areas; artificial,NA,NA,NA,Forests:  Temperate Generalist,NA,NA,facultative,TRUE
 hermit_warbler,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 hermit_wood_wren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-herring gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 herring_gull,NA,NA,NA,NA,NA,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers; Coasts:  Marine Waters,NA,NA,other,FALSE
 heuglins_bustard,NA,savannah; grasslands; plains; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
 heuglins_masked_weaver,NA,woodland; savannah; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -5046,7 +4803,6 @@ hispaniolan_pewee,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 hispaniolan_spindalis,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hispaniolan_trogon,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 hispaniolan_woodpecker,NA,forest; woodland; shrub; plains; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hoary redpoll,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hoary_headed_grebe,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 hoary_puffleg,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hoary_redpoll,NA,NA,NA,NA,NA,Tundra:  Arctic; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
@@ -5062,9 +4818,6 @@ hoffmannss_woodcreeper,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 holubs_golden_weaver,NA,savannah; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 honduran_emerald,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 honeyguide_greenbul,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hooded merganser,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hooded oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-hooded warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hooded_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 hooded_berryeater,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 hooded_butcherbird,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5098,8 +4851,6 @@ hook_billed_hermit,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 hook_billed_kingfisher,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hook_billed_kite,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 hook_billed_vanga,NA,forest; woodland; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
-horned grebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-horned lark,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 horned_coot,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 horned_curassow,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 horned_grebe,NA,riparian; coastal; wetlands_lakes_marsh,NA,freshwater,NA,Wetlands:  Freshwater Marsh; Coasts:  Marine Waters; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
@@ -5115,9 +4866,6 @@ horsfields_bushlark,NA,grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 horsfields_frogmouth,NA,forest; shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 horus_swift,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 hoses_broadbill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-house finch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-house sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-house wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 house_bunting,NA,rocky_areas; desert; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 house_crow,NA,shrub; grasslands; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 house_finch,NA,woodland; shrub; savannah; rocky_areas; desert; artificial; riparian,NA,NA,NA,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
@@ -5156,7 +4904,6 @@ huon_astrapia,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 huon_bowerbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 huon_catbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 huon_melidectes,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-huttons vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 huttons_shearwater,NA,shrub; grasslands; pelagic,NA,NA,NA,NA,NA,NA,shrub,FALSE
 huttons_vireo,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 hyacinth_macaw,NA,forest; woodland; grasslands; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -5185,7 +4932,6 @@ inaccessible_island_finch,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 inaccessible_island_rail,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 inambari_gnatcatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 inambari_woodcreeper,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-inca dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 inca_dove,NA,woodland; riparian,NA,NA,NA,Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 inca_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 inca_jay,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5225,7 +4971,6 @@ indian_vulture,NA,forest; shrub; grasslands; rocky_areas; artificial,NA,NA,NA,NA
 indian_white_eye,NA,forest; woodland; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 indian_yellow_nosed_albatross,NA,rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 indian_yellow_tit,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-indigo bunting,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 indigo_bunting,NA,woodland; shrub; savannah; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Eastern; Open Country:  Habitat Mosaic,shrubland,NA,facultative,TRUE
 indigo_bunting_blue_grosbeak,NA,NA,NA,NA,facultative,NA,NA,NA,facultative,TRUE
 indigo_capped_hummingbird,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5403,7 +5148,6 @@ junin_canastero,NA,woodland; shrub; savannah; grasslands,NA,NA,NA,NA,NA,obligate
 junin_grebe,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 junin_rail,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 junin_tapaculo,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-juniper titmouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 juniper_titmouse,NA,forest; woodland; riparian,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 kabobo_apalis,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 kadavu_fantail,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5458,7 +5202,6 @@ kelp_gull,NA,rocky_areas; artificial; riparian; coastal; wetlands_lakes_marsh,NA
 kemps_longbill,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 kenricks_starling,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 kentish_plover,NA,artificial; coastal; wetlands_lakes_marsh,NA,marine,NA,NA,NA,NA,other,FALSE
-kentucky warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 kentucky_warbler,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 kenya_sparrow,NA,woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 kenya_white_eye,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5477,7 +5220,6 @@ kilombero_weaver,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 kimberley_flyrobin,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 kimberley_honeyeater,NA,forest; woodland; shrub; rocky_areas; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 kinabalu_serpent_eagle,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-king rail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 king_bird_of_paradise,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 king_eider,NA,riparian; coastal; wetlands_lakes_marsh; pelagic,NA,tundra; freshwater; marine,NA,Wetlands:  Tundra; Coasts:  Tundra; Coasts:  Marine Waters,NA,NA,other,FALSE
 king_island_emu,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -5491,7 +5233,6 @@ kioea,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 kipengere_seedeater,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 kiritimati_reed_warbler,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 kirks_white_eye,NA,forest; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
-kirtlands warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 kirtlands_warbler,NA,forest; shrub,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Dry,NA,NA,other,FALSE
 kittlitzs_murrelet,NA,grasslands; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,facultative,TRUE
 kittlitzs_plover,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -5533,7 +5274,6 @@ la_selle_thrush,NA,forest; bamboo; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,oth
 labrador_duck,NA,coastal; wetlands_lakes_marsh; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 laced_woodpecker,NA,forest; bamboo; woodland; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lacrimose_mountain_tanager,NA,forest; woodland; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
-ladder-backed woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ladder_backed_woodpecker,NA,forest; woodland; shrub; desert; riparian; coastal,NA,NA,NA,Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,shrub,FALSE
 ladder_tailed_nightjar,NA,shrub; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lady_amhersts_pheasant,NA,forest; bamboo; shrub; artificial,NA,deciduous_forest; coniferous_forest; woodland,NA,NA,NA,NA,other,FALSE
@@ -5549,7 +5289,6 @@ lance_tailed_manakin,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  T
 lanceolated_monklet,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 lanceolated_warbler,NA,forest; woodland; shrub; grasslands; artificial; wetlands_lakes_marsh,NA,shrub; reed; swamps,NA,NA,NA,NA,shrub,FALSE
 lanner_falcon,NA,forest; woodland; shrub; savannah; grasslands; plains; rocky_areas; desert; riparian,NA,shrub; grassland; desert,NA,NA,NA,NA,shrub,FALSE
-lapland longspur,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lapland_longspur,NA,grasslands; coastal; wetlands_lakes_marsh,NA,tundra,NA,Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Beach and Estuary,NA,obligate,obligate,TRUE
 lappet_faced_vulture,NA,woodland; savannah; grasslands; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
 large_billed_antwren,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -5590,8 +5329,6 @@ large_tree_finch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 large_vivid_niltava,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 large_woodshrike,NA,forest; woodland; shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 large_wren_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-lark bunting,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lark sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lark_bunting,NA,shrub; grasslands; artificial,NA,NA,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan; Aridlands:  Desert Scrub,NA,obligate,obligate,TRUE
 lark_like_brushrunner,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lark_like_bunting,NA,woodland; shrub; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5599,7 +5336,6 @@ lark_sparrow,NA,forest; woodland; shrub; savannah; grasslands; artificial,NA,NA,
 larwo_shama,NA,forest; bamboo; shrub; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lathams_snipe,NA,grasslands; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
 lattice_tailed_trogon,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-laughing gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 laughing_dove,NA,woodland; savannah; plains; artificial,NA,woodland; human_settlements,NA,NA,NA,NA,facultative,TRUE
 laughing_falcon,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 laughing_gull,NA,coastal,NA,NA,NA,Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,NA,other,FALSE
@@ -5610,7 +5346,6 @@ lava_gull,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 lava_heron,NA,rocky_areas; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 lavender_waxbill,NA,shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lawess_parotia,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lawrences goldfinch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lawrences_goldfinch,NA,woodland; shrub; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Aridlands:  Chaparral; Aridlands:  Desert Riparian; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 lawrences_thrush,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 layards_warbler,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5619,7 +5354,6 @@ laysan_duck,NA,shrub; grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,N
 laysan_finch,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 laysan_honeycreeper,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 laysan_rail,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lazuli bunting,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lazuli_bunting,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Temperate Western; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 lazuli_kingfisher,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 lazuline_sabrewing,NA,forest; grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -5633,11 +5367,6 @@ leaden_honeyeater,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 leaf_love,NA,forest; shrub; savannah; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 leaflitter_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lears_macaw,NA,shrub; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
-least bittern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-least flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-least grebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-least sandpiper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-least tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 least_auklet,NA,coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,other,FALSE
 least_bittern,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 least_boobook,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -5652,8 +5381,8 @@ least_seedsnipe,NA,grasslands; desert,NA,NA,NA,NA,NA,facultative,facultative,TRU
 least_storm_petrel,NA,rocky_areas; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
 least_tern,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Beach and Estuary; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 least_vermilion_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-lecontes sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lecontes thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
+lecontes_sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
+lecontes_thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 legges_hawk_eagle,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lemon_bellied_crombec,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lemon_bellied_flyrobin,NA,forest; woodland; savannah; artificial; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -5668,11 +5397,6 @@ lemon_spectacled_tanager,NA,forest; woodland; riparian,NA,NA,NA,Forests:  Tropic
 lemon_throated_barbet,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lemon_throated_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lendu_crombec,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-lesser goldfinch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lesser nighthawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lesser prairie-chicken,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lesser scaup,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lesser yellowlegs,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lesser_adjutant,NA,forest; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 lesser_antillean_bullfinch,NA,forest; woodland; shrub; plains; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lesser_antillean_euphonia,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5755,7 +5479,6 @@ levaillants_cuckoo,NA,forest; woodland; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,
 levant_sparrowhawk,NA,forest; woodland; grasslands; plains; artificial; riparian,NA,deciduous_forest; woodland,NA,NA,NA,NA,facultative,TRUE
 lewins_honeyeater,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lewins_rail,NA,shrub; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-lewiss woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lewiss_woodpecker,NA,forest; woodland; artificial; riparian,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 liben_lark,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lichtensteins_sandgrouse,NA,shrub; plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5770,7 +5493,6 @@ lilacine_amazon,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 limestone_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 limpkin,NA,forest; shrub; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Lakes and Rivers; Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 linas_sunbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-lincolns sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lincolns_sparrow,NA,woodland; shrub; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Boreal; Forests:  Temperate Western; Forests:  Generalist,NA,NA,facultative,TRUE
 line_cheeked_spinetail,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 line_crowned_woodcreeper,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -5784,7 +5506,6 @@ lined_forest_falcon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lined_quail_dove,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lined_seedeater,NA,woodland; shrub; savannah,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 lita_woodpecker,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-little blue heron,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 little_auk,NA,rocky_areas; coastal; pelagic,NA,marine,NA,NA,NA,NA,other,FALSE
 little_bee_eater,NA,savannah; grasslands; rocky_areas; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 little_black_cormorant,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -5861,18 +5582,12 @@ livingstones_turaco,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 lizard_buzzard,NA,woodland; shrub; savannah; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 loango_weaver,NA,forest; shrub; savannah; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 locust_finch,NA,forest; woodland; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-loggerhead shrike,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 loggerhead_kingbird,NA,forest; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 loggerhead_shrike,NA,woodland; shrub; savannah; grasslands; artificial,NA,NA,NA,Grasslands:  Temperate; Aridlands:  Desert Scrub,NA,facultative,facultative,TRUE
 loja_tapaculo,NA,bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 loja_tyrannulet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lompobattang_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 lompobattang_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-long-billed curlew,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-long-billed thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-long-eared owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-long-tailed duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-long-tailed jaeger,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 long_bearded_honeyeater,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 long_billed_corella,NA,savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 long_billed_crombec,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5970,7 +5685,6 @@ louisiade_monarch,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 louisiade_pitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 louisiade_whistler,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 louisiade_white_eye,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-louisiana waterthrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 louisiana_waterthrush,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Lakes and Rivers; Forests:  Temperate Eastern; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 lovely_cotinga,NA,forest; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 lovely_fairywren,NA,forest; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -5983,7 +5697,6 @@ lowland_tiny_greenbul,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lowland_white_eye,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 luapula_cisticola,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 lucifer_hummingbird,NA,forest; shrub,NA,NA,NA,Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,shrub,FALSE
-lucys warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lucys_warbler,NA,woodland; shrub; desert,NA,NA,NA,Aridlands:  Desert Riparian; Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,shrub,FALSE
 ludwigs_bustard,NA,shrub; grasslands; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 lufira_masked_weaver,NA,riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6010,7 +5723,7 @@ mac_gillivrays_warbler,NA,forest; shrub,NA,NA,NA,Forests:  Temperate Western; Fo
 mac_gregors_bowerbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 macaroni_penguin,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 maccoa_duck,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-macgillivrays warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
+macgillivrays_warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 macgregors_honeyeater,NA,forest; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 mackinnons_shrike,NA,forest; woodland; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 macleays_honeyeater,NA,forest; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6086,13 +5799,11 @@ maghreb_lark,NA,plains; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 maghreb_magpie,NA,woodland; plains; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 maghreb_owl,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 maghreb_wheateater,NA,plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
-magnificent frigatebird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 magnificent_bird_of_paradise,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 magnificent_frigatebird,NA,woodland; shrub; coastal; pelagic,NA,NA,NA,Coasts:  Mangroves; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
 magnificent_hummingbird,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 magnificent_riflebird,NA,forest; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 magnificent_sunbird,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-magnolia warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 magnolia_warbler,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Eastern; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 magpie_goose,NA,grasslands; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 magpie_lark,NA,woodland; shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -6172,7 +5883,6 @@ maned_duck,NA,forest; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,
 maned_owl,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 mangaia_kingfisher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mangareva_reed_warbler,NA,forest; shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mangrove cuckoo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mangrove_blue_flycatcher,NA,forest; woodland; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mangrove_cuckoo,NA,woodland; shrub; coastal,NA,NA,NA,Coasts:  Mangroves; Forests:  Tropical Dry,NA,NA,other,FALSE
 mangrove_fantail,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6225,8 +5935,6 @@ marañon_spinetail,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,
 marañon_thrush,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 marañon_tyrannulet,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 marble_faced_bristle_tyrant,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-marbled godwit,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-marbled murrelet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 marbled_duck,NA,wetlands_lakes_marsh,NA,freshwater,NA,NA,NA,NA,other,FALSE
 marbled_frogmouth,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 marbled_godwit,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Tundra; Coasts:  Beach and Estuary,NA,obligate,obligate,TRUE
@@ -6264,7 +5972,6 @@ marquesas_ground_dove,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 marquesas_kingfisher,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 marquesas_monarch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 marquesas_swiftlet,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
-marsh wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 marsh_antwren,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 marsh_babbler,NA,grasslands; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 marsh_grassbird,NA,grasslands; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -6354,7 +6061,6 @@ mc_connells_flycatcher,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 mc_connells_spinetail,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mc_gregors_cuckooshrike,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mc_kays_bunting,NA,grasslands; rocky_areas,NA,NA,NA,Tundra:  Arctic; Coasts:  Saltmarsh; Coasts:  Beach and Estuary,NA,NA,facultative,TRUE
-mccowns longspur,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mccowns_longspur,NA,NA,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 mckays_bunting,NA,NA,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 meadow_bunting,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -6395,9 +6101,7 @@ metallic_pigeon,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 metallic_starling,NA,forest; woodland; savannah; artificial; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
 metallic_winged_sunbird,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mevess_long_tailed_starling,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-mew gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mew_gull,NA,NA,NA,freshwater; marine,NA,NA,NA,NA,other,FALSE
-mexican jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mexican_chickadee,NA,forest; woodland,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 mexican_duck,NA,forest; woodland; shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers,NA,NA,facultative,TRUE
 mexican_hermit,NA,forest; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -6463,7 +6167,6 @@ miombo_scrub_robin,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 miombo_tit,NA,woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 miombo_wren_warbler,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mishana_tyrannulet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-mississippi kite,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mississippi_kite,NA,woodland; savannah; grasslands; artificial,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Dry; Open Country:  Developed/Disturbed,NA,NA,facultative,TRUE
 mistle_thrush,NA,forest; woodland; shrub; grasslands; artificial,NA,deciduous_forest; coniferous_forest,NA,NA,NA,NA,facultative,TRUE
 mistletoe_tyrannulet,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
@@ -6501,7 +6204,6 @@ mongolian_finch,NA,plains; rocky_areas; riparian,NA,mountain_meadows; desert; ro
 mongolian_ground_jay,NA,shrub; plains; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mongolian_gull,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 mongolian_lark,NA,grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,facultative,TRUE
-monk parakeet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 monk_parakeet,NA,woodland; artificial; riparian,NA,human_settlements,NA,Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 monotonous_lark,NA,woodland; savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 montagus_harrier,NA,shrub; grasslands; artificial; wetlands_lakes_marsh,NA,shrub; grassland; swamps,NA,NA,NA,NA,shrub,FALSE
@@ -6516,7 +6218,6 @@ monte_yellow_finch,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 monteiros_bushshrike,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 monteiros_hornbill,NA,woodland; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 monteiros_storm_petrel,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
-montezuma quail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 montezuma_oropendola,NA,forest; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 montezuma_quail,NA,forest; woodland; grasslands,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Grasslands:  Tropical,NA,obligate,obligate,TRUE
 montserrat_oriole,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6539,7 +6240,6 @@ mossy_nest_swiftlet,NA,forest; rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
 mottle_backed_elaenia,NA,shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mottle_breasted_honeyeater,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mottle_cheeked_tyrannulet,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-mottled duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mottled_berryhunter,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mottled_duck,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh,NA,NA,other,FALSE
 mottled_flowerpecker,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -6554,10 +6254,6 @@ mount_cameroon_spurfowl,NA,forest; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
 mount_karthala_white_eye,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mount_kupe_bushshrike,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mount_victoria_babax,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mountain bluebird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mountain chickadee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mountain plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mountain quail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mountain_avocetbill,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mountain_bamboo_partridge,NA,forest; bamboo; woodland; grasslands; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 mountain_barbet,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6609,8 +6305,6 @@ mountain_white_eye,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mountain_wren,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 mountain_wren_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mountain_yellow_warbler,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mourning dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-mourning warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mourning_collared_dove,NA,woodland; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mourning_dove,NA,woodland; savannah; plains; artificial; riparian,NA,NA,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 mourning_sierra_finch,NA,forest; shrub; grasslands; plains; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -6658,7 +6352,6 @@ mussau_fantail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mussau_flycatcher,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mussau_triller,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 mustard_capped_lorikeet,NA,forest; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
-mute swan,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mute_swan,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,freshwater,NA,Wetlands:  Generalist,NA,NA,other,FALSE
 myrtle_warbler,NA,forest; woodland; shrub; desert; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 mysterious_starling,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6686,7 +6379,6 @@ narrow_billed_tody,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 narrow_billed_woodcreeper,NA,woodland; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 narrow_tailed_emerald,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 narrow_tailed_starling,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-nashville warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 nashville_warbler,NA,woodland; shrub,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Generalist,shrubland,NA,other,FALSE
 natal_spurfowl,NA,forest; woodland; shrub; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 natewa_silktail,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6709,11 +6401,9 @@ negros_fruit_dove,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 negros_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 negros_striped_babbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 nelicourvi_weaver,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-nelsons sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 nelsons_sparrow,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Coasts:  Saltmarsh,NA,NA,facultative,TRUE
 nendo_shrikebill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 nendo_whistler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-neotropic cormorant,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 neotropic_cormorant,NA,NA,NA,NA,NA,Wetlands:  Generalist; Coasts:  Beach and Estuary,NA,NA,other,FALSE
 neotropical_cormorant,NA,rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 nepal_cupwing,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6844,23 +6534,6 @@ north_moluccan_pitta,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 north_philippine_dwarf_kingfisher,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 north_philippine_hawk_eagle,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 north_solomons_dwarf_kingfisher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-northern beardless-tyrannulet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern bobwhite,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern cardinal,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern gannet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern goshawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern harrier,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern hawk owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern mockingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern parula,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern pintail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern pygmy-owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern rough-winged swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern saw-whet owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern shoveler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern shrike,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern waterthrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-northern wheatear,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 northern_andean_flicker,NA,woodland; shrub; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
 northern_anteater_chat,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 northern_bald_ibis,NA,grasslands; plains; rocky_areas; artificial; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -6976,7 +6649,6 @@ numfor_leaf_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 numfor_paradise_kingfisher,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 nusa_tenggara_paradise_flycatcher,NA,forest; bamboo; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 nuthatch_vanga,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-nuttalls woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 nuttalls_woodpecker,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 nuttings_flycatcher,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 nyanza_swift,NA,rocky_areas; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -6988,7 +6660,6 @@ oahu_amakihi,NA,forest; savannah; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 oahu_elepaio,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 oahu_nukupuu,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 oahu_oo,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-oak titmouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 oak_titmouse,NA,forest; woodland; riparian,NA,NA,NA,Forests:  Temperate Western,NA,NA,other,FALSE
 oasis_hummingbird,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 oaxaca_hummingbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7061,9 +6732,6 @@ olivaceous_piha,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 olivaceous_siskin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 olivaceous_thornbill,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 olivaceous_woodcreeper,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-olive sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-olive warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-olive-sided flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 olive_backed_euphonia,NA,forest; shrub; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 olive_backed_flowerpecker,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 olive_backed_foliage_gleaner,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7134,7 +6802,6 @@ opal_crowned_manakin,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 opal_crowned_tanager,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 opal_rumped_tanager,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 opalton_grasswren,NA,woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
-orange-crowned warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 orange_backed_troupial,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 orange_backed_woodpecker,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 orange_banded_flycatcher,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7205,7 +6872,6 @@ orange_weaver,NA,shrub; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,N
 orange_winged_amazon,NA,forest; bamboo; woodland; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
 orange_winged_pytilia,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 orangequit,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-orchard oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 orchard_oriole,NA,forest; woodland; shrub; savannah; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Generalist,NA,NA,facultative,TRUE
 orential_magpie,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 oriental_bay_owl,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7252,9 +6918,6 @@ ovambo_sparrowhawk,NA,forest; woodland; shrub; savannah; grasslands,NA,NA,NA,NA,
 ovenbird,NA,forest; shrub,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Boreal; Forests:  Tropical Generalist; Coasts:  Mangroves,NA,NA,other,FALSE
 oxapampa_antpitta,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 oya_tabu_white_eye,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-pacific golden-plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pacific loon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pacific wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pacific_antwren,NA,forest; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 pacific_baza,NA,forest; woodland; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
 pacific_black_duck,NA,artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7281,8 +6944,6 @@ paddyfield_pipit,NA,savannah; grasslands; plains; artificial; wetlands_lakes_mar
 paddyfield_warbler,NA,shrub; grasslands; riparian; wetlands_lakes_marsh,NA,reed,NA,NA,NA,NA,facultative,TRUE
 pagan_reed_warbler,NA,forest; shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 paint_billed_crake,NA,shrub; grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,Grasslands:  Tropical; Wetlands:  Seasonally Wet Grasslands,NA,NA,facultative,TRUE
-painted bunting,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-painted redstart,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 painted_bunting,NA,shrub; grasslands; riparian,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Dry; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 painted_bush_quail,NA,forest; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 painted_buttonquail,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -7413,7 +7074,6 @@ pallid_scops_owl,NA,woodland; plains; rocky_areas; artificial; riparian,NA,NA,NA
 pallid_spinetail,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 pallid_swift,NA,woodland; savannah; grasslands; rocky_areas; artificial; coastal,NA,marine; rocks; human_settlements,NA,NA,NA,NA,facultative,TRUE
 pallid_tit_spinetail,NA,woodland; shrub; plains,NA,NA,NA,NA,NA,NA,shrub,FALSE
-palm warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 palm_cockatoo,NA,forest; woodland; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
 palm_lorikeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 palm_nut_vulture,NA,forest; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7470,7 +7130,6 @@ paramo_pipit,NA,grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,obli
 paramo_seedeater,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 paramo_tapaculo,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 parana_antwren,NA,shrub; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-parasitic jaeger,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 parasitic_jaeger,NA,NA,NA,NA,NA,Wetlands:  Tundra; Tundra:  Arctic; Oceans:  Pelagic; Coasts:  Marine Waters,NA,obligate,obligate,TRUE
 pardusco,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 paria_barbtail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7516,7 +7175,6 @@ pectoral_patch_cisticola,NA,shrub; grasslands; rocky_areas; artificial,NA,NA,NA,
 pectoral_sandpiper,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,tundra,NA,Wetlands:  Tundra; Grasslands:  Pampas and Campos; Wetlands:  Seasonally Wet Grasslands,NA,facultative,facultative,TRUE
 pectoral_sparrow,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 peg_billed_finch,NA,forest; bamboo; grasslands,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,facultative,TRUE
-pelagic cormorant,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pelagic_cormorant,NA,rocky_areas; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters; Coasts:  Rocky Intertidal,NA,NA,other,FALSE
 peleng_fantail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 pels_fishing_owl,NA,forest; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7527,7 +7185,6 @@ pemba_scops_owl,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 pemba_sunbird,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pemba_white_eye,NA,woodland; shrub; grasslands; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pennant_winged_nightjar,NA,woodland; grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
-peregrine falcon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 peregrine_falcon,NA,grasslands; plains; rocky_areas; desert; artificial; riparian; coastal; wetlands_lakes_marsh,NA,woodland; grassland; rocks,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 perija_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 perija_brushfinch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7569,7 +7226,6 @@ pharaoh_eagle_owl,NA,savannah; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative
 pheasant_coucal,NA,forest; shrub; grasslands; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pheasant_cuckoo,NA,forest; woodland; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 pheasant_tailed_jacana,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-philadelphia vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 philadelphia_vireo,NA,forest; woodland; shrub; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Boreal; Forests:  Tropical Generalist,NA,NA,other,FALSE
 philbys_partridge,NA,shrub; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 philipine_swamphen,NA,riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7613,7 +7269,6 @@ piapiac,NA,woodland; shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,NA,s
 picazuro_pigeon,NA,woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 pictorella_mannikin,NA,woodland; savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 picui_ground_dove,NA,shrub; savannah; grasslands; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
-pied-billed grebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pied_avocet,NA,coastal; wetlands_lakes_marsh,NA,freshwater; marine,NA,NA,NA,NA,other,FALSE
 pied_billed_grebe,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 pied_bronze_cuckoo,NA,forest; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -7643,9 +7298,7 @@ pied_triller,NA,shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pied_water_tyrant,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 pied_wheatear,NA,woodland; shrub; savannah; grasslands; plains; rocky_areas; artificial; riparian,NA,rocks,NA,NA,NA,NA,facultative,TRUE
 pied_winged_swallow,NA,forest; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
-pigeon guillemot,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pigeon_guillemot,NA,rocky_areas; coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,other,FALSE
-pileated woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pileated_finch,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pileated_flycatcher,NA,shrub; savannah,NA,NA,NA,Forests:  Tropical Dry; Aridlands:  Tropical Arid Scrub,NA,NA,shrub,FALSE
 pileated_parrot,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7659,9 +7312,6 @@ pin_tailed_sandgrouse,NA,grasslands; desert; artificial; wetlands_lakes_marsh,NA
 pin_tailed_snipe,NA,shrub; grasslands; artificial; wetlands_lakes_marsh,NA,tundra; swamps,NA,NA,NA,NA,facultative,TRUE
 pin_tailed_whydah,NA,savannah; grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 pincoya_storm_petrel,NA,coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
-pine grosbeak,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pine siskin,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pine warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pine_bunting,NA,forest; woodland; grasslands; artificial,NA,deciduous_forest; coniferous_forest; woodland,NA,NA,NA,NA,facultative,TRUE
 pine_flycatcher,NA,woodland; shrub,NA,NA,NA,Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 pine_grosbeak,NA,forest; woodland; shrub; artificial; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest,NA,Forests:  Boreal,NA,NA,other,FALSE
@@ -7695,7 +7345,6 @@ pink_throated_twinspot,NA,forest; woodland; shrub; savannah,NA,NA,NA,NA,NA,NA,sh
 pinnated_bittern,NA,grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,facultative,TRUE
 pinons_imperial_pigeon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 pintos_spinetail,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pinyon jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pinyon_jay,NA,forest; shrub; grasslands; artificial,NA,NA,NA,Forests:  Temperate Western,NA,NA,facultative,TRUE
 piping_bellbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 piping_crow,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7710,7 +7359,6 @@ pitt_island_shag,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 pitta_like_ground_roller,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 piura_chat_tyrant,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 piura_hemispingus,NA,forest; bamboo; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-plain chachalaca,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 plain_antvireo,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 plain_backed_antpitta,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 plain_backed_pipit,NA,grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -7773,7 +7421,6 @@ plum_faced_lorikeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 plum_headed_finch,NA,shrub; savannah; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 plum_headed_parakeet,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 plum_throated_cotinga,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-plumbeous vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 plumbeous_antbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 plumbeous_antvireo,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 plumbeous_backed_thrush,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -7818,8 +7465,6 @@ poo_uli,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 porculla_hermit,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 powerful_owl,NA,forest; woodland; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 powerful_woodpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-prairie falcon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-prairie warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 prairie_falcon,NA,shrub; grasslands; plains; rocky_areas; desert; artificial,NA,NA,NA,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub; Grasslands:  Temperate,NA,facultative,facultative,TRUE
 prairie_warbler,NA,woodland; shrub; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Eastern; Islands:  Terrestrial Habitats; Coasts:  Mangroves,shrubland,NA,other,FALSE
 predicted_antwren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7843,7 +7488,6 @@ pringles_puffback,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub
 pririt_batis,NA,forest; woodland; shrub; savannah; grasslands; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 prong_billed_barbet,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 protea_canary,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-prothonotary warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 prothonotary_warbler,NA,forest; woodland; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Forested; Forests:  Temperate Eastern; Coasts:  Mangroves; Forests:  Tropical Dry,NA,NA,other,FALSE
 providence_petrel,NA,forest; grasslands; pelagic,NA,NA,NA,NA,NA,NA,facultative,TRUE
 przevalskis_nuthatch,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -7885,9 +7529,6 @@ puna_thistletail,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 puna_tinamou,NA,shrub; grasslands; plains; desert,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 puna_yellow_finch,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 puno_antpitta,NA,forest; bamboo; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-purple finch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-purple gallinule,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-purple martin,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 purple_backed_fairywren,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 purple_backed_starling,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 purple_backed_sunbeam,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -7946,7 +7587,6 @@ purplish_mantled_tanager,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALS
 purus_jacamar,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 puvels_illadopsis,NA,forest; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pycrofts_petrel,NA,forest; shrub; rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,shrub,FALSE
-pygmy nuthatch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pygmy_antwren,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 pygmy_batis,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 pygmy_blue_flycatcher,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8006,21 +7646,6 @@ rattling_cisticola,NA,woodland; shrub; savannah; grasslands; artificial; wetland
 razor_billed_curassow,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 razorbill,NA,rocky_areas; coastal; pelagic,NA,marine,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,other,FALSE
 recurve_billed_bushbird,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red crossbill,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-bellied woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-breasted merganser,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-breasted nuthatch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-breasted sapsucker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-cockaded woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-eyed vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-faced warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-headed woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-naped sapsucker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-necked grebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-necked phalarope,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-shouldered hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-throated loon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-red-winged blackbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 red_and_black_grosbeak,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 red_and_black_thrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 red_and_blue_lory,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -8329,7 +7954,6 @@ red_winged_pytilia,NA,forest; woodland; shrub; savannah; grasslands; artificial,
 red_winged_starling,NA,rocky_areas; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 red_winged_tinamou,NA,forest; woodland; grasslands,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 red_winged_wood_rail,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-reddish egret,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 reddish_egret,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Mangroves; Coasts:  Beach and Estuary,NA,NA,other,FALSE
 reddish_hermit,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 reddish_myzomela,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -8384,7 +8008,6 @@ reunion_rail,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 reunion_shelduck,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 reunion_starling,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 reunion_stonechat,NA,forest; woodland; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-rhinoceros auklet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rhinoceros_auklet,NA,coastal; pelagic,NA,NA,NA,Coasts:  Cliffs and Islands; Coasts:  Marine Waters,NA,NA,other,FALSE
 rhinoceros_hornbill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 ribbon_tailed_astrapia,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -8396,9 +8019,6 @@ ridgways_rail,NA,wetlands_lakes_marsh,NA,NA,NA,Coasts:  Saltmarsh; Wetlands:  Fr
 rifleman,NA,forest; shrub; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rimatara_lorikeet,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 rimatara_reed_warbler,NA,forest; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
-ring-billed gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-ring-necked duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-ring-necked pheasant,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ring_billed_gull,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist; Wetlands:  Lakes and Rivers; Coasts:  Beach and Estuary,NA,NA,other,FALSE
 ring_necked_dove,NA,woodland; savannah; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 ring_necked_duck,NA,forest; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Boreal; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
@@ -8429,15 +8049,11 @@ river_tyrannulet,NA,shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 river_warbler,NA,forest; woodland; shrub; grasslands; riparian; wetlands_lakes_marsh,NA,deciduous_forest; woodland; swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
 riverside_tyrant,NA,shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 riverside_wren,NA,forest; woodland; rocky_areas; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-rivolis hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rivolis_hummingbird,NA,NA,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 roadside_hawk,NA,forest; shrub; savannah; artificial; riparian,NA,NA,NA,Open Country:  Habitat Mosaic; Open Country:  Developed/Disturbed,NA,NA,facultative,TRUE
 robin_accentor,NA,shrub; grasslands; rocky_areas; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 robust_white_eye,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 robust_woodpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-rock pigeon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-rock ptarmigan,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-rock wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rock_bunting,NA,shrub; grasslands; rocky_areas; artificial,NA,shrub; rocks,NA,NA,NA,NA,shrub,FALSE
 rock_bush_quail,NA,shrub; plains,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rock_dove,NA,NA,NA,grassland; marine; rocks; human_settlements,NA,NA,NA,NA,facultative,TRUE
@@ -8480,7 +8096,6 @@ roraiman_barbtail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 roraiman_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 roraiman_nightjar,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 roraiman_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-rose-breasted grosbeak,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rose_bellied_bunting,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 rose_bellied_chat,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 rose_breasted_chat,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8494,7 +8109,6 @@ rose_ringed_parakeet,NA,forest; woodland; shrub; savannah; plains; artificial; r
 rose_robin,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rose_throated_becard,NA,woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 rose_throated_tanager,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
-roseate spoonbill,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 roseate_spoonbill,NA,forest; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Mangroves; Wetlands:  Freshwater Marsh; Wetlands:  Generalist; Coasts:  Saltmarsh,NA,NA,other,FALSE
 roseate_tern,NA,rocky_areas; coastal; wetlands_lakes_marsh,NA,marine,NA,Coasts:  Beach and Estuary; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
 rossel_cicadabird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -8518,14 +8132,12 @@ rothschilds_swift,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 roti_fantail,NA,forest; woodland; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 rotuma_myzomela,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 rougets_rail,NA,grasslands; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-rough-legged hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rough_faced_shag,NA,rocky_areas; coastal; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 rough_legged_buzzard,NA,woodland; grasslands; rocky_areas; artificial; wetlands_lakes_marsh,NA,tundra,NA,NA,NA,NA,facultative,TRUE
 rough_legged_hawk,NA,NA,NA,NA,NA,Tundra:  Arctic; Open Country:  Habitat Mosaic,NA,obligate,obligate,TRUE
 rough_legged_tyrannulet,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 round_tailed_manakin,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 roviana_rail,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
-royal tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 royal_cinclodes,NA,woodland; rocky_areas; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 royal_flycatcher,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 royal_parrotfinch,NA,forest; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8535,8 +8147,6 @@ royal_sunangel,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 royal_tern,NA,rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,NA,other,FALSE
 ruaha_chat,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rubeho_akalat,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-ruby-crowned kinglet,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-ruby-throated hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ruby_cheeked_sunbird,NA,forest; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 ruby_crowned_kinglet,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Forests:  Temperate Generalist,NA,NA,other,FALSE
 ruby_crowned_tanager,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8546,8 +8156,6 @@ ruby_throated_myzomela,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ruby_topaz_hummingbird,NA,shrub; grasslands; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rudds_apalis,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rudds_lark,NA,grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
-ruddy duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-ruddy turnstone,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ruddy_breasted_crake,NA,forest; shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ruddy_breasted_seedeater,NA,woodland; shrub; grasslands; artificial,NA,NA,NA,Open Country:  Habitat Mosaic; Grasslands:  Tropical,NA,obligate; obligate,obligate,TRUE
 ruddy_capped_nightingale_thrush,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
@@ -8573,11 +8181,7 @@ rufescent_prinia,NA,forest; woodland; shrub; grasslands; artificial,NA,NA,NA,NA,
 rufescent_screech_owl,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rufescent_tiger_heron,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
 ruff,NA,shrub; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,tundra; swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
-ruffed grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 ruffed_grouse,NA,forest; shrub,NA,NA,NA,Forests:  Temperate Generalist,NA,NA,other,FALSE
-rufous hummingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-rufous-crowned sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-rufous-winged sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rufous_and_white_wren,NA,woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
 rufous_babbler,NA,forest; bamboo; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rufous_backed_antvireo,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8851,7 +8455,6 @@ russet_winged_schiffornis,NA,NA,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA
 russet_winged_spadebill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 rust_and_yellow_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rustic_bunting,NA,forest; woodland; shrub; artificial; riparian; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest; swamps,NA,NA,NA,NA,other,FALSE
-rusty blackbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rusty_backed_antwren,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 rusty_backed_monjita,NA,shrub; grasslands,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 rusty_backed_spinetail,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -8942,7 +8545,6 @@ saffron_finch,NA,woodland; shrub; savannah; artificial; riparian,NA,NA,NA,Aridla
 saffron_headed_parrot,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 saffron_siskin,NA,forest; woodland; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 saffron_toucanet,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-sage thrasher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sage_grouse,NA,shrub; savannah; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sage_thrasher,NA,shrub; desert,NA,NA,NA,Aridlands:  Sagebrush; Aridlands:  Desert Scrub; Aridlands:  Desert Riparian,NA,NA,shrub,FALSE
 sagebrush_sparrow,NA,shrub; grasslands; desert,NA,NA,NA,Aridlands:  Sagebrush; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
@@ -8974,7 +8576,6 @@ sakhalin_leaf_warbler,NA,forest; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 salim_alis_swift,NA,artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 salinas_monjita,NA,shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 salmon_crested_cockatoo,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-saltmarsh sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 saltmarsh_sparrow,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Saltmarsh,NA,NA,facultative,TRUE
 salvadoris_antwren,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 salvadoris_fig_parrot,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -9006,11 +8607,9 @@ sand_colored_nighthawk,NA,rocky_areas; riparian; coastal; wetlands_lakes_marsh,N
 sand_lark,NA,plains; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 sand_partridge,NA,plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
 sanderling,NA,grasslands; coastal; wetlands_lakes_marsh,NA,tundra,NA,Tundra:  Arctic; Wetlands:  Tundra; Coasts:  Beach and Estuary,NA,facultative,facultative,TRUE
-sandhill crane,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sandhill_crane,NA,shrub; artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist,NA,facultative,facultative,TRUE
 sandhill_grasswren,NA,shrub; grasslands; plains; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sandstone_shrike_thrush,NA,rocky_areas; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-sandwich tern,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sandwich_tern,NA,coastal,NA,marine,NA,Coasts:  Beach and Estuary; Coasts:  Marine Waters,NA,NA,other,FALSE
 sandy_gallito,NA,shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sandy_scops_owl,NA,forest; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -9082,20 +8681,17 @@ saunderss_gull,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 saunderss_tern,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 savanna_hawk,NA,forest; woodland; shrub; savannah; riparian; coastal,NA,NA,NA,Grasslands:  Tropical,NA,facultative,facultative,TRUE
 savanna_nightjar,NA,woodland; shrub; grasslands; plains; rocky_areas; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-savannah sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 savannah_sparrow,NA,shrub; grasslands; plains; artificial; wetlands_lakes_marsh,NA,NA,NA,Grasslands:  Temperate; Tundra:  Arctic; Open Country:  Developed/Disturbed; Coasts:  Saltmarsh,NA,obligate,obligate,TRUE
 saviles_bustard,NA,forest; woodland; shrub; savannah; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 savis_warbler,NA,shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,reed; swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
 saw_billed_hermit,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 saxaul_sparrow,NA,shrub; desert; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sayaca_tanager,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-says phoebe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 says_phoebe,NA,savannah; grasslands; artificial,NA,NA,NA,Aridlands:  Desert Scrub; Forests:  Temperate Western; Open Country:  Habitat Mosaic,NA,facultative,facultative,TRUE
 scale_crested_pygmy_tyrant,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 scale_feathered_malkoha,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 scale_throated_earthcreeper,NA,shrub; grasslands; plains,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 scale_throated_hermit,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-scaled quail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scaled_antbird,NA,forest; bamboo; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 scaled_antpitta,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 scaled_chachalaca,NA,forest; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -9144,7 +8740,6 @@ scaly_throated_honeyguide,NA,forest; bamboo; woodland; shrub; artificial; ripari
 scaly_throated_leaftosser,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 scaly_thrush,NA,forest; bamboo; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scarce_swift,NA,forest; rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
-scarlet tanager,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scarlet_and_white_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scarlet_backed_flowerpecker,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scarlet_backed_woodpecker,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -9189,7 +8784,6 @@ schrencks_bittern,NA,grasslands; artificial; riparian; coastal; wetlands_lakes_m
 scimitar_billed_woodcreeper,NA,woodland; shrub; savannah; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scimitar_winged_piha,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 scintillant_hummingbird,NA,forest; shrub; grasslands; artificial,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,facultative,TRUE
-scissor-tailed flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scissor_tailed_flycatcher,NA,shrub; savannah; coastal; wetlands_lakes_marsh,NA,NA,NA,Grasslands:  Temperate; Forests:  Tropical Dry; Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 scissor_tailed_hummingbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 scissor_tailed_kite,NA,shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -9206,7 +8800,6 @@ sclaters_whistler,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sclaters_wren,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scopolis_shearwater,NA,rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 scottish_crossbill,NA,forest,NA,coniferous_forest; woodland,NA,NA,NA,NA,other,FALSE
-scotts oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scotts_oriole,NA,woodland; shrub; desert,NA,NA,NA,Forests:  Mesoamerican Pine-Oak; Aridlands:  Desert Scrub; Forests:  Tropical Dry,NA,NA,shrub,FALSE
 screaming_cowbird,NA,shrub; grasslands; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 screaming_piha,NA,forest; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -9219,11 +8812,9 @@ scrub_honeyeater,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scrub_nightjar,NA,forest; woodland; shrub; grasslands; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 scrub_tanager,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 scrubtit,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-seaside sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 seaside_cinclodes,NA,rocky_areas; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 seaside_sparrow,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Saltmarsh,NA,NA,other,FALSE
 secretarybird,NA,forest; woodland; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
-sedge wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sedge_warbler,NA,shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,shrub; reed; swamps; freshwater,NA,NA,NA,NA,shrub,FALSE
 sedge_wren,NA,grasslands; wetlands_lakes_marsh,NA,NA,NA,Grasslands:  Temperate; Wetlands:  Seasonally Wet Grasslands,NA,obligate; obligate,obligate,TRUE
 see_see_partridge,NA,plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -9232,7 +8823,6 @@ selva_cacique,NA,forest; shrub; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA
 semi_collared_flycatcher,NA,forest; woodland; artificial; riparian,NA,deciduous_forest,NA,NA,NA,NA,other,FALSE
 semi_collared_hawk,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 semicollared_puffbird,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-semipalmated plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 semipalmated_plover,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Coasts:  Beach and Estuary; Tundra:  Arctic,NA,NA,other,FALSE
 semipalmated_sandpiper,NA,shrub; grasslands; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Tundra; Coasts:  Beach and Estuary,NA,facultative,facultative,TRUE
 semiplumbeous_hawk,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -9280,8 +8870,6 @@ seychelles_warbler,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 seychelles_white_eye,NA,woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 shade_bush_warbler,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 shaft_tailed_whydah,NA,shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
-sharp-shinned hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-sharp-tailed grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sharp_beaked_ground_finch,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sharp_billed_canastero,NA,shrub; grasslands; rocky_areas; desert; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sharp_billed_treehunter,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -9325,9 +8913,6 @@ shiny_cowbird,NA,shrub; grasslands; artificial; riparian; wetlands_lakes_marsh,N
 shiny_whistling_thrush,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 shoebill,NA,wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 shore_plover,NA,grasslands; rocky_areas; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
-short-billed dowitcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-short-eared owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-short-tailed hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 short_bearded_honeyeater,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 short_billed_brown_dove,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 short_billed_canastero,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -9570,7 +9155,6 @@ smoky_fronted_tody_flycatcher,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 smoky_honeyeater,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 smoky_robin,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 smoky_warbler,NA,shrub; grasslands; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-smooth-billed ani,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 smooth_billed_ani,NA,woodland; shrub; grasslands; riparian,NA,NA,NA,Open Country:  Developed/Disturbed,NA,facultative,facultative,TRUE
 snail_eating_coua,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 snail_kite,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh,NA,NA,other,FALSE
@@ -9592,8 +9176,6 @@ snow_partridge,NA,shrub; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
 snow_petrel,NA,rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 snow_pigeon,NA,rocky_areas,NA,NA,NA,NA,NA,NA,other,FALSE
 snowcap,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-snowy egret,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-snowy plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 snowy_albatross,NA,grasslands; pelagic,NA,NA,NA,NA,NA,NA,facultative,TRUE
 snowy_bellied_hummingbird,NA,forest; woodland; shrub; savannah; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,facultative,TRUE
 snowy_browed_flycatcher,NA,forest; bamboo; shrub; plains; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -9631,7 +9213,6 @@ socotra_white_eye,NA,woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 soft_plumaged_petrel,NA,shrub; coastal; pelagic,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sokoke_pipit,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 sokoke_scops_owl,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-solitary sandpiper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 solitary_cacique,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 solitary_eagle,NA,NA,NA,NA,NA,Forests:  Tropical Montane Evergreen; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 solitary_sandpiper,NA,forest; woodland; savannah; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Boreal; Wetlands:  Lakes and Rivers,NA,NA,facultative,TRUE
@@ -9671,13 +9252,11 @@ sombre_pigeon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 sombre_rockchat,NA,shrub; rocky_areas,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sombre_thrush,NA,woodland; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sombre_tit,NA,forest; woodland; shrub; rocky_areas; artificial,NA,deciduous_forest; coniferous_forest; woodland,NA,NA,NA,NA,other,FALSE
-song sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 song_parrot,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 song_sparrow,NA,woodland; shrub; riparian; coastal,NA,NA,NA,Open Country:  Habitat Mosaic,shrubland,NA,facultative,TRUE
 song_thrush,NA,forest; woodland; shrub; grasslands; artificial; coastal,NA,deciduous_forest; coniferous_forest; woodland; shrub; human_settlements,NA,NA,NA,NA,shrub,FALSE
 song_wren,NA,forest; woodland; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 sooretama_slaty_antshrike,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
-sooty grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sooty_albatross,NA,grasslands; coastal; pelagic,NA,NA,NA,NA,NA,NA,facultative,TRUE
 sooty_ant_tanager,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 sooty_antbird,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -9897,7 +9476,6 @@ splendid_starling,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 splendid_sunbird,NA,forest; shrub; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 splendid_woodpecker,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 spoon_billed_sandpiper,NA,plains; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
-spot-breasted oriole,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spot_backed_antbird,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spot_backed_antshrike,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spot_backed_antwren,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -9952,9 +9530,6 @@ spot_winged_thrush,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,
 spot_winged_wood_quail,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 spotless_crake,NA,forest; shrub; rocky_areas; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spotless_starling,NA,forest; woodland; grasslands; artificial,NA,woodland; grassland; human_settlements,NA,NA,NA,NA,facultative,TRUE
-spotted owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-spotted sandpiper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-spotted towhee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spotted_antbird,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 spotted_antpitta,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 spotted_bamboowren,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -10008,9 +9583,7 @@ spotted_wood_owl,NA,forest; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 spotted_wood_quail,NA,forest,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 spotted_woodcreeper,NA,NA,NA,NA,NA,Forests:  Tropical Montane Evergreen,NA,NA,other,FALSE
 spotted_wren,NA,shrub; rocky_areas; desert,NA,NA,NA,Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
-spragues pipit,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spragues_pipit,NA,grasslands; plains,NA,NA,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan,NA,obligate,obligate,TRUE
-spruce grouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 spruce_grouse,NA,forest; shrub,NA,NA,NA,Forests:  Boreal,NA,NA,other,FALSE
 spur_winged_goose,NA,grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 spur_winged_lapwing,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,swamps; freshwater,NA,NA,NA,NA,facultative,TRUE
@@ -10060,7 +9633,6 @@ steely_vented_hummingbird,NA,forest; shrub; savannah; artificial,NA,NA,NA,NA,NA,
 steinbachs_canastero,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 stejnegers_petrel,NA,forest; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 stellas_lorikeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-stellers jay,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 stellers_eider,NA,rocky_areas; riparian; wetlands_lakes_marsh; pelagic,NA,tundra; swamps; freshwater; marine,NA,Wetlands:  Tundra; Coasts:  Marine Waters,NA,NA,other,FALSE
 stellers_jay,NA,forest; woodland; artificial,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 stellers_sea_eagle,NA,rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -10274,7 +9846,6 @@ sulawesi_scops_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 sulawesi_serpent_eagle,NA,forest; savannah; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 sulawesi_thrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 sulawesi_woodcock,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-sulphur-bellied flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sulphur_bellied_bulbul,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sulphur_bellied_flycatcher,NA,forest; woodland,NA,NA,NA,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 sulphur_bellied_tyrannulet,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -10334,7 +9905,6 @@ sumba_hornbill,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 sumba_myzomela,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 sumba_warbling_flycatcher,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 sumichrasts_wren,NA,forest; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
-summer tanager,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 summer_tanager,NA,forest; woodland; artificial; riparian,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Generalist,NA,NA,other,FALSE
 sun_lark,NA,savannah; grasslands; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 sun_parakeet,NA,forest; woodland; shrub; savannah,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -10366,21 +9936,16 @@ superb_sunbird,NA,forest; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA
 superciliaried_hemispingus,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 superciliated_wren,NA,forest; woodland; shrub; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 supertramp_fantail,NA,forest; woodland; artificial; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
-surf scoter,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 surf_cinclodes,NA,coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 surf_scoter,NA,forest; coastal; wetlands_lakes_marsh; pelagic,NA,NA,NA,Wetlands:  Boreal; Coasts:  Marine Waters,NA,NA,other,FALSE
 surfbird,NA,shrub; rocky_areas; coastal,NA,NA,NA,Tundra:  Alpine; Coasts:  Rocky Intertidal,NA,facultative,facultative,TRUE
 swahili_sparrow,NA,forest; woodland; shrub; grasslands; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-swainsons hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-swainsons thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-swainsons warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swainsons_flycatcher,NA,forest; woodland; shrub; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swainsons_hawk,NA,forest; woodland; grasslands; desert,NA,NA,NA,Grasslands:  Temperate; Grasslands:  Pampas and Campos,NA,obligate; obligate,obligate,TRUE
 swainsons_sparrow,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swainsons_spurfowl,NA,forest; shrub; savannah; grasslands; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swainsons_thrush,NA,forest; shrub; artificial; riparian,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Western; Forests:  Tropical Montane Evergreen; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 swainsons_warbler,NA,forest; shrub; wetlands_lakes_marsh,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry,NA,NA,other,FALSE
-swallow-tailed kite,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swallow_flycatcher,NA,woodland; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 swallow_tailed_bee_eater,NA,woodland; shrub; desert; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swallow_tailed_cotinga,NA,forest; woodland; grasslands; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -10390,7 +9955,6 @@ swallow_tailed_kite,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,N
 swallow_tailed_nightjar,NA,forest; bamboo; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swallow_tanager,NA,forest; woodland; shrub; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 swallow_winged_puffbird,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-swamp sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swamp_boubou,NA,forest; woodland; shrub; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swamp_flycatcher,NA,shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 swamp_francolin,NA,grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -10570,7 +10134,6 @@ temotu_whisler,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FA
 tenerife_blue_chaffinch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 tenggara_hill_myna,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 tenggara_swiftlet,NA,forest; plains; artificial; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
-tennessee warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tennessee_warbler,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Boreal; Forests:  Tropical Generalist,NA,NA,other,FALSE
 tepui_antpitta,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tepui_brushfinch,NA,forest; woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -10591,7 +10154,6 @@ tessmanns_flycatcher,NA,shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 thai_pied_starling,NA,woodland; grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 thamnornis,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 theklas_lark,NA,shrub; grasslands; rocky_areas; artificial,NA,shrub; grassland,NA,NA,NA,NA,shrub,FALSE
-thick-billed kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 thick_billed_berrypecker,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 thick_billed_cuckoo,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 thick_billed_euphonia,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -10719,22 +10281,17 @@ torresian_imperial_pigeon,NA,forest; shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALS
 torresian_kingfisher,NA,forest; woodland; savannah; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 toucan_barbet,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tourmaline_sunangel,NA,forest; bamboo; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
-townsends solitaire,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-townsends warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 townsends_shearwater,NA,shrub; rocky_areas; pelagic,NA,NA,NA,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
 townsends_solitaire,NA,forest; woodland; shrub; rocky_areas; desert; riparian,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 townsends_storm_petrel,NA,rocky_areas; pelagic,NA,NA,NA,Islands:  Oceanic; Coasts:  Marine Waters; Oceans:  Pelagic,NA,NA,other,FALSE
 townsends_warbler,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak; Forests:  Mesoamerican Highland,NA,NA,other,FALSE
 tractrac_chat,NA,shrub; grasslands; desert; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 transvolcanic_jay,NA,forest; woodland,NA,NA,NA,Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
-tree swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tree_martin,NA,woodland; shrub; savannah; grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tree_pipit,NA,forest; woodland; shrub; savannah; grasslands; artificial,NA,deciduous_forest; coniferous_forest; woodland; savanna,NA,NA,NA,NA,facultative,TRUE
 tree_swallow,NA,woodland; shrub; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands Aerial:  Generalist; Coasts:  Saltmarsh,NA,NA,other,FALSE
 tres_marias_chat,NA,woodland; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tres_marias_hummingbird,NA,woodland; shrub,NA,NA,NA,Islands:  Terrestrial Habitats; Forests:  Tropical Dry; Aridlands:  Tropical Arid Scrub,NA,NA,shrub,FALSE
-tricolored blackbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-tricolored heron,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tricolored_blackbird,NA,artificial; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Open Country:  Developed/Disturbed,NA,NA,other,FALSE
 tricolored_grebe,NA,coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 tricolored_heron,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Generalist; Coasts:  Saltmarsh,NA,NA,other,FALSE
@@ -10765,7 +10322,6 @@ tropical_screech_owl,NA,woodland; shrub; artificial,NA,NA,NA,Forests:  Tropical 
 tropical_scrubwren,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 tropical_shearwater,NA,rocky_areas; pelagic,NA,NA,NA,NA,NA,NA,other,FALSE
 trumpet_manucode,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
-trumpeter swan,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 trumpeter_finch,NA,shrub; plains; desert,NA,desert; rocks,NA,NA,NA,NA,facultative,TRUE
 trumpeter_hornbill,NA,forest; woodland; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 trumpeter_swan,NA,riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Lakes and Rivers; Wetlands:  Freshwater Marsh; Wetlands:  Generalist,NA,NA,other,FALSE
@@ -10778,7 +10334,6 @@ tuamotu_reed_warbler,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tuamotu_sandpiper,NA,shrub; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tucuman_amazon,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 tucuman_mountain_finch,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-tufted titmouse,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tufted_antshrike,NA,forest; bamboo; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tufted_coquette,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tufted_duck,NA,artificial; riparian; coastal; wetlands_lakes_marsh,NA,freshwater,NA,NA,NA,NA,other,FALSE
@@ -10797,13 +10352,11 @@ tumbes_sparrow,NA,woodland; shrub; desert; riparian; wetlands_lakes_marsh,NA,NA,
 tumbes_swallow,NA,plains; artificial; coastal,NA,NA,NA,NA,NA,NA,facultative,TRUE
 tumbes_tyrannulet,NA,forest; woodland; shrub; desert; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tumbes_tyrant,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-tundra swan,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 tundra_bean_goose,NA,forest; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 tundra_swan,NA,grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,tundra; swamps; freshwater,NA,Wetlands:  Tundra; Wetlands:  Generalist,NA,NA,facultative,TRUE
 turatis_boubou,NA,woodland; savannah,NA,NA,NA,NA,NA,NA,facultative,TRUE
 turkestan_ground_jay,NA,shrub; plains; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 turkestan_short_toed_lark,NA,shrub; grasslands; plains; rocky_areas; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
-turkey vulture,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 turkey_vulture,NA,forest; woodland; shrub; savannah; grasslands; rocky_areas; desert; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Open Country:  Habitat Mosaic,NA,facultative; facultative,facultative,TRUE
 turners_eremomela,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 turquoise_browed_motmot,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,Forests:  Tropical Dry,NA,NA,other,FALSE
@@ -10860,7 +10413,6 @@ uniform_woodcreeper,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 unspotted_saw_whet_owl,NA,forest,NA,NA,NA,Forests:  Mesoamerican Highland; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 unstreaked_tit_tyrant,NA,forest; bamboo,NA,NA,NA,NA,NA,NA,other,FALSE
 upchers_warbler,NA,woodland; shrub; plains; rocky_areas; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-upland sandpiper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 upland_antshrike,NA,forest; bamboo; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 upland_buzzard,NA,grasslands; rocky_areas; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 upland_goose,NA,grasslands; artificial,NA,NA,NA,NA,NA,facultative,facultative,TRUE
@@ -10905,8 +10457,6 @@ variable_seedeater,NA,NA,NA,NA,NA,Open Country:  Habitat Mosaic,NA,facultative,f
 variable_shrike_thrush,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 variable_sunbird,NA,forest; woodland; shrub; savannah; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 variable_wheatear,NA,shrub; desert; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-varied bunting,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-varied thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 varied_bunting,NA,woodland; shrub,NA,NA,NA,Forests:  Tropical Dry; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 varied_honeyeater,NA,forest; woodland; shrub; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 varied_lorikeet,NA,woodland; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -10926,7 +10476,6 @@ varzea_schiffornis,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 varzea_tapaculo,NA,NA,NA,NA,NA,NA,NA,obligate,obligate,TRUE
 varzea_thrush,NA,forest; woodland; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 vasa_parrot,NA,forest; woodland; shrub; savannah; desert; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
-vauxs swift,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 vauxs_swift,NA,forest,NA,NA,NA,Forest Aerial:  Temperate Western; Forests Aerial:  Mesoamerican Highland; Forest Aerial:  Tropical Generalist,NA,NA,other,FALSE
 veery,NA,forest; woodland; shrub; riparian; coastal,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 vega_gull,NA,forest; grasslands; rocky_areas; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -10959,7 +10508,6 @@ verdin,NA,shrub; desert; riparian,NA,NA,NA,Aridlands:  Desert Scrub,NA,NA,shrub,
 verditer_flycatcher,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 vermiculated_fishing_owl,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 vermiculated_screech_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-vermilion flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 vermilion_cardinal,NA,shrub; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 vermilion_flycatcher,NA,woodland; shrub; savannah; desert; artificial; riparian,NA,NA,NA,Open Country:  Habitat Mosaic; Aridlands:  Desert Scrub,NA,NA,shrub,FALSE
 vermilion_tanager,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -10969,7 +10517,6 @@ verreauxs_eagle,NA,rocky_areas; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 verreauxs_eagle_owl,NA,forest; woodland; savannah; desert; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 versicolored_emerald,NA,forest; shrub; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 vervain_hummingbird,NA,woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-vesper sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 vesper_sparrow,NA,forest; shrub; savannah; grasslands; artificial,NA,NA,NA,Grasslands:  Temperate; Grasslands:  Chihuahuan,NA,obligate,obligate,TRUE
 victoria_crowned_pigeon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 victorias_riflebird,NA,forest; woodland; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -10998,7 +10545,6 @@ violaceous_euphonia,NA,forest; woodland; shrub; artificial; riparian,NA,NA,NA,NA
 violaceous_jay,NA,forest; woodland; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 violaceous_quail_dove,NA,forest; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 violaceous_trogon,NA,forest; woodland; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-violet-green swallow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 violet_backed_hyliota,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 violet_backed_starling,NA,forest; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 violet_bellied_hummingbird,NA,forest,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -11020,9 +10566,7 @@ violet_tailed_sylph,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 violet_throated_metaltail,NA,forest; woodland; grasslands; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 violet_turaco,NA,forest; savannah; artificial; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
 violet_woodhoopoe,NA,woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-virginia rail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 virginia_rail,NA,grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Freshwater Marsh; Coasts:  Saltmarsh,NA,NA,facultative,TRUE
-virginias warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 virginias_warbler,NA,forest; shrub; riparian,NA,NA,NA,Forests:  Temperate Western; Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 viridian_dacnis,NA,forest; shrub,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
 viridian_metaltail,NA,forest; shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -11072,11 +10616,9 @@ wallaces_owlet_nightjar,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 wallaces_scops_owl,NA,forest; bamboo; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 wallcreeper,NA,rocky_areas; artificial; coastal,NA,rocks,NA,NA,NA,NA,other,FALSE
 wallers_starling,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
-wandering tattler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wandering_tattler,NA,shrub; rocky_areas; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,Tundra:  Alpine; Wetlands:  Tundra; Coasts:  Beach and Estuary,NA,NA,other,FALSE
 wandering_whistling_duck,NA,riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 wangi_wangi_white_eye,NA,forest; shrub; artificial,NA,NA,NA,NA,NA,NA,shrub,FALSE
-warbling vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 warbling_doradito,NA,shrub; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 warbling_vireo,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Temperate Western; Forests:  Tropical Generalist,NA,NA,other,FALSE
 wards_flycatcher,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -11123,14 +10665,6 @@ west_mexican_chachalaca,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:
 west_mexican_euphonia,NA,woodland,NA,NA,NA,Forests:  Tropical Dry; Open Country:  Habitat Mosaic,NA,NA,facultative,TRUE
 west_peruvian_dove,NA,savannah; plains; artificial,NA,NA,NA,NA,NA,NA,facultative,TRUE
 west_solomons_owl,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-western bluebird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western gull,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western kingbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western meadowlark,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western sandpiper,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western screech-owl,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western tanager,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-western wood-pewee,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 western_banded_snake_eagle,NA,woodland; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 western_barred_woodcreeper,NA,forest; woodland; artificial; riparian; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 western_bearded_greenbul,NA,forest; grasslands; riparian,NA,NA,NA,NA,NA,NA,facultative,TRUE
@@ -11252,21 +10786,6 @@ whistling_kite,NA,forest; woodland; artificial; riparian; wetlands_lakes_marsh,N
 whistling_long_tailed_cuckoo,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 whistling_warbler,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 whistling_yellowbill,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white ibis,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-breasted nuthatch,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-crowned pigeon,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-crowned sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-eyed vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-faced ibis,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-headed woodpecker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-tailed hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-tailed kite,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-throated sparrow,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-throated swift,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-tipped dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-winged crossbill,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-winged dove,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-white-winged scoter,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 white_backed_black_tit,NA,forest; bamboo; woodland; shrub; rocky_areas; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 white_backed_duck,NA,artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,other,FALSE
 white_backed_fire_eye,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -11872,27 +11391,20 @@ whytes_barbet,NA,woodland; artificial; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 whytes_double_collared_sunbird,NA,forest; grasslands,NA,NA,NA,NA,NA,NA,facultative,TRUE
 whytes_francolin,NA,woodland; grasslands; rocky_areas,NA,NA,NA,NA,NA,NA,facultative,TRUE
 wieds_tyrant_manakin,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wild turkey,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wild_turkey,NA,forest; shrub; grasslands; artificial,NA,woodland; grassland,NA,Forests:  Temperate Generalist,NA,NA,facultative,TRUE
 wilkinss_finch,NA,shrub; grasslands,NA,NA,NA,NA,NA,NA,shrub,FALSE
 willards_sooty_boubou,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 willcockss_honeyguide,NA,forest; woodland; shrub; grasslands; artificial; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
 willet,NA,rocky_areas; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Coasts:  Saltmarsh; Coasts:  Beach and Estuary,NA,facultative,facultative,TRUE
-williamsons sapsucker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 williamsons_sapsucker,NA,forest; woodland,NA,NA,NA,Forests:  Temperate Western; Forests:  Mesoamerican Pine-Oak,NA,NA,other,FALSE
 williamss_lark,NA,shrub; plains; rocky_areas; desert,NA,NA,NA,NA,NA,NA,shrub,FALSE
 willie_wagtail,NA,shrub; savannah; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 williss_antbird,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-willow ptarmigan,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 willow_flycatcher,NA,woodland; shrub; grasslands,NA,NA,NA,Open Country:  Habitat Mosaic; Forests:  Temperate Western,shrubland,NA,facultative,TRUE
 willow_grouse,NA,forest; shrub; grasslands; rocky_areas; artificial; riparian,NA,tundra; swamps,NA,NA,NA,NA,facultative,TRUE
 willow_ptarmigan,NA,NA,NA,NA,NA,Tundra:  Arctic,NA,facultative,facultative,TRUE
 willow_tit,NA,forest; woodland; shrub; riparian; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest; woodland,NA,NA,NA,NA,other,FALSE
 willow_warbler,NA,forest; woodland; shrub; savannah; grasslands; artificial; riparian; coastal,NA,deciduous_forest; coniferous_forest; woodland; shrub; tundra,NA,NA,NA,NA,shrub,FALSE
-wilsons phalarope,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wilsons plover,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wilsons snipe,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wilsons warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wilsons_bird_of_paradise,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 wilsons_indigobird,NA,forest; shrub; savannah; grasslands; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wilsons_phalarope,NA,grasslands; coastal; wetlands_lakes_marsh,NA,NA,NA,Wetlands:  Seasonally Wet Grasslands; Wetlands:  Freshwater Marsh; Wetlands:  Lakes and Rivers,NA,facultative,facultative,TRUE
@@ -11909,7 +11421,6 @@ wing_barred_piprites,NA,forest; woodland,NA,NA,NA,NA,NA,NA,other,FALSE
 wing_barred_seedeater,NA,forest; shrub; grasslands; artificial; riparian; coastal,NA,NA,NA,NA,NA,facultative,facultative,TRUE
 wing_snapping_cisticola,NA,grasslands; artificial; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 winifreds_warbler,NA,forest; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-winter wren,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 winter_wren,NA,forest; riparian,NA,NA,NA,Forests:  Boreal; Forests:  Temperate Eastern,NA,NA,other,FALSE
 wintering_shrub_scrub_species,shrub,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wintering_species,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -11918,9 +11429,6 @@ wire_tailed_manakin,NA,forest; woodland; shrub; riparian,NA,NA,NA,NA,NA,NA,shrub
 wire_tailed_swallow,NA,woodland; savannah; grasslands; plains; artificial; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,facultative,TRUE
 wompoo_fruit_dove,NA,forest; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
 wonga_pigeon,NA,forest; woodland; artificial,NA,NA,NA,NA,NA,NA,other,FALSE
-wood duck,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wood stork,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-wood thrush,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 wood_duck,NA,forest; artificial; riparian; wetlands_lakes_marsh,NA,deciduous_forest; coniferous_forest; freshwater,NA,Wetlands:  Forested; Forests:  Temperate Eastern; Wetlands:  Lakes and Rivers,NA,NA,other,FALSE
 wood_sandpiper,NA,forest; woodland; shrub; grasslands; artificial; riparian; coastal; wetlands_lakes_marsh,NA,coniferous_forest; tundra; swamps,NA,NA,NA,NA,facultative,TRUE
 wood_snipe,NA,forest; shrub; grasslands; riparian; wetlands_lakes_marsh,NA,NA,NA,NA,NA,NA,shrub,FALSE
@@ -11936,7 +11444,6 @@ woodland_species,woodland,NA,NA,NA,NA,NA,NA,NA,other,FALSE
 woodlark,NA,woodland; shrub; grasslands; artificial,NA,woodland; shrub; grassland,NA,NA,NA,NA,shrub,FALSE
 woodpecker_finch,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 woodwards_batis,NA,forest; woodland; shrub; savannah; riparian,NA,NA,NA,NA,NA,NA,shrub,FALSE
-worm-eating warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 worm_eating_warbler,NA,forest; shrub; riparian,NA,NA,NA,Forests:  Temperate Eastern; Forests:  Tropical Lowland Evergreen; Forests:  Tropical Dry,NA,NA,other,FALSE
 worthens_sparrow,NA,shrub; grasslands,NA,NA,NA,Grasslands:  Chihuahuan,NA,facultative,facultative,TRUE
 wreathed_hornbill,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
@@ -11957,18 +11464,6 @@ yap_olive_white_eye,NA,forest; coastal,NA,NA,NA,NA,NA,NA,other,FALSE
 yap_plain_white_eye,NA,forest; shrub; savannah; artificial; coastal,NA,NA,NA,NA,NA,NA,shrub,FALSE
 yapacana_antbird,NA,forest; shrub,NA,NA,NA,NA,NA,NA,shrub,FALSE
 yelkouan_shearwater,NA,coastal; pelagic,NA,marine,NA,NA,NA,NA,other,FALSE
-yellow rail,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-bellied flycatcher,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-bellied sapsucker,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-billed cuckoo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-billed magpie,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-breasted chat,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-crowned night-heron,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-eyed junco,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-headed blackbird,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-throated vireo,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
-yellow-throated warbler,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 yellow_and_green_lorikeet,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
 yellow_backed_oriole,NA,forest; woodland; shrub; savannah,NA,NA,NA,Forests:  Tropical Dry; Forests:  Mesoamerican Pine-Oak,NA,NA,facultative,TRUE
 yellow_backed_tanager,NA,forest; woodland; shrub; artificial,NA,NA,NA,Forests:  Tropical Lowland Evergreen,NA,NA,other,FALSE
@@ -12330,5 +11825,4 @@ zimmers_woodcreeper,NA,forest; riparian,NA,NA,NA,NA,NA,NA,other,FALSE
 zinos_petrel,NA,rocky_areas; pelagic,NA,marine,NA,NA,NA,NA,other,FALSE
 zitting_cisticola,NA,woodland; grasslands; artificial; wetlands_lakes_marsh,NA,savanna; grassland; swamps,NA,NA,NA,NA,facultative,TRUE
 zoes_imperial_pigeon,NA,forest,NA,NA,NA,NA,NA,NA,other,FALSE
-zone-tailed hawk,NA,NA,NA,NA,NA,NA,NA,NA,shrub,FALSE
 zone_tailed_hawk,NA,forest; woodland; shrub; savannah; rocky_areas; artificial,NA,NA,NA,Forests:  Tropical Generalist,NA,NA,facultative,TRUE
