@@ -176,15 +176,6 @@ species_classified <-
         
         species == "all_species" ~ NA,
         
-        
-        # Shrub species if all includes a shrub class or NA:
-        
-        if_all(
-          article_classified:vickery_1999,
-          ~ str_detect(.x, "[sS](hrub|crub)|[Cc]hap") | 
-            is.na(.x)
-        ) ~ "shrub",
-        
         # Obligate if any of the sources classify the species as such:
         
         if_any(
@@ -218,6 +209,13 @@ species_classified <-
         # Partners in Flight combination for shrub class:
         
         str_detect(partners_in_flight, "[sS](hrub|crub)|[Cc]hap") ~ "shrub",
+        
+        # Shrub species if all includes a shrub class or NA:
+        
+        if_any(
+          article_classified:vickery_1999,
+          ~ str_detect(.x, "[sS](hrub|crub)|[Cc]hap")
+        ) ~ "shrub",
         
         .default = "other"
       ),
