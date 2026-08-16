@@ -101,7 +101,7 @@ species_classified_hand_classes <-
       # Classes defined in the articles themselves:
       
       "acadian_flycatcher_indigo_bunting", "article_classified",
-      "shrub; forest",
+      "shrub; forest; facultative",
       "all_species", "article_classified", NA,
       "artificial_nests", "article_classified", NA,
       "artificial_nests_chestnut_sided_warbler", "article_classified", NA,
@@ -213,22 +213,36 @@ species_classified <-
         
         str_detect(partners_in_flight, "[sS](hrub|crub)|[Cc]hap") ~ "shrub",
         
-        # Shrub species if all includes a shrub class or NA:
+        # Shrub species if any of the remainder includes a shrub class:
         
         if_any(
           article_classified:vickery_1999,
           ~ str_detect(.x, "[sS](hrub|crub)|[Cc]hap")
         ) ~ "shrub",
         
+        # Woodland species if any of the remainder includes a woodland class:
+        
+        if_any(
+          article_classified:vickery_1999,
+          ~ str_detect(.x, "[Ww]oodland")
+        ) ~ "woodland",
+        
+        # Forest species if any of the remainder includes a forest class:
+        
+        if_any(
+          article_classified:vickery_1999,
+          ~ str_detect(.x, "[Ff]orest")
+        ) ~ "forest",
         .default = "other"
       ),
-    include = 
-      if_else(
-        str_detect(analysis_class, "facultative|obligate") |
-          species == "all_species",
-        TRUE,
-        FALSE
-      )
+
+    # Every class but shrubland is analysed: a shrubland species responds to
+    # a grassland practice in its own right, so it is held out.
+
+    include =
+      analysis_class %in%
+        c("obligate", "facultative", "other") |
+        species == "all_species"
   ) %>% 
   arrange(species)
 
@@ -293,7 +307,7 @@ species_classified_includes_grouping <-
 
 # Species-analysis frame:
 
-species_classified %>%
+species_classified_includes_grouping %>%
   write_csv(
     here(
       "data/processed",
