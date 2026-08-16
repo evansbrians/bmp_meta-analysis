@@ -59,7 +59,10 @@ species_classes_combined <-
         
           # Repair names, if necessary:
           
-          species = str_to_snake(species)
+          species = 
+            species %>% 
+            str_to_snake() %>% 
+            str_replace("le_conte", "leconte")
         )
     } 
   ) %>% 
