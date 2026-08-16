@@ -4,8 +4,8 @@
 #   lookups every shape needs
 # - Writes data/processed/for_analysis
 
-# Nothing is screened or dropped here. The exclusion screen is a single pass
-# in 1b_screen_effects.R.
+# Nothing is screened or dropped here. The exclusion screen happens in
+# 1b_screen_effects.R.
 
 # setup --------------------------------------------------------------------
 
@@ -49,9 +49,6 @@ bmp_tables <-
 DBI::dbDisconnect(database, shutdown = TRUE)
 
 # restore the statistic shapes ---------------------------------------------
-
-# The database holds one row per arm; the sheets carry the arm as a column
-# suffix, so the reshape is a pivot and a rename.
 
 # The two estimate shapes are the same table split on which statistic was
 # reported, each back under the names its own sheets used.
@@ -107,9 +104,7 @@ sheet_statistics <-
   list(
     mean_diff = "arms",
     beta_categorical = c("arms", "coefficients"),
-    other_categorical = c("arms", "tests"),
-    beta_continuous = "coefficients",
-    other_continuous = "tests"
+    other_categorical = c("arms", "tests")
   )
 
 # assemble the records -----------------------------------------------------
