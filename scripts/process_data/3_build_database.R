@@ -14,14 +14,15 @@ database_path <- "data/raw/bmp_meta.duckdb"
 # One entry per extraction sheet. `prefix` fixes the effect_id namespace, so
 # these codes are as load-bearing as the file names beside them.
 
+# Eligibility requires a categorical treatment and response, so the two
+# gradient sheets are out of scope and no longer extracted.
+
 extraction_sheets <-
   tribble(
     ~ source_sheet, ~ prefix, ~ extraction_type, ~ design,
     "mean_diff", "md", "mean_difference", "categorical",
     "beta_categorical", "bc", "coefficient", "categorical",
-    "other_categorical", "tc", "test_statistic", "categorical",
-    "beta_continuous", "bn", "coefficient", "continuous",
-    "other_continuous", "tn", "test_statistic", "continuous"
+    "other_categorical", "tc", "test_statistic", "categorical"
   )
 
 # The two arm conventions in the sheets. Renaming to one of them here is what
@@ -200,7 +201,9 @@ effect <-
     response_class,
     response_var,
     survival_scale,
-    predictor_var,
+    link,
+    baseline_survival,
+    beta_is_derived,
     treatment,
     control,
     species,

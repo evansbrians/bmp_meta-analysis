@@ -10,8 +10,8 @@ library(tidyverse)
 
 source("scripts/functions.R")
 
-# Strings (or lack-thereof) that mean missing in the source workbook. Note that
-# "unknown" does not mean missing and is not included here:
+# Sentinels that mean missing in the source workbook. "unknown" is not among
+# them: in the screening columns it is a real category and is kept.
 
 null_tokens <-
   c(
@@ -21,6 +21,21 @@ null_tokens <-
     "n/a",
     "none",
     "nan"
+  )
+
+# Columns holding a controlled vocabulary rather than free text. These are
+# folded to snake_case so a spelling variant cannot become a new category.
+
+# `key`, `bmp` and the free-text columns are excluded: keys would be split
+# on their digits, and bmp is semicolon-delimited.
+
+vocabulary_columns <-
+  c(
+    "response_class",
+    "treatment_control_flag",
+    "error_class",
+    "link",
+    "test_statistic"
   )
 
 # Google sheet url:
@@ -77,14 +92,22 @@ analysis_subset_list_cells <-
               )
             }
           )
+        ) %>%
+        mutate(
+          across(
+            any_of(vocabulary_columns),
+            \(.column) {
+              str_to_snake(.column)
+            }
+          )
         )
     }
   )
 
 # clean error classes -----------------------------------------------------
 
-# The cell can name more than one measure, so the variants are folded in
-# place rather than split and rejoined.
+# snake_case has already folded the spacing and capitalisation, so what is
+# left is an abbreviation and a typo.
 
 analysis_subset_list_error_class <-
   analysis_subset_list_cells %>%
@@ -94,8 +117,6 @@ analysis_subset_list_error_class <-
         mutate(
           error_class =
             error_class %>%
-            str_to_lower() %>%
-            str_replace_all("standard error", "standard_error") %>%
             str_replace_all("confident_intervals", "confidence_intervals") %>%
             str_replace_all("\\bse\\b", "standard_error")
         )
@@ -158,11 +179,33 @@ analysis_subset_list_species_edits <-
       )
   )
 
+# clean link functions ----------------------------------------------------
+
+# The scale a reported coefficient sits on. Only these reach the hazard
+# scale, so a value outside the list is a silent exclusion.
+
+link_vocabulary <-
+  c(
+    "identity",
+    "logit",
+    "logistic_exposure",
+    "log",
+    "cloglog",
+    "probit"
+  )
+
 # add nest survival scale -------------------------------------------------
 
 # Period survival S = DSR^d, so a daily rate and a period probability are not
-# comparable as an SMD. The database will later pass this to the effect-size
-# step, which puts the two on one log hazard scale.
+# comparable as a standardised mean difference. The database carries this to
+# the effect-size step, which puts the two on one log hazard scale.
+
+# `link` is the scale a reported coefficient lives on and is the
+# only route a nest coefficient has to the hazard scale, `baseline_survival`
+# is the control level it maps from, and `beta_is_derived` marks a
+# coefficient computed from the paper rather than read off it.
+
+# All three are created empty where the sheet does not yet carry them.
 
 analysis_subset_list_survival_scale <-
   analysis_subset_list_species_edits %>%
@@ -170,9 +213,46 @@ analysis_subset_list_survival_scale <-
     \(.table) {
       .table %>%
         mutate(
+          link =
+            if ("link" %in% names(.table)) {
+              link
+            } else {
+              NA_character_
+            },
+          baseline_survival =
+            if ("baseline_survival" %in% names(.table)) {
+              as.numeric(baseline_survival)
+            } else {
+              NA_real_
+            },
+          beta_is_derived =
+            if ("beta_is_derived" %in% names(.table)) {
+              beta_is_derived %>%
+                as.character() %>%
+                str_to_lower() %>%
+                case_match(
+                  c("yes", "y", "true", "t") ~ TRUE,
+                  c("no", "n", "false", "f") ~ FALSE
+                )
+            } else {
+              NA
+            }
+        ) %>%
+        mutate(
+
+          # snake_case leaves one variant the vocabulary does not name.
+
+          link = str_replace(link, "^log_link$", "log")
+        ) %>%
+        mutate(
+
+          # A logistic-exposure coefficient is on logit(DSR), so it is daily
+          # whatever the response is called.
+
           survival_scale =
             case_when(
               response_class != "nest_success" ~ NA_character_,
+              link == "logistic_exposure" ~ "daily_survival",
               str_detect(response_var, "[Dd]aily|DSR|dsr|[Mm]ayfield") ~
                 "daily_survival",
               .default = "period_survival"
@@ -180,6 +260,30 @@ analysis_subset_list_survival_scale <-
         )
     }
   )
+
+# A link outside the vocabulary reaches no conversion route and would drop
+# its record without a reason, so it is named rather than ignored.
+
+unrecognised_links <-
+  analysis_subset_list_survival_scale %>%
+  map(
+    \(.table) {
+      .table %>%
+        filter(
+          !is.na(link),
+          !link %in% link_vocabulary
+        ) %>%
+        pull(link)
+    }
+  ) %>%
+  list_c() %>%
+  unique()
+
+if (length(unrecognised_links) > 0) {
+  cli::cli_warn(
+    "Link outside the vocabulary: {.val {unrecognised_links}}."
+  )
+}
 
 # write to file -----------------------------------------------------------
 
