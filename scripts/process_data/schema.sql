@@ -57,6 +57,7 @@ CREATE TABLE study_bmp_response (
 
 CREATE TABLE species (
     species         TEXT PRIMARY KEY,
+    species_group   TEXT,
     analysis_class  TEXT,
     include         BOOLEAN
 );

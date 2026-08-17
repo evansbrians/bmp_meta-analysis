@@ -167,6 +167,7 @@ species <-
   ) %>%
   select(
     species,
+    species_group,
     analysis_class,
     include
   ) %>%

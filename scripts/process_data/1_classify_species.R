@@ -190,6 +190,11 @@ species_classified <-
         
         eubirds == "grassland" ~ "obligate",
         
+        
+        # Obligates defined by birdbase: 
+        
+        birdbase == "grassland" ~ "obligate",
+        
         # Facultative if any of the sources classify the species as such:
         
         if_any(
@@ -236,8 +241,8 @@ species_classified <-
         .default = "other"
       ),
 
-    # Every class but shrubland is analysed: a shrubland species responds to
-    # a grassland practice in its own right, so it is held out.
+    # The grassland classes carry the primary analysis. The vegetation
+    # classes -- shrub, woodland, forest -- are held out of it.
 
     include =
       analysis_class %in%
