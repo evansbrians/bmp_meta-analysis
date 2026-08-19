@@ -51,7 +51,6 @@ species_classes_combined <-
               str_detect(idx, "aab\\.csv$") ~ "all_about_birds",
               str_detect(idx, "birdbase\\.csv$") ~ "birdbase",
               str_detect(idx, "eubirds\\.csv$") ~ "eubirds",
-              str_detect(idx, "john_2006\\.csv$") ~ "peterjohn_2006",
               str_detect(idx, "pif\\.csv$") ~ "partners_in_flight",
               str_detect(idx, "vgbi\\.csv$") ~ "vgbi",
               str_detect(idx, "vickery") ~ "vickery_1999"

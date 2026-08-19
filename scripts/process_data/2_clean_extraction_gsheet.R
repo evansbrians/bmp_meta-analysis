@@ -109,46 +109,34 @@ analysis_subset_list_cells <-
 # snake_case has already folded the spacing and capitalisation, so what is
 # left is an abbreviation and a typo.
 
-analysis_subset_list_error_class <-
+analysis_subset_list_bmp_edits <-
   analysis_subset_list_cells %>%
   map(
     \(.table) {
       .table %>%
+        separate_longer_delim(bmp, ";") %>% 
         mutate(
           error_class =
             error_class %>%
             str_replace_all("confident_intervals", "confidence_intervals") %>%
-            str_replace_all("\\bse\\b", "standard_error")
+            str_replace_all("\\bse\\b", "standard_error"),
+          bmp =
+            bmp %>%
+            str_to_lower() %>%
+            str_trim() %>%
+
+            # The two codes the extraction still spells its own way:
+
+            str_replace(
+              "^set_aside_adjacent_unmowed$",
+              "manage_in_patches"
+            ) %>%
+            str_replace(
+              "^remove_non[-_]native.*$",
+              "remove_non_native_shrubs"
+            )
         )
     }
-  )
-
-# clean bmps --------------------------------------------------------------
-
-analysis_subset_list_bmp_edits <-
-  analysis_subset_list_error_class %>%
-  map(
-    ~ .x %>%
-      separate_longer_delim(bmp, ";") %>%
-      mutate(
-        bmp =
-          case_when(
-            str_detect(bmp, "[Rr]emove") ~ "remove_non_native_shrubs",
-            str_detect(bmp, "[Pp]rescribed") ~ "prescribed_fire",
-            str_detect(bmp, "[Ss]hrub") ~ "edge_and_shrub_habitat",
-            str_detect(bmp, "nwsg|[Nn]ative") ~ "plant_nwsg",
-            str_detect(bmp, "[Pp]atches") ~ "manage_in_patches",
-            str_detect(bmp, "[Ee]xclusion") ~ "stream_exclusion_and_buffers",
-            str_detect(bmp, "[Bb]oxes") ~ "install_nest_boxes",
-            str_detect(bmp, "[Dd]elay") ~ "delay_hay",
-            str_detect(bmp, "[Oo]verw") ~ "provide_overwintering_habitat",
-            str_detect(bmp, "[Gg]raz") ~ "reduce_grazing_intensity",
-            str_detect(bmp, "[Ii]ndoors") ~ "keep_cats_indoors",
-            str_detect(bmp, "[Uu]nmown") ~ "set_aside_adjacent_unmowed",
-            str_detect(bmp, "[Ss]ummer") ~ "rotational_grazing",
-            .default = bmp
-          )
-      )
   )
 
 # clean species names -----------------------------------------------------

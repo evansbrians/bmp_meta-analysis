@@ -97,13 +97,18 @@ paper_metadata_canonical_bmps <-
   mutate(
     bmp =
       case_when(
+        bmp == "set_aside_adjacent_unmowed" ~ "manage_in_patches",
         bmp == "grazing_intensity" ~ "reduce_grazing_intensity",
         bmp == "summer_pasture_stockpiling" ~ "rotational_grazing",
-        bmp == "remove_non-native_species" ~ "remove_non_native_shrubs",
+        str_detect(bmp, "^remove_non[-_]native") ~ "remove_non_native_shrubs",
         .default = bmp
       ),
     multiple_bmps =
       multiple_bmps %>%
+      str_replace_all(
+        "set_aside_adjacent_unmowed",
+        "manage_in_patches"
+      ) %>%
       str_replace_all(
         "\\bgrazing_intensity\\b",
         "reduce_grazing_intensity"
@@ -113,7 +118,7 @@ paper_metadata_canonical_bmps <-
         "rotational_grazing"
       ) %>%
       str_replace_all(
-        "remove_non-native_species",
+        "remove_non[-_]native_species",
         "remove_non_native_shrubs"
       )
   )

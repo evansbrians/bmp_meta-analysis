@@ -1,6 +1,7 @@
 # This script:
 # - Reads the cleaned inputs from data/processed
-# - Normalises them into nine tables, one per level of observation
+# - Normalises them into nine tables, one per level of observation, and loads
+#   the practice vocabulary beside them
 # - Writes data/raw/bmp_meta.duckdb
 
 # setup --------------------------------------------------------------------
@@ -93,6 +94,30 @@ extraction_effects <-
   )
 
 # study --------------------------------------------------------------------
+
+# A key names one paper, so two papers sharing one would load as a single
+# study. duckdb catches it, but not legibly, so it is named here first.
+
+colliding_keys <-
+  paper_metadata %>%
+  distinct(key, paper) %>%
+  filter(n() > 1, .by = key) %>%
+  summarise(
+    papers = str_flatten_comma(paper),
+    .by = key
+  )
+
+if (nrow(colliding_keys) > 0) {
+  cli::cli_abort(
+    c(
+      "A study key names more than one paper:",
+      set_names(
+        str_c(colliding_keys$key, ": ", colliding_keys$papers),
+        "x"
+      )
+    )
+  )
+}
 
 # A study reaches the extraction without a metadata row, so the two sources are
 # unioned and `in_metadata` records which side each key came from.
@@ -354,6 +379,7 @@ database <-
 # references.
 
 list(
+  bmp = bmp_vocabulary,
   study = study,
   study_place = study_place,
   study_bmp = study_bmp,

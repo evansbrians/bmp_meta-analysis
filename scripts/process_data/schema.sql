@@ -1,19 +1,27 @@
 -- ==========================================================================
 -- bmp_meta-analysis :: relational schema (DuckDB)
 -- ==========================================================================
--- Nine tables, one per level of observation, loaded by 3_build_database.R
--- from data/processed.
+-- Ten tables, loaded by 3_build_database.R: one per level of observation,
+-- from data/processed, plus the practice vocabulary.
 --
 -- Keys are natural. study_key is the bibliographic key the sheets record.
 -- effect_id is <sheet code>_<index>, assigned over the rows of a cleaned sheet
 -- that are one observation, and is the key the analysis shares.
 --
 -- There are no surrogate-key registries: a controlled vocabulary is stored as
--- its label. Two source columns are not carried because they restate data
--- already held here -- multiple_bmps restates study_bmp, and error_class
--- restates which dispersion columns are populated. Both are checked in the
--- prep script, not here.
+-- its label. The one lookup table, bmp, adds no key -- it maps each practice
+-- label to the formal name the manuscript prints, and is loaded from
+-- bmp_vocabulary in scripts/functions.R. Two source columns are not carried
+-- because they restate data already held here -- multiple_bmps restates
+-- study_bmp, and error_class restates which dispersion columns are populated.
+-- Both are checked in the prep script, not here.
 -- ==========================================================================
+
+
+CREATE TABLE bmp (
+    bmp       TEXT PRIMARY KEY,
+    bmp_name  TEXT NOT NULL
+);
 
 
 CREATE TABLE study (
