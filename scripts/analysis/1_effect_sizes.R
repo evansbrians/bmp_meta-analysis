@@ -1,9 +1,12 @@
 # This script:
 # - Reads the three categorical sheets from data/processed/for_analysis
-# - Converts each to Hedges' g by the pathway its columns support
-# - Screens the combined table once, at the end
-# - Saves the analysis pool, and the records it holds out, to db_mirror
-#   and output/audits
+# - Converts abundance and richness records to Hedges' g by the pathway
+#   their columns support
+# - Converts nest-survival records to log hazard ratios
+# - Writes the converted table, unscreened, to db_mirror
+
+# Note: Screening is 1b_screen_effects.R, so a record that fails a conversion is
+# still here with an empty yi.
 
 # setup --------------------------------------------------------------------
 
@@ -11,12 +14,7 @@ library(tidyverse)
 
 source("scripts/functions.R")
 
-fs::dir_create(
-  c(
-    "brian_sandbox/data/db_mirror",
-    "output/audits"
-  )
-)
+fs::dir_create("data/db_mirror")
 
 # read the extraction ------------------------------------------------------
 
@@ -31,7 +29,11 @@ extraction <-
   ) %>%
   imap(
     \(.prefix, .sheet) {
-      str_c("data/processed/for_analysis/", .sheet, ".csv") %>%
+      fs::path(
+        "data/processed/for_analysis",
+        .sheet,
+        ext = "csv"
+      ) %>%
         read_csv(show_col_types = FALSE) %>%
         mutate(
           source_sheet = .sheet,
@@ -52,8 +54,7 @@ extraction <-
 
 # mean differences ---------------------------------------------------------
 
-# Hedges' g from two group means and their pooled SD. Each arm's SD is the
-# reported one, else the SE, else the confidence interval.
+# Hedges' g from two group means and their pooled SD:
 
 mean_difference_effects <-
   extraction %>%
@@ -70,12 +71,59 @@ mean_difference_effects <-
       n_c = .$n_c
     )
   ) %>%
-  mutate(conversion = "two group means")
+  mutate(
+    conversion = "two group means",
+    effect_metric = "hedges_g"
+  )
+
+## nest survival to the log hazard scale in mean differences --------------
+
+# A daily rate and a period probability are two reporting scales of one
+# quantity -- we combine them with the log hazard ratio:
+
+# Note: `yi` is negated to run benefit-positive, so it is the negative of a
+# conventional log hazard ratio, and `sign` is not applied again below.
+
+nest_survival_effects <-
+  mean_difference_effects %>%
+  filter(response_metric == "nest_success")
+
+nest_hazard <-
+  log_hazard_contrast(
+    treatment =
+      arm_log_hazard(
+        xbar = nest_survival_effects$xbar_e,
+        group_sd = nest_survival_effects$sd_e_used,
+        n = nest_survival_effects$n_e,
+        sign = nest_survival_effects$sign
+      ),
+    control =
+      arm_log_hazard(
+        xbar = nest_survival_effects$xbar_c,
+        group_sd = nest_survival_effects$sd_c_used,
+        n = nest_survival_effects$n_c,
+        sign = nest_survival_effects$sign
+      )
+  )
+
+# Inform the mean difference effects with the log-hazard:
+
+mean_difference_effects <-
+  mean_difference_effects %>%
+  rows_update(
+    nest_survival_effects %>%
+      mutate(
+        yi = nest_hazard$yi,
+        sei = nest_hazard$sei,
+        conversion = "log hazard ratio from arm survival",
+        effect_metric = "log_hazard_ratio"
+      ),
+    by = "row_id"
+  )
 
 # categorical coefficients -------------------------------------------------
 
-# t = beta / SE, then Hedges' g. Exact group sizes where both are reported,
-# balanced groups assumed where only a total is.
+# t = beta / SE, then Hedges' g
 
 beta_categorical_effects <-
   extraction %>%
@@ -100,12 +148,59 @@ beta_categorical_effects <-
       n_c = .$n_c
     )
   ) %>%
-  mutate(conversion = "regression coefficient")
+  mutate(
+    conversion = "regression coefficient",
+    effect_metric = "hedges_g"
+  )
+
+## nest survival from a coefficient in beta categorical -------------------
+
+# `link` names the scale the coefficient sits on -- logit of a survival,
+# its logarithm, or the survival itself -- and each maps to the hazard scale
+# once the baseline it maps from is known.
+
+# It is the only route: a nest coefficient with no link, or none with a
+# recorded baseline where one is needed, keeps its Hedges' g, which is
+# withdrawn below and held out as `nest_hazard_scale`.
+
+nest_coefficient_effects <-
+  beta_categorical_effects %>%
+  filter(
+    response_metric == "nest_success",
+    link %in% c("logistic_exposure", "logit", "log", "identity")
+  )
+
+nest_coefficient_hazard <-
+  log_hazard_from_coefficient(
+    beta = nest_coefficient_effects$beta,
+    se = nest_coefficient_effects$se_used,
+    sign = nest_coefficient_effects$sign,
+    link = nest_coefficient_effects$link,
+    baseline_survival = nest_coefficient_effects$baseline_survival
+  )
+
+beta_categorical_effects <-
+  beta_categorical_effects %>%
+  rows_update(
+    nest_coefficient_effects %>%
+      mutate(
+        yi = nest_coefficient_hazard$yi,
+        sei = nest_coefficient_hazard$sei,
+        conversion =
+          str_c(
+            "log hazard ratio from ",
+            link,
+            " coefficient"
+          ),
+        effect_metric = "log_hazard_ratio"
+      ),
+    by = "row_id"
+  )
 
 # test statistics ----------------------------------------------------------
 
 # `needs_one_df` is whether a two-group contrast has to be established first.
-# A statistic with no rule here -- "D" -- has no route to an effect size.
+# A statistic with no rule here -- "d" -- has no route to an effect size.
 
 test_statistic_effects <-
   extraction %>%
@@ -114,10 +209,10 @@ test_statistic_effects <-
     tribble(
       ~ test_statistic, ~ needs_one_df,
       "t", FALSE,
-      "F", TRUE,
-      "chi-square", TRUE,
-      "Z", FALSE,
-      "Odds ratio", FALSE
+      "f", TRUE,
+      "chi_square", TRUE,
+      "z", FALSE,
+      "odds_ratio", FALSE
     ),
     by = "test_statistic"
   ) %>%
@@ -134,26 +229,27 @@ test_statistic_effects <-
       }
     ),
 
-    # Group sizes fall back to halving the global sample size.
+    # Group sizes fall back to halving the global sample size. The arm
+    # counts carry the _e and _c suffixes 0_prep_data.R restores.
 
     groups_reported =
-      !is.na(treatment_n) &
-      !is.na(control_n),
-    n_e =
+      !is.na(n_e) &
+      !is.na(n_c),
+    n_e_used =
       if_else(
         groups_reported,
-        treatment_n,
+        n_e,
         global_n / 2
       ),
-    n_c =
+    n_c_used =
       if_else(
         groups_reported,
-        control_n,
+        n_c,
         global_n / 2
       ),
-    n_total = n_e + n_c,
+    n_total = n_e_used + n_c_used,
     contrast_se =
-      sqrt(1 / n_e + 1 / n_c),
+      sqrt(1 / n_e_used + 1 / n_c_used),
 
     # The direction comes from `response_dir`, so the statistic's own sign is
     # discarded and every conversion below is defined on every row.
@@ -165,8 +261,8 @@ test_statistic_effects <-
     correlation =
       case_match(
         test_statistic,
-        "chi-square" ~ sqrt(magnitude / n_total),
-        "Z" ~ magnitude / sqrt(n_total)
+        "chi_square" ~ sqrt(magnitude / n_total),
+        "z" ~ magnitude / sqrt(n_total)
       ),
 
     # A contrast converts on one degree of freedom, independent arms, and a
@@ -199,9 +295,9 @@ test_statistic_effects <-
       case_match(
         test_statistic,
         "t" ~ magnitude * contrast_se,
-        "F" ~ sqrt(magnitude) * contrast_se,
-        c("chi-square", "Z") ~ d_from_r(correlation),
-        "Odds ratio" ~ d_from_odds_ratio(magnitude)
+        "f" ~ sqrt(magnitude) * contrast_se,
+        c("chi_square", "z") ~ d_from_r(correlation),
+        "odds_ratio" ~ d_from_odds_ratio(magnitude)
       ) %>%
       abs() %>%
       magrittr::multiply_by(response_dir),
@@ -211,9 +307,46 @@ test_statistic_effects <-
     sei =
       sqrt(
         correction^2 *
-          (n_total / (n_e * n_c) + cohens_d^2 / (2 * n_total))
+          (n_total / (n_e_used * n_c_used) + cohens_d^2 / (2 * n_total))
       ),
-    conversion = "test statistic"
+    conversion = "test statistic",
+    effect_metric = "hedges_g"
+  )
+
+## nest survival from an odds ratio ---------------------------------------
+
+# A reported odds ratio of daily survival is the coefficient route wearing a
+# different hat: log(OR) is the coefficient, and its interval the error.
+
+nest_odds_ratio_effects <-
+  test_statistic_effects %>%
+  filter(
+    response_metric == "nest_success",
+    test_statistic == "odds_ratio",
+    link %in% c("logistic_exposure", "logit")
+  )
+
+nest_odds_ratio_hazard <-
+  log_hazard_from_odds_ratio(
+    odds_ratio = nest_odds_ratio_effects$test_stat_value,
+    lower_cl = nest_odds_ratio_effects$global_lcl,
+    upper_cl = nest_odds_ratio_effects$global_ucl,
+    sign = nest_odds_ratio_effects$sign,
+    link = nest_odds_ratio_effects$link,
+    baseline_survival = nest_odds_ratio_effects$baseline_survival
+  )
+
+test_statistic_effects <-
+  test_statistic_effects %>%
+  rows_update(
+    nest_odds_ratio_effects %>%
+      mutate(
+        yi = nest_odds_ratio_hazard$yi,
+        sei = nest_odds_ratio_hazard$sei,
+        conversion = "log hazard ratio from odds ratio",
+        effect_metric = "log_hazard_ratio"
+      ),
+    by = "row_id"
   )
 
 # one table ----------------------------------------------------------------
@@ -227,6 +360,7 @@ all_effects <-
   select(
     es_id = row_id,
     key,
+    paper,
     source_sheet,
     bmp,
     treatment,
@@ -234,197 +368,58 @@ all_effects <-
     response_var,
     species,
     species_key,
+    species_group,
     analysis_class,
     response_metric,
     response_scale,
+    survival_scale,
+    link,
+    baseline_survival,
+    beta_is_derived,
+    notes,
     species_include,
     treatment_control_flag,
     response_flag,
     sign,
     conversion,
+    effect_metric,
+    xbar_e,
+    xbar_c,
     yi,
     sei,
     n_total
   ) %>%
   mutate(
 
-    # `sign` was assessed against the papers during extraction, and is the
-    # only source of the direction a benefit runs in.
+    # Nest-survival records reported as a coefficient or a test statistic
+    # have no route to the hazard scale, and a Hedges' g cannot be pooled
+    # with a log hazard ratio, so their converted values are withdrawn here
+    # and 1b_screen_effects.R records the reason.
 
-    yi = yi * sign,
-    label_type =
-      if_else(
-        species_key == "all_species",
-        "community",
-        "species"
-      ),
-    guild =
-      if_else(
-        label_type == "species",
-        str_c(analysis_class, "_grassland"),
-        NA_character_
-      ),
-    fire_excluded_original =
-      bmp == "prescribed_fire" &
-      str_detect(
-        replace_na(treatment, ""),
-        str_c(
-          "year of burn",
-          "burned that year",
-          "current year",
-          "<1 growing season",
-          "[678] years",
-          sep = "|"
+    across(
+      c(yi, sei),
+      \(.value) {
+        value_when(
+          !(response_metric == "nest_success" &
+              effect_metric == "hedges_g"),
+          .value
         )
-      ),
+      }
+    ),
 
-    # Every fire interval is retained in the primary pool. Set this to
-    # `!fire_excluded_original` to apply the original post-fire rule instead.
+    # `sign` was assessed against the papers during extraction, and is the
+    # only source of the direction a benefit runs in -- except on the hazard
+    # scale, where the conversion has already resolved it.
 
-    in_primary_pool = TRUE
-  )
-
-# screen the table ---------------------------------------------------------
-
-# One line per reason, each the negation of a test the record has to pass,
-# and a missing value fails that test. Comment one out to run without it.
-
-screened_effects <-
-  all_effects %>%
-  mutate(
-    excluded_by =
-      case_when(
-        !replace_na(species_include, FALSE) ~ "species_include",
-        !replace_na(treatment_control_flag != "oranges", FALSE) ~
-          "treatment_control_flag",
-        !replace_na(response_flag != 1, FALSE) ~ "response_flag",
-        is.na(sign) ~ "sign",
-        !response_metric %in%
-          c("species_richness", "nest_success", "abundance") ~
-          "response_metric",
-        !guild %in%
-          c("obligate_grassland", "facultative_grassland") &
-          label_type != "community" ~ "analysis_class",
-
-        # Contrast mismatch over a mixed-guild assemblage, held out by a
-        # recorded team decision.
-
-        key == "pytisvj6" ~ "study_decision",
-        !replace_na(is.finite(yi) & is.finite(sei) & sei > 0, FALSE) ~
-          "conversion",
-        abs(yi) > 20 ~ "implausible_effect"
-      )
-  )
-
-# One result reported more than one way, say as both nest success and daily
-# survival. The preferred expression is kept and the rest held out.
-
-response_expression_preference <-
-  tribble(
-    ~ response_metric, ~ pattern, ~ preference_rank,
-    "nest_success", "^(percent )?nest.?(success|surv)|probability of nesting",
-    1,
-    "nest_success", "dsr|daily (nest )?surv|mayfield", 2,
-    "nest_success", "fledg|successful nests", 3,
-    "nest_success", "depredat|predation", 4,
-    "abundance", "abundance", 1,
-    "abundance", "densit", 2,
-    "abundance", "territor|singing males|crowing", 3,
-    "abundance", "nest", 4,
-    "species_richness", "^(total )?species.?richness", 1,
-    "species_richness", "species per field", 2
-  )
-
-duplicate_expressions <-
-  screened_effects %>%
-
-  # Resolved among the records that passed everything above, so that a
-  # held-out expression cannot displace a kept one.
-
-  filter(is.na(excluded_by)) %>%
-  bind_cols(
-    split_response_var(.$response_var)
-  ) %>%
-  mutate(
-    group_id =
-      str_c(
-        key,
-        bmp,
-        species_key,
-        replace_na(treatment, ""),
-        replace_na(control, ""),
-        response_metric,
-        response_token,
-        sep = " | "
-      )
-  ) %>%
-  filter(
-    n_distinct(response_base) > 1,
-    .by = group_id
-  ) %>%
-  mutate(
-    preference_rank =
-      map2_int(
-        response_metric,
-        response_var,
-        rank_response_expression
-      )
-  ) %>%
-
-  # Best-ranked row, ties broken by the smaller standard error. A group whose
-  # expressions disagree in sign is a reading to check against the paper.
-
-  mutate(
-    keep_row =
-      n_distinct(yi > 0) == 1 &
-      preference_rank == min(preference_rank) &
-      sei == min(sei[preference_rank == min(preference_rank)]),
-    .by = group_id
-  ) %>%
-  filter(!keep_row) %>%
-  pull(es_id)
-
-screened_effects <-
-  screened_effects %>%
-  mutate(
-    excluded_by =
+    yi =
       if_else(
-        es_id %in% duplicate_expressions,
-        "duplicate_expression",
-        excluded_by
+        effect_metric == "log_hazard_ratio",
+        yi,
+        yi * sign
       )
   )
 
 # write --------------------------------------------------------------------
 
-# The pool, without the screening columns, which are constant across it.
-
-screened_effects %>%
-  filter(is.na(excluded_by)) %>%
-  select(
-    !c(
-      species_include,
-      treatment_control_flag,
-      response_flag,
-      sign,
-      excluded_by
-    )
-  ) %>%
-  write_csv(
-    "brian_sandbox/data/db_mirror/effect_sizes.csv",
-    na = ""
-  )
-
-# Everything held out, whole, with the reason and the values behind it.
-
-screened_effects %>%
-  filter(!is.na(excluded_by)) %>%
-  arrange(
-    excluded_by,
-    source_sheet,
-    key
-  ) %>%
-  write_csv(
-    "output/audits/excluded_effects.csv",
-    na = ""
-  )
+all_effects %>%
+  bmp_write_table("converted_effects")

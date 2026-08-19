@@ -131,6 +131,7 @@ records <-
     bmp_tables$species %>%
       select(
         species,
+        species_group,
         analysis_class,
         species_include = include
       ),

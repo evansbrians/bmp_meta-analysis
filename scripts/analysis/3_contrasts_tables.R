@@ -73,14 +73,21 @@ guild_bmp_models <-
 
 pooled_bmp_models <-
   c(
+    nest_success = "nest_success_pooled_bmp",
     abundance = "abundance_pooled_bmp"
   )
+
+# A pooled model with one cell is not fitted, so the names come from what
+# 2_models.R produced rather than from this list alone.
 
 bmp_cell_models <-
   c(
     guild_bmp_models,
     pooled_bmp_models
-  )
+  ) %>%
+  keep(\(.model_name) {
+    .model_name %in% names(fitted_models)
+  })
 
 # guild x BMP and pooled x BMP cell means ----------------------------------
 
@@ -151,8 +158,12 @@ table_heterogeneity <-
     "richness_bmp",
     "nest_success_guild_bmp",
     "abundance_guild_bmp",
-    "abundance_pooled_bmp"
+    "abundance_pooled_bmp",
+    "nest_success_pooled_bmp"
   ) %>%
+  keep(\(.model_name) {
+    .model_name %in% names(fitted_models)
+  }) %>%
   set_names() %>%
   imap(
     \(.model_name, .label) {
@@ -296,12 +307,12 @@ guild_bmp_flextable <-
       str_c(
         "Table 2. Effect of each best management practice on abundance and ",
         "nest success, estimated separately for obligate and facultative ",
-        "grassland birds. Abundance is additionally estimated with the guilds ",
+        "grassland birds. Each is additionally estimated with the guilds ",
         "pooled, for the practices that clear the inclusion thresholds in ",
         "both guilds; those rows are a separate model over the same ",
         "species-level effect sizes, not a sum of the two guild rows, and ",
-        "contain no assemblage-level record. Nest success is reported by ",
-        "guild only. Shrubland species are not analysed. Abundance effect ",
+        "contain no assemblage-level record. Shrubland, woodland and forest ",
+        "species are not analysed. Abundance effect ",
         "sizes are ",
         "Hedges' g and nest-survival effect sizes are log hazard ratios, so ",
         "the two metrics are not on a common scale; positive values indicate ",

@@ -223,6 +223,7 @@ figure_heterogeneity <-
         "abundance_guild_bmp" ~ "Abundance, guild x practice",
         "nest_success_guild_bmp" ~ "Nest success, guild x practice",
         "abundance_pooled_bmp" ~ "Abundance, pooled x practice",
+        "nest_success_pooled_bmp" ~ "Nest success, pooled x practice",
         .default = model
       ),
     level_label =
@@ -455,7 +456,15 @@ bmp_cell_draw_models <-
   list(
     abundance =
       c("abundance_guild_bmp", "abundance_pooled_bmp"),
-    nest_success = "nest_success_guild_bmp"
+    nest_success =
+      c("nest_success_guild_bmp", "nest_success_pooled_bmp")
+  ) %>%
+  map(
+    \(.model_names) {
+      keep(.model_names, \(.model_name) {
+        .model_name %in% names(fitted_models)
+      })
+    }
   )
 
 bmp_cell_draws <-

@@ -1,6 +1,8 @@
 # This script:
-# - Refits every model family under each alternate specification
-# - Tests for publication bias and flags influential effect sizes
+# - Refits every model family under each alternate specification, prior,
+#   aggregation, conversion route and inclusion threshold among them
+# - Tests for publication bias (Egger, PET, PEESE) and flags influential
+#   effect sizes and studies
 # - Saves the sensitivity tables read by the results page
 
 # setup --------------------------------------------------------------------
@@ -20,15 +22,51 @@ fitted_models <-
 model_pools <-
   read_rds("output/models/model_data.rds")
 
-effect_sizes <-
-  "brian_sandbox/data/db_mirror/effect_sizes.csv" %>%
-  read_csv(show_col_types = FALSE)
+effect_sizes <- read_effect_size_pool()
 
 options(mc.cores = sampler_settings$cores)
 
 # Every fire interval is retained in the primary pool, as build_pool() has it.
 
 retain_all_fire <- TRUE
+
+# The prior-sensitivity settings: the primary prior, doubled and halved on
+# both the effect scale and the variance components. A conclusion that moves
+# between these is a conclusion the prior was carrying.
+
+sensitivity_priors <-
+  list(
+    wider_priors =
+      c(
+        prior(
+          normal(0, 2),
+          class = "b"
+        ),
+        prior(
+          student_t(
+            3,
+            0,
+            1
+          ),
+          class = "sd"
+        )
+      ),
+    tighter_priors =
+      c(
+        prior(
+          normal(0, 0.5),
+          class = "b"
+        ),
+        prior(
+          student_t(
+            3,
+            0,
+            0.25
+          ),
+          class = "sd"
+        )
+      )
+  )
 
 # refit helpers ------------------------------------------------------------
 
@@ -71,7 +109,7 @@ model_families <-
       pooled = FALSE
     ),
 
-    # Abundance only, and only for practices estimable in both guilds.
+    # The guilds pooled, for the practices estimable in both of them.
 
     list(
       response_metric = "abundance",
@@ -79,7 +117,22 @@ model_families <-
       cell_variable = "guild_bmp",
       grouping_vars = c("guild", "bmp"),
       pooled = TRUE
+    ),
+    list(
+      response_metric = "nest_success",
+      template = "nest_success_pooled_bmp",
+      cell_variable = "guild_bmp",
+      grouping_vars = c("guild", "bmp"),
+      pooled = TRUE
     )
+  ) %>%
+
+  # A family whose template 2_models.R did not fit has nothing to refit from.
+
+  keep(
+    \(.family) {
+      .family$template %in% names(fitted_models)
+    }
   )
 
 # specifications -----------------------------------------------------------
@@ -90,6 +143,13 @@ alternate_fire_label <-
   } else {
     "all_fire_intervals_retained"
   }
+
+# Each specification is a set of build_pool() arguments, plus an optional
+# prior set handed to the refit.
+
+# In order: the fire rule, the vegetation classes, the unresolved
+# data-quality records, the prior, the independence of a study's effect sizes,
+# the conversion routes, and the nest study floor.
 
 specifications <-
   list(
@@ -104,6 +164,19 @@ specifications <-
           retain_fire = !retain_all_fire
         )
     ),
+
+    # The shrubland, woodland and forest species the primary analysis holds
+    # out, returned to it, so the tables say what the grassland-only
+    # restriction is worth.
+
+    list(
+      specification = "non_grassland_classes_retained",
+      arguments =
+        list(
+          retain_non_grassland = TRUE
+        )
+    ),
+
     # Every extraction record carrying an unresolved data-quality flag is held
     # out, so the tables say how much of the result rests on records that have
     # not yet been checked against their source paper.
@@ -113,6 +186,40 @@ specifications <-
       arguments =
         list(
           drop_flagged = TRUE
+        )
+    ),
+    list(
+      specification = "wider_priors",
+      arguments = list(),
+      priors = sensitivity_priors$wider_priors
+    ),
+    list(
+      specification = "tighter_priors",
+      arguments = list(),
+      priors = sensitivity_priors$tighter_priors
+    ),
+
+    # One inverse-variance weighted effect size per study and cell: the
+    # bound on what treating a study's sampling errors as independent
+    # could cost.
+
+    list(
+      specification = "one_effect_per_study_cell",
+      arguments =
+        list(
+          one_per_study_cell = TRUE
+        )
+    ),
+
+    # Only effects computed from reported arm summaries, dropping the
+    # coefficient and test-statistic conversion routes and the assumptions
+    # they carry.
+
+    list(
+      specification = "group_means_only",
+      arguments =
+        list(
+          group_means_only = TRUE
         )
     )
   )
@@ -146,7 +253,9 @@ sensitivity_estimates <-
             refit_family(
               .pool = pool,
               .family = .family,
-              specification = .specification$specification
+              specification = .specification$specification,
+              priors = .specification$priors,
+              thresholds = .specification$thresholds
             )
           }
         ) %>%
@@ -280,6 +389,108 @@ sensitivity_estimates <-
       list_rbind()
   )
 
+# influential studies ------------------------------------------------------
+
+# For every primary cell whose interval excludes zero: drop the study with
+# the largest absolute studentized deleted residual and refit.
+
+# A headline finding that cannot survive the loss of one study is reported
+# as such.
+
+primary_clear_cells <-
+  sensitivity_estimates %>%
+  filter(
+    specification == "primary",
+    excludes_zero
+  )
+
+influence_estimates <-
+  model_families %>%
+  map(
+    \(.family) {
+      family_cells <-
+        primary_clear_cells %>%
+        filter(model_family == .family$template)
+      if (nrow(family_cells) == 0) {
+        return(NULL)
+      }
+      pool <-
+        build_pool(
+          response_metric = .family$response_metric,
+          by_guild = .family$cell_variable != "bmp",
+          pooled = .family$pooled
+        ) %>%
+        apply_inclusion_thresholds(
+          grouping_vars = .family$grouping_vars
+        )
+      family_cells %>%
+        pmap(
+          \(guild, bmp, ...) {
+            in_cell <-
+              pool$bmp == bmp &
+              (is.na(guild) | pool$guild == guild)
+            cell_pool <- pool[in_cell, ]
+            if (n_distinct(cell_pool$key) < 2) {
+              return(NULL)
+            }
+            most_influential <-
+              cell_pool %>%
+              mutate(
+                studentized_residual =
+                  cell_deleted_residuals(
+                    yi = yi,
+                    sei = sei
+                  )
+              ) %>%
+              summarise(
+                influence =
+                  max(
+                    abs(studentized_residual),
+                    na.rm = TRUE
+                  ),
+                .by = key
+              ) %>%
+              slice_max(
+                influence,
+                n = 1,
+                with_ties = FALSE
+              ) %>%
+              pull(key)
+            refit_family(
+              .pool =
+                pool %>%
+                filter(
+                  !(in_cell & key == most_influential)
+                ),
+              .family = .family,
+              specification = "most_influential_study_removed"
+            ) %>%
+              filter(
+                bmp == {{ bmp }},
+                is.na(guild) | guild == {{ guild }}
+              ) %>%
+              mutate(
+                removed_study = most_influential
+              )
+          }
+        ) %>%
+        list_rbind()
+    }
+  ) %>%
+  list_rbind()
+
+influence_estimates %>%
+  write_output_table(
+    file_name = "sensitivity_influence.csv"
+  )
+
+sensitivity_estimates <-
+  bind_rows(
+    sensitivity_estimates,
+    influence_estimates %>%
+      select(!removed_study)
+  )
+
 sensitivity_estimates %>%
   write_output_table(
     file_name = "sensitivity_estimates.csv"
@@ -373,9 +584,9 @@ conclusion_changes %>%
 # outside the output directory.
 
 excluded_effects_listed <-
-  if (fs::file_exists("brian_sandbox/data/excluded_effects.csv")) {
+  if (fs::file_exists("data/excluded_effects.csv")) {
     read_csv(
-      "brian_sandbox/data/excluded_effects.csv",
+      "data/excluded_effects.csv",
       show_col_types = FALSE
     ) %>%
       filter(status == "open")

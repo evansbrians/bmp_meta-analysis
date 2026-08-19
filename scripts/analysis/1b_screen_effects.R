@@ -2,6 +2,7 @@
 # - Reads the converted table written by 1_effect_sizes.R
 # - Derives the guild, fire and pool columns the models group on
 # - Applies the exclusion screen once, in one place
+# - Holds out the cells resting on fewer than three papers
 # - Writes the analysis pool to db_mirror and every audit to output/audits
 
 # The screen used to be written twice, here and in 0_prep_data.R, and the two
@@ -195,6 +196,35 @@ screened_effects <-
       )
   )
 
+# the paper cutoff ---------------------------------------------------------
+
+# A cell resting on fewer than three papers is out of scope, not merely
+# unmodelled: the guild cell needs three of its own, and the practice and
+# response need three across the guilds.
+
+# Counted over the records that passed everything above and reach the primary
+# pool, since that is the pool the primary analysis fits. Records outside it
+# keep their own reason and stay available to the sensitivity specifications.
+
+below_floor_effects <-
+  screened_effects %>%
+  filter(
+    is.na(excluded_by),
+    in_primary_pool
+  ) %>%
+  below_paper_floor()
+
+screened_effects <-
+  screened_effects %>%
+  mutate(
+    excluded_by =
+      if_else(
+        es_id %in% below_floor_effects,
+        "paper_count",
+        excluded_by
+      )
+  )
+
 # write --------------------------------------------------------------------
 
 # The pool, without the screening columns, which are constant across it.
@@ -213,6 +243,15 @@ screened_effects %>%
   bmp_write_table("effect_sizes")
 
 # audits -------------------------------------------------------------------
+
+# Every converted record with the screening columns beside it, which the
+# ROSES flow counts its stages from.
+
+screened_effects %>%
+  write_output_table(
+    file_name = "screened_effects.csv",
+    directory = "output/audits"
+  )
 
 # Everything held out, whole, with the reason and the values behind it.
 

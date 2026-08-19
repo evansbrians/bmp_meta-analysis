@@ -1,7 +1,7 @@
 # This script:
 # - Reads the analysis pool written by 1_effect_sizes.R
 # - Builds one modelling pool per response, guild and practice cell
-# - Fits the Bayesian multilevel meta-analysis models
+# - Fits the Bayesian multilevel meta-analysis models with four chains
 # - Saves the fits, their pools, and the cell and convergence tables
 
 # setup --------------------------------------------------------------------
@@ -23,6 +23,9 @@ fs::dir_create(
 options(mc.cores = sampler_settings$cores)
 
 # Weakly informative on the effect scale, half-t on the variance components.
+
+# The sensitivity suite refits every family under wider and tighter versions
+# of both, so the prior is a tested choice rather than an assumed one.
 
 model_priors <-
   c(
@@ -46,8 +49,7 @@ model_priors <-
 # grouping variables are applied here.
 
 analysis_pool <-
-  "brian_sandbox/data/db_mirror/effect_sizes.csv" %>%
-  read_csv(show_col_types = FALSE) %>%
+  read_effect_size_pool() %>%
   filter(in_primary_pool) %>%
   mutate(
     across(
@@ -86,8 +88,8 @@ nest_success_guild_bmp_pool <-
   build_guild_pool(metric = "nest_success") %>%
   build_guild_bmp_pool()
 
-# Abundance is the only response modelled with guilds pooled, and only for
-# practices clearing the thresholds in BOTH guilds.
+# Abundance and nest success are each modelled a second time with the guilds
+# pooled, for the practices clearing the thresholds in BOTH guilds.
 
 abundance_pooled_bmp_pool <-
   analysis_pool %>%
@@ -98,13 +100,34 @@ abundance_pooled_bmp_pool <-
   ) %>%
   build_guild_bmp_pool()
 
+nest_success_pooled_bmp_pool <-
+  analysis_pool %>%
+  build_pooled_pool(metric = "nest_success") %>%
+  filter(
+    as.character(bmp) %in%
+      practices_in_both_guilds(nest_success_guild_bmp_pool)
+  ) %>%
+  build_guild_bmp_pool()
+
+# A cell model needs two cells: with one, `0 + guild_bmp` has no design matrix,
+# and the estimate is the guild cell it came from under another name. Under the
+# three-paper floor this drops the pooled nest model, which reaches one
+# practice.
+
 model_pools <-
   list(
     richness_bmp = richness_pool,
     abundance_guild = abundance_guild_pool,
     abundance_guild_bmp = abundance_guild_bmp_pool,
     nest_success_guild_bmp = nest_success_guild_bmp_pool,
-    abundance_pooled_bmp = abundance_pooled_bmp_pool
+    abundance_pooled_bmp = abundance_pooled_bmp_pool,
+    nest_success_pooled_bmp = nest_success_pooled_bmp_pool
+  ) %>%
+  keep(
+    \(.pool) {
+      !"guild_bmp" %in% names(.pool) ||
+        n_distinct(.pool$guild_bmp) > 1
+    }
   )
 
 # pool summaries -----------------------------------------------------------
@@ -131,6 +154,17 @@ model_pools %>%
 # Richness has no guild, and the pooled cells carry the pooled label, so both
 # sit alongside the guild cells in one table.
 
+# The metric each cell pool belongs to, for the pools that were modelled.
+
+cell_pool_metrics <-
+  c(
+    abundance_guild_bmp = "abundance",
+    nest_success_guild_bmp = "nest_success",
+    abundance_pooled_bmp = "abundance",
+    nest_success_pooled_bmp = "nest_success"
+  ) %>%
+  keep_at(names(model_pools))
+
 cell_sample_sizes <-
   bind_rows(
     richness_pool %>%
@@ -139,20 +173,16 @@ cell_sample_sizes <-
         response_metric = "species_richness",
         guild = NA_character_
       ),
-    list(
-      abundance = abundance_guild_bmp_pool,
-      nest_success = nest_success_guild_bmp_pool,
-      abundance = abundance_pooled_bmp_pool
-    ) %>%
-      map(
-        \(.pool) {
-          count_cells(
-            .pool,
-            grouping_vars = c("guild", "bmp")
-          )
+    cell_pool_metrics %>%
+      imap(
+        \(.metric, .pool_name) {
+          model_pools %>%
+            pluck(.pool_name) %>%
+            count_cells(grouping_vars = c("guild", "bmp")) %>%
+            mutate(response_metric = .metric)
         }
       ) %>%
-      list_rbind(names_to = "response_metric")
+      list_rbind()
   ) %>%
   mutate(
     across(
@@ -225,8 +255,11 @@ model_specs <-
     "nest_success_guild_bmp", "nest_success_guild_bmp",
     formula_guild_bmp, "abundance_guild_bmp",
     "abundance_pooled_bmp", "abundance_pooled_bmp",
+    formula_guild_bmp, "abundance_guild_bmp",
+    "nest_success_pooled_bmp", "nest_success_pooled_bmp",
     formula_guild_bmp, "abundance_guild_bmp"
-  )
+  ) %>%
+  filter(pool %in% names(model_pools))
 
 # One compile group at a time, so each Stan program is compiled once. Groups
 # finish out of order, so the specification order is restored after.

@@ -1,6 +1,7 @@
 # This script:
 # - Refits every reported cell with REML as an independent check
-# - Verifies the pools, the thresholds and the reported tables agree
+# - Verifies the pools, the thresholds, the response scales and the reported
+#   tables agree
 # - Saves the verification report read by the results page
 
 # setup --------------------------------------------------------------------
@@ -14,19 +15,14 @@ source("scripts/functions.R")
 
 fs::dir_create("output/diagnostics")
 
-fitted_models <-
-  read_rds("output/models/fitted_models.rds")
-
 model_pools <-
   read_rds("output/models/model_data.rds")
 
-effect_sizes <-
-  "brian_sandbox/data/db_mirror/effect_sizes.csv" %>%
-  read_csv(show_col_types = FALSE)
+effect_sizes <- read_effect_size_pool()
 
 species_analysis_frame <-
   fs::path(
-    "data/processed/species_classification",
+    "data/processed",
     "species_classified_analysis_frame.csv"
   ) %>%
   read_csv(show_col_types = FALSE)
@@ -86,7 +82,20 @@ reml_specifications <-
       response_metric = "abundance",
       pool_name = "abundance_pooled_bmp",
       guild_scope = "pooled"
+    ),
+    list(
+      response_metric = "nest_success",
+      pool_name = "nest_success_pooled_bmp",
+      guild_scope = "pooled"
     )
+  ) %>%
+
+  # A pool 2_models.R did not model has no cell means to check against.
+
+  keep(
+    \(.specification) {
+      .specification$pool_name %in% names(model_pools)
+    }
   )
 
 reml_cell_means <-
@@ -106,17 +115,46 @@ reml_cell_means <-
   relocate(
     response_metric,
     .after = reml_ucl
-  )
-
-verification_bayes_vs_reml <-
-  reml_cell_means %>%
+  ) %>%
   separate_wider_delim(
     cell,
     delim = "__",
     names = c("guild", "bmp")
+  )
+
+# The richness model is cross-checked too, with the random terms and the
+# diversity offset its own formula carries.
+
+reml_richness <-
+  model_pools %>%
+  pluck("richness_bmp") %>%
+  fit_reml_cell_means(
+    cell_variable = "bmp",
+    random_terms =
+      list(
+        ~ 1 | key,
+        ~ 1 | es_id
+      ),
+    with_index_type = TRUE
+  ) %>%
+  mutate(
+    guild = NA_character_,
+    bmp = cell,
+    response_metric = "species_richness",
+    guild_scope = "by practice",
+    .keep = "unused"
+  )
+
+verification_bayes_vs_reml <-
+  bind_rows(
+    reml_cell_means,
+    reml_richness
   ) %>%
   left_join(
-    bmp_cell_tables %>%
+    bind_rows(
+      bmp_cell_tables,
+      table_species_richness
+    ) %>%
       select(
         response_metric,
         guild,
@@ -191,15 +229,22 @@ recomputed_richness <-
     guild = NA_character_
   )
 
-# Recomputed over both guilds at once, so a stray assemblage row would show up
-# here as a k mismatch.
+# Recomputed over both guilds at once, from the effect-size table rather than
+# the pool, so a cell reported over rows the rule does not admit mismatches.
+
+# One metric at a time: the assemblage rule reads a study's other records for
+# the same practice, and the two metrics must not see each other's.
 
 recomputed_pooled_bmp <-
-  usable_effect_sizes %>%
-  filter(
-    response_metric %in% c("nest_success", "abundance"),
-    !is.na(guild)
+  c("nest_success", "abundance") %>%
+  map(
+    \(.metric) {
+      usable_effect_sizes %>%
+        filter(response_metric == .metric) %>%
+        keep_pooled_rows()
+    }
   ) %>%
+  list_rbind() %>%
   summarise(
     k_recomputed = n(),
     n_studies_recomputed = n_distinct(key),
@@ -315,13 +360,34 @@ shrubland_flags <-
   replace_na("") %>%
   str_detect("shrub")
 
+# The vegetation classes are held out of the primary analysis, so no record
+# carrying one can reach a pool a primary model is fitted to.
+
+non_grassland_pool_rows <-
+  model_pools %>%
+  map_int(
+    \(.pool) {
+      .pool %>%
+        filter(non_grassland_class) %>%
+        nrow()
+    }
+  ) %>%
+  sum()
+
 # The pooled models must hold the two guilds and nothing else: no assemblage
 # row, and no cell smaller than the guild cells it pools.
 
 pooled_community_rows <-
   model_pools %>%
-  pluck("abundance_pooled_bmp") %>%
-  filter(label_type == "community")
+  keep_at(c("abundance_pooled_bmp", "nest_success_pooled_bmp")) %>%
+  map_int(
+    \(.pool) {
+      .pool %>%
+        filter(label_type == "community") %>%
+        nrow()
+    }
+  ) %>%
+  sum()
 
 pooled_coverage <-
   table_pooled_bmp %>%
@@ -361,18 +427,66 @@ pooled_metrics_reported <-
   pull(response_metric) %>%
   unique()
 
-# The pooled model set is a decision, not an accident: abundance only, and only
-# practices clearing the thresholds in both guilds.
+# The pooled model set is a decision, not an accident: a metric is pooled over
+# the practices clearing the thresholds in both of its guilds, and only where
+# two or more of them do -- one cell is the guild estimate under another name.
 
 pooled_practices_expected <-
-  model_pools %>%
-  pluck("abundance_guild_bmp") %>%
-  practices_in_both_guilds()
+  c(
+    abundance = "abundance_guild_bmp",
+    nest_success = "nest_success_guild_bmp"
+  ) %>%
+  map(
+    \(.pool_name) {
+      model_pools %>%
+        pluck(.pool_name) %>%
+        practices_in_both_guilds()
+    }
+  ) %>%
+  keep(
+    \(.practices) {
+      length(.practices) > 1
+    }
+  )
 
 pooled_practices_reported <-
   table_pooled_bmp %>%
-  pull(bmp) %>%
-  as.character()
+  summarise(
+    practices = list(as.character(bmp)),
+    .by = response_metric
+  ) %>%
+  deframe()
+
+# Response scales must not mix: every nest-survival effect on the log hazard
+# scale, every other effect on Hedges' g.
+
+nest_rows_on_hazard_scale <-
+  usable_effect_sizes %>%
+  filter(response_metric == "nest_success") %>%
+  pull(effect_metric) %>%
+  str_equal("log_hazard_ratio")
+
+other_rows_on_g_scale <-
+  usable_effect_sizes %>%
+  filter(response_metric != "nest_success") %>%
+  pull(effect_metric) %>%
+  str_equal("hedges_g")
+
+# A derived coefficient is arithmetic on the paper's estimates, so the note
+# is the only record of what was done.
+
+derived_coefficients <-
+  usable_effect_sizes %>%
+  filter(
+    replace_na(beta_is_derived, FALSE)
+  ) %>%
+  mutate(
+    has_note =
+      !replace_na(
+        str_squish(notes) == "",
+        TRUE
+      )
+  )
 
 verification_assertions <-
   tribble(
@@ -401,6 +515,9 @@ verification_assertions <-
     glue::glue(
       "Shrubland rows in the results tables: {sum(shrubland_flags)}"
     ),
+    "No shrubland, woodland or forest species reaches a primary pool",
+    non_grassland_pool_rows == 0,
+    glue::glue("Vegetation-class rows in the pools: {non_grassland_pool_rows}"),
     "Bayesian and REML fits agree on the sign of every non-null cell mean",
     all(verification_bayes_vs_reml$agrees_on_sign),
     glue::glue(
@@ -423,9 +540,9 @@ verification_assertions <-
       "(informational)"
     ),
     "No assemblage-level effect size enters a pooled model",
-    nrow(pooled_community_rows) == 0,
+    pooled_community_rows == 0,
     glue::glue(
-      "Community rows in the pooled pool: {nrow(pooled_community_rows)}"
+      "Community rows in the pooled pools: {pooled_community_rows}"
     ),
     "Every pooled cell holds at least the effect sizes of its guild cells",
     all(pooled_coverage$covers_guilds),
@@ -438,14 +555,43 @@ verification_assertions <-
       !any(guild_rows_mislabelled),
     glue::glue("Pooled cells reported: {length(pooled_rows_labelled)}"),
     str_c(
-      "Abundance is the only pooled metric, and it pools only ",
-      "practices found in both guilds"
+      "Every pooled metric pools only the practices found in both of its ",
+      "guilds, and no metric is pooled that should not be"
     ),
-    setequal(pooled_metrics_reported, "abundance") &&
-      setequal(pooled_practices_reported, pooled_practices_expected),
+    setequal(pooled_metrics_reported, names(pooled_practices_expected)) &&
+      all(
+        imap_lgl(
+          pooled_practices_expected,
+          \(.practices, .metric) {
+            setequal(
+              .practices,
+              pluck(pooled_practices_reported, .metric)
+            )
+          }
+        )
+      ),
     glue::glue(
       "Metrics pooled: {str_flatten_comma(pooled_metrics_reported)}; ",
-      "eligible practices: {length(pooled_practices_expected)}"
+      "eligible practices: ",
+      "{str_flatten_comma(lengths(pooled_practices_expected))}"
+    ),
+    str_c(
+      "Every nest-survival effect size is a log hazard ratio, and every ",
+      "other effect size is Hedges' g"
+    ),
+    all(nest_rows_on_hazard_scale) &&
+      all(other_rows_on_g_scale),
+    glue::glue(
+      "Scales verified from the effect_metric column across ",
+      "{nrow(usable_effect_sizes)} effect sizes"
+    ),
+    str_c(
+      "Every coefficient derived from a paper's own estimates, rather than ",
+      "read off it, records how it was derived"
+    ),
+    all(derived_coefficients$has_note),
+    glue::glue(
+      "Derived coefficients in the pool: {nrow(derived_coefficients)}"
     )
   )
 
