@@ -1,9 +1,0 @@
-(TS=(
-"mow*" AND 
-("unmow*" OR "not mow*") 
-)) OR 
-(TS=(
-"hay*" AND 
-("unhay*" OR "not hay*")
-)) AND 
-(TS="patch")
