@@ -55,7 +55,7 @@ paper_metadata_cleaned_fields <-
   mutate(
     
     # Character columns get squished, and the sentinels are blanked:
-
+    
     across(
       where(is.character),
       \(.column) {
@@ -173,21 +173,21 @@ state_province_reference <-
 geography_by_hand <-
   tribble(
     ~ recorded_place, ~ place, ~ place_type, ~ country_code,
-
+    
     # The lower 48, recorded as a region in its own right.
-
+    
     "conterminous_united_states", "united_states", "country", "US",
-
+    
     # ISO names this Saint Helena, Ascension and Tristan da Cunha.
-
+    
     "saint_helena_island", "saint_helena", "territory", "SH",
     
     # Russia is Russian federation:
     
     "russia", "russian_federation", "country", "RU",
-
+    
     # For names that are in more than one place:
-
+    
     "florida", "florida", "state", "US",
     "maryland", "maryland", "state", "US",
     "montana", "montana", "state", "US",
@@ -258,9 +258,20 @@ paper_metadata_cleaned_geographies <-
     )
   )
 
+# filtering pass ----------------------------------------------------------
+
+# Ensure only BMPs from the final list are in the document:
+
+paper_metadata_bmp_subset <- 
+  paper_metadata_cleaned_geographies %>% 
+  select(!multiple_bmps) %>% 
+  filter(
+    !bmp %in% c("keep_cats_indoors", "upgrade_to_darksky")
+  )
+
 # write to file -----------------------------------------------------------
 
-paper_metadata_cleaned_geographies %>%
+paper_metadata_bmp_subset %>%
   write_csv(
     here("data/processed", "paper_metadata.csv")
   )
