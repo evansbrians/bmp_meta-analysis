@@ -66,11 +66,13 @@ species_guilds <-
     "data/processed",
     "species_classified_analysis_frame.csv"
   ) %>%
-  read_csv() %>%
-  select(
-    species,
-    analysis_class,
-    species_include = include
+  read_csv(
+    col_select = 
+      c(
+        species,
+        analysis_class,
+        species_include = include
+      )
   )
 
 # clean cells -------------------------------------------------------------
@@ -124,9 +126,9 @@ analysis_subset_list_bmp_edits <-
             bmp %>%
             str_to_lower() %>%
             str_trim() %>%
-
+            
             # The two codes the extraction still spells its own way:
-
+            
             str_replace(
               "^set_aside_adjacent_unmowed$",
               "manage_in_patches"
@@ -227,16 +229,16 @@ analysis_subset_list_survival_scale <-
             }
         ) %>%
         mutate(
-
+          
           # snake_case leaves one variant the vocabulary does not name.
-
+          
           link = str_replace(link, "^log_link$", "log")
         ) %>%
         mutate(
-
+          
           # A logistic-exposure coefficient is on logit(DSR), so it is daily
           # whatever the response is called.
-
+          
           survival_scale =
             case_when(
               response_class != "nest_success" ~ NA_character_,
@@ -249,33 +251,33 @@ analysis_subset_list_survival_scale <-
     }
   )
 
-# A link outside the vocabulary reaches no conversion route and would drop
-# its record without a reason, so it is named rather than ignored.
+# filtering pass ----------------------------------------------------------
 
-unrecognised_links <-
-  analysis_subset_list_survival_scale %>%
+# Ensure only BMPs from the final list are in the document:
+
+analysis_subset_list_bmp_filter <- 
+  analysis_subset_list_survival_scale %>% 
   map(
-    \(.table) {
-      .table %>%
-        filter(
-          !is.na(link),
-          !link %in% link_vocabulary
-        ) %>%
-        pull(link)
-    }
-  ) %>%
-  list_c() %>%
-  unique()
-
-if (length(unrecognised_links) > 0) {
-  cli::cli_warn(
-    "Link outside the vocabulary: {.val {unrecognised_links}}."
+    ~ .x %>% 
+      filter(
+        !bmp %in% c("keep_cats_indoors", "upgrade_to_darksky")
+      ) %>% 
+      
+      # One final BMP to clean:
+      
+      mutate(
+        bmp = 
+          if_else(
+            bmp == "grazing_intensity",
+            "reduce_grazing_intensity",
+            bmp
+          )
+      )
   )
-}
 
 # write to file -----------------------------------------------------------
 
-analysis_subset_list_survival_scale %>%
+analysis_subset_list_bmp_filter %>%
   iwalk(
     \ (.table, idx) {
       write_csv(
