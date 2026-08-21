@@ -4600,8 +4600,9 @@ groove_billed_ani,species,NA,shrub; grasslands; wetlands_lakes_marsh,NA,NA,NA,Op
 groove_billed_toucanet,species,NA,forest; artificial,NA,NA,NA,NA,NA,forest,FALSE
 grosbeak_starling,species,NA,forest; woodland; wetlands_lakes_marsh,NA,NA,NA,NA,NA,woodland,FALSE
 ground_batis,species,NA,forest; woodland; shrub; savannah; rocky_areas,NA,NA,NA,NA,NA,facultative,TRUE
+ground_breeders,guild,facultative,NA,NA,NA,NA,NA,NA,facultative,TRUE
 ground_cuckooshrike,species,NA,shrub; savannah; grasslands,NA,NA,NA,NA,NA,facultative,TRUE
-ground_nesters,guild,NA,NA,NA,NA,NA,NA,NA,other,TRUE
+ground_nesters,guild,obligate,NA,NA,NA,NA,NA,NA,obligate,TRUE
 ground_parrot,species,NA,shrub; grasslands; artificial; coastal; wetlands_lakes_marsh,NA,NA,NA,NA,NA,facultative,TRUE
 ground_tit,species,NA,shrub; grasslands,NA,NA,NA,NA,NA,facultative,TRUE
 ground_woodpecker,species,NA,shrub; grasslands; rocky_areas; wetlands_lakes_marsh,NA,NA,NA,NA,NA,facultative,TRUE
