@@ -1,0 +1,16 @@
+specification,rule_applied,decision_tested
+Non-grassland classes retained,"Shrubland, woodland and forest species returned to the pool",Restriction of the pool to grassland-associated species
+Flagged effects removed,Records carrying an unresolved data-quality flag held out,Reliance on records not yet re-checked against the source paper
+Wider priors,Prior scales doubled on both the effect and variance components,Influence of the prior on the posterior
+Tighter priors,Prior scales halved on both the effect and variance components,Influence of the prior on the posterior
+One effect per study cell,Each study reduced to one inverse-variance weighted effect per cell,Treatment of a study's multiple effect sizes as independent
+Group means only,Pool restricted to effects computed from reported group means,Coefficient and test-statistic conversion routes
+Great Plains only,Pool restricted to studies in the Great Plains,Generality of the estimates beyond the region holding most of the evidence
+Great Plains dropped,Great Plains studies removed,Dependence of the estimates on the Great Plains
+Southeast US dropped,Southeastern United States studies removed,Dependence of the estimates on the southeastern United States
+Europe dropped,European studies removed,Dependence of the estimates on Europe
+Paper floor two,Cells with at least two papers retained,Three-paper inclusion floor
+Paper floor four,Cells with at least four papers retained,Three-paper inclusion floor
+Guild assigned only,Pooled models restricted to records naming a grassland guild,Records the pooled models carry without a guild assignment
+Outliers removed,Effects with a studentized deleted residual beyond the cell threshold removed,Influence of individual outlying effect sizes
+Most influential study removed,"For each cell whose interval excludes zero, the study with the largest absolute studentized deleted residual removed",Dependence of a finding on a single study
