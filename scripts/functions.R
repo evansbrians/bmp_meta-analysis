@@ -478,8 +478,8 @@ format_labels <-
 
 bmp_table_file <-
   function(table_name) {
-    file.path(
-      "brian_sandbox/data/db_mirror",
+    fs::path(
+      "data/db_mirror",
       str_c(table_name, ".csv")
     )
   }
@@ -506,6 +506,7 @@ effect_size_columns <-
     "bmp",
     "response_metric",
     "response_scale",
+    "effect_metric",
     "guild",
     "label_type",
     "species_key",
@@ -680,30 +681,336 @@ g_from_categorical_beta <-
     )
   }
 
+# nest survival on the log hazard scale -------------------------------------
+
+# Period survival is S = DSR^d, so a daily rate and a period probability are
+# not comparable as a standardised mean difference. Writing
+# cll(x) = log(-log(x)), cll(S) = log(d) + cll(DSR): the exposure term is
+# shared by both arms of a contrast and cancels in the difference, so
+
+#   log hazard ratio = cll(survival_treatment) - cll(survival_control)
+
+# is the same number computed on daily or on period survival, for any
+# exposure period. See claude/bmp_nest_survival_scale.md for the validation
+# against contrasts reported on both scales.
+
+cloglog <-
+  function(.survival) {
+    log(
+      -log(.survival)
+    )
+  }
+
+# One arm's log cumulative hazard, log(-log(S)), and its delta-method
+# standard error -- not a survival probability. Every step from the reported
+# value to the hazard scale happens here.
+
+# Percentages fold to proportions, a failure-direction row (sign of -1, e.g.
+# a depredation rate) enters as its complement, and a value outside (0, 1) or
+# with no usable error returns missing.
+
+arm_log_hazard <-
+  function(
+    xbar,
+    group_sd,
+    n,
+    sign) {
+    standard_error <- group_sd / sqrt(n)
+    is_percent <-
+      xbar > 1 &
+      xbar <= 100
+    survival <-
+      if_else(
+        is_percent,
+        xbar / 100,
+        xbar
+      )
+    standard_error <-
+      if_else(
+        is_percent,
+        standard_error / 100,
+        standard_error
+      )
+    survival <-
+      if_else(
+        sign == -1,
+        1 - survival,
+        survival
+      )
+    usable <-
+      replace_na(
+        survival > 0 &
+          survival < 1 &
+          standard_error > 0,
+        FALSE
+      )
+    tibble(
+      cll = value_when(usable, cloglog(survival)),
+      cll_se =
+        value_when(
+          usable,
+          standard_error / abs(survival * log(survival))
+        )
+    )
+  }
+
+# A coefficient reaches the hazard scale only if the scale it sits on is
+# recorded: `logistic_exposure` (Shaffer 2004) and `logit` both sit on the
+# logit of a survival, `log` on its logarithm, `identity` on the survival.
+
+# Every route needs a baseline survival to map from. Only logistic exposure
+# defaults, to 0.95, because a daily rate sits near 1 where the result barely
+# moves; the others return missing without a recorded baseline.
+
+# `sign` is applied here, as on the arm route, so it is not applied again.
+
+log_hazard_from_coefficient <-
+  function(
+    beta,
+    se,
+    sign,
+    link,
+    baseline_survival) {
+    baseline <-
+      case_when(
+        !is.na(baseline_survival) ~ baseline_survival,
+        link == "logistic_exposure" ~ 0.95,
+        .default = NA_real_
+      )
+    treatment_survival <-
+      case_when(
+        link %in% c("logistic_exposure", "logit") ~
+          plogis(
+            qlogis(baseline) + beta
+          ),
+        link == "log" ~ baseline * exp(beta),
+        link == "identity" ~ baseline + beta
+      )
+
+    # The delta-method gradient is taken with respect to whatever `beta`
+    # moves: the linear predictor, or the survival itself.
+
+    gradient <-
+      case_when(
+        link %in% c("logistic_exposure", "logit") ~
+          (1 - treatment_survival) /
+            abs(
+              log(treatment_survival)
+            ),
+        link == "log" ~
+          1 /
+            abs(
+              log(treatment_survival)
+            ),
+        link == "identity" ~
+          1 /
+            abs(
+              treatment_survival * log(treatment_survival)
+            )
+      )
+    usable <-
+      replace_na(
+        is.finite(beta) &
+          is.finite(se) &
+          se > 0 &
+          baseline > 0 &
+          baseline < 1 &
+          treatment_survival > 0 &
+          treatment_survival < 1,
+        FALSE
+      )
+    tibble(
+      yi =
+        value_when(
+          usable,
+          -sign *
+            (cloglog(treatment_survival) - cloglog(baseline))
+        ),
+      sei = value_when(usable, se * gradient)
+    )
+  }
+
+# An odds ratio from a logistic-exposure model is exp(beta) on logit(daily
+# survival), so its logarithm is the coefficient and its interval gives the
+# standard error on that scale.
+
+log_hazard_from_odds_ratio <-
+  function(
+    odds_ratio,
+    lower_cl,
+    upper_cl,
+    sign,
+    link,
+    baseline_survival) {
+    log_hazard_from_coefficient(
+      beta = log(odds_ratio),
+      se =
+        confint_to_se(
+          log(lower_cl),
+          log(upper_cl)
+        ),
+      sign = sign,
+      link = link,
+      baseline_survival = baseline_survival
+    )
+  }
+
+# Contrasts two arms already on the log cumulative hazard scale. The
+# difference of log cumulative hazards is the log hazard ratio; it is negated
+# here so that positive means benefit, matching the Hedges' g cells.
+
+# So `yi` is the NEGATIVE of a conventional log hazard ratio. Direction is
+# fully resolved by this point, through the complement in arm_log_hazard()
+# and the negation below, so `sign` must NOT be applied to these rows again.
+
+log_hazard_contrast <-
+  function(
+    treatment,
+    control) {
+    tibble(
+      yi = -(treatment$cll - control$cll),
+      sei =
+        sqrt(
+          treatment$cll_se^2 + control$cll_se^2
+        )
+    )
+  }
+
+# geography ----------------------------------------------------------------
+
+# The regions the geography sensitivity contrasts. Everywhere else is `other`.
+
+# The prairie provinces are the northern Great Plains, so the region is
+# ecological rather than political and the object is named for places, not
+# states. A record given only "canada" cannot be placed and stays `other`.
+
+great_plains_places <-
+  c(
+    "alberta",
+    "colorado",
+    "kansas",
+    "manitoba",
+    "montana",
+    "nebraska",
+    "new_mexico",
+    "north_dakota",
+    "oklahoma",
+    "saskatchewan",
+    "south_dakota",
+    "texas",
+    "wyoming"
+  )
+
+southeast_states <-
+  c(
+    "alabama",
+    "arkansas",
+    "florida",
+    "georgia",
+    "kentucky",
+    "louisiana",
+    "mississippi",
+    "north_carolina",
+    "south_carolina",
+    "tennessee",
+    "virginia",
+    "west_virginia"
+  )
+
+south_american_countries <-
+  c(
+    "argentina",
+    "bolivia",
+    "brazil",
+    "chile",
+    "colombia",
+    "paraguay",
+    "peru",
+    "uruguay"
+  )
+
+# The region one recorded place belongs to. Places are named, so one outside
+# the named regions is `other` rather than falling through to a continent.
+
+classify_region <-
+  function(
+    .geography,
+    .continent) {
+    case_when(
+      .geography %in% great_plains_places ~ "great_plains",
+      .geography %in% southeast_states ~ "southeast_us",
+      .geography %in% south_american_countries ~ "south_america",
+      .continent == "europe" ~ "europe",
+      .default = "other"
+    )
+  }
+
+# One region per study, from the study_place table. A study spanning two
+# regions is `multiple`, so a region filter never half-includes it.
+
+# A study's places are recorded at more than one grain -- "canada" sits beside
+# "saskatchewan" for six studies, which is one location written twice -- so
+# only the finest grain a study carries is classified.
+
+study_region_lookup <-
+  function(.places) {
+    .places %>%
+      mutate(
+        grain =
+          geography_type %>%
+          case_match(
+            c("state", "province") ~ 1L,
+            "country" ~ 2L,
+            "continent" ~ 3L,
+            .default = 4L
+          )
+      ) %>%
+      filter(
+        grain == min(grain),
+        .by = study_key
+      ) %>%
+      mutate(
+        region = classify_region(geography, continent)
+      ) %>%
+      summarise(
+        region =
+          if_else(
+            n_distinct(region) == 1,
+            first(region),
+            "multiple"
+          ),
+        .by = study_key
+      ) %>%
+      select(
+        key = study_key,
+        region
+      )
+  }
+
 # modelling ----------------------------------------------------------------
 
 # Drops cells below the per-metric effect-size and study minima.
 
-# A cell is modelled only above both floors. Nest success is thinly sampled,
-# so its study floor is relaxed.
+# A cell is modelled only above both floors. The paper floor is three for
+# every metric, nest success included, as 1b_screen_effects.R applies it.
 
 inclusion_thresholds <-
   tribble(
     ~ response_metric, ~ metric_min_effect_sizes, ~ metric_min_studies,
     "abundance", 3L, 3L,
     "species_richness", 3L, 3L,
-    "nest_success", 3L, 2L
+    "nest_success", 3L, 3L
   )
 
 # Sampler settings. The seed fixes every fit in the analysis, primary and
-# sensitivity alike.
+# sensitivity alike. Four chains, as the convergence diagnostics assume.
 
 sampler_settings <-
   list(
-    chains = 2,
+    chains = 4,
     iter = 8000,
     warmup = 2000,
-    cores = 2,
+    cores = 4,
     adapt_delta = 0.99,
     max_treedepth = 12,
     backend = "rstan",
@@ -757,6 +1064,32 @@ apply_inclusion_thresholds <-
       )
   }
 
+# The effect sizes sitting in a cell below the paper floor, by es_id.
+
+# A guild cell needs papers of its own, and the practice x response it sits in
+# needs them across the guilds, so neither a guild estimate nor a pooled one
+# rests on fewer.
+
+below_paper_floor <-
+  function(
+    .data,
+    min_papers = 3) {
+    .data %>%
+      mutate(
+        cell_papers = n_distinct(key),
+        .by = c(bmp, response_metric, guild)
+      ) %>%
+      mutate(
+        group_papers = n_distinct(key),
+        .by = c(bmp, response_metric)
+      ) %>%
+      filter(
+        (!is.na(guild) & cell_papers < min_papers) |
+          group_papers < min_papers
+      ) %>%
+      pull(es_id)
+  }
+
 # Adds meets_primary_threshold.
 
 flag_primary_threshold <-
@@ -782,9 +1115,13 @@ fit_meta_model <-
     settings = sampler_settings,
     refit_from = NULL) {
     if (!is.null(refit_from)) {
-      return(
-        update(
-          refit_from,
+
+      # A prior supplied alongside refit_from is the prior-sensitivity case
+      # and triggers a recompile; passing none reuses the compiled program.
+
+      update_arguments <-
+        list(
+          object = refit_from,
           newdata = .data,
           chains = settings$chains,
           iter = settings$iter,
@@ -794,6 +1131,11 @@ fit_meta_model <-
           refresh = 0,
           silent = 2
         )
+      if (!missing(priors) && !is.null(priors)) {
+        update_arguments$prior <- priors
+      }
+      return(
+        exec(update, !!!update_arguments)
       )
     }
     brm(
@@ -1058,17 +1400,54 @@ summarise_convergence <-
 
 # labels -------------------------------------------------------------------
 
+# The practice vocabulary: the code the data carry against the formal name the
+# manuscript prints. 3_build_database.R loads it as the database's bmp table.
+
+# The extraction says `grazing_intensity` where the metadata says
+# `reduce_grazing_intensity`; both name the one practice.
+
+bmp_vocabulary <-
+  tribble(
+    ~ bmp, ~ bmp_name,
+    "add_flushing_bar", "Add a Flushing Bar",
+    "delay_hay", "Avoid Haying During Nesting Season",
+    "dont_mow_at_night", "Do not Mow at Night",
+    "eliminate_pesticides", "Eliminate Pesticides",
+    "stream_exclusion_and_buffers",
+    "Exclude Livestock From Streams and Plant Vegetative Buffers",
+    "prescribed_fire", "Implement Prescribed Fire",
+    "install_nest_boxes", "Install Nest-Boxes",
+    "manage_in_patches", "Manage Fields in Patches",
+    "mow_towards_refugia", "Mow Towards Refugia",
+    "plant_nwsg", "Plant Native Grasses and Forbs",
+    "edge_and_shrub_habitat", "Promote Edge and Shrub Habitat",
+    "provide_overwintering_habitat",
+    "Provide Overwintering Structure and Resources",
+    "raise_blades", "Raise Cutting Blades",
+    "grazing_intensity", "Reduce Grazing Intensity",
+    "reduce_grazing_intensity", "Reduce Grazing Intensity",
+    "remove_non_native_shrubs", "Remove Non-native Shrubs",
+    "rotational_grazing", "Rotate Livestock Between Pastures"
+  )
+
+# Formal practice name for a code. A code the vocabulary does not hold is an
+# error, not a blank label.
+
 format_bmp <-
-  function(.bmp) {
-    .bmp %>%
-      str_replace("non_native", "non-native") %>%
-      str_replace_all("_", " ") %>%
-      str_to_title() %>%
-      str_replace_all("\\bAnd\\b", "and") %>%
-      str_replace_all("\\bIn\\b", "in") %>%
-      str_replace_all("\\bOf\\b", "of") %>%
-      str_replace("Nwsgs?", "NWSG") %>%
-      str_replace("-N", "-n")
+  function(
+    .bmp,
+    vocabulary = bmp_vocabulary) {
+    unmapped <-
+      .bmp %>%
+      as.character() %>%
+      setdiff(vocabulary$bmp) %>%
+      discard(is.na)
+    if (length(unmapped) > 0) {
+      cli::cli_abort(
+        "{.var bmp_vocabulary} has no formal name for {.val {unmapped}}."
+      )
+    }
+    vocabulary$bmp_name[match(.bmp, vocabulary$bmp)]
   }
 
 format_response <-
@@ -1496,7 +1875,6 @@ canonical_practices <-
     "reduce_grazing_intensity",
     "remove_non_native_shrubs",
     "rotational_grazing",
-    "set_aside_adjacent_unmowed",
     "stream_exclusion_and_buffers",
     "upgrade_to_darksky"
   )
@@ -1565,23 +1943,39 @@ derive_response_scale <-
       if_else("diversity", "count")
   }
 
-# Split a response variable into a year-or-site token and a base expression.
+# Split a response variable into a qualifier token -- a year, a site, a
+# nesting stage -- and the base expression that token qualifies.
+
+# A stage is a token because two stages of one nest are two results, not two
+# expressions of one, so they must not compete as duplicates.
 
 split_response_var <-
   function(.response_var) {
+    qualifier <-
+      regex(
+        str_c(
+          "\\(([^)]*)\\)",
+          "[0-9]{2,4}(-[0-9]{2,4})?",
+          "\\b(incubation|nestling|laying|brood[- ]rearing)\\b",
+          sep = "|"
+        ),
+        ignore_case = TRUE
+      )
     tokens <-
       .response_var %>%
-      str_extract_all("\\(([^)]*)\\)|[0-9]{2,4}(-[0-9]{2,4})?") %>%
+      str_extract_all(qualifier) %>%
       map_chr(
-        ~ .x %>%
-          str_remove_all("[()]") %>%
-          sort() %>%
-          str_c(collapse = "+")
+        \(.token) {
+          .token %>%
+            str_remove_all("[()]") %>%
+            str_to_lower() %>%
+            sort() %>%
+            str_c(collapse = "+")
+        }
       )
     base <-
       .response_var %>%
-      str_remove_all("\\([^)]*\\)") %>%
-      str_remove_all("[0-9]{2,4}(-[0-9]{2,4})?") %>%
+      str_remove_all(qualifier) %>%
       str_remove_all("[-;,]") %>%
       str_squish()
     tibble(
@@ -1634,8 +2028,27 @@ build_guild_pool <-
       )
   }
 
-# Both guilds in one stratum: assemblage rows stay out, the contributing guild
-# is kept as source_guild.
+# An assemblage total is its study's species-level records added up, so it
+# enters only where that study reports no species for the practice.
+
+keep_pooled_rows <-
+  function(.data) {
+    .data %>%
+      filter(label_type == "species") %>%
+      mutate(
+        names_one_species =
+          !is.na(guild) |
+            species_group == "species"
+      ) %>%
+      filter(
+        names_one_species |
+          !any(names_one_species),
+        .by = c(key, bmp)
+      )
+  }
+
+# Every grassland class in one stratum, whether the row names a guild, one
+# species, or an assemblage no species-level record covers.
 
 build_pooled_pool <-
   function(
@@ -1643,13 +2056,10 @@ build_pooled_pool <-
     metric,
     pooled_label = "all_grassland") {
     .data %>%
-      filter(
-        response_metric == {{ metric }},
-        !is.na(guild)
-      ) %>%
+      filter(response_metric == {{ metric }}) %>%
+      keep_pooled_rows() %>%
       mutate(
-        source_guild =
-          as.character(guild),
+        source_guild = analysis_class,
         guild = factor(pooled_label)
       ) %>%
       apply_inclusion_thresholds(
@@ -2059,11 +2469,14 @@ refit_cells <-
     cell_variable,
     grouping_vars,
     specification,
-    response_metric) {
+    response_metric,
+    priors = NULL,
+    thresholds = NULL) {
     prepared <-
       .pool %>%
       apply_inclusion_thresholds(
-        grouping_vars = grouping_vars
+        grouping_vars = grouping_vars,
+        thresholds = thresholds %||% inclusion_thresholds
       )
     if (nrow(prepared) < 3) {
       return(NULL)
@@ -2093,13 +2506,20 @@ refit_cells <-
             fct_drop()
         )
       )
-    if (n_distinct(prepared[[cell_variable]]) < 1) {
+    # A one-level cell factor has no design matrix to build, and a pooled
+    # estimate over a single cell is not what the tables report.
+
+    if (n_distinct(prepared[[cell_variable]]) < 2) {
+      cli::cli_warn(
+        "{specification} leaves {template_name} with fewer than two cells."
+      )
       return(NULL)
     }
     fit <-
       prepared %>%
       fit_meta_model(
         model_formula = NULL,
+        priors = priors,
         refit_from = template_model
       )
     cell_means <-
@@ -2153,7 +2573,9 @@ refit_family <-
   function(
     .pool,
     .family,
-    specification) {
+    specification,
+    priors = NULL,
+    thresholds = NULL) {
     refit_cells(
       .pool = .pool,
       template_model =
@@ -2163,7 +2585,9 @@ refit_family <-
       cell_variable = .family$cell_variable,
       grouping_vars = .family$grouping_vars,
       specification = specification,
-      response_metric = .family$response_metric
+      response_metric = .family$response_metric,
+      priors = priors,
+      thresholds = thresholds
     )
   }
 
@@ -2187,8 +2611,16 @@ add_index_type <-
       )
   }
 
-# The analysis pool: every categorical record 1_effect_sizes.R converted, on
-# one Hedges' g scale whichever of the three routes it took.
+# Every categorical record 1_effect_sizes.R converted, before the screen.
+# `effect_metric` names the scale -- Hedges' g, or a log hazard ratio for
+# nest survival -- and the two are never pooled.
+
+read_converted_effects <-
+  function() {
+    bmp_read_table("converted_effects")
+  }
+
+# The analysis pool: what 1b_screen_effects.R kept.
 
 read_effect_size_pool <-
   function() {
@@ -2214,7 +2646,7 @@ excluded_effect_columns <-
 
 read_excluded_effects <-
   function(
-    file_path = "brian_sandbox/data/excluded_effects.csv") {
+    file_path = "data/excluded_effects.csv") {
     empty <-
       excluded_effect_columns %>%
       set_names() %>%
@@ -2249,9 +2681,14 @@ build_pool <-
   function(
     response_metric,
     retain_fire = TRUE,
+    retain_non_grassland = FALSE,
     drop_flagged = FALSE,
     by_guild = TRUE,
-    pooled = FALSE) {
+    pooled = FALSE,
+    group_means_only = FALSE,
+    one_per_study_cell = FALSE,
+    only_region = NULL,
+    drop_region = NULL) {
     pool <-
       effect_sizes %>%
       filter(
@@ -2265,12 +2702,42 @@ build_pool <-
         pool %>%
         filter(!fire_excluded_original)
     }
+    if (!retain_non_grassland) {
+      pool <-
+        pool %>%
+        filter(!non_grassland_class)
+    }
+    if (!is.null(only_region)) {
+      pool <-
+        pool %>%
+        filter(region %in% only_region)
+    }
+    if (!is.null(drop_region)) {
+      pool <-
+        pool %>%
+        filter(!region %in% drop_region)
+    }
     if (drop_flagged) {
       pool <-
         pool %>%
         anti_join(
           read_excluded_effects(),
           by = excluded_effect_columns
+        )
+    }
+
+    # The conversion-route specification: only effects computed from reported
+    # arm summaries, dropping the coefficient and test-statistic routes.
+
+    if (group_means_only) {
+      pool <-
+        pool %>%
+        filter(
+          conversion %in%
+            c(
+              "two group means",
+              "log hazard ratio from arm survival"
+            )
         )
     }
     if (by_guild) {
@@ -2281,18 +2748,76 @@ build_pool <-
         )
     }
     if (pooled) {
-      pool <-
+
+      # The reported pooled model covers only practices estimable in BOTH
+      # guilds under the same specification, so every refit must apply the
+      # same restriction before the guilds are relabelled.
+
+      eligible_practices <-
         pool %>%
         filter(
           !is.na(guild)
         ) %>%
+        apply_inclusion_thresholds(
+          grouping_vars = c("guild", "bmp")
+        ) %>%
+        practices_in_both_guilds()
+      pool <-
+        pool %>%
+        keep_pooled_rows() %>%
+        filter(bmp %in% eligible_practices) %>%
         mutate(
-          source_guild = guild,
+          source_guild = analysis_class,
           guild = "all_grassland"
         )
     }
-    pool %>%
+    pool <-
+      pool %>%
       add_index_type()
+    if (one_per_study_cell) {
+      pool <-
+        pool %>%
+        aggregate_one_per_study_cell()
+    }
+    pool
+  }
+
+# One inverse-variance weighted effect size per study and cell, for the
+# specification that removes dependence between a study's effect sizes
+# entirely (sampling errors sharing a control group are treated as
+# independent everywhere else; this bounds what that assumption could cost).
+
+aggregate_one_per_study_cell <-
+  function(.pool) {
+    .pool %>%
+      mutate(
+        weight = 1 / sei^2
+      ) %>%
+      summarise(
+        yi =
+          sum(yi * weight) /
+          sum(weight),
+        sei =
+          sqrt(
+            1 / sum(weight)
+          ),
+        species_key = first(species_key),
+        .by =
+          any_of(
+            c(
+              "key",
+              "response_metric",
+              "index_type",
+              "guild",
+              "bmp"
+            )
+          )
+      ) %>%
+      mutate(
+        es_id =
+          row_number() %>%
+          str_c("agg_", .)
+      )
   }
 
 write_partial_estimates <-
@@ -2417,6 +2942,13 @@ aggregate_within_study <-
       )
   }
 
+# Egger regression plus the PET and PEESE adjusted estimates, all on the
+# study-aggregated data (the standard tests assume independent effect sizes).
+
+# PET is the Egger intercept, the effect predicted for a study with no
+# sampling error; PEESE regresses on the sampling variance instead. Both are
+# conditional-on-asymmetry diagnostics, not replacement estimates.
+
 run_egger_test <-
   function(
     .data,
@@ -2439,13 +2971,35 @@ run_egger_test <-
         method = "REML"
       )
     egger <- regtest(model, model = "lm")
+    pet <-
+      lm(
+        yi ~ sei,
+        data = aggregated,
+        weights = 1 / sei^2
+      )
+    peese <-
+      lm(
+        yi ~ I(sei^2),
+        data = aggregated,
+        weights = 1 / sei^2
+      )
     tibble(
       analysis = {{ label }},
       n_studies = nrow(aggregated),
       pooled_estimate = as.numeric(model$beta),
       egger_statistic = egger$zval,
       egger_p = egger$pval,
-      asymmetry_detected = egger$pval < 0.05
+      asymmetry_detected = egger$pval < 0.05,
+      pet_estimate = coef(pet)[[1]],
+      pet_se =
+        summary(pet) %>%
+        coef() %>%
+        magrittr::extract(1, 2),
+      peese_estimate = coef(peese)[[1]],
+      peese_se =
+        summary(peese) %>%
+        coef() %>%
+        magrittr::extract(1, 2)
     )
   }
 
@@ -2460,10 +3014,22 @@ same_sign <-
     signs_a == signs_b
   }
 
+# REML refit of one pool's cell means. The random terms mirror the Bayesian
+# formula for that pool, and `with_index_type` adds the diversity offset the
+# richness model carries; its coefficient is dropped from the returned cell
+# means, exactly as the Bayesian reader ignores it.
+
 fit_reml_cell_means <-
   function(
     .pool,
-    cell_variable) {
+    cell_variable,
+    random_terms =
+      list(
+        ~ 1 | key,
+        ~ 1 | es_id,
+        ~ 1 | species_key
+      ),
+    with_index_type = FALSE) {
     model_data <-
       .pool %>%
       mutate(
@@ -2473,17 +3039,21 @@ fit_reml_cell_means <-
           as.factor()
       ) %>%
       as.data.frame()
+    add_offset <-
+      with_index_type &&
+      n_distinct(model_data$index_type) > 1
+    model_formula <-
+      if (add_offset) {
+        ~ 0 + cell + index_type
+      } else {
+        ~ 0 + cell
+      }
     reml_fit <-
       rma.mv(
         yi = yi,
         V = vi,
-        mods = ~ 0 + cell,
-        random =
-          list(
-            ~ 1 | key,
-            ~ 1 | es_id,
-            ~ 1 | species_key
-          ),
+        mods = model_formula,
+        random = random_terms,
         data = model_data,
         method = "REML",
         sparse = TRUE
@@ -2491,12 +3061,17 @@ fit_reml_cell_means <-
     tibble(
       cell =
         reml_fit$b %>%
-        rownames() %>%
-        str_remove("^cell"),
+        rownames(),
       reml_estimate = as.numeric(reml_fit$b),
       reml_lcl = as.numeric(reml_fit$ci.lb),
       reml_ucl = as.numeric(reml_fit$ci.ub)
-    )
+    ) %>%
+      filter(
+        str_starts(cell, "cell")
+      ) %>%
+      mutate(
+        cell = str_remove(cell, "^cell")
+      )
   }
 
 # posterior figures --------------------------------------------------------
