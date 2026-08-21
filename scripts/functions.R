@@ -2658,6 +2658,36 @@ read_excluded_effects <-
       )
   }
 
+# Records one screen reason held out, bound back onto a pool.
+
+# The screen runs before the pool is written, so a specification looser than
+# the screen reads the records it wants off the audit 2a_screen_effects.R
+# leaves, cut to the columns the pool carries.
+
+readmit_screened <-
+  function(
+    .pool,
+    reason,
+    metric,
+    file_path = "output/audits/excluded_effects.csv") {
+    held_out <-
+      read_csv(
+        file_path,
+        show_col_types = FALSE
+      ) %>%
+      filter(
+        excluded_by == reason,
+        response_metric == metric
+      ) %>%
+      select(
+        any_of(
+          names(.pool)
+        )
+      )
+    .pool %>%
+      bind_rows(held_out)
+  }
+
 # Build the pool for one metric; every design choice is an argument.
 
 build_pool <-
@@ -2666,6 +2696,9 @@ build_pool <-
     retain_fire = TRUE,
     retain_non_grassland = FALSE,
     drop_flagged = FALSE,
+    implausible_bound = 20,
+    min_papers = 3,
+    guild_assigned_only = FALSE,
     by_guild = TRUE,
     pooled = FALSE,
     group_means_only = FALSE,
@@ -2679,6 +2712,32 @@ build_pool <-
         is.finite(yi),
         is.finite(sei),
         sei > 0
+      )
+
+    # The screen holds the implausible effects and the cells below the paper
+    # floor out of the written pool, so a bound or a floor looser than the
+    # screen's own reads those records back before anything else runs.
+
+    if (implausible_bound > 20) {
+      pool <-
+        pool %>%
+        readmit_screened(
+          reason = "implausible_effect",
+          metric = response_metric
+        )
+    }
+    if (min_papers < 3) {
+      pool <-
+        pool %>%
+        readmit_screened(
+          reason = "paper_count",
+          metric = response_metric
+        )
+    }
+    pool <-
+      pool %>%
+      filter(
+        abs(yi) <= implausible_bound
       )
     if (!retain_fire) {
       pool <-
@@ -2723,7 +2782,26 @@ build_pool <-
             )
         )
     }
-    if (by_guild) {
+
+    # The floor the screen applied is three papers, counted over the primary
+    # pool. Another value is counted over the pool the specification builds.
+
+    if (min_papers != 3) {
+      below_floor <-
+        pool %>%
+        below_paper_floor(min_papers = min_papers)
+      pool <-
+        pool %>%
+        filter(
+          !es_id %in% below_floor
+        )
+    }
+
+    # The guilds are read together in the pooled families, where a
+    # species-level record without a guild belongs to the stratum all the
+    # same, so the guild requirement is the guild-specific families' alone.
+
+    if (by_guild && !pooled) {
       pool <-
         pool %>%
         filter(
@@ -2745,6 +2823,13 @@ build_pool <-
           grouping_vars = c("guild", "bmp")
         ) %>%
         practices_in_both_guilds()
+      if (guild_assigned_only) {
+        pool <-
+          pool %>%
+          filter(
+            !is.na(guild)
+          )
+      }
       pool <-
         pool %>%
         keep_pooled_rows() %>%

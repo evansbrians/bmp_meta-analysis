@@ -26,10 +26,6 @@ effect_sizes <- read_effect_size_pool()
 
 options(mc.cores = sampler_settings$cores)
 
-# Every fire interval is retained in the primary pool, as build_pool() has it.
-
-retain_all_fire <- TRUE
-
 # The prior-sensitivity settings: the primary prior, doubled and halved on
 # both the effect scale and the variance components. A conclusion that moves
 # between these is a conclusion the prior was carrying.
@@ -137,32 +133,19 @@ model_families <-
 
 # specifications -----------------------------------------------------------
 
-alternate_fire_label <-
-  if (retain_all_fire) {
-    "original_fire_exclusion_applied"
-  } else {
-    "all_fire_intervals_retained"
-  }
-
 # Each specification is a set of build_pool() arguments, plus an optional
 # prior set handed to the refit.
 
-# In order: the fire rule, the vegetation classes, the unresolved
-# data-quality records, the prior, the independence of a study's effect sizes,
-# the conversion routes, and the geography.
+# In order: the vegetation classes, the unresolved data-quality records, the
+# prior, the independence of a study's effect sizes, the conversion routes,
+# the geography, the paper floor, and the records the pooled model carries
+# without a guild.
 
 specifications <-
   list(
     list(
       specification = "primary",
       arguments = list()
-    ),
-    list(
-      specification = alternate_fire_label,
-      arguments =
-        list(
-          retain_fire = !retain_all_fire
-        )
     ),
 
     # The shrubland, woodland and forest species the primary analysis holds
@@ -256,6 +239,37 @@ specifications <-
       arguments =
         list(
           drop_region = "europe"
+        )
+    ),
+
+    # The three-paper floor, one paper either side of it. The lower floor
+    # returns the cells the screen held out; the higher one takes away the
+    # cells resting on exactly three papers.
+
+    list(
+      specification = "paper_floor_two",
+      arguments =
+        list(
+          min_papers = 2
+        )
+    ),
+    list(
+      specification = "paper_floor_four",
+      arguments =
+        list(
+          min_papers = 4
+        )
+    ),
+
+    # The pooled model reads a species-level record with no grassland class as
+    # part of the stratum. Restricting it to the records a guild names says
+    # what those carry. The guild-specific models never see them.
+
+    list(
+      specification = "guild_assigned_only",
+      arguments =
+        list(
+          guild_assigned_only = TRUE
         )
     )
   )
