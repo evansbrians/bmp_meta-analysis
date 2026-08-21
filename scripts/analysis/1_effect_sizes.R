@@ -359,6 +359,7 @@ all_effects <-
   ) %>%
   select(
     es_id = row_id,
+    effect_id,
     key,
     paper,
     region,

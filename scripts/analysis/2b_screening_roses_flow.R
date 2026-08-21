@@ -50,6 +50,7 @@ screen_reasons <-
     "response_flag", "Response not the one the practice targets",
     "treatment_control_flag", "Treatment and control not comparable",
     "response_metric", "Response outside the three analysed",
+    "diversity_index", "Diversity index, not a richness count",
     "conversion", "No route to an effect size",
     "duplicate_expression", "One result reported more than one way",
     "nest_hazard_scale", 

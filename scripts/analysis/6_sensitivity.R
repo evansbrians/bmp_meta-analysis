@@ -73,7 +73,7 @@ sensitivity_priors <-
 factor_columns <-
   c(
     "key",
-    "es_id",
+    "effect_id",
     "species_key",
     "bmp",
     "guild",
@@ -666,33 +666,40 @@ sensitivity_digest %>%
 
 # publication bias ---------------------------------------------------------
 
-abundance_pool <-
-  model_pools %>%
-  pluck("abundance_guild_bmp")
+# One test per guild: aggregation leaves a study one observation in each
+# guild, so a test spanning both would carry that study twice. Richness has
+# no guild, and is one test.
 
 publication_bias <-
   list(
-    "abundance (all guilds, aggregated)" = abundance_pool,
-    "abundance (obligate grassland)" =
-      abundance_pool %>%
-      filter(guild == "obligate_grassland"),
-    "abundance (facultative grassland)" =
-      abundance_pool %>%
-      filter(guild == "facultative_grassland"),
-    "nest success (all guilds, aggregated)" =
+    abundance =
+      model_pools %>%
+      pluck("abundance_guild_bmp"),
+    "nest success" =
       model_pools %>%
       pluck("nest_success_guild_bmp"),
     "species richness" =
       model_pools %>%
-      pluck("richness_bmp"),
-    "abundance (both guilds pooled)" =
-      model_pools %>%
-      pluck("abundance_pooled_bmp")
+      pluck("richness_bmp")
   ) %>%
   imap(
     \(.pool, .label) {
       .pool %>%
-        run_egger_test(label = .label)
+        group_split(guild) %>%
+        map(
+          \(.guild_pool) {
+            .guild_pool %>%
+              run_egger_test(label = .label) %>%
+              mutate(
+                guild =
+                  .guild_pool$guild %>%
+                  first() %>%
+                  as.character(),
+                .after = analysis
+              )
+          }
+        ) %>%
+        list_rbind()
     }
   ) %>%
   list_rbind()

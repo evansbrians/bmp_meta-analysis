@@ -103,6 +103,11 @@ screened_effects <-
           c("species_richness", "nest_success", "abundance") ~
           "response_metric",
 
+        # A diversity index weights a count by evenness, so it does not pool
+        # with species richness.
+
+        response_scale == "diversity" ~ "diversity_index",
+
         # Contrast mismatch over a mixed-guild assemblage, held out by a
         # recorded team decision.
 

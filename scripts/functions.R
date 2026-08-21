@@ -502,6 +502,7 @@ bmp_write_table <-
 effect_size_columns <-
   c(
     "es_id",
+    "effect_id",
     "key",
     "bmp",
     "response_metric",
@@ -2591,26 +2592,6 @@ refit_family <-
     )
   }
 
-# Build the pool for one metric; every design choice is an argument.
-
-# Richness rows measuring a diversity index rather than a species count.
-
-add_index_type <-
-  function(.data) {
-    .data %>%
-      mutate(
-        index_type =
-          if_else(
-            response_scale == "diversity",
-            "diversity",
-            "richness"
-          ) %>%
-          factor(
-            levels = c("richness", "diversity")
-          )
-      )
-  }
-
 # Every categorical record 1_effect_sizes.R converted, before the screen.
 # `effect_metric` names the scale -- Hedges' g, or a log hazard ratio for
 # nest survival -- and the two are never pooled.
@@ -2676,6 +2657,8 @@ read_excluded_effects <-
         )
       )
   }
+
+# Build the pool for one metric; every design choice is an argument.
 
 build_pool <-
   function(
@@ -2771,9 +2754,6 @@ build_pool <-
           guild = "all_grassland"
         )
     }
-    pool <-
-      pool %>%
-      add_index_type()
     if (one_per_study_cell) {
       pool <-
         pool %>%
@@ -2807,14 +2787,13 @@ aggregate_one_per_study_cell <-
             c(
               "key",
               "response_metric",
-              "index_type",
               "guild",
               "bmp"
             )
           )
       ) %>%
       mutate(
-        es_id =
+        effect_id =
           row_number() %>%
           str_c("agg_", .)
       )
@@ -3015,9 +2994,7 @@ same_sign <-
   }
 
 # REML refit of one pool's cell means. The random terms mirror the Bayesian
-# formula for that pool, and `with_index_type` adds the diversity offset the
-# richness model carries; its coefficient is dropped from the returned cell
-# means, exactly as the Bayesian reader ignores it.
+# formula for that pool.
 
 fit_reml_cell_means <-
   function(
@@ -3026,10 +3003,9 @@ fit_reml_cell_means <-
     random_terms =
       list(
         ~ 1 | key,
-        ~ 1 | es_id,
+        ~ 1 | effect_id,
         ~ 1 | species_key
-      ),
-    with_index_type = FALSE) {
+      )) {
     model_data <-
       .pool %>%
       mutate(
@@ -3039,20 +3015,11 @@ fit_reml_cell_means <-
           as.factor()
       ) %>%
       as.data.frame()
-    add_offset <-
-      with_index_type &&
-      n_distinct(model_data$index_type) > 1
-    model_formula <-
-      if (add_offset) {
-        ~ 0 + cell + index_type
-      } else {
-        ~ 0 + cell
-      }
     reml_fit <-
       rma.mv(
         yi = yi,
         V = vi,
-        mods = model_formula,
+        mods = ~ 0 + cell,
         random = random_terms,
         data = model_data,
         method = "REML",

@@ -55,7 +55,7 @@ analysis_pool <-
     across(
       c(
         key,
-        es_id,
+        effect_id,
         species_key,
         bmp,
         guild
@@ -72,8 +72,7 @@ richness_pool <-
   analysis_pool %>%
   filter(response_metric == "species_richness") %>%
   apply_inclusion_thresholds(grouping_vars = "bmp") %>%
-  mutate(bmp = fct_drop(bmp)) %>%
-  add_index_type()
+  mutate(bmp = fct_drop(bmp))
 
 abundance_guild_pool <-
   analysis_pool %>%
@@ -210,13 +209,11 @@ cell_sample_sizes %>%
 # model formulas -----------------------------------------------------------
 
 formula_richness_bmp <-
-  str_c(
-    "yi | se(sei) ~ 0 + bmp",
-    if (n_distinct(richness_pool$index_type) > 1) " + index_type" else "",
-    " + (1 | key) + (1 | es_id)"
-  ) %>%
-  as.formula() %>%
-  bf()
+  bf(
+    yi | se(sei) ~ 0 + bmp +
+      (1 | key) +
+      (1 | effect_id)
+  )
 
 # Fitted for the species-level estimates only, which are a guild mean plus a
 # species offset and so need a guild intercept to attach to.
@@ -225,7 +222,7 @@ formula_guild <-
   bf(
     yi | se(sei) ~ 0 + guild +
       (1 | key) +
-      (1 | es_id) +
+      (1 | effect_id) +
       (1 | species_key) +
       (1 | bmp)
   )
@@ -234,7 +231,7 @@ formula_guild_bmp <-
   bf(
     yi | se(sei) ~ 0 + guild_bmp +
       (1 | key) +
-      (1 | es_id) +
+      (1 | effect_id) +
       (1 | species_key)
   )
 

@@ -186,7 +186,7 @@ table_heterogeneity <-
       level %>%
       case_match(
         "key" ~ "between studies",
-        "es_id" ~ "within study (between effect sizes)",
+        "effect_id" ~ "within study (between effect sizes)",
         "species_key" ~ "between species",
         "bmp" ~ "between practices",
         .default = level
