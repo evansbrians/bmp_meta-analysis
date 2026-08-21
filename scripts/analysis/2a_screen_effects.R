@@ -85,8 +85,13 @@ screened_effects <-
     excluded_by =
       case_when(
 
-        # A label the frame gives no class at all -- an artificial nest, a
-        # name it has yet to reach -- supports no species-level estimate.
+        # An artificial nest measures predation pressure at a place, not a
+        # species' response to the practice, so it is out of scope by design.
+
+        species_group == "artificial_nest" ~ "artificial_nest",
+
+        # A label the frame gives no class at all -- a name the species table
+        # has yet to reach -- supports no species-level estimate.
 
         label_type != "community" &
           is.na(analysis_class) ~ "unclassified_species",

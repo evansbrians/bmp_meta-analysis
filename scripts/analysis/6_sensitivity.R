@@ -149,7 +149,7 @@ alternate_fire_label <-
 
 # In order: the fire rule, the vegetation classes, the unresolved
 # data-quality records, the prior, the independence of a study's effect sizes,
-# the conversion routes, and the nest study floor.
+# the conversion routes, and the geography.
 
 specifications <-
   list(
@@ -220,6 +220,42 @@ specifications <-
       arguments =
         list(
           group_means_only = TRUE
+        )
+    ),
+
+    # Geography. Only the Great Plains holds enough of the pool to be refitted
+    # on its own -- 6 of the 17 abundance cells survive there, against 1 in
+    # the Southeast and 1 in Europe -- so the other regions are read by
+    # dropping them instead. South America carries two studies and no
+    # surviving cell, so dropping it would reproduce the primary exactly and
+    # it has no specification.
+
+    list(
+      specification = "great_plains_only",
+      arguments =
+        list(
+          only_region = "great_plains"
+        )
+    ),
+    list(
+      specification = "great_plains_dropped",
+      arguments =
+        list(
+          drop_region = "great_plains"
+        )
+    ),
+    list(
+      specification = "southeast_us_dropped",
+      arguments =
+        list(
+          drop_region = "southeast_us"
+        )
+    ),
+    list(
+      specification = "europe_dropped",
+      arguments =
+        list(
+          drop_region = "europe"
         )
     )
   )

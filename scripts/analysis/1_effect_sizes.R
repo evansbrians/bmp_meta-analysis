@@ -361,6 +361,7 @@ all_effects <-
     es_id = row_id,
     key,
     paper,
+    region,
     source_sheet,
     bmp,
     treatment,

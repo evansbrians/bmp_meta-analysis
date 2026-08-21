@@ -26,7 +26,7 @@ database <-
     read_only = TRUE
   )
 
-# The six tables the sheets are rebuilt from, read in one pass:
+# The seven tables the sheets are rebuilt from, read in one pass:
 
 bmp_tables <-
   c(
@@ -35,6 +35,7 @@ bmp_tables <-
     "effect_arm",
     "effect_estimate",
     "study",
+    "study_place",
     "species"
   ) %>%
   set_names() %>%
@@ -110,7 +111,8 @@ sheet_statistics <-
 # assemble the records -----------------------------------------------------
 
 # A record joins once per practice, which is how a dual-practice effect size
-# reaches both cells. The study and species lookups are common to every type.
+# reaches both cells. The study, region and species lookups are common to
+# every type.
 
 records <-
   bmp_tables$effect %>%
@@ -128,6 +130,10 @@ records <-
     by = join_by(key)
   ) %>%
   left_join(
+    study_region_lookup(bmp_tables$study_place),
+    by = join_by(key)
+  ) %>%
+  left_join(
     bmp_tables$species %>%
       select(
         species,
@@ -136,6 +142,13 @@ records <-
         species_include = include
       ),
     by = join_by(species)
+  ) %>%
+
+  # A study with no place recorded is its own region, so a region filter
+  # never drops it silently.
+
+  mutate(
+    region = replace_na(region, "none_recorded")
   )
 
 # One list item per statistic input type: its own records joined to its own
