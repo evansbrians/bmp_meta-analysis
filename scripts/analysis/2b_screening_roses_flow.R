@@ -56,8 +56,7 @@ screen_reasons <-
     "nest_hazard_scale", 
     "Nest survival could not be transformed to the hazard scale",
     "artificial_nest", "Artificial nest, not a species' response",
-    "unclassified_species", "Species does not fit the classification system",
-    "implausible_effect", "Effect size beyond the plausible bound"
+    "unclassified_species", "Species does not fit the classification system"
   )
 
 # read the tables ----------------------------------------------------------

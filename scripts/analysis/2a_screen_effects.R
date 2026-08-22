@@ -120,8 +120,7 @@ screened_effects <-
           !replace_na(is.finite(yi) & is.finite(sei) & sei > 0, FALSE) ~
           "nest_hazard_scale",
         !replace_na(is.finite(yi) & is.finite(sei) & sei > 0, FALSE) ~
-          "conversion",
-        abs(yi) > 20 ~ "implausible_effect"
+          "conversion"
       )
   )
 

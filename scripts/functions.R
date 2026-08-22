@@ -2696,7 +2696,6 @@ build_pool <-
     retain_fire = TRUE,
     retain_non_grassland = FALSE,
     drop_flagged = FALSE,
-    implausible_bound = 20,
     min_papers = 3,
     guild_assigned_only = FALSE,
     by_guild = TRUE,
@@ -2714,18 +2713,10 @@ build_pool <-
         sei > 0
       )
 
-    # The screen holds the implausible effects and the cells below the paper
-    # floor out of the written pool, so a bound or a floor looser than the
-    # screen's own reads those records back before anything else runs.
+    # The screen holds the cells below the paper floor out of the written
+    # pool, so a floor looser than the screen's own reads them back before
+    # anything else runs.
 
-    if (implausible_bound > 20) {
-      pool <-
-        pool %>%
-        readmit_screened(
-          reason = "implausible_effect",
-          metric = response_metric
-        )
-    }
     if (min_papers < 3) {
       pool <-
         pool %>%
@@ -2734,11 +2725,6 @@ build_pool <-
           metric = response_metric
         )
     }
-    pool <-
-      pool %>%
-      filter(
-        abs(yi) <= implausible_bound
-      )
     if (!retain_fire) {
       pool <-
         pool %>%
