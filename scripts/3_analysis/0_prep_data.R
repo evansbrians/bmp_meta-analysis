@@ -111,8 +111,7 @@ sheet_statistics <-
 # assemble the records -----------------------------------------------------
 
 # A record joins once per practice, which is how a dual-practice effect size
-# reaches both cells. The study, region and species lookups are common to
-# every type.
+# reaches both cells.
 
 records <-
   bmp_tables$effect %>%

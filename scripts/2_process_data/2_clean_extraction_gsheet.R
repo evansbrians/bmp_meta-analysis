@@ -187,13 +187,10 @@ link_vocabulary <-
 # add nest survival scale -------------------------------------------------
 
 # Period survival S = DSR^d, so a daily rate and a period probability are not
-# comparable as a standardised mean difference. The database carries this to
-# the effect-size step, which puts the two on one log hazard scale.
+# comparable until the effect-size step puts them on the log hazard scale.
 
-# `link` is the scale a reported coefficient lives on and is the
-# only route a nest coefficient has to the hazard scale, `baseline_survival`
-# is the control level it maps from, and `beta_is_derived` marks a
-# coefficient computed from the paper rather than read off it.
+# `link` is the scale a coefficient lives on, `baseline_survival` the control
+# level it maps from, `beta_is_derived` whether it was computed or read off.
 
 # All three are created empty where the sheet does not yet carry them.
 

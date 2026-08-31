@@ -1,10 +1,7 @@
 # This script:
 # - Reads the stage table 1_screening_roses_flow.R writes
-# - Draws it with ggplot2: a spine of what was retained down one column,
-#   what left beside it, and the stage names down the left
-# - Drops every step that lost nothing, so the published figure carries only
-#   the stages that moved a record or a paper
-# - Writes roses_diagram.svg for editing in Inkscape, and a png
+# - Draws it: what was retained down one column, what left beside it
+# - Writes roses_diagram.svg, for editing in Inkscape, and a png
 
 # setup --------------------------------------------------------------------
 
@@ -28,15 +25,10 @@ flow_reconciliation <-
 
 # labels -------------------------------------------------------------------
 
-# Every box is a bold heading over a body, so the two are carried apart and
-# drawn apart.
+# A box is a bold heading over a body, carried apart and drawn apart:
 
-# A body is one row per line. `count` is the records-and-papers pair, drawn in
-# its own right-aligned column and empty on a line that carries none; `text`
-# is what sits beside it; `indent` says whether the line belongs in the text
-# column or runs the full width of the box. Two columns rather than one padded
-# string, because a space is narrower than a digit in this font, so padding
-# never lines the reasons up and a wrapped line lands wherever it lands.
+# A body is one row per line: `count` is the records-and-papers pair in its own
+# column, `text` what sits beside it, `indent` which column the line starts in.
 
 thousands <-
   function(.count) {
@@ -54,13 +46,12 @@ body_line <-
     .indent = FALSE) {
     tibble(
       count = .count,
-      text = .text,
+      text = as.character(.text),
       indent = .indent
     )
   }
 
-# The reason column is narrower than the box, so a reason wraps sooner than
-# the heading above it.
+# The reason column is narrower than the box:
 
 reason_width <- 42
 
@@ -110,8 +101,7 @@ retained_body <-
     )
   }
 
-# A step is drawn only if it moved something. Everything below reads its
-# lines through this, so an empty step never reaches the page.
+# A step is drawn only if it moved something:
 
 lost_stages <-
   function(.phase) {
@@ -155,8 +145,7 @@ excluded_body <-
     )
   }
 
-# The one box whose counts come from the reconciliation rather than a stage,
-# so its three lines are filtered here rather than by `lost_stages()`.
+# The one box whose counts come from the reconciliation rather than a stage:
 
 not_extracted_lines <-
   tibble(
@@ -209,8 +198,7 @@ not_extracted_body <-
     )
   }
 
-# The analysis and cutoff phases name what they kept, so their exclusions
-# read off `reason`, as a paragraph rather than a counted list.
+# These phases name what they kept, so their exclusions read off `reason`:
 
 kept_phase_body <-
   function(.phase) {
@@ -236,10 +224,8 @@ kept_phase_body <-
     )
   }
 
-# The pools the models were fitted to, named as the results name them:
-# response first, and the guild model before the pooled one. The guild-only
-# abundance model carries no reported cell means, so it is not listed, and
-# `_bmp` is dropped because every pool here is by practice.
+# The pools as the results name them, response first and guild before pooled.
+# `abundance_guild` reports no cell means, so it is left out.
 
 models_body <-
   flow_stages %>%
@@ -366,9 +352,8 @@ flow_nodes <-
     )
   )
 
-# A box whose body came back empty lost nothing, so it is dropped and the
-# rows close up behind it. Only exclusion boxes can empty; a spine box always
-# carries what it retained.
+# A box whose body came back empty lost nothing, so it is dropped and the rows
+# close up behind it.
 
 flow_nodes <-
   flow_nodes %>%
@@ -452,10 +437,8 @@ placed_nodes <-
     y_body = ymax - box_padding - 1 - title_gap
   )
 
-# The body is drawn a line at a time, because a counted line puts its records
-# and papers in a right-aligned column of its own and its reason in a second
-# column beside it. One y unit is one line, so a line sits at its index below
-# the top of the body.
+# One y unit is one line, so a line sits at its index below the top of the
+# body and its counts get a column of their own.
 
 count_column <- 0.62
 
@@ -510,8 +493,8 @@ band_boxes <-
 
 # rounded boxes ------------------------------------------------------------
 
-# geom_rect has square corners, so the outline is built as four arcs and
-# drawn as a polygon. The radii differ because a y unit is not an x unit.
+# geom_rect has square corners, so the outline is four arcs drawn as a polygon.
+# The radii differ because a y unit is not an x unit.
 
 corner_x <- 0.071
 
@@ -610,23 +593,14 @@ exclusion_arrows <-
 
 # draw ---------------------------------------------------------------------
 
-# A device sets a line of text at 1.2 times the font size, so that product
-# is one y unit and the body is drawn at a line height of 1 to match.
-
-# That holds only if a y unit is the same length on the page as in the data:
-# scales and margins expand by nothing, and labs() would steal panel height.
-
-# Sizes are points, as the theme takes them; a geom's `size` is millimetres,
-# so the layers that do not read the theme divide by `.pt`.
+# One y unit is a line of text at 1.2 times the font size, which holds only
+# while scales and margins expand by nothing. Geom sizes are millimetres.
 
 body_points <- 12.6
 
 line_inches <- body_points * 1.2 / 72
 
 heading_space <- 2.4
-
-# The footnote that used to sit here is the figure caption on the results
-# page, so the bottom of the chart is a margin and nothing else.
 
 bottom_margin <- 0.6
 
@@ -638,9 +612,8 @@ y_limits <-
     heading_space
   )
 
-# Every layer carries its own data -- boxes, node text, band labels and the
-# two arrow families are separate frames -- so the plot is initialized empty
-# and each geometry is mapped where it is added.
+# Every layer brings its own data, so the plot is initialized empty and each
+# geometry is mapped where it is added.
 
 roses_chart <-
 
@@ -819,7 +792,6 @@ c("svg", "png") %>%
 
 # clean the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
+# Everything is on disk above, so nothing is handed on in memory.
 
 rm(list = ls())

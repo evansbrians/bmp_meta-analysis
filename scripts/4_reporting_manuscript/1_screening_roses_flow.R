@@ -1,8 +1,6 @@
 # This script:
-# - Reads the screening record from the database, and the screened effect
-#   sizes from the audit the analysis writes
-# - Counts practice records, papers and effect sizes retained and lost at
-#   every stage between the two, ending with the three-paper cutoff
+# - Reads the screening record from the database and the screened effect sizes
+# - Counts what each stage retained and lost, through the three-paper cutoff
 # - Writes one row per stage, and the places the two tables disagree
 
 # setup --------------------------------------------------------------------
@@ -16,8 +14,8 @@ fs::dir_create(flow_directory)
 
 # the exclusion vocabulary -------------------------------------------------
 
-# `problem` carries one value per paper x practice record, so the stages are
-# a single pass over it, in the order the review applied them.
+# `problem` carries one value per paper x practice record, so the stages are a
+# single pass over it in the order the review applied them.
 
 citation_problems <-
   tribble(
@@ -61,8 +59,7 @@ screen_reasons <-
 
 # read the tables ----------------------------------------------------------
 
-# The screening record is in the database (primary key represents study_key x
-# bmp).
+# The screening record, keyed on study_key x bmp:
 
 bmp_database <-
   DBI::dbConnect(
@@ -102,8 +99,8 @@ studies_outside_metadata <-
 
 DBI::dbDisconnect(bmp_database, shutdown = TRUE)
 
-# Every converted effect size, carrying the reason the screen held it out and
-# whether it reaches the primary pool -- one frame for three stages.
+# Every converted effect size, with its exclusion reason -- three stages read
+# off this one frame.
 
 screened_effects <-
   read_csv(
@@ -117,8 +114,7 @@ screened_effects <-
       str_squish()
   )
 
-# The screen and the three-paper cutoff are separate stages: the cutoff is
-# applied to the primary pool, after the screen, so it reads last.
+# The cutoff is applied after the screen, so it reads last:
 
 effect_size_pool <-
   screened_effects %>%
@@ -138,8 +134,7 @@ primary_pool <-
 
 # stages over the citation table -------------------------------------------
 
-# A record survives a stage when its reason has not yet been applied. Papers
-# are the distinct keys among the records that survive.
+# A record survives a stage when its reason has not yet been applied:
 
 citation_flow <-
   citation_problems %>%
@@ -199,8 +194,7 @@ eligible_records <-
 
 # stages over the effect sizes ---------------------------------------------
 
-# The screen is applied in descending order of what it holds out (widest cut
-# reads first).
+# The screen reads in descending order of what it holds out:
 
 screen_ranks <-
   excluded_effects %>%
@@ -354,8 +348,7 @@ roses_flow_stages <-
     reason
   )
 
-# Where the citation table and the extraction disagree. A group's practice
-# records come from whichever of the two tables documents it.
+# Where the citation table and the extraction disagree:
 
 records_never_extracted <-
   eligible_records %>%
@@ -424,7 +417,6 @@ roses_flow_reconciliation %>%
 
 # clean the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
+# Everything is on disk above, so nothing is handed on in memory.
 
 rm(list = ls())

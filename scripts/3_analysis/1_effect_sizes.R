@@ -155,12 +155,10 @@ beta_categorical_effects <-
 
 ## nest survival from a coefficient in beta categorical -------------------
 
-# `link` names the scale the coefficient sits on -- logit of a survival,
-# its logarithm, or the survival itself -- and each maps to the hazard scale
-# once the baseline it maps from is known.
+# `link` names the scale the coefficient sits on; each maps to the hazard
+# scale once its baseline is known.
 
-# It is the only route: a nest coefficient with no link, or none with a
-# recorded baseline where one is needed, keeps its Hedges' g, which is
+# A nest coefficient with no link, or no baseline where one is needed, is
 # withdrawn below and held out as `nest_hazard_scale`.
 
 nest_coefficient_effects <-
@@ -393,10 +391,8 @@ all_effects <-
   ) %>%
   mutate(
 
-    # Nest-survival records reported as a coefficient or a test statistic
-    # have no route to the hazard scale, and a Hedges' g cannot be pooled
-    # with a log hazard ratio, so their converted values are withdrawn here
-    # and 2_screen_effects.R records the reason.
+    # A Hedges' g cannot pool with a log hazard ratio, so a nest record with
+    # no route to the hazard scale is withdrawn here.
 
     across(
       c(yi, sei),
@@ -409,9 +405,8 @@ all_effects <-
       }
     ),
 
-    # `sign` was assessed against the papers during extraction, and is the
-    # only source of the direction a benefit runs in -- except on the hazard
-    # scale, where the conversion has already resolved it.
+    # `sign` is the only source of direction, except on the hazard scale where
+    # the conversion has already resolved it.
 
     yi =
       if_else(

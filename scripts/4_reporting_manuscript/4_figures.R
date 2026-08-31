@@ -5,10 +5,8 @@
 # Every figure is one chain: the data, the aesthetic mapping, the geometries,
 # the scales, the facets, the labels, the theme.
 
-# The manuscript figures come first and are numbered as the manuscript numbers
-# them; Figure 1 is the ROSES diagram, which 2_screening_draw_roses.R writes.
-# The supplemental figures follow, numbered S1 upward in the order the results
-# page reads them.
+# The manuscript figures come first, numbered as the manuscript numbers them;
+# Figure 1 is the ROSES diagram. The supplemental figures follow, S1 upward.
 
 # setup --------------------------------------------------------------------
 
@@ -58,9 +56,8 @@ mixed_scale_axis_label <-
 
 # posterior draws ----------------------------------------------------------
 
-# Each manuscript figure redraws a cell mean as its full posterior, read from
-# the fitted model rather than from the table, with the sample size and the
-# posterior probability together at the right edge of the panel.
+# Each figure redraws a cell mean as its full posterior, read from the fitted
+# model rather than from the table.
 
 fitted_models <-
   read_rds("output/models/fitted_models.rds")

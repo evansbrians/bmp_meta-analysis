@@ -214,17 +214,14 @@ screened_effects <-
 
 # the paper cutoff ---------------------------------------------------------
 
-# A cell resting on fewer than three papers is out of scope, not merely
-# unmodelled: the guild cell needs three of its own, and the practice and
-# response need three across the guilds.
+# The guild cell needs three papers of its own, and the practice and response
+# need three across the guilds.
 
-# A thin guild cell is kept for the pooled model alone where that pooled cell
-# has three papers of its own and reads both guilds, since pooling there is
-# across the species classifications rather than across practices.
+# A thin guild cell is kept for the pooled model alone, where that pooled cell
+# has three papers of its own and reads both guilds.
 
-# Counted over the records that passed everything above and reach the primary
-# pool, since that is the pool the primary analysis fits. Records outside it
-# keep their own reason and stay available to the sensitivity specifications.
+# Counted over the records that reach the primary pool. Records outside it keep
+# their own reason and stay available to the sensitivity suite.
 
 paper_floor <-
   screened_effects %>%

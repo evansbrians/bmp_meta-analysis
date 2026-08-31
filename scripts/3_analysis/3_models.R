@@ -100,10 +100,8 @@ nest_success_pooled_bmp_pool <-
   build_pooled_pool(metric = "nest_success") %>%
   build_guild_bmp_pool()
 
-# A cell model needs two cells: with one, `0 + guild_bmp` has no design matrix,
-# and the estimate is the guild cell it came from under another name. Under the
-# three-paper floor this drops the pooled nest model, which reaches one
-# practice.
+# A cell model needs two cells: with one, `0 + guild_bmp` has no design matrix.
+# Under the three-paper floor this drops the pooled nest model.
 
 model_pools <-
   list(

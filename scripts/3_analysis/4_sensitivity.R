@@ -26,9 +26,8 @@ effect_sizes <- read_effect_size_pool()
 
 options(mc.cores = sampler_settings$cores)
 
-# The prior-sensitivity settings: the primary prior, doubled and halved on
-# both the effect scale and the variance components. A conclusion that moves
-# between these is a conclusion the prior was carrying.
+# The primary prior, doubled and halved on both the effect scale and the
+# variance components:
 
 sensitivity_priors <-
   list(
@@ -66,10 +65,8 @@ sensitivity_priors <-
 
 # refit helpers ------------------------------------------------------------
 
-# The model families refitted under each specification. Guild-level and fully
-# pooled models are no longer reported, so they are not refitted either;
-# abundance_guild is still fitted in 3_models.R for the species estimates but
-# carries no reported cell means to test.
+# The families refitted under each specification. `abundance_guild` reports no
+# cell means, so it is not among them.
 
 model_families <-
   list(
@@ -126,10 +123,8 @@ model_families <-
 # Each specification is a set of build_pool() arguments, plus an optional
 # prior set handed to the refit.
 
-# In order: the vegetation classes, the unresolved data-quality records, the
-# prior, the independence of a study's effect sizes, the conversion routes,
-# the geography, the paper floor, and the records the pooled model carries
-# without a guild.
+# In order: vegetation classes, data-quality flags, the prior, independence,
+# conversion routes, geography, the paper floor, unclassified records.
 
 specifications <-
   list(
@@ -138,9 +133,8 @@ specifications <-
       arguments = list()
     ),
 
-    # The shrubland, woodland and forest species the primary analysis holds
-    # out, returned to it, so the tables say what the grassland-only
-    # restriction is worth.
+    # The non-grassland species the primary analysis holds out, returned to
+    # it:
 
     list(
       specification = "non_grassland_classes_retained",
@@ -150,9 +144,7 @@ specifications <-
         )
     ),
 
-    # Every extraction record carrying an unresolved data-quality flag is held
-    # out, so the tables say how much of the result rests on records that have
-    # not yet been checked against their source paper.
+    # Every record carrying an unresolved data-quality flag, held out:
 
     list(
       specification = "flagged_effects_removed",
@@ -172,9 +164,8 @@ specifications <-
       priors = sensitivity_priors$tighter_priors
     ),
 
-    # One inverse-variance weighted effect size per study and cell: the
-    # bound on what treating a study's sampling errors as independent
-    # could cost.
+    # One inverse-variance weighted effect size per study and cell: what
+    # treating a study's errors as independent could cost.
 
     list(
       specification = "one_effect_per_study_cell",
@@ -184,9 +175,8 @@ specifications <-
         )
     ),
 
-    # Only effects computed from reported arm summaries, dropping the
-    # coefficient and test-statistic conversion routes and the assumptions
-    # they carry.
+    # Only effects from reported arm summaries, dropping the coefficient and
+    # test-statistic routes.
 
     list(
       specification = "group_means_only",
@@ -196,12 +186,8 @@ specifications <-
         )
     ),
 
-    # Geography. Only the Great Plains holds enough of the pool to be refitted
-    # on its own -- 6 of the 17 abundance cells survive there, against 1 in
-    # the Southeast and 1 in Europe -- so the other regions are read by
-    # dropping them instead. South America carries two studies and no
-    # surviving cell, so dropping it would reproduce the primary exactly and
-    # it has no specification.
+    # Only the Great Plains holds enough of the pool to refit on its own, so
+    # the other regions are read by dropping them instead.
 
     list(
       specification = "great_plains_only",
@@ -232,9 +218,7 @@ specifications <-
         )
     ),
 
-    # The three-paper floor, one paper either side of it. The lower floor
-    # returns the cells the screen held out; the higher one takes away the
-    # cells resting on exactly three papers.
+    # The three-paper floor, one paper either side of it:
 
     list(
       specification = "paper_floor_two",
@@ -251,9 +235,8 @@ specifications <-
         )
     ),
 
-    # The pooled model reads a species-level record with no grassland class as
-    # part of the stratum. Restricting it to the records a guild names says
-    # what those carry. The guild-specific models never see them.
+    # The pooled model reads species-level records with no grassland class;
+    # this restricts it to the records a guild names.
 
     list(
       specification = "guild_assigned_only",
@@ -590,10 +573,8 @@ sensitivity_summary %>%
     file_name = "sensitivity_summary.csv"
   )
 
-# The cells whose conclusion changed, so the results page can name them rather
-# than only count them. The three kinds of change are not equivalent: a cell
-# that gains precision leaves the primary reading intact and merely
-# conservative, whereas one whose sign flips contradicts it.
+# The cells whose conclusion changed, so the page can name them. Gaining
+# precision leaves the primary reading intact; a flipped sign contradicts it.
 
 conclusion_changes <-
   sensitivity_summary %>%
@@ -627,8 +608,7 @@ conclusion_changes %>%
   )
 
 # The records the data-quality specification holds out, copied beside the other
-# sensitivity tables so the page can describe the exclusion without reaching
-# outside the output directory.
+# sensitivity tables:
 
 flagged_effects_listed <-
   if (fs::file_exists("data/flagged_effects.csv")) {
@@ -677,9 +657,8 @@ sensitivity_digest %>%
 
 # publication bias ---------------------------------------------------------
 
-# One test per guild: aggregation leaves a study one observation in each
-# guild, so a test spanning both would carry that study twice. Richness has
-# no guild, and is one test.
+# One test per guild, since a test spanning both would carry a study twice.
+# Richness has no guild, and is one test.
 
 publication_bias <-
   list(

@@ -237,16 +237,12 @@ g_from_categorical_beta <-
 
 # nest survival on the log hazard scale -------------------------------------
 
-# Period survival is S = DSR^d, so a daily rate and a period probability are
-# not comparable as a standardised mean difference. Writing
-# cll(x) = log(-log(x)), cll(S) = log(d) + cll(DSR): the exposure term is
-# shared by both arms of a contrast and cancels in the difference, so
+# With cll(x) = log(-log(x)), the exposure term in cll(S) = log(d) + cll(DSR)
+# cancels across a contrast, so the difference below is exposure-free:
 
 #   log hazard ratio = cll(survival_treatment) - cll(survival_control)
 
-# is the same number computed on daily or on period survival, for any
-# exposure period. See claude/bmp_nest_survival_scale.md for the validation
-# against contrasts reported on both scales.
+# Validated in claude/bmp_nest_survival_scale.md.
 
 cloglog <-
   function(.survival) {
@@ -255,13 +251,10 @@ cloglog <-
     )
   }
 
-# One arm's log cumulative hazard, log(-log(S)), and its delta-method
-# standard error -- not a survival probability. Every step from the reported
-# value to the hazard scale happens here.
+# One arm's log cumulative hazard and its delta-method standard error.
 
-# Percentages fold to proportions, a failure-direction row (sign of -1, e.g.
-# a depredation rate) enters as its complement, and a value outside (0, 1) or
-# with no usable error returns missing.
+# Percentages fold to proportions, a failure-direction row enters as its
+# complement, and an unusable value returns missing.
 
 arm_log_hazard <-
   function(
@@ -308,13 +301,11 @@ arm_log_hazard <-
     )
   }
 
-# A coefficient reaches the hazard scale only if the scale it sits on is
-# recorded: `logistic_exposure` (Shaffer 2004) and `logit` both sit on the
-# logit of a survival, `log` on its logarithm, `identity` on the survival.
+# A coefficient reaches the hazard scale only if its scale is recorded:
+# `logistic_exposure` and `logit` on the logit, `log` on the logarithm.
 
-# Every route needs a baseline survival to map from. Only logistic exposure
-# defaults, to 0.95, because a daily rate sits near 1 where the result barely
-# moves; the others return missing without a recorded baseline.
+# Every route needs a baseline survival. Only logistic exposure defaults, to
+# 0.95; the others return missing without one.
 
 # `sign` is applied here, as on the arm route, so it is not applied again.
 
@@ -384,9 +375,8 @@ log_hazard_from_coefficient <-
     )
   }
 
-# An odds ratio from a logistic-exposure model is exp(beta) on logit(daily
-# survival), so its logarithm is the coefficient and its interval gives the
-# standard error on that scale.
+# An odds ratio from a logistic-exposure model is exp(beta) on the logit, so
+# its logarithm is the coefficient.
 
 log_hazard_from_odds_ratio <-
   function(
@@ -409,13 +399,10 @@ log_hazard_from_odds_ratio <-
     )
   }
 
-# Contrasts two arms already on the log cumulative hazard scale. The
-# difference of log cumulative hazards is the log hazard ratio; it is negated
-# here so that positive means benefit, matching the Hedges' g cells.
+# The difference of log cumulative hazards, negated so positive means benefit.
 
-# So `yi` is the NEGATIVE of a conventional log hazard ratio. Direction is
-# fully resolved by this point, through the complement in arm_log_hazard()
-# and the negation below, so `sign` must NOT be applied to these rows again.
+# `yi` is therefore the NEGATIVE of a conventional log hazard ratio, and
+# direction is already resolved: do NOT apply `sign` to these rows again.
 
 log_hazard_contrast <-
   function(
@@ -434,9 +421,8 @@ log_hazard_contrast <-
 
 # The regions the geography sensitivity contrasts. Everywhere else is `other`.
 
-# The prairie provinces are the northern Great Plains, so the region is
-# ecological rather than political and the object is named for places, not
-# states. A record given only "canada" cannot be placed and stays `other`.
+# The region is ecological, not political, so the prairie provinces count.
+# A record given only "canada" cannot be placed and stays `other`.
 
 great_plains_places <-
   c(
@@ -502,9 +488,8 @@ classify_region <-
 # One region per study, from the study_place table. A study spanning two
 # regions is `multiple`, so a region filter never half-includes it.
 
-# A study's places are recorded at more than one grain -- "canada" sits beside
-# "saskatchewan" for six studies, which is one location written twice -- so
-# only the finest grain a study carries is classified.
+# A study's places are recorded at more than one grain, so only the finest
+# grain it carries is classified.
 
 study_region_lookup <-
   function(.places) {
@@ -619,8 +604,7 @@ apply_inclusion_thresholds <-
   }
 
 # The responses whose pooled model can carry a guild cell below the paper
-# floor. Pooling there is across the species classifications within a practice,
-# not across practices, so the pooled cell stands on its own papers.
+# floor, since the pooled cell stands on its own papers.
 
 pooled_floor_exception_metrics <- "abundance"
 
@@ -654,9 +638,8 @@ pooled_cell_support <-
 # The paper floor as a status per record: retained, held for the pooled model
 # alone, or out of scope.
 
-# A guild cell needs papers of its own, and the practice x response it sits in
-# needs them across the guilds. A record failing the guild test alone stays
-# where the pooled cell it belongs to is itself supported.
+# A guild cell needs papers of its own, and its practice x response needs them
+# across the guilds.
 
 paper_floor_status <-
   function(
@@ -1911,9 +1894,7 @@ format_manuscript_table <-
 
 # figure construction ------------------------------------------------------
 
-# The manuscript palette, the axis labels and the shared mappings every
-# figure chain reads. They live here rather than in the figure script so the
-# two figure families cannot drift apart.
+# The palette, axis labels and mappings every figure chain reads:
 
 guild_display_levels <-
   c(
@@ -1940,6 +1921,11 @@ hazard_axis_label <-
   "Pooled effect size (log hazard ratio, 95% credible interval)"
 
 filled_point_note <- "Filled points mark intervals excluding zero."
+
+# Practice names run long, so every practice axis wraps at this width. Only
+# the display label wraps, never a join key.
+
+practice_label_width <- 40
 
 # A star marks a cell that meets only the reduced threshold.
 
@@ -1971,12 +1957,15 @@ read_table_output <-
   }
 
 add_bmp_label <-
-  function(.data) {
+  function(
+    .data,
+    label_width = practice_label_width) {
     .data %>%
       mutate(
         bmp_label =
           bmp %>%
           format_bmp() %>%
+          str_wrap(width = label_width) %>%
           fct_reorder(estimate)
       )
   }
@@ -2143,8 +2132,7 @@ refit_family <-
   }
 
 # Every categorical record 1_effect_sizes.R converted, before the screen.
-# `effect_metric` names the scale -- Hedges' g, or a log hazard ratio for
-# nest survival -- and the two are never pooled.
+# `effect_metric` names the scale, and the two scales are never pooled.
 
 read_converted_effects <-
   function() {
@@ -2166,9 +2154,8 @@ read_effect_size_pool <-
 # Keyed on the extraction content, not a row number, so it survives a
 # re-export. A row marked resolved is no longer held out.
 
-# Named for the data-quality flag it carries, not for the screen: the screen's
-# own hold-outs are output/audits/excluded_effects.csv, written by
-# 2_screen_effects.R, and the two travel in opposite directions.
+# Named for the data-quality flag it carries. The screen's own hold-outs are
+# output/audits/excluded_effects.csv, travelling the other way.
 
 flagged_effect_columns <-
   c(
@@ -2214,9 +2201,8 @@ read_flagged_effects <-
 
 # Records one screen reason held out, bound back onto a pool.
 
-# The screen runs before the pool is written, so a specification looser than
-# the screen reads the records it wants off the audit 2_screen_effects.R
-# leaves, cut to the columns the pool carries.
+# A specification looser than the screen reads the records it wants off the
+# audit 2_screen_effects.R leaves.
 
 readmit_screened <-
   function(
@@ -2268,9 +2254,8 @@ build_pool <-
         sei > 0
       )
 
-    # The screen holds the cells below the paper floor out of the written
-    # pool, so a floor looser than the screen's own reads them back before
-    # anything else runs.
+    # A floor looser than the screen's own reads back the cells the screen
+    # held out, before anything else runs.
 
     if (min_papers < 3) {
       pool <-
@@ -2338,9 +2323,8 @@ build_pool <-
         )
     }
 
-    # The guilds are read together in the pooled families, where a
-    # species-level record without a guild belongs to the stratum all the
-    # same, so the guild requirement is the guild-specific families' alone.
+    # A species-level record without a guild still belongs to the pooled
+    # stratum, so the guild requirement is the guild families' alone.
 
     if (by_guild && !pooled) {
       pool <-
@@ -2359,9 +2343,8 @@ build_pool <-
           )
       }
 
-      # The reported pooled model covers only the practices read from BOTH
-      # guilds, so every refit applies the same coverage rule before the
-      # guilds are relabelled.
+      # The pooled model covers only the practices read from both guilds, so
+      # every refit applies that rule before relabelling.
 
       pool <-
         pool %>%
@@ -2380,10 +2363,8 @@ build_pool <-
     pool
   }
 
-# One inverse-variance weighted effect size per study and cell, for the
-# specification that removes dependence between a study's effect sizes
-# entirely (sampling errors sharing a control group are treated as
-# independent everywhere else; this bounds what that assumption could cost).
+# One inverse-variance weighted effect size per study and cell, bounding what
+# treating a study's sampling errors as independent could cost.
 
 aggregate_one_per_study_cell <-
   function(.pool) {
@@ -2545,9 +2526,8 @@ aggregate_within_study <-
 # Egger regression plus the PET and PEESE adjusted estimates, all on the
 # study-aggregated data (the standard tests assume independent effect sizes).
 
-# PET is the Egger intercept, the effect predicted for a study with no
-# sampling error; PEESE regresses on the sampling variance instead. Both are
-# conditional-on-asymmetry diagnostics, not replacement estimates.
+# PET is the Egger intercept; PEESE regresses on the sampling variance. Both
+# are diagnostics, not replacement estimates.
 
 run_egger_test <-
   function(
@@ -2733,15 +2713,10 @@ gather_guild_bmp_draws <-
 
 # Practice axis ordered by posterior median, as the interval figures order it.
 
-# A practice name runs to nearly sixty characters, which crowds the panel, so
-# the label wraps rather than stealing width from the slabs.
-
-posterior_label_width <- 40
-
 add_posterior_bmp_label <-
   function(
     .data,
-    label_width = posterior_label_width) {
+    label_width = practice_label_width) {
     .data %>%
       mutate(
         bmp_label =
@@ -2752,10 +2727,8 @@ add_posterior_bmp_label <-
       )
   }
 
-# The sample size and the posterior probability both belong at the right edge
-# of a panel, so they are drawn as one right-aligned label and cannot collide.
-# The counts are padded with figure spaces -- exactly the width of a digit --
-# so the two columns line up whatever the sample sizes are.
+# Sample size and posterior probability as one right-aligned label, so they
+# cannot collide. Figure spaces are a digit wide, so the columns line up.
 
 posterior_edge_labels <-
   function(
