@@ -12,7 +12,7 @@ library(metafor)
 library(posterior)
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 fs::dir_create("output/tables")
 
@@ -66,19 +66,9 @@ sensitivity_priors <-
 
 # refit helpers ------------------------------------------------------------
 
-factor_columns <-
-  c(
-    "key",
-    "effect_id",
-    "species_key",
-    "bmp",
-    "guild",
-    "guild_bmp"
-  )
-
 # The model families refitted under each specification. Guild-level and fully
 # pooled models are no longer reported, so they are not refitted either;
-# abundance_guild is still fitted in 2_models.R for the species estimates but
+# abundance_guild is still fitted in 3_models.R for the species estimates but
 # carries no reported cell means to test.
 
 model_families <-
@@ -123,7 +113,7 @@ model_families <-
     )
   ) %>%
 
-  # A family whose template 2_models.R did not fit has nothing to refit from.
+  # A family whose template 3_models.R did not fit has nothing to refit from.
 
   keep(
     \(.family) {
@@ -293,6 +283,7 @@ sensitivity_estimates <-
             pool_arguments <-
               c(
                 list(
+                  .effect_sizes = effect_sizes,
                   response_metric = .family$response_metric,
                   by_guild = .family$cell_variable != "bmp",
                   pooled = .family$pooled
@@ -304,13 +295,14 @@ sensitivity_estimates <-
               .pool = pool,
               .family = .family,
               specification = .specification$specification,
+              models = fitted_models,
               priors = .specification$priors,
               thresholds = .specification$thresholds
             )
           }
         ) %>%
         list_rbind() %>%
-        write_partial_estimates()
+        write_partial_estimates(file_path = partial_estimates_file)
     }
   ) %>%
   list_rbind()
@@ -338,6 +330,7 @@ outlier_results <-
         )
       pool <-
         build_pool(
+          .effect_sizes = effect_sizes,
           response_metric = .family$response_metric,
           by_guild = .family$cell_variable != "bmp",
           pooled = .family$pooled
@@ -348,7 +341,8 @@ outlier_results <-
       flagged <-
         flag_outliers(
           .pool = pool,
-          join_vars = join_vars
+          join_vars = join_vars,
+          cell_columns = guild_bmp_columns
         ) %>%
         mutate(
           response_metric = .family$response_metric,
@@ -397,7 +391,8 @@ outlier_results <-
         filter(!is_outlier) %>%
         refit_family(
           .family = .family,
-          specification = "outliers_removed"
+          specification = "outliers_removed",
+          models = fitted_models
         )
       lst(per_cell, per_effect, estimates)
     }
@@ -466,6 +461,7 @@ influence_estimates <-
       }
       pool <-
         build_pool(
+          .effect_sizes = effect_sizes,
           response_metric = .family$response_metric,
           by_guild = .family$cell_variable != "bmp",
           pooled = .family$pooled
@@ -513,7 +509,8 @@ influence_estimates <-
                   !(in_cell & key == most_influential)
                 ),
               .family = .family,
-              specification = "most_influential_study_removed"
+              specification = "most_influential_study_removed",
+              models = fitted_models
             ) %>%
               filter(
                 bmp == {{ bmp }},
@@ -633,10 +630,10 @@ conclusion_changes %>%
 # sensitivity tables so the page can describe the exclusion without reaching
 # outside the output directory.
 
-excluded_effects_listed <-
-  if (fs::file_exists("data/excluded_effects.csv")) {
+flagged_effects_listed <-
+  if (fs::file_exists("data/flagged_effects.csv")) {
     read_csv(
-      "data/excluded_effects.csv",
+      "data/flagged_effects.csv",
       show_col_types = FALSE
     ) %>%
       filter(status == "open")
@@ -644,9 +641,9 @@ excluded_effects_listed <-
     tibble()
   }
 
-excluded_effects_listed %>%
+flagged_effects_listed %>%
   write_output_table(
-    file_name = "sensitivity_excluded_effects.csv"
+    file_name = "sensitivity_flagged_effects.csv"
   )
 
 sensitivity_digest <-
@@ -722,3 +719,10 @@ publication_bias %>%
   write_output_table(
     file_name = "sensitivity_publication_bias.csv"
   )
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

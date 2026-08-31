@@ -1,5 +1,5 @@
 # This script:
-# - Reads the stage table roses_flow.R writes
+# - Reads the stage table 1_screening_roses_flow.R writes
 # - Draws it with ggplot2: a spine of what was retained down one column,
 #   what left beside it, and the stage names down the left
 # - Drops every step that lost nothing, so the published figure carries only
@@ -12,7 +12,7 @@ library(fs)
 library(glue)
 library(tidyverse)
 
-flow_directory <- path("brian_sandbox/roses_diagram")
+flow_directory <- path("output/roses_diagram")
 
 flow_stages <-
   read_csv(
@@ -31,6 +31,13 @@ flow_reconciliation <-
 # Every box is a bold heading over a body, so the two are carried apart and
 # drawn apart.
 
+# A body is one row per line. `count` is the records-and-papers pair, drawn in
+# its own right-aligned column and empty on a line that carries none; `text`
+# is what sits beside it; `indent` says whether the line belongs in the text
+# column or runs the full width of the box. Two columns rather than one padded
+# string, because a space is narrower than a digit in this font, so padding
+# never lines the reasons up and a wrapped line lands wherever it lands.
+
 thousands <-
   function(.count) {
     format(
@@ -38,6 +45,48 @@ thousands <-
       big.mark = ",",
       trim = TRUE
     )
+  }
+
+body_line <-
+  function(
+    .text,
+    .count = "",
+    .indent = FALSE) {
+    tibble(
+      count = .count,
+      text = .text,
+      indent = .indent
+    )
+  }
+
+# The reason column is narrower than the box, so a reason wraps sooner than
+# the heading above it.
+
+reason_width <- 42
+
+# One row per wrapped line, with the count against the first of them.
+
+reason_lines <-
+  function(
+    .reason,
+    .count) {
+    tibble(
+      id = seq_along(.reason),
+      count = .count,
+      text =
+        str_wrap(
+          .reason,
+          width = reason_width
+        )
+    ) %>%
+      separate_longer_delim(text, delim = "\n") %>%
+      mutate(
+        count =
+          if_else(row_number() == 1, count, ""),
+        indent = TRUE,
+        .by = id
+      ) %>%
+      select(count, text, indent)
   }
 
 survivors <-
@@ -53,25 +102,12 @@ retained_body <-
     counts <-
       survivors %>%
       filter(phase == .phase)
-    glue(
-      "{thousands(counts$records)} {.unit}",
-      "   |   {thousands(counts$papers)} papers"
-    )
-  }
-
-reason_width <- 46
-
-# str_wrap normalises whitespace, so a reason is wrapped on its own and the
-# continuation lines are indented after. A space is half a digit here.
-
-wrap_reason <-
-  function(.reason, .digits) {
-    .reason %>%
-      str_wrap(width = reason_width) %>%
-      str_replace_all(
-        fixed("\n"),
-        str_c("\n", str_dup(" ", 2 * .digits + 6))
+    body_line(
+      glue(
+        "{thousands(counts$records)} {.unit}",
+        "   |   {thousands(counts$papers)} papers"
       )
+    )
   }
 
 # A step is drawn only if it moved something. Everything below reads its
@@ -95,39 +131,27 @@ excluded_body <-
     lost <-
       lost_stages(.phase)
     if (nrow(lost) == 0) {
-      return(NA_character_)
+      return(body_line(character()))
     }
-    lost <-
-      lost %>%
-      mutate(
-        total =
-          glue(
-            "{thousands(sum(records_lost))} {.unit}",
-            "   |   {thousands(sum(papers_lost))} papers"
-          ),
-        across(
-          c(records_lost, papers_lost),
-          as.character
-        ),
-        entry =
+    bind_rows(
+      body_line(
+        glue_data(
+          lost,
+          "{thousands(sum(records_lost))} {.unit}",
+          "   |   {thousands(sum(papers_lost))} papers"
+        ) %>%
+          first()
+      ),
+      body_line(""),
+      reason_lines(
+        .reason = lost$stage,
+        .count =
           str_c(
-            str_pad(records_lost, max(str_width(records_lost))),
+            lost$records_lost,
             " | ",
-            str_pad(papers_lost, max(str_width(papers_lost))),
-            "   ",
-            wrap_reason(
-              stage,
-              max(str_width(records_lost)) +
-                max(str_width(papers_lost))
-            )
+            lost$papers_lost
           )
       )
-
-    str_c(
-      first(lost$total),
-      "",
-      str_flatten(lost$entry, collapse = "\n"),
-      sep = "\n"
     )
   }
 
@@ -162,59 +186,96 @@ not_extracted_lines <-
 
 not_extracted_body <-
   if (nrow(not_extracted_lines) == 0) {
-    NA_character_
+    body_line(character())
   } else {
-    str_c(
-      glue_data(
-        flow_reconciliation,
-        "{not_in_analysis_records} practice records   |   ",
-        "{not_in_analysis_table} papers"
-      ),
-      "",
-      str_flatten(
+    bind_rows(
+      body_line(
         glue_data(
-          not_extracted_lines,
-          "{records} | {papers}   {reason}"
-        ),
-        collapse = "\n"
+          flow_reconciliation,
+          "{not_in_analysis_records} practice records   |   ",
+          "{not_in_analysis_table} papers"
+        )
       ),
-      sep = "\n"
+      body_line(""),
+      reason_lines(
+        .reason = not_extracted_lines$reason,
+        .count =
+          str_c(
+            not_extracted_lines$records,
+            " | ",
+            not_extracted_lines$papers
+          )
+      )
     )
   }
 
 # The analysis and cutoff phases name what they kept, so their exclusions
-# read off `reason`.
+# read off `reason`, as a paragraph rather than a counted list.
 
 kept_phase_body <-
   function(.phase) {
     kept <-
       lost_stages(.phase)
     if (nrow(kept) == 0) {
-      return(NA_character_)
+      return(body_line(character()))
     }
-    kept %>%
-      glue_data(
-        "{records_lost} effect sizes   |   {papers_lost} papers\n\n",
-        "{str_wrap(reason, width = reason_width)}"
-      ) %>%
-      as.character()
+    bind_rows(
+      body_line(
+        glue_data(
+          kept,
+          "{records_lost} effect sizes   |   {papers_lost} papers"
+        )
+      ),
+      body_line(""),
+      body_line(
+        kept$reason %>%
+          str_wrap(width = reason_width + 4) %>%
+          str_split("\n") %>%
+          list_c()
+      )
+    )
   }
+
+# The pools the models were fitted to, named as the results name them:
+# response first, and the guild model before the pooled one. The guild-only
+# abundance model carries no reported cell means, so it is not listed, and
+# `_bmp` is dropped because every pool here is by practice.
 
 models_body <-
   flow_stages %>%
   filter(
     phase == "models",
+    stage != "abundance_guild",
     records > 0 |
       papers > 0
   ) %>%
   mutate(
+    pool =
+      stage %>%
+      str_remove("_bmp$") %>%
+      fct_relevel(
+        "richness",
+        "abundance_guild",
+        "abundance_pooled",
+        "nest_success_guild",
+        "nest_success_pooled"
+      ),
+    label =
+      pool %>%
+      as.character() %>%
+      str_replace_all("_", " ") %>%
+      str_to_title()
+  ) %>%
+  arrange(pool) %>%
+  mutate(
     entry =
       glue(
-        "{stage}: {thousands(records)} effect sizes, {papers} studies"
+        "{label}: {thousands(records)} effect sizes, {papers} studies"
       )
   ) %>%
   pull(entry) %>%
-  str_flatten(collapse = "\n")
+  body_line()
+
 
 # nodes and edges ----------------------------------------------------------
 
@@ -260,7 +321,7 @@ flow_nodes <-
           "Modeling pools"
         ),
       body =
-        c(
+        list(
           retained_body("identification", "practice records"),
           retained_body("screening", "practice records"),
           retained_body("eligibility", "practice records"),
@@ -294,7 +355,7 @@ flow_nodes <-
           "Held out by the three-paper cutoff"
         ),
       body =
-        c(
+        list(
           excluded_body("screening", "practice records"),
           excluded_body("eligibility", "practice records"),
           not_extracted_body,
@@ -311,7 +372,16 @@ flow_nodes <-
 
 flow_nodes <-
   flow_nodes %>%
-  drop_na(body) %>%
+  mutate(
+    body_lines =
+      map_int(
+        body,
+        \(.lines) {
+          nrow(.lines)
+        }
+      )
+  ) %>%
+  filter(body_lines > 0) %>%
   mutate(
     row = dense_rank(row)
   )
@@ -341,8 +411,6 @@ excluded_edges <- c(6.92, 11.41)
 box_heights <-
   flow_nodes %>%
   mutate(
-    body_lines =
-      str_count(body, "\n") + 1,
     height =
       1 + title_gap + body_lines + 2 * box_padding,
     xmin =
@@ -382,6 +450,35 @@ placed_nodes <-
     x_text = xmin + 0.14,
     y_title = ymax - box_padding - 0.5,
     y_body = ymax - box_padding - 1 - title_gap
+  )
+
+# The body is drawn a line at a time, because a counted line puts its records
+# and papers in a right-aligned column of its own and its reason in a second
+# column beside it. One y unit is one line, so a line sits at its index below
+# the top of the body.
+
+count_column <- 0.62
+
+count_gap <- 0.16
+
+body_text <-
+  placed_nodes %>%
+  select(
+    name,
+    x_text,
+    y_body,
+    body
+  ) %>%
+  unnest(body) %>%
+  mutate(
+    y_line = y_body - (row_number() - 1),
+    x_line =
+      if_else(
+        indent,
+        x_text + count_column + count_gap,
+        x_text
+      ),
+    .by = name
   )
 
 # The band boxes are as tall as the row they name, so they read as a column.
@@ -528,18 +625,31 @@ line_inches <- body_points * 1.2 / 72
 
 heading_space <- 2.4
 
-note_space <- 1.8
+# The footnote that used to sit here is the figure caption on the results
+# page, so the bottom of the chart is a margin and nothing else.
+
+bottom_margin <- 0.6
 
 x_limits <- c(0, chart_width)
 
 y_limits <-
   c(
-    min(row_positions$ymin) - note_space,
+    min(row_positions$ymin) - bottom_margin,
     heading_space
   )
 
+# Every layer carries its own data -- boxes, node text, band labels and the
+# two arrow families are separate frames -- so the plot is initialized empty
+# and each geometry is mapped where it is added.
+
 roses_chart <-
+
+  # Initialize the plot:
+
   ggplot() +
+
+  # Add geometries:
+
   geom_polygon(
     data = box_shapes,
     aes(
@@ -547,7 +657,7 @@ roses_chart <-
       y = y,
       group = name,
       fill = group,
-      colour = group
+      color = group
     ),
     linewidth = 0.3
   ) +
@@ -562,19 +672,31 @@ roses_chart <-
     vjust = 0.5,
     fontface = "bold",
     size = 13.7 / .pt,
-    colour = "#12222f"
+    color = "#12222f"
   ) +
   geom_text(
-    data = placed_nodes,
+    data = body_text,
     aes(
-      x = x_text,
-      y = y_body,
-      label = body
+      x = x_line,
+      y = y_line,
+      label = text
     ),
     hjust = 0,
     vjust = 1,
-    lineheight = 1,
-    colour = "#33454f"
+    color = "#33454f"
+  ) +
+  geom_text(
+    data =
+      body_text %>%
+      filter(count != ""),
+    aes(
+      x = x_text + count_column,
+      y = y_line,
+      label = count
+    ),
+    hjust = 1,
+    vjust = 1,
+    color = "#33454f"
   ) +
   geom_text(
     data = band_boxes,
@@ -586,7 +708,7 @@ roses_chart <-
     hjust = 0.5,
     size = 12.8 / .pt,
     fontface = "bold",
-    colour = "#3d5160"
+    color = "#3d5160"
   ) +
   geom_segment(
     data = spine_arrows,
@@ -596,7 +718,7 @@ roses_chart <-
       y = ymin,
       yend = yend
     ),
-    colour = "#2c3f4d",
+    color = "#2c3f4d",
     linewidth = 0.35,
     arrow =
       grid::arrow(
@@ -612,7 +734,7 @@ roses_chart <-
       y = y_arrow,
       yend = y_arrow
     ),
-    colour = "#7b8d99",
+    color = "#7b8d99",
     linewidth = 0.3,
     linetype = "dashed",
     arrow =
@@ -621,22 +743,9 @@ roses_chart <-
         type = "closed"
       )
   ) +
-  scale_fill_manual(
-    values =
-      c(
-        Retained = "#dbe6f0",
-        Excluded = "#fbf3ee",
-        Band = "#f6f8fa"
-      )
-  ) +
-  scale_colour_manual(
-    values =
-      c(
-        Retained = "#2c3f4d",
-        Excluded = "#2c3f4d",
-        Band = "#c3ced6"
-      )
-  ) +
+
+  # Add the title and the footnote:
+
   annotate(
     "text",
     x = band_edges[1],
@@ -650,23 +759,25 @@ roses_chart <-
     vjust = 0.5,
     size = 16.6 / .pt,
     fontface = "bold",
-    colour = "#12222f"
+    color = "#12222f"
   ) +
-  annotate(
-    "text",
-    x = band_edges[1],
-    y = y_limits[1] + 0.7,
-    label =
-      str_c(
-        "Practice records are paper x practice rows; a paper contributing ",
-        "to two practices appears twice. A paper is counted as lost at the ",
-        "stage where its last record leaves, so it can carry a reason ",
-        "without being lost to it."
-      ),
-    hjust = 0,
-    vjust = 0.5,
-    size = 10.7 / .pt,
-    colour = "#5a6b76"
+  # Define scale elements:
+
+  scale_fill_manual(
+    values =
+      c(
+        Retained = "#dbe6f0",
+        Excluded = "#fbf3ee",
+        Band = "#f6f8fa"
+      )
+  ) +
+  scale_color_manual(
+    values =
+      c(
+        Retained = "#2c3f4d",
+        Excluded = "#2c3f4d",
+        Band = "#c3ced6"
+      )
   ) +
   scale_x_continuous(
     limits = x_limits,
@@ -676,6 +787,9 @@ roses_chart <-
     limits = y_limits,
     expand = expansion(0, 0)
   ) +
+
+  # Modify the theme:
+
   theme_void() +
   theme(
     geom =
@@ -683,6 +797,7 @@ roses_chart <-
     legend.position = "none",
     plot.margin = margin(0, 0, 0, 0)
   )
+
 
 # write --------------------------------------------------------------------
 
@@ -701,3 +816,10 @@ c("svg", "png") %>%
       )
     }
   )
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

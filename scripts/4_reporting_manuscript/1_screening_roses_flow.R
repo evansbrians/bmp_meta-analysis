@@ -10,7 +10,7 @@
 library(fs)
 library(tidyverse)
 
-flow_directory <- fs::path("brian_sandbox/roses_diagram")
+flow_directory <- fs::path("output/roses_diagram")
 
 fs::dir_create(flow_directory)
 
@@ -29,7 +29,7 @@ citation_problems <-
     "eligibility", "continuous", "Continuous treatment",
     "eligibility", "continous_no_error", "Continuous treatment",
     "eligibility", "unusable_treatment", "Treatment contrast not comparable",
-    "eligibility", "unusable_response", 
+    "eligibility", "unusable_response",
     "Response not abundance, richness or nest success",
     "eligibility", "no_quantitative_results", "Missing quantitative results",
     "eligibility", "no_error", "No measure of dispersion reported",
@@ -42,7 +42,7 @@ citation_problems <-
       as.integer()
   )
 
-# The screen 1b_screen_effects.R applies, under the names it records.
+# The screen 2_screen_effects.R applies, under the names it records.
 
 screen_reasons <-
   tribble(
@@ -53,7 +53,7 @@ screen_reasons <-
     "diversity_index", "Diversity index, not a richness count",
     "conversion", "No route to an effect size",
     "duplicate_expression", "One result reported more than one way",
-    "nest_hazard_scale", 
+    "nest_hazard_scale",
     "Nest survival could not be transformed to the hazard scale",
     "artificial_nest", "Artificial nest, not a species' response",
     "unclassified_species", "Species does not fit the classification system"
@@ -316,8 +316,9 @@ roses_flow_stages <-
         stage = "Cells of three or more papers",
         reason =
           str_c(
-            "Fewer than three papers in the guild cell, or across the ",
-            "guilds for that practice and response"
+            "Fewer than three papers across the guilds for that practice ",
+            "and response, or in the guild cell with no pooled cell to ",
+            "carry the record"
           ),
         records = n(),
         papers = n_distinct(key),
@@ -404,8 +405,8 @@ roses_flow_reconciliation <-
 roses_flow_stages %>%
   write_csv(
     fs::path(
-      flow_directory, 
-      "roses_flow_stages", 
+      flow_directory,
+      "roses_flow_stages",
       ext = "csv"
     ),
     na = ""
@@ -414,9 +415,16 @@ roses_flow_stages %>%
 roses_flow_reconciliation %>%
   write_csv(
     fs::path(
-      flow_directory, 
+      flow_directory,
       "roses_flow_reconciliation",
       ext = "csv"
     ),
     na = ""
   )
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

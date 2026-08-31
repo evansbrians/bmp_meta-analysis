@@ -8,7 +8,7 @@
 
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 database_path <- "data/raw/bmp_meta.duckdb"
 
@@ -359,7 +359,7 @@ database <-
 # Comments are stripped per line before the file is split, so a `--` cannot
 # swallow the statement it sits above.
 
-"scripts/process_data/schema.sql" %>%
+"scripts/2_process_data/schema.sql" %>%
   read_lines() %>%
   str_remove("--.*$") %>%
   str_flatten("\n") %>%
@@ -397,3 +397,10 @@ list(
   )
 
 DBI::dbDisconnect(database, shutdown = TRUE)
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

@@ -17,16 +17,16 @@ library(tidyverse)
 
 # Get all records inside of the group "birds" (this step takes ~20 minutes!):
 
-bird_assessment_ids <- 
+bird_assessment_ids <-
   rl_class(
-    "Aves", 
+    "Aves",
     all = TRUE,
     quiet = FALSE
   )$assessments
 
 # Request each full assessment:
 
-bird_assessments <- 
+bird_assessments <-
   rl_assessment_list(
     bird_assessment_ids$assessment_id,
     wait_time = 0.5,
@@ -35,7 +35,7 @@ bird_assessments <-
 
 # Extract taxonomy and habitats:
 
-bird_habitats <- 
+bird_habitats <-
   rl_assessment_extract(
     bird_assessments,
     c("taxon", "habitats"),
@@ -46,24 +46,24 @@ bird_habitats <-
 # process list ------------------------------------------------------------
 
 bird_habitats_taxon <-
-  bird_habitats %>% 
+  bird_habitats %>%
   select(
-    sis_id:scientific_name, 
+    sis_id:scientific_name,
     order_name:family_name,
     common_names,
     assessment_id,
     habitat_class = description.en,
-    season, 
+    season,
     major_importance = majorImportance
-  ) %>% 
-  distinct() %>% 
+  ) %>%
+  distinct() %>%
   mutate(
     common_names = map(common_names, as_tibble)
   ) %>%
   unnest(common_names, keep_empty = TRUE) %>%
-  filter(main, language == "eng") %>% 
-  select(!c(main, language)) %>% 
-  distinct() %>% 
+  filter(main, language == "eng") %>%
+  select(!c(main, language)) %>%
+  distinct() %>%
   nest(habitat = assessment_id:major_importance)
 
 # Write to file:

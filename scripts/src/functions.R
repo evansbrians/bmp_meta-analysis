@@ -2,475 +2,27 @@
 
 # utility functions -------------------------------------------------------
 
-# Length of unique values in a vector:
-
-length_unique <- 
-  function(.x) {
-    length(
-      unique(.x)
-    )
-  }
-
 # Standard error:
 
 se <-
   function(.x) {
-    sd(.x) / 
+    sd(.x) /
       sqrt(
         length(.x)
       )
   }
 
-# read the Google Sheet ---------------------------------------------------
-
-# Read in effect size tables, with a little bit of cleaning:
-
-read_effect_size_tables <-
-  function() {
-    sheet_url <- 
-      file.path(
-        "https://docs.google.com/spreadsheets/d",
-        "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA"
-      )
-    
-    sheet_url %>% 
-      googlesheets4::sheet_names() %>% 
-      
-      # Keep only tables in which there is error:
-      
-      keep(
-        ~ !str_detect(.x, "^other")
-      ) %>% 
-      
-      # Set table names and iterate across each:
-      
-      set_names() %>% 
-      map(
-        
-        # Read in the sheet:
-        
-        ~ googlesheets4::read_sheet(
-          sheet_url,
-          sheet = .x
-        ) %>% 
-          
-          # Fix names:
-          
-          janitor::clean_names() %>% 
-          
-          # Remove blank columns:
-          
-          select(
-            !matches("^x[0-9]")
-          ) %>% 
-          
-          # Add the name of the sheet to the data frame after key:
-          
-          mutate(
-            sheet = .x,
-            .after = key
-          ) %>% 
-          
-          # Change character columns to lower case:
-          
-          mutate(
-            across(
-              where(is.character),
-              ~ tolower(.x)
-            ),
-            
-            # Fix error class:
-            
-            error_class = 
-              case_when(
-                str_detect(error_class, "dev") ~ "standard_deviation",
-                str_detect(error_class, "^se$|err") ~ "standard_error",
-                str_detect(error_class, "^conf") ~ "confidence_intervals",
-                .default = error_class
-              ),
-            
-            # Numeric columns should be numeric:
-            
-            across(
-              matches(
-                "^xbar|beta|^.*n_?[ec]?$|se(_[ec])?$|sd|[ul]cl|df|value"
-              ),
-              ~ as.numeric(.x)
-            )
-          )
-      )
-  }
+# clean common names ------------------------------------------------------
 
 # Function to clean common names:
 
 fix_common_names <-
   function(.common_name) {
-    .common_name %>% 
-      str_replace_all("-", " ") %>% 
-      str_remove_all("'") %>% 
+    .common_name %>%
+      str_replace_all("-", " ") %>%
+      str_remove_all("'") %>%
       str_to_snake()
   }
-
-# Get standard deviation: -------------------------------------------------
-
-get_sd <-
-  function(
-    error_class,
-    se = NULL,
-    lower_cl = NULL,
-    upper_cl = NULL,
-    n = NULL,
-    stdev = NULL
-  ) {
-    switch(
-      error_class,
-      confidence_intervals = confint_to_sd(lower_cl, upper_cl, n),
-      standard_error = se_to_sd(se, n),
-      standard_deviation = stdev,
-      none = 0
-    )
-  }
-
-# Add standard deviations to a table --------------------------------------
-
-# This only works with the specific column names in the data!
-
-add_sd_to_table <-
-  function(.data) {
-    rowwise(.data) %>% 
-      mutate(
-        
-        # Standard deviation of treatment:
-        
-        sd_e = 
-          get_sd(
-            error_class = error_class,
-            se = se_e,
-            lower_cl = lcl_e,
-            upper_cl = ucl_e,
-            n = n_e,
-            stdev = sd_e
-          ),
-        
-        # Standard deviation of control:
-        
-        sd_c = 
-          get_sd(
-            error_class = error_class,
-            se = se_c,
-            lower_cl = lcl_c,
-            upper_cl = ucl_c,
-            n = n_c,
-            stdev = sd_c
-          )
-      ) %>% 
-      ungroup()
-  }
-
-# Function to get standardized effect sizes -------------------------------
-
-get_meta <-
-  function(
-    mean_treatment,
-    n_treatment,
-    sd_treatment,
-    mean_control,
-    n_control,
-    sd_control
-  ) {
-    metacont(
-      n.e = n_treatment,
-      mean.e = mean_treatment,
-      sd.e = sd_treatment,
-      n.c = n_control,
-      mean.c = mean_control,
-      sd.c = sd_control,
-      sm = "SMD",
-      method.smd = "Cohen"
-    )
-  }
-
-get_effects <-
-  function(
-    paper,
-    mean_treatment,
-    n_treatment,
-    sd_treatment,
-    mean_control,
-    n_control,
-    sd_control
-  ) {
-    metacont(
-      n.e = n_treatment,
-      mean.e = mean_treatment,
-      sd.e = sd_treatment,
-      n.c = n_control,
-      mean.c = mean_control,
-      sd.c = sd_control,
-      sm = "SMD",
-      method.smd = "Cohen"
-    ) %>% 
-      as_tibble() %>% 
-      janitor::clean_names() %>%
-      mutate(
-        .keep = "none",
-        study = paper,
-        effect_size = te_common,
-        n_treatment = n_e,
-        n_control = n_c,
-        sd_treatment = sd_e,
-        sd_control = sd_c,
-        lower,
-        upper,
-        sd_total = se_te_common,
-        pval
-      )
-  }
-
-# Hand-calculated standard mean difference --------------------------------
-
-std_mean_difference <-
-  function(
-    mean_response,
-    mean_control,
-    n_response,
-    n_control,
-    s_response,
-    s_control
-  ) {
-    n_k <- n_response + n_control
-    part_1 <-
-      1 - 3 / (4 * n_k)
-    part_2_numerator <-
-      mean_response - mean_control
-    
-    part_2_denominator <-
-      sqrt(
-        ((n_response - 1) * s_response^2 +
-           (n_control - 1) * s_control^2) /(n_k - 2)
-      )
-    part_1 * part_2_numerator/part_2_denominator
-  }
-
-# make effects table from metagen output ----------------------------------
-
-make_effects_table <- 
-  function(metagen_output) {
-    tibble(
-      bmp = metagen_output$subgroup.levels,
-      n_estimates = metagen_output$k.w,
-      effect_size = metagen_output$TE.random.w,
-      se = metagen_output$seTE.random.w,
-      lcl = metagen_output$lower.random.w,
-      ucl = metagen_output$upper.random.w,
-      `tau^2` = metagen_output$tau2.w,
-      `tau` = metagen_output$tau.w,
-      `q` = metagen_output$Q.w,
-      `i^2` = metagen_output$I2.w,
-      pval = metagen_output$pval.random.w
-    )
-  }
-
-# functions for tables and plots ------------------------------------------
-
-format_output_table <-
-  function(
-    output_subset,
-    sig_figs = 2
-  ) {
-    output_subset %>% 
-      mutate(
-        
-        # Round digits:
-        
-        across(
-          effect_size:pval,
-          ~ round(.x, digits = sig_figs)
-        ),
-        
-        # Fix names:
-        
-        across(
-          response_metric:bmp,
-          ~ .x %>% 
-            str_replace("_", " ") %>% 
-            str_to_title() %>% 
-            str_replace("Nwsgs", "NWSG") %>% 
-            str_replace("And", "and") %>% 
-            str_replace("In ", "in ") %>% 
-            str_replace("-N", "-n")
-        ),
-        
-        # Add plus or minus symbol:
-        
-        beta =
-          effect_size %>% 
-          str_c(" \u00b1", se),
-        
-        # Confidence intervals:
-        
-        `95% CI` = 
-          str_c(
-            "(",
-            lcl,
-            ", ",
-            ucl,
-            ")"
-          ),
-        .after = n_estimates,
-        .keep = "unused"
-      ) %>% 
-      
-      # Rename columns:
-      
-      rename(
-        K = n_estimates,
-        "\u03b2 \u00b1SE" = beta,
-        "\u03c4^2" = `tau^2`,
-        "\u03c4" = tau,
-        Q = q,
-        `I^2` = `i^2`,
-        p = pval
-      )
-  }
-
-# Function to fix bmp names
-
-fix_bmp <-
-  function(.bmp) {
-    .bmp %>% 
-      str_to_title() %>% 
-      str_replace("Nwsgs", "NWSG") %>% 
-      str_replace("And", "and") %>% 
-      str_replace("In ", "in ") %>% 
-      str_replace("-N", "-n") %>% 
-      str_replace("Buffer", "Buffers") %>% 
-      str_remove(" Plantings$")
-  }
-
-# Function to fix response variable names:
-
-fix_response <- 
-  function(.response_name) {
-    .response_name %>% 
-      str_replace("_", " ") %>% 
-      str_to_title()
-  }
-
-# Function to fix species names:
-
-fix_species <-
-  function(.species_name) {
-    .species_name %>% 
-      str_to_lower() %>% 
-      str_replace("red_wing", "red-wing") %>% 
-      str_replace("brown_head", "brown-head") %>%
-      str_replace("ring_neck", "ring-neck") %>% 
-      str_replace("yellow_brea", "yellow-brea") %>% 
-      str_replace_all("_", " ") %>% 
-      str_replace("henslows", "Henslow's") %>% 
-      str_to_sentence()
-  }
-
-# Theme for manuscript plots:
-
-my_manuscript_theme <- 
-  function() {
-    theme(
-      panel.background =
-        element_rect(fill = "white"),
-      panel.grid.major = 
-        element_line(
-          color = "#dcdcdc",
-          size = 0.25
-        ),
-      panel.grid.minor.x = 
-        element_line(
-          linetype = "dashed",
-          color = "#dcdcdc",
-          size = 0.25
-        ),
-      axis.line =
-        element_line(color = "black"),
-      text =
-        element_text(family = "Times"),
-      axis.title =
-        element_text(size = 14),
-      plot.title =
-        element_text(size = 18),
-      plot.title.position = "plot"
-    )
-  }
-
-my_theme_today <-
-  function() {
-    theme(
-      panel.background =
-        element_rect(fill = "white"),
-      panel.grid.major = 
-        element_line(
-          color = "#dcdcdc",
-          size = 0.25
-        ),
-      panel.grid.minor.x = 
-        element_line(
-          linetype = "dashed",
-          color = "#dcdcdc",
-          size = 0.25
-        ),
-      axis.line =
-        element_line(color = "black"),
-      text =
-        element_text(family = "Times"),
-      axis.title =
-        element_text(size = 12),
-      plot.title =
-        element_text(size = 16),
-      axis.text =
-        element_text(size = 8),
-      panel.spacing = unit(.30, "lines"),
-      panel.border = 
-        element_rect(
-          color = "black", 
-          fill = NA, 
-          size = 0.5
-        ),
-      strip.background =
-        element_rect(
-          color = "black",
-          size = 1
-        )
-    ) 
-  }
-
-# Format the names of the BMPs, species labels, and response classes for
-# plotting and tables:
-
-format_labels <-
-  function(.data) {
-    .data %>% 
-      mutate(
-        bmp = 
-          bmp %>% 
-          str_replace_all("_", " ") %>% 
-          str_to_title() %>% 
-          str_replace("And", "&") %>% 
-          str_replace("-N", "-n") %>% 
-          str_replace("wsg", "WSG") %>%
-          str_replace(" In ", " in "),
-        # species_class = 
-        #   species_class %>% 
-        #   str_replace_all("_", " ") %>% 
-        #   str_to_title(),
-        response = 
-          response %>% 
-          str_replace_all("_", " ") %>% 
-          str_to_title()
-      )
-  }
-
-
-# utility ------------------------------------------------------------------
 
 # tables handed between scripts ---------------------------------------------
 
@@ -497,7 +49,7 @@ bmp_write_table <-
   }
 
 # Columns the current effect-size table must carry. A table missing any of
-# them was written by an earlier version of 1_effect_sizes.R.
+# them was written by an earlier version of 2_screen_effects.R.
 
 effect_size_columns <-
   c(
@@ -513,7 +65,8 @@ effect_size_columns <-
     "species_key",
     "yi",
     "sei",
-    "in_primary_pool"
+    "in_primary_pool",
+    "pooled_only"
   )
 
 bmp_read_table <-
@@ -535,7 +88,7 @@ bmp_read_table <-
     if (length(missing_columns) > 0) {
       cli::cli_abort(
         "Stale {table_name} table, missing {missing_columns}. \\
-         Re-run {.file 1_effect_sizes.R}."
+         Re-run {.file 2_screen_effects.R}."
       )
     }
     table_data
@@ -993,7 +546,7 @@ study_region_lookup <-
 # Drops cells below the per-metric effect-size and study minima.
 
 # A cell is modelled only above both floors. The paper floor is three for
-# every metric, nest success included, as 1b_screen_effects.R applies it.
+# every metric, nest success included, as 2_screen_effects.R applies it.
 
 inclusion_thresholds <-
   tribble(
@@ -1065,13 +618,47 @@ apply_inclusion_thresholds <-
       )
   }
 
-# The effect sizes sitting in a cell below the paper floor, by es_id.
+# The responses whose pooled model can carry a guild cell below the paper
+# floor. Pooling there is across the species classifications within a practice,
+# not across practices, so the pooled cell stands on its own papers.
+
+pooled_floor_exception_metrics <- "abundance"
+
+# The bmp x response cells that can carry a pooled estimate: three papers among
+# the records reaching the pooled pool, drawn from both guilds.
+
+pooled_cell_support <-
+  function(
+    .data,
+    min_papers = 3,
+    metrics = pooled_floor_exception_metrics) {
+    .data %>%
+      filter(response_metric %in% metrics) %>%
+      keep_pooled_rows() %>%
+      summarise(
+        pooled_papers = n_distinct(key),
+        pooled_guilds = n_distinct(guild[!is.na(guild)]),
+        .by = c(bmp, response_metric)
+      ) %>%
+      filter(
+        pooled_papers >= min_papers,
+        pooled_guilds > 1
+      ) %>%
+      select(
+        bmp,
+        response_metric
+      ) %>%
+      mutate(pooled_supported = TRUE)
+  }
+
+# The paper floor as a status per record: retained, held for the pooled model
+# alone, or out of scope.
 
 # A guild cell needs papers of its own, and the practice x response it sits in
-# needs them across the guilds, so neither a guild estimate nor a pooled one
-# rests on fewer.
+# needs them across the guilds. A record failing the guild test alone stays
+# where the pooled cell it belongs to is itself supported.
 
-below_paper_floor <-
+paper_floor_status <-
   function(
     .data,
     min_papers = 3) {
@@ -1084,11 +671,30 @@ below_paper_floor <-
         group_papers = n_distinct(key),
         .by = c(bmp, response_metric)
       ) %>%
-      filter(
-        (!is.na(guild) & cell_papers < min_papers) |
-          group_papers < min_papers
+      left_join(
+        pooled_cell_support(
+          .data,
+          min_papers = min_papers
+        ),
+        by = c("bmp", "response_metric")
       ) %>%
-      pull(es_id)
+      mutate(
+        floor_status =
+          case_when(
+            group_papers < min_papers ~ "excluded",
+            is.na(guild) |
+              cell_papers >= min_papers ~ "retained",
+            replace_na(pooled_supported, FALSE) ~ "pooled_only",
+            .default = "excluded"
+          )
+      ) %>%
+      select(
+        !c(
+          cell_papers,
+          group_papers,
+          pooled_supported
+        )
+      )
   }
 
 # Adds meets_primary_threshold.
@@ -1558,13 +1164,13 @@ theme_bmp <-
         panel.grid.major.y = element_blank(),
         panel.grid.major.x =
           element_line(
-            colour = "grey88",
+            color = "grey88",
             linewidth = 0.25
           ),
         strip.background =
           element_rect(
             fill = "grey95",
-            colour = "black",
+            color = "black",
             linewidth = 0.4
           ),
         strip.text =
@@ -1988,9 +1594,10 @@ split_response_var <-
 rank_response_expression <-
   function(
     .response_metric,
-    .response_var) {
+    .response_var,
+    .preferences) {
     matches <-
-      response_expression_preference %>%
+      .preferences %>%
       filter(
         response_metric == .response_metric,
         str_detect(
@@ -2011,9 +1618,13 @@ build_guild_pool <-
     .data,
     metric) {
     .data %>%
+
+      # A record its guild cell cannot carry is not a guild record:
+
       filter(
         response_metric == {{ metric }},
-        !is.na(guild)
+        !is.na(guild),
+        !pooled_only
       ) %>%
       mutate(
         guild = fct_drop(guild)
@@ -2044,7 +1655,22 @@ keep_pooled_rows <-
       filter(
         names_one_species |
           !any(names_one_species),
-        .by = c(key, bmp)
+        .by = c(key, bmp, response_metric)
+      )
+  }
+
+# The practices the pooled pool reads from BOTH guilds, so a pooled estimate
+# never rests on one guild while reading as an assemblage result.
+
+# The cell is judged on the records it holds rather than on two guild cells
+# clearing the paper floor separately, since it is its own estimate.
+
+keep_practices_covering_both_guilds <-
+  function(.data) {
+    .data %>%
+      filter(
+        n_distinct(guild[!is.na(guild)]) == 2,
+        .by = bmp
       )
   }
 
@@ -2059,6 +1685,7 @@ build_pooled_pool <-
     .data %>%
       filter(response_metric == {{ metric }}) %>%
       keep_pooled_rows() %>%
+      keep_practices_covering_both_guilds() %>%
       mutate(
         source_guild = analysis_class,
         guild = factor(pooled_label)
@@ -2075,25 +1702,6 @@ build_pooled_pool <-
   }
 
 # Inclusion thresholds applied at the guild x BMP cell level.
-
-# Practices with an estimable cell in BOTH guilds, so a pooled estimate never
-# rests on one guild while reading as an assemblage result.
-
-practices_in_both_guilds <-
-  function(.guild_bmp_pool) {
-    .guild_bmp_pool %>%
-      distinct(
-        guild,
-        bmp
-      ) %>%
-      summarise(
-        n_guilds = n_distinct(guild),
-        .by = bmp
-      ) %>%
-      filter(n_guilds == 2) %>%
-      pull(bmp) %>%
-      as.character()
-  }
 
 build_guild_bmp_pool <-
   function(.data) {
@@ -2150,9 +1758,10 @@ add_guild_scope <-
 contrast_guilds_within_bmp <-
   function(
     model_name,
-    metric) {
+    metric,
+    models) {
     fit <-
-      fitted_models %>%
+      models %>%
       pluck(model_name)
     shared_bmps <-
       fit %>%
@@ -2200,9 +1809,10 @@ contrast_guilds_within_bmp <-
 extract_species_estimates <-
   function(
     model_name,
-    metric) {
+    metric,
+    models) {
     fit <-
-      fitted_models %>%
+      models %>%
       pluck(model_name)
     draws <- draws_tibble(fit)
     species_columns <-
@@ -2301,6 +1911,56 @@ format_manuscript_table <-
 
 # figure construction ------------------------------------------------------
 
+# The manuscript palette, the axis labels and the shared mappings every
+# figure chain reads. They live here rather than in the figure script so the
+# two figure families cannot drift apart.
+
+guild_display_levels <-
+  c(
+    "obligate_grassland",
+    "facultative_grassland",
+    "all_grassland"
+  ) %>%
+  format_guild()
+
+guild_colors <-
+  c(
+    "#1B5E3C",
+    "#B07A2A",
+    "#3B4A6B"
+  ) %>%
+  set_names(guild_display_levels)
+
+# One axis label per effect scale. An inlined figure knows which scale it is
+# on, so it names the label it needs rather than choosing at run time.
+
+effect_axis_label <- "Pooled effect size (Hedges' g, 95% credible interval)"
+
+hazard_axis_label <-
+  "Pooled effect size (log hazard ratio, 95% credible interval)"
+
+filled_point_note <- "Filled points mark intervals excluding zero."
+
+# A star marks a cell that meets only the reduced threshold.
+
+sample_size_label <-
+  aes(
+    x = ucl,
+    label =
+      str_c(
+        "k=",
+        k,
+        "; n=",
+        n_studies,
+        if_else(
+          meets_primary_threshold,
+          "",
+          "*",
+          missing = ""
+        )
+      )
+  )
+
 read_table_output <-
   function(file_name) {
     file.path(
@@ -2308,15 +1968,6 @@ read_table_output <-
       str_c(file_name, ".csv")
     ) %>%
       read_csv(show_col_types = FALSE)
-  }
-
-effect_axis_label_for <-
-  function(.metric) {
-    if_else(
-      .metric == "nest_success",
-      "Pooled effect size (log hazard ratio, 95% credible interval)",
-      effect_axis_label
-    )
   }
 
 add_bmp_label <-
@@ -2331,134 +1982,31 @@ add_bmp_label <-
   }
 
 add_guild_label <-
-  function(.data) {
+  function(
+    .data,
+    guild_levels = guild_display_levels) {
     .data %>%
       mutate(
         guild_label =
           guild %>%
           format_guild() %>%
-          factor(
-            levels = names(guild_colours)
-          )
+          factor(levels = guild_levels)
       )
-  }
-
-add_zero_line <-
-  function(plot_object) {
-    plot_object +
-      geom_vline(
-        xintercept = 0,
-        linetype = "dashed",
-        linewidth = 0.3,
-        colour = "grey40"
-      )
-  }
-
-add_interval_layers <-
-  function(
-    plot_object,
-    interval_mapping =
-      aes(
-        xmin = lcl,
-        xmax = ucl
-      ),
-    point_mapping = NULL,
-    point_size = 2.6,
-    line_width = 0.7,
-    layer_position = "identity") {
-    plot_object +
-      geom_linerange(
-        mapping = interval_mapping,
-        linewidth = line_width,
-        position = layer_position
-      ) +
-      geom_point(
-        mapping = point_mapping,
-        size = point_size,
-        position = layer_position
-      )
-  }
-
-add_forest_layers <-
-  function(
-    plot_object,
-    label_mapping = sample_size_label,
-    label_nudge = 0.12) {
-    plot_object %>%
-      add_zero_line() %>%
-      add_interval_layers(
-        point_mapping =
-          aes(shape = excludes_zero)
-      ) +
-      geom_text(
-        mapping = label_mapping,
-        hjust = 0,
-        nudge_x = label_nudge,
-        size = 2.9,
-        colour = "grey25"
-      ) +
-      scale_shape_manual(
-        values =
-          c(
-            `TRUE` = 16,
-            `FALSE` = 1
-          ),
-        guide = "none"
-      )
-  }
-
-build_guild_figure <-
-  function(
-    .data,
-    metric,
-    plot_title) {
-    plot_data <-
-      .data %>%
-      filter(response_metric == {{ metric }}) %>%
-      add_guild_label() %>%
-      add_bmp_label()
-    ggplot(
-      data = plot_data,
-      mapping =
-        aes(
-          x = estimate,
-          y = bmp_label,
-          colour = guild_label
-        )
-    ) %>%
-      add_forest_layers() +
-      facet_wrap(
-        facets = vars(guild_label),
-        ncol = 1,
-        scales = "free_y"
-      ) +
-      scale_colour_manual(
-        values = guild_colours,
-        guide = "none"
-      ) +
-      scale_x_continuous(
-        expand =
-          expansion(
-            mult = c(0.06, 0.28)
-          )
-      ) +
-      labs(
-        title = plot_title,
-        subtitle =
-          wrap_label(
-            str_c(
-              "Each guild estimated separately, and the two guilds pooled ",
-              "in their own panel. ",
-              filled_point_note
-            )
-          ),
-        x = effect_axis_label_for(metric),
-        y = NULL
-      ) +
-      theme_bmp(base_size = 12)
   }
 
 # sensitivity --------------------------------------------------------------
+
+# Columns a refit treats as grouping factors rather than as values.
+
+model_factor_columns <-
+  c(
+    "key",
+    "effect_id",
+    "species_key",
+    "bmp",
+    "guild",
+    "guild_bmp"
+  )
 
 # Refit one prepared pool; NULL when no cell clears the thresholds.
 
@@ -2472,7 +2020,8 @@ refit_cells <-
     specification,
     response_metric,
     priors = NULL,
-    thresholds = NULL) {
+    thresholds = NULL,
+    factor_columns = model_factor_columns) {
     prepared <-
       .pool %>%
       apply_inclusion_thresholds(
@@ -2575,12 +2124,13 @@ refit_family <-
     .pool,
     .family,
     specification,
+    models,
     priors = NULL,
     thresholds = NULL) {
     refit_cells(
       .pool = .pool,
       template_model =
-        fitted_models %>%
+        models %>%
         pluck(.family$template),
       template_name = .family$template,
       cell_variable = .family$cell_variable,
@@ -2601,7 +2151,7 @@ read_converted_effects <-
     bmp_read_table("converted_effects")
   }
 
-# The analysis pool: what 1b_screen_effects.R kept.
+# The analysis pool: what 2_screen_effects.R kept.
 
 read_effect_size_pool <-
   function() {
@@ -2616,7 +2166,11 @@ read_effect_size_pool <-
 # Keyed on the extraction content, not a row number, so it survives a
 # re-export. A row marked resolved is no longer held out.
 
-excluded_effect_columns <-
+# Named for the data-quality flag it carries, not for the screen: the screen's
+# own hold-outs are output/audits/excluded_effects.csv, written by
+# 2_screen_effects.R, and the two travel in opposite directions.
+
+flagged_effect_columns <-
   c(
     "key",
     "response_var",
@@ -2625,11 +2179,11 @@ excluded_effect_columns <-
     "control"
   )
 
-read_excluded_effects <-
+read_flagged_effects <-
   function(
-    file_path = "data/excluded_effects.csv") {
+    file_path = "data/flagged_effects.csv") {
     empty <-
-      excluded_effect_columns %>%
+      flagged_effect_columns %>%
       set_names() %>%
       map(~ character()) %>%
       as_tibble()
@@ -2643,17 +2197,17 @@ read_excluded_effects <-
       )
     missing_columns <-
       setdiff(
-        c(excluded_effect_columns, "status"),
+        c(flagged_effect_columns, "status"),
         names(listed)
       )
     if (length(missing_columns) > 0) {
-      cli::cli_abort("excluded_effects.csv is missing {missing_columns}.")
+      cli::cli_abort("flagged_effects.csv is missing {missing_columns}.")
     }
     listed %>%
       filter(status == "open") %>%
       distinct(
         across(
-          all_of(excluded_effect_columns)
+          all_of(flagged_effect_columns)
         )
       )
   }
@@ -2661,7 +2215,7 @@ read_excluded_effects <-
 # Records one screen reason held out, bound back onto a pool.
 
 # The screen runs before the pool is written, so a specification looser than
-# the screen reads the records it wants off the audit 2a_screen_effects.R
+# the screen reads the records it wants off the audit 2_screen_effects.R
 # leaves, cut to the columns the pool carries.
 
 readmit_screened <-
@@ -2692,6 +2246,7 @@ readmit_screened <-
 
 build_pool <-
   function(
+    .effect_sizes,
     response_metric,
     retain_fire = TRUE,
     retain_non_grassland = FALSE,
@@ -2705,7 +2260,7 @@ build_pool <-
     only_region = NULL,
     drop_region = NULL) {
     pool <-
-      effect_sizes %>%
+      .effect_sizes %>%
       filter(
         response_metric == {{ response_metric }},
         is.finite(yi),
@@ -2749,8 +2304,8 @@ build_pool <-
       pool <-
         pool %>%
         anti_join(
-          read_excluded_effects(),
-          by = excluded_effect_columns
+          read_flagged_effects(),
+          by = flagged_effect_columns
         )
     }
 
@@ -2773,13 +2328,13 @@ build_pool <-
     # pool. Another value is counted over the pool the specification builds.
 
     if (min_papers != 3) {
-      below_floor <-
-        pool %>%
-        below_paper_floor(min_papers = min_papers)
       pool <-
         pool %>%
-        filter(
-          !es_id %in% below_floor
+        paper_floor_status(min_papers = min_papers) %>%
+        filter(floor_status != "excluded") %>%
+        mutate(
+          pooled_only = floor_status == "pooled_only",
+          .keep = "unused"
         )
     }
 
@@ -2791,24 +2346,11 @@ build_pool <-
       pool <-
         pool %>%
         filter(
-          !is.na(guild)
+          !is.na(guild),
+          !pooled_only
         )
     }
     if (pooled) {
-
-      # The reported pooled model covers only practices estimable in BOTH
-      # guilds under the same specification, so every refit must apply the
-      # same restriction before the guilds are relabelled.
-
-      eligible_practices <-
-        pool %>%
-        filter(
-          !is.na(guild)
-        ) %>%
-        apply_inclusion_thresholds(
-          grouping_vars = c("guild", "bmp")
-        ) %>%
-        practices_in_both_guilds()
       if (guild_assigned_only) {
         pool <-
           pool %>%
@@ -2816,10 +2358,15 @@ build_pool <-
             !is.na(guild)
           )
       }
+
+      # The reported pooled model covers only the practices read from BOTH
+      # guilds, so every refit applies the same coverage rule before the
+      # guilds are relabelled.
+
       pool <-
         pool %>%
         keep_pooled_rows() %>%
-        filter(bmp %in% eligible_practices) %>%
+        keep_practices_covering_both_guilds() %>%
         mutate(
           source_guild = analysis_class,
           guild = "all_grassland"
@@ -2871,11 +2418,13 @@ aggregate_one_per_study_cell <-
   }
 
 write_partial_estimates <-
-  function(.estimates) {
-    append_mode <- fs::file_exists(partial_estimates_file)
+  function(
+    .estimates,
+    file_path) {
+    append_mode <- fs::file_exists(file_path)
     write_csv(
       .estimates,
-      partial_estimates_file,
+      file_path,
       na = "",
       append = append_mode
     )
@@ -2942,11 +2491,12 @@ flag_outliers <-
   function(
     .pool,
     join_vars,
+    cell_columns,
     critical_value = 1.96) {
     .pool %>%
       mutate(
         across(
-          any_of(guild_bmp_columns),
+          any_of(cell_columns),
           as.character
         )
       ) %>%
@@ -3114,6 +2664,32 @@ fit_reml_cell_means <-
 
 # posterior figures --------------------------------------------------------
 
+# The notes and mappings the posterior builders below take as argument
+# defaults, beside the functions that read them.
+
+posterior_slab_note <-
+  str_c(
+    "The slab is the posterior density of the cell mean, scaled to a common ",
+    "height; the point and bar are the median and 95% credible interval the ",
+    "forest plots show. P>0 is the posterior mass above zero."
+  )
+
+posterior_subtitle_note <-
+  str_c(
+    "Each guild estimated separately, and the two guilds pooled in their ",
+    "own panel. ",
+    posterior_slab_note
+  )
+
+# Pinned to the panel edge rather than to the interval, because a slab is
+# wider than the interval it carries.
+
+probability_label_mapping <-
+  aes(
+    x = Inf,
+    label = edge_label
+  )
+
 # Tidy draws of one model's cell means: one row per draw and cell.
 
 gather_cell_draws <-
@@ -3155,17 +2731,64 @@ gather_guild_bmp_draws <-
       )
   }
 
-
 # Practice axis ordered by posterior median, as the interval figures order it.
 
+# A practice name runs to nearly sixty characters, which crowds the panel, so
+# the label wraps rather than stealing width from the slabs.
+
+posterior_label_width <- 40
+
 add_posterior_bmp_label <-
-  function(.data) {
+  function(
+    .data,
+    label_width = posterior_label_width) {
     .data %>%
       mutate(
         bmp_label =
           bmp %>%
           format_bmp() %>%
+          str_wrap(width = label_width) %>%
           fct_reorder(.value)
+      )
+  }
+
+# The sample size and the posterior probability both belong at the right edge
+# of a panel, so they are drawn as one right-aligned label and cannot collide.
+# The counts are padded with figure spaces -- exactly the width of a digit --
+# so the two columns line up whatever the sample sizes are.
+
+posterior_edge_labels <-
+  function(
+    .draws,
+    .cells,
+    grouping_vars,
+    join_vars) {
+    .draws %>%
+      summarise_posterior_probability(grouping_vars = grouping_vars) %>%
+      left_join(
+        .cells %>%
+          select(
+            all_of(join_vars),
+            k,
+            n_studies
+          ),
+        by = join_vars
+      ) %>%
+      mutate(
+        sample_note =
+          glue::glue("k = {k}, {n_studies} studies") %>%
+          as.character(),
+        edge_label =
+          str_c(
+            str_pad(
+              sample_note,
+              max(str_width(sample_note)),
+              side = "right",
+              pad = "\u2007"
+            ),
+            "     ",
+            probability_label
+          )
       )
   }
 
@@ -3186,97 +2809,4 @@ summarise_posterior_probability <-
           format_number() %>%
           str_c("P>0 = ", .)
       )
-  }
-
-# Density slab carrying the same median and 95% interval the forest plots
-# draw, so the two figure families report one number.
-
-add_posterior_layers <-
-  function(
-    plot_object,
-    interval_width = 0.95,
-    slab_alpha = 0.55,
-    ...) {
-    plot_object %>%
-      add_zero_line() +
-      stat_halfeye(
-        .width = interval_width,
-        point_interval = "median_qi",
-        normalize = "xy",
-        slab_alpha = slab_alpha,
-        slab_linewidth = 0.3,
-        point_size = 1.6,
-        ...
-      )
-  }
-
-# Probability text pinned to the right edge, clear of the widest slab. hjust
-# above one insets it from the panel border.
-
-add_probability_labels <-
-  function(
-    plot_object,
-    label_data,
-    label_size = 2.8,
-    label_hjust = 1.12) {
-    plot_object +
-      geom_text(
-        data = label_data,
-        mapping = probability_label_mapping,
-        hjust = label_hjust,
-        size = label_size,
-        colour = "grey25"
-      )
-  }
-
-# One posterior forest panel per guild scope, for one response metric, with
-# the panels stacked one per row.
-
-build_posterior_guild_figure <-
-  function(
-    .draws,
-    metric,
-    plot_title) {
-    plot_data <-
-      .draws %>%
-      add_guild_label() %>%
-      add_posterior_bmp_label()
-    label_data <-
-      plot_data %>%
-      summarise_posterior_probability(
-        grouping_vars =
-          c("guild_label", "bmp_label")
-      )
-    ggplot(
-      data = plot_data,
-      mapping = posterior_cell_aes
-    ) %>%
-      add_posterior_layers() %>%
-      add_probability_labels(label_data = label_data) +
-      facet_wrap(
-        facets = vars(guild_label),
-        ncol = 1,
-        scales = "free_y"
-      ) +
-      scale_fill_manual(
-        values = guild_colours,
-        guide = "none"
-      ) +
-      scale_colour_manual(
-        values = guild_colours,
-        guide = "none"
-      ) +
-      scale_x_continuous(
-        expand =
-          expansion(
-            mult = c(0.08, 0.3)
-          )
-      ) +
-      labs(
-        title = plot_title,
-        subtitle = wrap_label(posterior_subtitle_note),
-        x = effect_axis_label_for(metric),
-        y = NULL
-      ) +
-      theme_bmp(base_size = 12)
   }

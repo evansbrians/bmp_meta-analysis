@@ -11,51 +11,54 @@ library(tidyverse)
 
 bli_classes <-
   here(
-    "data/raw/for_species_classification", 
+    "data/raw/for_species_classification",
     "iucn_bli_classification.rds"
-  ) %>% 
-  read_rds() %>% 
-  rename(common_name = name) %>% 
+  ) %>%
+  read_rds() %>%
+  rename(common_name = name) %>%
   mutate(
-    common_name = 
-      common_name %>% 
-      str_to_lower() %>% 
-      str_replace_all("-", "_") %>% 
-      str_remove_all("'") %>% 
+    common_name =
+      common_name %>%
+      str_to_lower() %>%
+      str_replace_all("-", "_") %>%
+      str_remove_all("'") %>%
       str_replace_all(" ", "_")
   )
 
 # Grab eubirds record (Storchova and Horak 2018) from the traitdata package:
 
-eu_birds <- 
-  traitdata::eubirds %>% 
+eu_birds <-
+  traitdata::eubirds %>%
   janitor::clean_names() %>%
-  as_tibble() %>% 
+  as_tibble() %>%
   select(
     genus:species,
-    scientific_name_std, 
+    scientific_name_std,
     deciduous_forest:human_settlements
-  ) %>% 
-  
+  ) %>%
+
   # Make longform:
-  
+
   pivot_longer(
     cols = deciduous_forest:human_settlements,
     names_to = "classification"
-  ) %>% 
-  
+  ) %>%
+
   # Subset to classes where the bird occurs:
-  
-  filter(value == 1) %>% 
-  
+
+  filter(value == 1) %>%
+
   # Non-matching genus/species and scientific names:
-  
+
   mutate(
-    genus = 
+    genus =
       case_when(
         str_detect(
-          scientific_name_std, 
-          "^Sylvia (cantillans|communis|conspicillata|curruca|hortensis|melanocephala|mystacea|nisoria|ruppeli|sarda|undata)"
+          scientific_name_std,
+          str_c(
+            "^Sylvia (cantillans|communis|conspicillata|curruca|",
+            "hortensis|melanocephala|mystacea|nisoria|ruppeli|sarda|undata)"
+          )
         ) ~ "Curruca",
         scientific_name_std == "Psittacula krameri" ~ "Alexandrinus",
         scientific_name_std == "Tetrastes bonasia" ~ "Tetrastes",
@@ -63,7 +66,7 @@ eu_birds <-
         scientific_name_std == "Luscinia svecica" ~ "Luscinia",
         .default = genus
       ),
-    species = 
+    species =
       case_when(
         str_detect(
           species,
@@ -75,19 +78,19 @@ eu_birds <-
         .default = species
       )
   ) %>%
-  
+
   # Combine genus and species into a new scientific name column:
-  
+
   unite(
-    "scientific_name", 
-    genus:species, 
+    "scientific_name",
+    genus:species,
     sep = " "
-  ) %>% 
-  
+  ) %>%
+
   # Flatten to combined classes where the bird occurs:
-  
+
   summarize(
-    classification = 
+    classification =
       str_flatten(classification, collapse = "; "),
     .by = scientific_name
   )
@@ -95,25 +98,25 @@ eu_birds <-
 # Add common names:
 
 eu_birds_matched <-
-  eu_birds %>% 
+  eu_birds %>%
   left_join(
-    bli_classes %>% 
+    bli_classes %>%
       distinct(scientific_name, common_name),
     by = "scientific_name",
     relationship = "many-to-many"
-  ) 
-  
+  )
+
 # write! ------------------------------------------------------------------
 
-eu_birds_matched %>% 
+eu_birds_matched %>%
   select(
     species = common_name,
     classification
-  ) %>% 
+  ) %>%
   write_csv(
     here(
       "data/raw/for_species_classification/species_classified_by_source",
       "species_classification_eubirds.csv"
     )
   )
-  
+

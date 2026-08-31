@@ -13,48 +13,49 @@ paper_metadata <-
   str_c(
     "https://docs.google.com/spreadsheets/d/",
     "1Lf3v8fU0sCCAcJ6Wj1v8GwgogjI4ve3xcMlPzLW0hnU"
-  ) %>% 
+  ) %>%
   googlesheets4::read_sheet() %>%
   janitor::clean_names()
 
 # papers used:
 
-analysis_subset_papers <- 
+analysis_subset_papers <-
   list(
     "mean_diff",
     "beta_categorical",
     "beta_continuous",
     "other_categorical",
     "other_continuous"
-  ) %>% 
-  set_names() %>% 
+  ) %>%
+  set_names() %>%
   map(
     \ (.x) {
       str_c(
         "https://docs.google.com/spreadsheets/d/",
         "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA"
-      ) %>% 
-      googlesheets4::read_sheet(sheet = .x) %>% 
-        distinct(key, bmp, paper) %>% 
+      ) %>%
+      googlesheets4::read_sheet(sheet = .x) %>%
+        distinct(key, bmp, paper) %>%
         mutate(table = .x)
     }
-  ) %>% 
-  list_rbind() %>% 
-  summarize(
-    table = str_flatten(table, collapse = "; "),
+  ) %>%
+  list_rbind() %>%
+  summarise(
+    table =
+      str_flatten(table, collapse = "; "),
     .by = c(key, paper, bmp)
   )
 
 # Add matches and write clip for inserting the column:
 
-paper_metadata %>% 
-  select(key, paper, bmp) %>% 
+paper_metadata %>%
+  select(key, paper, bmp) %>%
   left_join(
     analysis_subset_papers,
-    by = c("key", "paper", "bmp")
-  ) %>% 
+    by = join_by(key, paper, bmp)
+  ) %>%
   mutate(
     table = replace_na(table, "-")
-  ) %>% 
-  pull(table) %>% 
+  ) %>%
+  pull(table) %>%
   clipr::write_clip()

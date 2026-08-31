@@ -5,14 +5,14 @@
 # - Converts nest-survival records to log hazard ratios
 # - Writes the converted table, unscreened, to db_mirror
 
-# Note: Screening is 1b_screen_effects.R, so a record that fails a conversion is
+# Note: Screening is 2_screen_effects.R, so a record that fails a conversion is
 # still here with an empty yi.
 
 # setup --------------------------------------------------------------------
 
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 fs::dir_create("data/db_mirror")
 
@@ -396,7 +396,7 @@ all_effects <-
     # Nest-survival records reported as a coefficient or a test statistic
     # have no route to the hazard scale, and a Hedges' g cannot be pooled
     # with a log hazard ratio, so their converted values are withdrawn here
-    # and 1b_screen_effects.R records the reason.
+    # and 2_screen_effects.R records the reason.
 
     across(
       c(yi, sei),
@@ -425,3 +425,10 @@ all_effects <-
 
 all_effects %>%
   bmp_write_table("converted_effects")
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

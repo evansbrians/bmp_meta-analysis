@@ -1,5 +1,5 @@
 # This script:
-# - Reads the fits, their pools and the cell table written by 2_models.R
+# - Reads the fits, their pools and the cell table written by 3_models.R
 # - Turns them into the results tables and the manuscript tables
 
 # setup --------------------------------------------------------------------
@@ -8,7 +8,7 @@ library(brms)
 library(posterior)
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 fs::dir_create("output/tables")
 
@@ -78,7 +78,7 @@ pooled_bmp_models <-
   )
 
 # A pooled model with one cell is not fitted, so the names come from what
-# 2_models.R produced rather than from this list alone.
+# 3_models.R produced rather than from this list alone.
 
 bmp_cell_models <-
   c(
@@ -148,7 +148,15 @@ table_pooled_bmp <-
 
 table_guild_contrasts <-
   guild_bmp_models %>%
-  imap(contrast_guilds_within_bmp) %>%
+  imap(
+    \(.model_name, .metric) {
+      contrast_guilds_within_bmp(
+        model_name = .model_name,
+        metric = .metric,
+        models = fitted_models
+      )
+    }
+  ) %>%
   list_rbind()
 
 # heterogeneity ------------------------------------------------------------
@@ -198,7 +206,8 @@ table_heterogeneity <-
 table_species_abundance <-
   extract_species_estimates(
     model_name = "abundance_guild",
-    metric = "abundance"
+    metric = "abundance",
+    models = fitted_models
   ) %>%
   left_join(
     model_pools %>%
@@ -357,3 +366,10 @@ flextable::save_as_docx(
   `Guild contrasts` = contrasts_flextable,
   path = "output/tables/reanalysis_tables.docx"
 )
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

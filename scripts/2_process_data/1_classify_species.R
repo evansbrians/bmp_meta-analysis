@@ -12,41 +12,41 @@ library(tidyverse)
 
 # Grab classification frames:
 
-species_classes_combined <- 
+species_classes_combined <-
   list.files(
     here(
       "data/raw/for_species_classification",
       "species_classified_by_source"
     )
-  ) %>% 
-  set_names() %>% 
+  ) %>%
+  set_names() %>%
   imap(
     \ (.x, idx) {
       here(
         "data/raw/for_species_classification",
         "species_classified_by_source",
         .x
-      ) %>% 
-        read_csv() %>% 
-        
+      ) %>%
+        read_csv() %>%
+
         # Remove primary habitat (birdbase) because it is already listed in
         # habitat:
-        
+
         select(
           !matches("^primary")
-        ) %>% 
-        
+        ) %>%
+
         # Rename species and habitat columns, if necessary:
-        
+
         rename(
           species = matches("common_name"),
           classification = matches("habitat")
-        ) %>% 
-        
+        ) %>%
+
         # Add a source column, if necessary:
-        
+
         mutate(
-          source = 
+          source =
             case_when(
               str_detect(idx, "aab\\.csv$") ~ "all_about_birds",
               str_detect(idx, "birdbase\\.csv$") ~ "birdbase",
@@ -55,17 +55,17 @@ species_classes_combined <-
               str_detect(idx, "vgbi\\.csv$") ~ "vgbi",
               str_detect(idx, "vickery") ~ "vickery_1999"
             ),
-        
+
           # Repair names, if necessary:
-          
-          species = 
-            species %>% 
-            str_to_snake() %>% 
+
+          species =
+            species %>%
+            str_to_snake() %>%
             str_replace("le_conte", "leconte")
         )
-    } 
-  ) %>% 
-  list_rbind() %>% 
+    }
+  ) %>%
+  list_rbind() %>%
   arrange(species)
 
 # pass 2: hand classes ----------------------------------------------------
@@ -73,22 +73,22 @@ species_classes_combined <-
 # Read in classification data across our sources; integrate trait data and one
 # hand-entered double-species into the classification frame:
 
-species_classified_hand_classes <- 
-  species_classes_combined %>% 
+species_classified_hand_classes <-
+  species_classes_combined %>%
   mutate(
-    source = 
+    source =
       if_else(
         str_detect(source, "vickery"),
         "vickery_1999",
         source
       )
-  ) %>% 
+  ) %>%
   bind_rows(
     tribble(
       ~ species, ~ source, ~ classification,
-      
+
       # Classes we had to define by hand:
-      
+
       "breeding_shrub_scrub_species", "hand_entered", "shrub",
       "indigo_bunting_blue_grosbeak", "hand_entered", "facultative",
       "meadowlark_spp", "hand_entered", "obligate",
@@ -96,9 +96,9 @@ species_classified_hand_classes <-
       "artificial_nests_northern_bobwhite", "hand_entered", NA,
       "artificial_nests_chestnut_sided_warbler", "hand_entered", NA,
       "artificial_nests_ovenbird", "hand_entered", NA,
-      
+
       # Classes defined in the articles themselves:
-      
+
       "acadian_flycatcher_indigo_bunting", "article_classified",
       "shrub; forest; facultative",
       "all_species", "article_classified", NA,
@@ -141,9 +141,9 @@ species_classified_hand_classes <-
       "wintering_species", "article_classified", NA,
       "waders", "article_classified", NA,
       "woodland_species", "article_classified", "woodland",
-      
+
       # Classes that we had to look up in Birds of the World:
-      
+
       "spotted_nothura", "birds_of_the_world", "obligate",
       "red_billed_leiothrix", "birds_of_the_world", "forest; scrub"
     )
@@ -151,89 +151,89 @@ species_classified_hand_classes <-
 
 # pass 3: lumping classes -------------------------------------------------
 
-species_classified <- 
-  species_classified_hand_classes %>% 
-  arrange(source, species) %>% 
+species_classified <-
+  species_classified_hand_classes %>%
+  arrange(source, species) %>%
   pivot_wider(
-    names_from = source, 
+    names_from = source,
     values_from = classification
-  ) %>% 
-  
+  ) %>%
+
   # All About Birds and VGBI are not included within the classification system:
-  
+
   select(
     !c(all_about_birds, vgbi)
-  ) %>% 
+  ) %>%
   mutate(
-    
+
     # Define species as obligate or facultative for the analysis:
-    
+
     analysis_class =
       case_when(
-        
+
         # No artificial nests:
-        
+
         str_detect(species, "artificial") ~ NA,
-        
+
         # All species:
-        
+
         species == "all_species" ~ NA,
-        
+
         # Obligate if any of the sources classify the species as such:
-        
+
         if_any(
           article_classified:vickery_1999,
           ~ str_detect(.x, "[Oo]bligate")
         ) ~ "obligate",
-        
-        # Obligates defined by traitdata (Storchova and Horak 2018): 
-        
+
+        # Obligates defined by traitdata (Storchova and Horak 2018):
+
         eubirds == "grassland" ~ "obligate",
-        
-        
-        # Obligates defined by birdbase: 
-        
+
+
+        # Obligates defined by birdbase:
+
         birdbase == "grassland" ~ "obligate",
-        
+
         # Facultative if any of the sources classify the species as such:
-        
+
         if_any(
           `article_classified`:vickery_1999,
           ~ str_detect(.x, "[Ff]acultative")
         ) ~ "facultative",
-        
+
         # Facultative as defined by multiple traitdata and birdbase classes that
         # include grassland, savannah, or plains:
-        
+
         if_any(
           c(birdbase, eubirds),
           ~ str_detect(.x, "[Gg]rassland|[Ss]avannah|[Pp]lains"),
         ) ~ "facultative",
-        
+
         # Facultative if Partners in Flight class includes mosaic:
-        
+
         str_detect(partners_in_flight, "[Mm]osaic") ~ "facultative",
-        
+
         # Partners in Flight combination for shrub class:
-        
+
         str_detect(partners_in_flight, "[sS](hrub|crub)|[Cc]hap") ~ "shrub",
-        
+
         # Shrub species if any of the remainder includes a shrub class:
-        
+
         if_any(
           article_classified:vickery_1999,
           ~ str_detect(.x, "[sS](hrub|crub)|[Cc]hap")
         ) ~ "shrub",
-        
+
         # Woodland species if any of the remainder includes a woodland class:
-        
+
         if_any(
           article_classified:vickery_1999,
           ~ str_detect(.x, "[Ww]oodland")
         ) ~ "woodland",
-        
+
         # Forest species if any of the remainder includes a forest class:
-        
+
         if_any(
           article_classified:vickery_1999,
           ~ str_detect(.x, "[Ff]orest")
@@ -248,7 +248,7 @@ species_classified <-
       analysis_class %in%
         c("obligate", "facultative", "other") |
         species == "all_species"
-  ) %>% 
+  ) %>%
   arrange(species)
 
 # species group -----------------------------------------------------------
@@ -320,3 +320,10 @@ species_classified_includes_grouping %>%
       "species_classified_analysis_frame.csv"
     )
   )
+
+# clean the environment ---------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

@@ -9,7 +9,7 @@
 library(here)
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 # Sentinels that mean missing in the source workbook. "unknown" is not among
 # them: in the screening columns it is a real category and is kept.
@@ -53,9 +53,9 @@ fix_place_names <-
 paper_metadata_cleaned_fields <-
   paper_metadata %>%
   mutate(
-    
+
     # Character columns get squished, and the sentinels are blanked:
-    
+
     across(
       where(is.character),
       \(.column) {
@@ -67,9 +67,9 @@ paper_metadata_cleaned_fields <-
         )
       }
     ),
-    
+
     # To lower and replace anything that's not a letter or number with "_":
-    
+
     across(
       any_of(
         c(
@@ -173,21 +173,21 @@ state_province_reference <-
 geography_by_hand <-
   tribble(
     ~ recorded_place, ~ place, ~ place_type, ~ country_code,
-    
+
     # The lower 48, recorded as a region in its own right.
-    
+
     "conterminous_united_states", "united_states", "country", "US",
-    
+
     # ISO names this Saint Helena, Ascension and Tristan da Cunha.
-    
+
     "saint_helena_island", "saint_helena", "territory", "SH",
-    
+
     # Russia is Russian federation:
-    
+
     "russia", "russian_federation", "country", "RU",
-    
+
     # For names that are in more than one place:
-    
+
     "florida", "florida", "state", "US",
     "maryland", "maryland", "state", "US",
     "montana", "montana", "state", "US",
@@ -198,17 +198,17 @@ geography_by_hand <-
 # Make a geography look-up table using the above:
 
 geography_lookup <-
-  geography_by_hand %>% 
+  geography_by_hand %>%
   bind_rows(
     list(
       continent_reference,
       country_reference,
       state_province_reference
-    ) %>% 
+    ) %>%
       map(
         ~ mutate(.x, recorded_place = place)
       )
-  ) %>% 
+  ) %>%
   distinct(
     recorded_place,
     .keep_all = TRUE
@@ -218,24 +218,24 @@ geography_lookup <-
 
 paper_metadata_cleaned_geographies <-
   paper_metadata_canonical_bmps %>%
-  
+
   # Long format for non-atomic geographies:
-  
+
   separate_longer_delim(geography, ";") %>%
   mutate(
     geography = str_trim(geography),
     recorded_place = fix_place_names(geography)
   ) %>%
-  
+
   # Match with the look-up table:
-  
+
   left_join(
     geography_lookup,
     by = join_by(recorded_place)
-  ) %>% 
-  
+  ) %>%
+
   # Add names and define positions:
-  
+
   mutate(
     geography = coalesce(place, recorded_place),
     geography_type = place_type,
@@ -262,9 +262,9 @@ paper_metadata_cleaned_geographies <-
 
 # Ensure only BMPs from the final list are in the document:
 
-paper_metadata_bmp_subset <- 
-  paper_metadata_cleaned_geographies %>% 
-  select(!multiple_bmps) %>% 
+paper_metadata_bmp_subset <-
+  paper_metadata_cleaned_geographies %>%
+  select(!multiple_bmps) %>%
   filter(
     !bmp %in% c("keep_cats_indoors", "upgrade_to_darksky")
   )
@@ -275,3 +275,10 @@ paper_metadata_bmp_subset %>%
   write_csv(
     here("data/processed", "paper_metadata.csv")
   )
+
+# clean the environment ---------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

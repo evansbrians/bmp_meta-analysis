@@ -2,7 +2,8 @@
 # - Reads the converted table written by 1_effect_sizes.R
 # - Derives the guild, fire and pool columns the models group on
 # - Applies the exclusion screen once, in one place
-# - Holds out the cells resting on fewer than three papers
+# - Holds out the cells resting on fewer than three papers, less those the
+#   pooled model still carries
 # - Writes the analysis pool to db_mirror and every audit to output/audits
 
 # The screen used to be written twice, here and in 0_prep_data.R, and the two
@@ -12,7 +13,7 @@
 
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 fs::dir_create(
   c(
@@ -175,7 +176,13 @@ duplicate_expressions <-
       map2_int(
         response_metric,
         response_var,
-        rank_response_expression
+        \(.metric, .expression) {
+          rank_response_expression(
+            .response_metric = .metric,
+            .response_var = .expression,
+            .preferences = response_expression_preference
+          )
+        }
       )
   ) %>%
 
@@ -211,27 +218,41 @@ screened_effects <-
 # unmodelled: the guild cell needs three of its own, and the practice and
 # response need three across the guilds.
 
+# A thin guild cell is kept for the pooled model alone where that pooled cell
+# has three papers of its own and reads both guilds, since pooling there is
+# across the species classifications rather than across practices.
+
 # Counted over the records that passed everything above and reach the primary
 # pool, since that is the pool the primary analysis fits. Records outside it
 # keep their own reason and stay available to the sensitivity specifications.
 
-below_floor_effects <-
+paper_floor <-
   screened_effects %>%
   filter(
     is.na(excluded_by),
     in_primary_pool
   ) %>%
-  below_paper_floor()
+  paper_floor_status() %>%
+  select(
+    es_id,
+    floor_status
+  )
 
 screened_effects <-
   screened_effects %>%
+  left_join(
+    paper_floor,
+    by = "es_id"
+  ) %>%
   mutate(
     excluded_by =
       if_else(
-        es_id %in% below_floor_effects,
+        replace_na(floor_status == "excluded", FALSE),
         "paper_count",
         excluded_by
-      )
+      ),
+    pooled_only = replace_na(floor_status == "pooled_only", FALSE),
+    .keep = "unused"
   )
 
 # write --------------------------------------------------------------------
@@ -318,3 +339,10 @@ screened_effects %>%
     file_name = "fire_excluded_treatments.csv",
     directory = "output/audits"
   )
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

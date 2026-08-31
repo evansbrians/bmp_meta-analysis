@@ -8,7 +8,7 @@
 
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 # Sentinels that mean missing in the source workbook. "unknown" is not among
 # them: in the screening columns it is a real category and is kept.
@@ -67,7 +67,7 @@ species_guilds <-
     "species_classified_analysis_frame.csv"
   ) %>%
   read_csv(
-    col_select = 
+    col_select =
       c(
         species,
         analysis_class,
@@ -116,7 +116,7 @@ analysis_subset_list_bmp_edits <-
   map(
     \(.table) {
       .table %>%
-        separate_longer_delim(bmp, ";") %>% 
+        separate_longer_delim(bmp, ";") %>%
         mutate(
           error_class =
             error_class %>%
@@ -126,9 +126,9 @@ analysis_subset_list_bmp_edits <-
             bmp %>%
             str_to_lower() %>%
             str_trim() %>%
-            
+
             # The two codes the extraction still spells its own way:
-            
+
             str_replace(
               "^set_aside_adjacent_unmowed$",
               "manage_in_patches"
@@ -229,16 +229,16 @@ analysis_subset_list_survival_scale <-
             }
         ) %>%
         mutate(
-          
+
           # snake_case leaves one variant the vocabulary does not name.
-          
+
           link = str_replace(link, "^log_link$", "log")
         ) %>%
         mutate(
-          
+
           # A logistic-exposure coefficient is on logit(DSR), so it is daily
           # whatever the response is called.
-          
+
           survival_scale =
             case_when(
               response_class != "nest_success" ~ NA_character_,
@@ -255,18 +255,18 @@ analysis_subset_list_survival_scale <-
 
 # Ensure only BMPs from the final list are in the document:
 
-analysis_subset_list_bmp_filter <- 
-  analysis_subset_list_survival_scale %>% 
+analysis_subset_list_bmp_filter <-
+  analysis_subset_list_survival_scale %>%
   map(
-    ~ .x %>% 
+    ~ .x %>%
       filter(
         !bmp %in% c("keep_cats_indoors", "upgrade_to_darksky")
-      ) %>% 
-      
+      ) %>%
+
       # One final BMP to clean:
-      
+
       mutate(
-        bmp = 
+        bmp =
           if_else(
             bmp == "grazing_intensity",
             "reduce_grazing_intensity",
@@ -289,3 +289,10 @@ analysis_subset_list_bmp_filter %>%
       )
     }
   )
+
+# clean the environment ---------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())

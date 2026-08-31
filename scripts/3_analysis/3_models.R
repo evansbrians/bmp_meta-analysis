@@ -1,5 +1,5 @@
 # This script:
-# - Reads the analysis pool written by 1_effect_sizes.R
+# - Reads the analysis pool written by 2_screen_effects.R
 # - Builds one modelling pool per response, guild and practice cell
 # - Fits the Bayesian multilevel meta-analysis models with four chains
 # - Saves the fits, their pools, and the cell and convergence tables
@@ -10,7 +10,7 @@ library(brms)
 library(posterior)
 library(tidyverse)
 
-source("scripts/functions.R")
+source("scripts/src/functions.R")
 
 fs::dir_create(
   c(
@@ -88,24 +88,16 @@ nest_success_guild_bmp_pool <-
   build_guild_bmp_pool()
 
 # Abundance and nest success are each modelled a second time with the guilds
-# pooled, for the practices clearing the thresholds in BOTH guilds.
+# pooled, for the practices the pooled pool reads from BOTH guilds.
 
 abundance_pooled_bmp_pool <-
   analysis_pool %>%
   build_pooled_pool(metric = "abundance") %>%
-  filter(
-    as.character(bmp) %in%
-      practices_in_both_guilds(abundance_guild_bmp_pool)
-  ) %>%
   build_guild_bmp_pool()
 
 nest_success_pooled_bmp_pool <-
   analysis_pool %>%
   build_pooled_pool(metric = "nest_success") %>%
-  filter(
-    as.character(bmp) %in%
-      practices_in_both_guilds(nest_success_guild_bmp_pool)
-  ) %>%
   build_guild_bmp_pool()
 
 # A cell model needs two cells: with one, `0 + guild_bmp` has no design matrix,
@@ -320,3 +312,10 @@ if (any(!convergence$converged)) {
     str_flatten(collapse = ", ")
   cli::cli_warn("Convergence problems in: {unconverged}.")
 }
+
+# clean the environment ----------------------------------------------------
+
+# Everything this script produces is written above; the next script
+# reads it back from disk, so nothing is handed on in memory.
+
+rm(list = ls())
