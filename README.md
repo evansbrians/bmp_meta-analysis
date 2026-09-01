@@ -12,10 +12,10 @@ Grassland bird populations are declining in response to multiple ecological pres
 
 Data processing and analysis scripts are located in the `scripts` folder.
 
-* **1_pre_processing**: Lorem ipsum
-* **2_process_data**: Lorem ipsum
-* **3_analysis**: Lorem ipsum
-* **4_reporting_manuscript**: Lorem ipsum
-* **5_reporting_supplemental**: Lorem ipsum
+* `1_pre_processing`: Lorem ipsum
+* `2_process_data`: Lorem ipsum
+* `3_analysis`: Lorem ipsum
+* `4_reporting_manuscript`: Lorem ipsum
+* `5_reporting_supplemental`: Lorem ipsum
 
 
