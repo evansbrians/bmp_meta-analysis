@@ -7,3 +7,28 @@ tara_sandbox
 _to_delete
 /.quarto/
 **/*.quarto_ipynb
+CLAUDE.md
+.CLAUDE.md
+# output/ is a build directory. The derived artifacts a clone needs to render
+# the page and redraw the figures are re-included one by one below.
+
+/output/*
+!/output/audits/
+!/output/models/
+!/output/tables/
+!/output/sensitivity_specifications.csv
+/output/audits/*
+!/output/audits/excluded_effects.csv
+/output/models/*
+!/output/models/posterior_cell_draws.rds
+!/output/roses_diagram/
+!/output/figures/
+.gitignore
+6_verification.R
+.gitignore
+
+output/models/fitted_models.rds
+output/models/model_data.rds
+
+# transient resume file, deleted at the start of 4_sensitivity.R
+output/tables/sensitivity_estimates_partial.csv
