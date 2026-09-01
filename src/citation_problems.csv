@@ -1,0 +1,12 @@
+phase,problem,reason
+screening,review,"Review article, not a primary study"
+screening,no_access,Full text not obtainable
+screening,no_bmp,No management practice evaluated
+screening,author_reviewer,Reviewer authored the paper
+eligibility,continuous,Continuous treatment
+eligibility,continous_no_error,Continuous treatment
+eligibility,unusable_treatment,Treatment contrast not comparable
+eligibility,unusable_response,"Response not abundance, richness or nest success"
+eligibility,no_quantitative_results,Missing quantitative results
+eligibility,no_error,No measure of dispersion reported
+eligibility,unknown,Reason not recorded (review)

@@ -1,0 +1,6 @@
+test_statistic,needs_one_df
+t,FALSE
+f,TRUE
+chi_square,TRUE
+z,FALSE
+odds_ratio,FALSE

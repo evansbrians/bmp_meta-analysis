@@ -1,5 +1,9 @@
 # Every named function the project uses, cleaning and analysis alike.
 
+# The lookup tables it reads are csv files beside it in src/. Paths go
+# through here::here() because bmp_results.qmd sources this file from a
+# subdirectory.
+
 # utility functions -------------------------------------------------------
 
 # Standard error:
@@ -36,6 +40,8 @@ bmp_table_file <-
     )
   }
 
+# Write one table to the plain-text store, and hand it back unchanged.
+
 bmp_write_table <-
   function(
     .data,
@@ -68,6 +74,8 @@ effect_size_columns <-
     "in_primary_pool",
     "pooled_only"
   )
+
+# Read one table back, refusing a table an earlier version wrote.
 
 bmp_read_table <-
   function(
@@ -116,12 +124,16 @@ confint_to_se <-
     abs(upper_cl - lower_cl) / 3.92
   }
 
+# Standard error to standard deviation, and back.
+
 se_to_sd <-
   function(
     se,
     n) {
     se * sqrt(n)
   }
+
+# Standard deviation to standard error.
 
 sd_to_se <-
   function(
@@ -138,6 +150,8 @@ hedges_correction <-
   function(df_total) {
     1 - 3 / (4 * df_total - 1)
   }
+
+# Pooled standard deviation of two arms.
 
 sd_pooled <-
   function(
@@ -292,11 +306,18 @@ arm_log_hazard <-
         FALSE
       )
     tibble(
-      cll = value_when(usable, cloglog(survival)),
+      cll =
+        value_when(
+          usable,
+          cloglog(survival)
+        ),
       cll_se =
         value_when(
           usable,
-          standard_error / abs(survival * log(survival))
+          standard_error /
+            abs(
+              survival * log(survival)
+            )
         )
     )
   }
@@ -369,9 +390,16 @@ log_hazard_from_coefficient <-
         value_when(
           usable,
           -sign *
-            (cloglog(treatment_survival) - cloglog(baseline))
+            (
+              cloglog(treatment_survival) -
+                cloglog(baseline)
+            )
         ),
-      sei = value_when(usable, se * gradient)
+      sei =
+        value_when(
+          usable,
+          se * gradient
+        )
     )
   }
 
@@ -441,6 +469,8 @@ great_plains_places <-
     "wyoming"
   )
 
+# The states the southeast region covers:
+
 southeast_states <-
   c(
     "alabama",
@@ -456,6 +486,8 @@ southeast_states <-
     "virginia",
     "west_virginia"
   )
+
+# The countries the South America region covers:
 
 south_american_countries <-
   c(
@@ -511,7 +543,7 @@ study_region_lookup <-
       mutate(
         region = classify_region(geography, continent)
       ) %>%
-      summarise(
+      summarize(
         region =
           if_else(
             n_distinct(region) == 1,
@@ -526,19 +558,17 @@ study_region_lookup <-
       )
   }
 
-# modelling ----------------------------------------------------------------
+# modeling------------------------------------------------------------------
 
 # Drops cells below the per-metric effect-size and study minima.
 
-# A cell is modelled only above both floors. The paper floor is three for
+# A cell is modeled only above both floors. The paper floor is three for
 # every metric, nest success included, as 2_screen_effects.R applies it.
 
 inclusion_thresholds <-
-  tribble(
-    ~ response_metric, ~ metric_min_effect_sizes, ~ metric_min_studies,
-    "abundance", 3L, 3L,
-    "species_richness", 3L, 3L,
-    "nest_success", 3L, 3L
+  read_csv(
+    here::here("src", "inclusion_thresholds.csv"),
+    show_col_types = FALSE
   )
 
 # Sampler settings. The seed fixes every fit in the analysis, primary and
@@ -555,6 +585,9 @@ sampler_settings <-
     backend = "rstan",
     seed = 20260726
   )
+
+# Mark each cell against the primary and reduced thresholds, so a cell that
+# clears only the reduced one is still reported, flagged.
 
 apply_inclusion_thresholds <-
   function(
@@ -619,7 +652,7 @@ pooled_cell_support <-
     .data %>%
       filter(response_metric %in% metrics) %>%
       keep_pooled_rows() %>%
-      summarise(
+      summarize(
         pooled_papers = n_distinct(key),
         pooled_guilds = n_distinct(guild[!is.na(guild)]),
         .by = c(bmp, response_metric)
@@ -721,7 +754,10 @@ fit_meta_model <-
           refresh = 0,
           silent = 2
         )
-      if (!missing(priors) && !is.null(priors)) {
+      if (
+        !missing(priors) &&
+          !is.null(priors)
+      ) {
         update_arguments$prior <- priors
       }
       return(
@@ -787,7 +823,7 @@ fit_model_group <-
 
 # Median, SD, credible interval and P(draw > 0).
 
-summarise_draws_vector <-
+summarize_draws_vector <-
   function(
     draws,
     interval = 0.95) {
@@ -813,6 +849,8 @@ summarise_draws_vector <-
     )
   }
 
+# Every posterior draw of a fit, as a tibble.
+
 draws_tibble <-
   function(fit) {
     fit %>%
@@ -822,7 +860,7 @@ draws_tibble <-
 
 # Posterior cell means, with brms prefixes stripped from terms.
 
-summarise_cell_means <-
+summarize_cell_means <-
   function(
     fit,
     term_prefix,
@@ -839,7 +877,7 @@ summarise_cell_means <-
       map(
         ~ draws %>%
           pull(.x) %>%
-          summarise_draws_vector(interval = interval)
+          summarize_draws_vector(interval = interval)
       ) %>%
       list_rbind(names_to = "term") %>%
       mutate(
@@ -850,117 +888,16 @@ summarise_cell_means <-
       )
   }
 
-# Posterior difference between two cells, or NULL if either is absent.
-
-contrast_cells <-
-  function(
-    fit,
-    cell_a,
-    cell_b,
-    term_prefix,
-    interval = 0.95) {
-    draws <- draws_tibble(fit)
-    column_a <-
-      str_c(
-        "b_",
-        term_prefix,
-        cell_a
-      )
-    column_b <-
-      str_c(
-        "b_",
-        term_prefix,
-        cell_b
-      )
-    columns <- c(column_a, column_b)
-    if (!all(columns %in% names(draws))) {
-      return(NULL)
-    }
-    (draws[[column_a]] - draws[[column_b]]) %>%
-      summarise_draws_vector(interval = interval) %>%
-      mutate(
-        cell_a = {{ cell_a }},
-        cell_b = {{ cell_b }},
-        .before = estimate
-      ) %>%
-      rename(
-        prob_a_greater = prob_positive
-      )
-  }
-
-typical_sampling_variance <-
-  function(sampling_se) {
-    weights <- 1 / sampling_se^2
-    (length(sampling_se) - 1) * sum(weights) /
-      (sum(weights)^2 - sum(weights^2))
-  }
-
-# Posterior tau and I-squared share for each random-effect level.
-
-summarise_heterogeneity <-
-  function(
-    fit,
-    sampling_se,
-    interval = 0.95) {
-    draws <- draws_tibble(fit)
-    typical_variance <- typical_sampling_variance(sampling_se)
-    variance_draws <-
-      draws %>%
-      names() %>%
-      keep(
-        ~ str_starts(.x, "sd_")
-      ) %>%
-      set_names() %>%
-      map(
-        ~ draws[[.x]]^2
-      )
-    total_variance <-
-      variance_draws %>%
-      reduce(`+`) +
-      typical_variance
-    variance_draws %>%
-      imap(
-        \(.variance, .level) {
-          bind_cols(
-            draws %>%
-              pull(.level) %>%
-              summarise_draws_vector(interval = interval) %>%
-              select(
-                tau = estimate,
-                tau_lcl = lcl,
-                tau_ucl = ucl
-              ),
-            (.variance / total_variance * 100) %>%
-              summarise_draws_vector(interval = interval) %>%
-              select(
-                i2 = estimate,
-                i2_lcl = lcl,
-                i2_ucl = ucl
-              )
-          )
-        }
-      ) %>%
-      list_rbind(names_to = "level") %>%
-      mutate(
-        level =
-          level %>%
-          str_remove("^sd_") %>%
-          str_remove("__Intercept$"),
-        typical_sampling_variance = typical_variance,
-        .before = tau
-      )
-  }
-
 # Worst rhat, ESS and divergence count across parameters.
 
-summarise_convergence <-
+summarize_convergence <-
   function(
     fit,
     model_name) {
     summary_draws <-
       fit %>%
       as_draws_df() %>%
-      summarise_draws()
+      summarize_draws()
     tibble(
       model = {{ model_name }},
       n_parameters = nrow(summary_draws),
@@ -997,27 +934,9 @@ summarise_convergence <-
 # `reduce_grazing_intensity`; both name the one practice.
 
 bmp_vocabulary <-
-  tribble(
-    ~ bmp, ~ bmp_name,
-    "add_flushing_bar", "Add a Flushing Bar",
-    "delay_hay", "Avoid Haying During Nesting Season",
-    "dont_mow_at_night", "Do not Mow at Night",
-    "eliminate_pesticides", "Eliminate Pesticides",
-    "stream_exclusion_and_buffers",
-    "Exclude Livestock From Streams and Plant Vegetative Buffers",
-    "prescribed_fire", "Implement Prescribed Fire",
-    "install_nest_boxes", "Install Nest-Boxes",
-    "manage_in_patches", "Manage Fields in Patches",
-    "mow_towards_refugia", "Mow Towards Refugia",
-    "plant_nwsg", "Plant Native Grasses and Forbs",
-    "edge_and_shrub_habitat", "Promote Edge and Shrub Habitat",
-    "provide_overwintering_habitat",
-    "Provide Overwintering Structure and Resources",
-    "raise_blades", "Raise Cutting Blades",
-    "grazing_intensity", "Reduce Grazing Intensity",
-    "reduce_grazing_intensity", "Reduce Grazing Intensity",
-    "remove_non_native_shrubs", "Remove Non-native Shrubs",
-    "rotational_grazing", "Rotate Livestock Between Pastures"
+  read_csv(
+    here::here("src", "bmp_vocabulary.csv"),
+    show_col_types = FALSE
   )
 
 # Formal practice name for a code. A code the vocabulary does not hold is an
@@ -1040,6 +959,8 @@ format_bmp <-
     vocabulary$bmp_name[match(.bmp, vocabulary$bmp)]
   }
 
+# Response name as the manuscript prints it.
+
 format_response <-
   function(.response) {
     .response %>%
@@ -1051,6 +972,8 @@ format_response <-
 # overrides this with a shorter label after sourcing.
 
 pooled_guild_display <- "All grassland birds (pooled)"
+
+# Guild name as the manuscript prints it.
 
 format_guild <-
   function(
@@ -1098,6 +1021,8 @@ format_species <-
       str_to_sentence()
   }
 
+# A number at a fixed number of decimal places.
+
 format_number <-
   function(
     .x,
@@ -1129,15 +1054,8 @@ format_estimate <-
 
 # plotting -----------------------------------------------------------------
 
-wrap_label <-
-  function(
-    .text,
-    width = 90) {
-    str_wrap(
-      .text,
-      width = width
-    )
-  }
+# The house theme: vertical gridlines only, bold strips and title. Shared with
+# bmp_results.qmd, so the page and the manuscript figures cannot drift apart.
 
 theme_bmp <-
   function(base_size = 11) {
@@ -1183,11 +1101,13 @@ write_output_table <-
     directory = "output/tables") {
     write_csv(
       .data,
-      file.path(directory, file_name),
+      fs::path(directory, file_name),
       na = ""
     )
     invisible(.data)
   }
+
+# Write one figure to output/figures, and hand the plot back unchanged.
 
 write_output_figure <-
   function(
@@ -1197,7 +1117,7 @@ write_output_figure <-
     height = 5) {
     ggsave(
       filename =
-        file.path("output/figures", file_name),
+        fs::path("output/figures", file_name),
       plot = plot_object,
       width = width,
       height = height,
@@ -1266,13 +1186,15 @@ unclassified_grouping <-
     "species_key"
   )
 
+# Write the records whose species the classification cannot place.
+
 write_unclassified_species <-
   function(
     .data,
     file_name) {
     .data %>%
       filter(species_missing) %>%
-      summarise(
+      summarize(
         n_records = n(),
         n_studies = n_distinct(key),
         .by = any_of(unclassified_grouping)
@@ -1282,6 +1204,8 @@ write_unclassified_species <-
       ) %>%
       write_audit_table(file_name = file_name)
   }
+
+# Write one table to output/audits.
 
 write_audit_table <-
   function(
@@ -1310,12 +1234,14 @@ value_when <-
     )
   }
 
+# Correlation to Cohen's d.
+
 d_from_r <-
   function(.correlation) {
     2 * .correlation / sqrt(1 - .correlation^2)
   }
 
-# Hasselblad and Hedges (1995), log odds ratio to standardised difference.
+# Hasselblad and Hedges (1995), log odds ratio to standardized difference.
 
 d_from_odds_ratio <-
   function(.odds_ratio) {
@@ -1525,6 +1451,8 @@ read_extraction <-
       )
   }
 
+# Whether a response variable is a diversity index or a count.
+
 derive_response_scale <-
   function(.response_var) {
     .response_var %>%
@@ -1573,6 +1501,9 @@ split_response_var <-
       response_base = base
     )
   }
+
+# How strongly a response variable matches the preferred expression of its
+# metric. A lower rank wins when one result is reported more than one way.
 
 rank_response_expression <-
   function(
@@ -1707,12 +1638,14 @@ build_guild_bmp_pool <-
       )
   }
 
+# Effect sizes and studies behind each cell of a pool.
+
 count_cells <-
   function(
     .pool,
     grouping_vars) {
     .pool %>%
-      summarise(
+      summarize(
         k = n(),
         n_studies = n_distinct(key),
         .by = all_of(grouping_vars)
@@ -1720,130 +1653,6 @@ count_cells <-
   }
 
 # contrasts and manuscript tables ------------------------------------------
-
-# Marks a row as a guild estimate or as the pooled estimate, so that the two
-# are never read as the same kind of thing.
-
-add_guild_scope <-
-  function(.data) {
-    .data %>%
-      mutate(
-        guild_scope =
-          if_else(
-            guild == "all_grassland",
-            "pooled",
-            "by guild"
-          ),
-        .after = guild
-      )
-  }
-
-contrast_guilds_within_bmp <-
-  function(
-    model_name,
-    metric,
-    models) {
-    fit <-
-      models %>%
-      pluck(model_name)
-    shared_bmps <-
-      fit %>%
-      draws_tibble() %>%
-      names() %>%
-      keep(
-        ~ str_starts(.x, "b_guild_bmp")
-      ) %>%
-      str_remove("^b_guild_bmp") %>%
-      tibble(cell = .) %>%
-      separate_wider_delim(
-        cell,
-        delim = "__",
-        names = c("guild", "bmp")
-      ) %>%
-      filter(
-        n_distinct(guild) == 2,
-        .by = bmp
-      ) %>%
-      distinct(bmp) %>%
-      pull(bmp)
-    if (length(shared_bmps) == 0) {
-      return(NULL)
-    }
-    shared_bmps %>%
-      map(
-        \(.bmp) {
-          contrast_cells(
-            fit = fit,
-            cell_a = str_c("obligate_grassland__", .bmp),
-            cell_b = str_c("facultative_grassland__", .bmp),
-            term_prefix = "guild_bmp"
-          ) %>%
-            mutate(
-              response_metric = {{ metric }},
-              bmp = .bmp,
-              contrast = "obligate minus facultative",
-              .before = cell_a
-            )
-        }
-      ) %>%
-      list_rbind()
-  }
-
-extract_species_estimates <-
-  function(
-    model_name,
-    metric,
-    models) {
-    fit <-
-      models %>%
-      pluck(model_name)
-    draws <- draws_tibble(fit)
-    species_columns <-
-      draws %>%
-      names() %>%
-      keep(
-        ~ str_starts(.x, "r_species_key\\[")
-      )
-    species_guild <-
-      fit$data %>%
-      as_tibble() %>%
-      distinct(species_key, guild) %>%
-      mutate(
-        across(
-          everything(),
-          as.character
-        )
-      )
-    species_columns %>%
-      set_names() %>%
-      map(
-        \(.column) {
-          species_name <-
-            .column %>%
-            str_extract("(?<=\\[).+(?=,)")
-          species_row <-
-            species_guild %>%
-            filter(species_key == species_name)
-          if (nrow(species_row) != 1) {
-            return(NULL)
-          }
-          guild_column <-
-            str_c("b_guild", species_row$guild)
-          (draws[[guild_column]] + draws[[.column]]) %>%
-            summarise_draws_vector() %>%
-            mutate(
-              species_key = species_name,
-              guild = species_row$guild,
-              .before = estimate
-            )
-        }
-      ) %>%
-      list_rbind() %>%
-      mutate(
-        response_metric = {{ metric }},
-        .before = species_key
-      )
-  }
 
 # Rows whose interval excludes zero are bolded.
 
@@ -1894,7 +1703,9 @@ format_manuscript_table <-
 
 # figure construction ------------------------------------------------------
 
-# The palette, axis labels and mappings every figure chain reads:
+# The guild vocabulary the figures and the results page share. Everything a
+# figure alone decides -- practice labels, axis labels, notes, the label
+# mappings -- lives in 4_figures.R, so it can be adjusted where it is used.
 
 guild_display_levels <-
   c(
@@ -1904,6 +1715,8 @@ guild_display_levels <-
   ) %>%
   format_guild()
 
+# One color per guild, in display order:
+
 guild_colors <-
   c(
     "#1B5E3C",
@@ -1912,68 +1725,18 @@ guild_colors <-
   ) %>%
   set_names(guild_display_levels)
 
-# One axis label per effect scale. An inlined figure knows which scale it is
-# on, so it names the label it needs rather than choosing at run time.
-
-effect_axis_label <- "Pooled effect size (Hedges' g, 95% credible interval)"
-
-hazard_axis_label <-
-  "Pooled effect size (log hazard ratio, 95% credible interval)"
-
-filled_point_note <- "Filled points mark intervals excluding zero."
-
 # Practice names run long, so every practice axis wraps at this width. Only
 # the display label wraps, never a join key.
 
 practice_label_width <- 40
 
-# A star marks a cell that meets only the reduced threshold.
-
-sample_size_label <-
-  aes(
-    x = ucl,
-    label =
-      str_c(
-        "k=",
-        k,
-        "; n=",
-        n_studies,
-        if_else(
-          meets_primary_threshold,
-          "",
-          "*",
-          missing = ""
-        )
-      )
-  )
-
-read_table_output <-
-  function(file_name) {
-    file.path(
-      "output/tables",
-      str_c(file_name, ".csv")
-    ) %>%
-      read_csv(show_col_types = FALSE)
-  }
-
-add_bmp_label <-
-  function(
-    .data,
-    label_width = practice_label_width) {
-    .data %>%
-      mutate(
-        bmp_label =
-          bmp %>%
-          format_bmp() %>%
-          str_wrap(width = label_width) %>%
-          fct_reorder(estimate)
-      )
-  }
+# Guild panel labels, in display order.
 
 add_guild_label <-
   function(
     .data,
-    guild_levels = guild_display_levels) {
+    guild_levels = guild_display_levels
+  ) {
     .data %>%
       mutate(
         guild_label =
@@ -2045,6 +1808,7 @@ refit_cells <-
             fct_drop()
         )
       )
+    
     # A one-level cell factor has no design matrix to build, and a pooled
     # estimate over a single cell is not what the tables report.
 
@@ -2063,7 +1827,7 @@ refit_cells <-
       )
     cell_means <-
       fit %>%
-      summarise_cell_means(term_prefix = cell_variable)
+      summarize_cell_means(term_prefix = cell_variable)
     cell_means <-
       switch(
         cell_variable,
@@ -2165,6 +1929,9 @@ flagged_effect_columns <-
     "treatment",
     "control"
   )
+
+# The records the data-quality screen flags. A file that does not exist yet
+# is an empty table, not an error.
 
 read_flagged_effects <-
   function(
@@ -2372,7 +2139,7 @@ aggregate_one_per_study_cell <-
       mutate(
         weight = 1 / sei^2
       ) %>%
-      summarise(
+      summarize(
         yi =
           sum(yi * weight) /
           sum(weight),
@@ -2397,6 +2164,8 @@ aggregate_one_per_study_cell <-
           str_c("agg_", .)
       )
   }
+
+# Append one specification's estimates, so a long refit can be resumed.
 
 write_partial_estimates <-
   function(
@@ -2437,7 +2206,8 @@ studentized_deleted_residual <-
     if (!is.finite(residual_variance) || residual_variance <= 0) {
       return(NA_real_)
     }
-    (yi[index] - as.numeric(fit$beta)) / sqrt(residual_variance)
+    (yi[index] - as.numeric(fit$beta)) /
+      sqrt(residual_variance)
   }
 
 # Residuals for one cell. A cell too small to leave one out returns missing
@@ -2510,7 +2280,7 @@ aggregate_within_study <-
             "all"
           }
       ) %>%
-      summarise(
+      summarize(
         yi =
           sum(yi * weight) /
           sum(weight),
@@ -2644,32 +2414,6 @@ fit_reml_cell_means <-
 
 # posterior figures --------------------------------------------------------
 
-# The notes and mappings the posterior builders below take as argument
-# defaults, beside the functions that read them.
-
-posterior_slab_note <-
-  str_c(
-    "The slab is the posterior density of the cell mean, scaled to a common ",
-    "height; the point and bar are the median and 95% credible interval the ",
-    "forest plots show. P>0 is the posterior mass above zero."
-  )
-
-posterior_subtitle_note <-
-  str_c(
-    "Each guild estimated separately, and the two guilds pooled in their ",
-    "own panel. ",
-    posterior_slab_note
-  )
-
-# Pinned to the panel edge rather than to the interval, because a slab is
-# wider than the interval it carries.
-
-probability_label_mapping <-
-  aes(
-    x = Inf,
-    label = edge_label
-  )
-
 # Tidy draws of one model's cell means: one row per draw and cell.
 
 gather_cell_draws <-
@@ -2711,20 +2455,172 @@ gather_guild_bmp_draws <-
       )
   }
 
-# Practice axis ordered by posterior median, as the interval figures order it.
+# posterior draws ----------------------------------------------------------
 
-add_posterior_bmp_label <-
-  function(
-    .data,
-    label_width = practice_label_width) {
-    .data %>%
+# The figures and the results page read cell means as draws, so extracting
+# them once keeps the fitted models out of everything downstream.
+
+cell_draws_file <- "output/models/posterior_cell_draws.rds"
+
+# The models whose cell means are committed as draws:
+
+cell_draw_models <-
+  c(
+    "abundance_guild_bmp",
+    "nest_success_guild_bmp",
+    "abundance_pooled_bmp"
+  )
+
+# Thinning keeps the slabs cheap to draw and the file small enough to commit.
+# Every printed number comes from the results tables, so only shape changes.
+
+max_committed_draws <- 1000
+
+# Species sit in the guild model as an additive random intercept, so a species
+# draw is its guild mean plus its own offset.
+
+extract_species_draws <-
+  function(models) {
+    fit <-
+      models %>%
+      pluck("abundance_guild")
+    draws <- draws_tibble(fit)
+    fit$data %>%
+      as_tibble() %>%
+      distinct(species_key, guild) %>%
       mutate(
-        bmp_label =
-          bmp %>%
-          format_bmp() %>%
-          str_wrap(width = label_width) %>%
-          fct_reorder(.value)
+        across(
+          everything(),
+          as.character
+        )
+      ) %>%
+      pmap(
+        \(species_key, guild) {
+
+          # The two columns to add:
+
+          species_column <-
+            str_c(
+              "r_species_key[",
+              species_key,
+              ",Intercept]"
+            )
+
+          guild_column <- str_c("b_guild", guild)
+
+          # Skip a species the model carries no offset for:
+
+          if (!species_column %in% names(draws)) {
+            return(NULL)
+          }
+
+          tibble(
+            model = "species_abundance",
+            guild = guild,
+            cell = species_key,
+            .draw = seq_len(nrow(draws)),
+            .value =
+              draws[[guild_column]] +
+                draws[[species_column]]
+          )
+        }
+      ) %>%
+      list_rbind()
+  }
+
+# One row per draw and cell, keyed the way the results tables are keyed.
+
+extract_cell_draws <-
+  function(
+    models,
+    bmp_models = cell_draw_models) {
+    richness <-
+      models %>%
+      pluck("richness_bmp") %>%
+      gather_cell_draws(term_prefix = "bmp") %>%
+      select(cell, .draw, .value) %>%
+      mutate(
+        model = "richness_bmp",
+        guild = NA_character_,
+        .before = 1
       )
+    bmp_draws <-
+      bmp_models %>%
+      keep(
+        \(.model) {
+          .model %in% names(models)
+        }
+      ) %>%
+      set_names() %>%
+      map(
+        \(.model) {
+          models %>%
+            pluck(.model) %>%
+            gather_guild_bmp_draws() %>%
+            select(
+              guild,
+              cell = bmp,
+              .draw,
+              .value
+            )
+        }
+      ) %>%
+      list_rbind(names_to = "model")
+    bind_rows(
+      richness,
+      bmp_draws,
+      extract_species_draws(models)
+    )
+  }
+
+# Keep a fixed number of draws per model, so the file stays committable.
+
+thin_draws <-
+  function(
+    .draws,
+    keep = max_committed_draws) {
+    draw_ids <-
+      .draws %>%
+      pull(.draw) %>%
+      unique() %>%
+      sort()
+    if (length(draw_ids) <= keep) {
+      return(.draws)
+    }
+    step <-
+      ceiling(length(draw_ids) / keep)
+    .draws %>%
+      filter(
+        .draw %in% draw_ids[seq(1, length(draw_ids), by = step)]
+      )
+  }
+
+# Write the thinned cell-mean draws everything downstream reads.
+
+write_cell_draws <-
+  function(
+    models,
+    file_path = cell_draws_file) {
+    models %>%
+      extract_cell_draws() %>%
+      thin_draws() %>%
+      write_rds(
+        file_path,
+        compress = "xz"
+      )
+  }
+
+# The fitted models are a local build product, so their absence is an
+# instruction to re-run rather than an error to debug.
+
+read_cell_draws <-
+  function(file_path = cell_draws_file) {
+    if (!fs::file_exists(file_path)) {
+      cli::cli_abort(
+        "No cell draws at {.file {file_path}}. Re-run {.file 3_models.R}."
+      )
+    }
+    read_rds(file_path)
   }
 
 # Sample size and posterior probability as one right-aligned label, so they
@@ -2737,7 +2633,16 @@ posterior_edge_labels <-
     grouping_vars,
     join_vars) {
     .draws %>%
-      summarise_posterior_probability(grouping_vars = grouping_vars) %>%
+      summarize(
+        prob_positive = mean(.value > 0),
+        .by = all_of(grouping_vars)
+      ) %>%
+      mutate(
+        probability_label =
+          prob_positive %>%
+          format_number() %>%
+          str_c("P>0 = ", .)
+      ) %>%
       left_join(
         .cells %>%
           select(
@@ -2765,21 +2670,222 @@ posterior_edge_labels <-
       )
   }
 
-# Posterior mass above zero per cell, as the text drawn beside each slab.
+# roses functions ---------------------------------------------------------
 
-summarise_posterior_probability <-
+# Paper x practice records the extraction holds for a set of papers.
+
+extracted_records <-
   function(
-    .draws,
-    grouping_vars) {
-    .draws %>%
-      summarise(
-        prob_positive = mean(.value > 0),
-        .by = all_of(grouping_vars)
-      ) %>%
+    .effects,
+    .papers) {
+    .effects %>%
+      filter(key %in% .papers) %>%
+      distinct(key, bmp) %>%
+      nrow()
+  }
+
+# A count with a thousands separator.
+
+thousands <-
+  function(.count) {
+    format(
+      .count,
+      big.mark = ",",
+      trim = TRUE
+    )
+  }
+
+# One box body: a line of text, an optional count and an optional indent.
+
+body_line <-
+  function(
+    .text,
+    .count = "",
+    .indent = FALSE) {
+    tibble(
+      count = .count,
+      text = as.character(.text),
+      indent = .indent
+    )
+  }
+
+# One row per wrapped line, with the count against the first of them.
+# `.width` is the reason column, which is narrower than the box.
+
+reason_lines <-
+  function(
+    .reason,
+    .count,
+    .width = 42) {
+    tibble(
+      id = seq_along(.reason),
+      count = .count,
+      text =
+        str_wrap(
+          .reason,
+          width = .width
+        )
+    ) %>%
+      separate_longer_delim(text, delim = "\n") %>%
       mutate(
-        probability_label =
-          prob_positive %>%
-          format_number() %>%
-          str_c("P>0 = ", .)
+        count =
+          if_else(
+            row_number() == 1,
+            count,
+            ""
+          ),
+        indent = TRUE,
+        .by = id
+      ) %>%
+      select(count, text, indent)
+  }
+
+# Records and papers either side of the divider, padded with figure spaces so
+# the dividers line up down a box.
+
+count_pair <-
+  function(
+    .records,
+    .papers) {
+    records <- as.character(.records)
+    papers <- as.character(.papers)
+    str_c(
+      str_pad(
+        records,
+        max(str_width(records)),
+        side = "left",
+        pad = "\u2007"
+      ),
+      " | ",
+      str_pad(
+        papers,
+        max(str_width(papers)),
+        side = "right",
+        pad = "\u2007"
       )
+    )
+  }
+
+# The one line a retained box carries: records and papers, side by side.
+# `.survivors` is one row per phase, carrying `records`, `papers` and `unit`.
+
+retained_body <-
+  function(
+    .survivors,
+    .phase) {
+
+    # What the phase carried forward:
+
+    counts <-
+      .survivors %>%
+      filter(phase == .phase)
+
+    # Records and papers on one line:
+
+    body_line(
+      glue::glue(
+        "{thousands(counts$records)} {counts$unit}",
+        "   |   {thousands(counts$papers)} papers"
+      )
+    )
+  }
+
+# The stages of one phase that moved something; a step that moved nothing is
+# not drawn. `.stages` is the stage table, one row per stage.
+
+lost_stages <-
+  function(
+    .stages,
+    .phase) {
+    .stages %>%
+      filter(
+        phase == .phase,
+        records_lost > 0 |
+          papers_lost > 0
+      )
+  }
+
+# An exclusion box leads with what the phase lost in total, then one line
+# per reason with its own records and papers against it.
+
+excluded_body <-
+  function(
+    .stages,
+    .phase) {
+
+    # What the phase removed, one row per reason:
+
+    lost <-
+      lost_stages(.stages, .phase)
+
+    # A phase that removed nothing gets no box:
+
+    if (nrow(lost) == 0) {
+      return(
+        body_line(character())
+      )
+    }
+
+    # The phase total, then one line per reason:
+
+    bind_rows(
+      body_line(
+        glue::glue_data(
+          lost,
+          "{thousands(sum(records_lost))} {first(unit)}",
+          "   |   {thousands(sum(papers_lost))} papers"
+        ) %>%
+          first()
+      ),
+      body_line(""),
+      reason_lines(
+        .reason = lost$stage,
+        .count =
+          count_pair(
+            lost$records_lost,
+            lost$papers_lost
+          )
+      )
+    )
+  }
+
+# These phases name what they kept, so their exclusions read off `reason`.
+# That reason runs the width of the box, so it wraps wider than a reason line.
+
+kept_phase_body <-
+  function(
+    .stages,
+    .phase,
+    .width = 42) {
+
+    # What the phase held out:
+
+    kept <-
+      lost_stages(.stages, .phase)
+
+    # A phase that held out nothing gets no box:
+
+    if (nrow(kept) == 0) {
+      return(
+        body_line(character())
+      )
+    }
+
+    # The phase total, then the reason it gives:
+
+    bind_rows(
+      body_line(
+        glue::glue_data(
+          kept,
+          "{records_lost} {unit}   |   {papers_lost} papers"
+        )
+      ),
+      body_line(""),
+      body_line(
+        kept$reason %>%
+          str_wrap(width = .width + 4) %>%
+          str_split("\n") %>%
+          list_c()
+      )
+    )
   }

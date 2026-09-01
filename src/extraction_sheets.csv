@@ -1,0 +1,4 @@
+source_sheet,prefix,extraction_type,design
+mean_diff,md,mean_difference,categorical
+beta_categorical,bc,coefficient,categorical
+other_categorical,tc,test_statistic,categorical

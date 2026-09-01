@@ -1,0 +1,11 @@
+response_metric,pattern,preference_rank
+nest_success,^(percent )?nest.?(success|surv)|probability of nesting,1
+nest_success,dsr|daily (nest )?surv|mayfield,2
+nest_success,fledg|successful nests,3
+nest_success,depredat|predation,4
+abundance,abundance,1
+abundance,densit,2
+abundance,territor|singing males|crowing,3
+abundance,nest,4
+species_richness,^(total )?species.?richness,1
+species_richness,species per field,2

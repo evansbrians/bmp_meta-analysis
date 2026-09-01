@@ -1,0 +1,5 @@
+stage,pool_label
+richness_bmp,Species richness
+abundance_pooled_bmp,Abundance pooled
+abundance_guild_bmp,Abundance x guild
+nest_success_guild_bmp,Nest success x guild

@@ -1,0 +1,10 @@
+excluded_by,reason
+response_flag,Response not the one the practice targets
+treatment_control_flag,Treatment and control not comparable
+response_metric,Response outside the three analyzed
+diversity_index,"Diversity index, not a richness count"
+conversion,No route to an effect size
+duplicate_expression,One result reported more than one way
+nest_hazard_scale,Nest survival could not be transformed to the hazard scale
+artificial_nest,"Artificial nest, not a species' response"
+unclassified_species,Species does not fit the classification system
