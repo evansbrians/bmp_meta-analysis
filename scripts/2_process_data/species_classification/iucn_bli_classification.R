@@ -70,6 +70,9 @@ bird_habitats_taxon <-
 
 # Write to file:
 
-write_rds(bird_habitats_taxon, "data/processed/iucn_bli_classification.rds")
+bird_habitats_taxon %>%
+  write_rds(
+    "data/raw/for_species_classification/iucn_bli_classification.rds"
+  )
 
 
