@@ -10,11 +10,15 @@ library(DBI)
 library(duckdb)
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directory:
 
 fs::dir_create("output/tables")
 
-# Screened effects, cut to the columns the region counts need:
+# Screened effects:
 
 papers_by_pool <-
   read_csv(
@@ -23,28 +27,28 @@ papers_by_pool <-
   ) %>%
   select(key, region, bmp, in_primary_pool)
 
-# Establish the database connection:
+# Connect to the database:
 
 con <-
-  DBI::dbConnect(
-    duckdb::duckdb(),
+  dbConnect(
+    duckdb(),
     dbdir = "data/raw/bmp_meta.duckdb",
     read_only = TRUE
   )
 
-# Read in the study locations:
+# Study locations:
 
 study_locations <-
   tbl(con, "study_place") %>%
   collect()
 
-# Disconnect from the database:
+# Disconnect:
 
-DBI::dbDisconnect(con, shutdown = TRUE)
+dbDisconnect(con, shutdown = TRUE)
 
 # piecing apart regions ----------------------------------------------------
 
-# The studies the region label leaves as "other":
+# Studies labeled other:
 
 other_region_studies <-
   study_locations %>%
@@ -54,7 +58,7 @@ other_region_studies <-
     by = join_by(study_key == key)
   )
 
-# Northeast not identified as region:
+# Northeastern studies:
 
 northeast <-
   study_locations %>%
@@ -66,7 +70,7 @@ northeast <-
   distinct(study_key) %>%
   pull()
 
-# The primary pool with the northeastern papers relabelled:
+# Relabel them northeast:
 
 primary_pool_regions <-
   papers_by_pool %>%
@@ -82,10 +86,14 @@ primary_pool_regions <-
 
 # write --------------------------------------------------------------------
 
+# Studies labeled other:
+
 other_region_studies %>%
   write_output_table(
     file_name = "geography_other_region_studies.csv"
   )
+
+# Papers and records by region:
 
 primary_pool_regions %>%
   summarize(
@@ -96,6 +104,8 @@ primary_pool_regions %>%
   write_output_table(
     file_name = "geography_by_region.csv"
   )
+
+# By practice and region:
 
 primary_pool_regions %>%
   summarize(

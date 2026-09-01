@@ -8,10 +8,11 @@
 
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
 
-# Sentinels that mean missing in the source workbook. "unknown" is not among
-# them: in the screening columns it is a real category and is kept.
+source("src/functions.R")
+
+# Sentinels that mean missing:
 
 null_tokens <-
   c(
@@ -23,11 +24,7 @@ null_tokens <-
     "nan"
   )
 
-# Columns holding a controlled vocabulary rather than free text. These are
-# folded to snake_case so a spelling variant cannot become a new category.
-
-# `key`, `bmp` and the free-text columns are excluded: keys would be split
-# on their digits, and bmp is semicolon-delimited.
+# Controlled-vocabulary columns, folded to snake_case:
 
 vocabulary_columns <-
   c(
@@ -46,7 +43,7 @@ url <-
     "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA"
   )
 
-# Read in the google sheets:
+# Read the sheets:
 
 analysis_subset_list <-
   googlesheets4::sheet_names(url) %>%
@@ -59,7 +56,7 @@ analysis_subset_list <-
       janitor::clean_names()
   )
 
-# Read in the species classification frame:
+# Species classification frame:
 
 species_guilds <-
   here::here(
@@ -108,8 +105,7 @@ analysis_subset_list_cells <-
 
 # clean error classes -----------------------------------------------------
 
-# snake_case has already folded the spacing and capitalisation, so what is
-# left is an abbreviation and a typo.
+# Repair the remaining spellings:
 
 analysis_subset_list_bmp_edits <-
   analysis_subset_list_cells %>%
@@ -127,7 +123,7 @@ analysis_subset_list_bmp_edits <-
             str_to_lower() %>%
             str_trim() %>%
 
-            # The two codes the extraction still spells its own way:
+            # Codes the extraction spells its own way:
 
             str_replace(
               "^set_aside_adjacent_unmowed$",
@@ -171,8 +167,7 @@ analysis_subset_list_species_edits <-
 
 # clean link functions ----------------------------------------------------
 
-# The scale a reported coefficient sits on. Only these reach the hazard
-# scale, so a value outside the list is a silent exclusion.
+# Coefficient link scales:
 
 link_vocabulary <-
   c(
@@ -186,13 +181,7 @@ link_vocabulary <-
 
 # add nest survival scale -------------------------------------------------
 
-# Period survival S = DSR^d, so a daily rate and a period probability are not
-# comparable until the effect-size step puts them on the log hazard scale.
-
-# `link` is the scale a coefficient lives on, `baseline_survival` the control
-# level it maps from, `beta_is_derived` whether it was computed or read off.
-
-# All three are created empty where the sheet does not yet carry them.
+# Flag daily against period nest survival:
 
 analysis_subset_list_survival_scale <-
   analysis_subset_list_species_edits %>%
@@ -227,14 +216,13 @@ analysis_subset_list_survival_scale <-
         ) %>%
         mutate(
 
-          # snake_case leaves one variant the vocabulary does not name.
+          # One unnamed variant:
 
           link = str_replace(link, "^log_link$", "log")
         ) %>%
         mutate(
 
-          # A logistic-exposure coefficient is on logit(DSR), so it is daily
-          # whatever the response is called.
+          # Logistic exposure is always daily:
 
           survival_scale =
             case_when(
@@ -250,7 +238,7 @@ analysis_subset_list_survival_scale <-
 
 # filtering pass ----------------------------------------------------------
 
-# Ensure only BMPs from the final list are in the document:
+# Keep only the final BMPs:
 
 analysis_subset_list_bmp_filter <-
   analysis_subset_list_survival_scale %>%
@@ -260,7 +248,7 @@ analysis_subset_list_bmp_filter <-
         !bmp %in% c("keep_cats_indoors", "upgrade_to_darksky")
       ) %>%
 
-      # One final BMP to clean:
+      # One last BMP to clean:
 
       mutate(
         bmp =
@@ -287,9 +275,8 @@ analysis_subset_list_bmp_filter %>%
     }
   )
 
-# clean the environment ---------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

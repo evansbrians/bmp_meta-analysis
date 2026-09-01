@@ -7,7 +7,7 @@
 library(here)
 library(tidyverse)
 
-# Grab and format Bird Life International list of species and common names:
+# Bird Life common names:
 
 bli_classes <-
   here(
@@ -25,7 +25,7 @@ bli_classes <-
       str_replace_all(" ", "_")
   )
 
-# Grab eubirds record (Storchova and Horak 2018) from the traitdata package:
+# Eubirds records (Storchova and Horak 2018):
 
 eu_birds <-
   traitdata::eubirds %>%
@@ -44,7 +44,7 @@ eu_birds <-
     names_to = "classification"
   ) %>%
 
-  # Subset to classes where the bird occurs:
+  # Subset to occupied classes:
 
   filter(value == 1) %>%
 
@@ -79,7 +79,7 @@ eu_birds <-
       )
   ) %>%
 
-  # Combine genus and species into a new scientific name column:
+  # Rebuild the scientific name:
 
   unite(
     "scientific_name",
@@ -87,7 +87,7 @@ eu_birds <-
     sep = " "
   ) %>%
 
-  # Flatten to combined classes where the bird occurs:
+  # Flatten to combined classes:
 
   summarize(
     classification =

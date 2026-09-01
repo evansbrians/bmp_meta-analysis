@@ -12,14 +12,17 @@
 
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directory:
 
 fs::dir_create("data/db_mirror")
 
 # read the extraction ------------------------------------------------------
 
-# One sheet per pathway to an effect size, each with the prefix its
-# identifiers carry. Identifiers are assigned before any screening.
+# One sheet per conversion pathway:
 
 extraction <-
   c(
@@ -40,7 +43,7 @@ extraction <-
           species_key = species,
           response_metric = response_class,
 
-          # A diversity index is not a species count.
+          # A diversity index is not a count:
 
           response_scale =
             response_var %>%
@@ -54,7 +57,7 @@ extraction <-
 
 # mean differences ---------------------------------------------------------
 
-# Hedges' g from two group means and their pooled SD:
+# Hedges' g from two group means:
 
 mean_difference_effects <-
   extraction %>%
@@ -78,15 +81,13 @@ mean_difference_effects <-
 
 ## nest survival to the log hazard scale in mean differences --------------
 
-# A daily rate and a period probability are two reporting scales of one
-# quantity -- we combine them with the log hazard ratio:
-
-# Note: `yi` is negated to run benefit-positive, so it is the negative of a
-# conventional log hazard ratio, and `sign` is not applied again below.
+# Nest survival records, benefit-positive:
 
 nest_survival_effects <-
   mean_difference_effects %>%
   filter(response_metric == "nest_success")
+
+# Their log hazard ratios:
 
 nest_hazard <-
   log_hazard_contrast(
@@ -106,7 +107,7 @@ nest_hazard <-
       )
   )
 
-# Inform the mean difference effects with the log-hazard:
+# Carry them back onto the records:
 
 mean_difference_effects <-
   mean_difference_effects %>%
@@ -123,7 +124,7 @@ mean_difference_effects <-
 
 # categorical coefficients -------------------------------------------------
 
-# t = beta / SE, then Hedges' g
+# t = beta / SE, then Hedges' g:
 
 beta_categorical_effects <-
   extraction %>%
@@ -155,11 +156,7 @@ beta_categorical_effects <-
 
 ## nest survival from a coefficient in beta categorical -------------------
 
-# `link` names the scale the coefficient sits on; each maps to the hazard
-# scale once its baseline is known.
-
-# A nest coefficient with no link, or no baseline where one is needed, is
-# withdrawn below and held out as `nest_hazard_scale`.
+# Nest coefficients with a usable link:
 
 nest_coefficient_effects <-
   beta_categorical_effects %>%
@@ -167,6 +164,8 @@ nest_coefficient_effects <-
     response_metric == "nest_success",
     link %in% c("logistic_exposure", "logit", "log", "identity")
   )
+
+# The log hazard ratio each coefficient implies:
 
 nest_coefficient_hazard <-
   log_hazard_from_coefficient(
@@ -176,6 +175,8 @@ nest_coefficient_hazard <-
     link = nest_coefficient_effects$link,
     baseline_survival = nest_coefficient_effects$baseline_survival
   )
+
+# Carry them back onto the records:
 
 beta_categorical_effects <-
   beta_categorical_effects %>%
@@ -197,26 +198,21 @@ beta_categorical_effects <-
 
 # test statistics ----------------------------------------------------------
 
-# `needs_one_df` is whether a two-group contrast has to be established first.
-# A statistic with no rule here -- "d" -- has no route to an effect size.
+# Degrees of freedom needed by each statistic:
 
 test_statistic_effects <-
   extraction %>%
   pluck("other_categorical") %>%
   left_join(
-    tribble(
-      ~ test_statistic, ~ needs_one_df,
-      "t", FALSE,
-      "f", TRUE,
-      "chi_square", TRUE,
-      "z", FALSE,
-      "odds_ratio", FALSE
+    read_csv(
+      "src/test_statistic_degrees_of_freedom.csv",
+      show_col_types = FALSE
     ),
-    by = "test_statistic"
+    by = join_by(test_statistic)
   ) %>%
   mutate(
 
-    # Free text is lowered and blanked so the patterns below read off it.
+    # Lower and blank the free text:
 
     across(
       c(model, notes),
@@ -227,8 +223,7 @@ test_statistic_effects <-
       }
     ),
 
-    # Group sizes fall back to halving the global sample size. The arm
-    # counts carry the _e and _c suffixes 0_prep_data.R restores.
+    # Group sizes, halved where unreported:
 
     groups_reported =
       !is.na(n_e) &
@@ -249,12 +244,11 @@ test_statistic_effects <-
     contrast_se =
       sqrt(1 / n_e_used + 1 / n_c_used),
 
-    # The direction comes from `response_dir`, so the statistic's own sign is
-    # discarded and every conversion below is defined on every row.
+    # Direction comes from response_dir:
 
     magnitude = abs(test_stat_value),
 
-    # Phi from chi-square, rank-biserial r from Z.
+    # Phi from chi-square, r from Z:
 
     correlation =
       case_match(
@@ -263,8 +257,7 @@ test_statistic_effects <-
         "z" ~ magnitude / sqrt(n_total)
       ),
 
-    # A contrast converts on one degree of freedom, independent arms, and a
-    # correlation below one.
+    # Flag the convertible contrasts:
 
     one_contrast =
       replace_na(df == 1, FALSE) |
@@ -280,8 +273,7 @@ test_statistic_effects <-
   ) %>%
   mutate(
 
-    # Only a convertible contrast reaches the arithmetic; the rest keep a
-    # missing effect size for the screen.
+    # Convert them:
 
     across(
       c(magnitude, correlation),
@@ -294,7 +286,9 @@ test_statistic_effects <-
         test_statistic,
         "t" ~ magnitude * contrast_se,
         "f" ~ sqrt(magnitude) * contrast_se,
-        c("chi_square", "z") ~ d_from_r(correlation),
+        c(
+          "chi_square", "z") ~ d_from_r(correlation
+        ),
         "odds_ratio" ~ d_from_odds_ratio(magnitude)
       ) %>%
       abs() %>%
@@ -313,8 +307,7 @@ test_statistic_effects <-
 
 ## nest survival from an odds ratio ---------------------------------------
 
-# A reported odds ratio of daily survival is the coefficient route wearing a
-# different hat: log(OR) is the coefficient, and its interval the error.
+# Nest odds ratios, on the coefficient route:
 
 nest_odds_ratio_effects <-
   test_statistic_effects %>%
@@ -323,6 +316,8 @@ nest_odds_ratio_effects <-
     test_statistic == "odds_ratio",
     link %in% c("logistic_exposure", "logit")
   )
+
+# Their log hazard ratios:
 
 nest_odds_ratio_hazard <-
   log_hazard_from_odds_ratio(
@@ -333,6 +328,8 @@ nest_odds_ratio_hazard <-
     link = nest_odds_ratio_effects$link,
     baseline_survival = nest_odds_ratio_effects$baseline_survival
   )
+
+# Carry them back onto the records:
 
 test_statistic_effects <-
   test_statistic_effects %>%
@@ -391,8 +388,7 @@ all_effects <-
   ) %>%
   mutate(
 
-    # A Hedges' g cannot pool with a log hazard ratio, so a nest record with
-    # no route to the hazard scale is withdrawn here.
+    # Withdraw nest records off the hazard scale:
 
     across(
       c(yi, sei),
@@ -405,8 +401,7 @@ all_effects <-
       }
     ),
 
-    # `sign` is the only source of direction, except on the hazard scale where
-    # the conversion has already resolved it.
+    # Apply the direction, off the hazard scale:
 
     yi =
       if_else(
@@ -421,9 +416,8 @@ all_effects <-
 all_effects %>%
   bmp_write_table("converted_effects")
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

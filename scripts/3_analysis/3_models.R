@@ -1,6 +1,6 @@
 # This script:
 # - Reads the analysis pool written by 2_screen_effects.R
-# - Builds one modelling pool per response, guild and practice cell
+# - Builds one modeling pool per response, guild and practice cell
 # - Fits the Bayesian multilevel meta-analysis models with four chains
 # - Saves the fits, their pools, and the cell and convergence tables
 
@@ -10,7 +10,11 @@ library(brms)
 library(posterior)
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directories:
 
 fs::dir_create(
   c(
@@ -20,12 +24,11 @@ fs::dir_create(
   )
 )
 
+# Sample the chains in parallel:
+
 options(mc.cores = sampler_settings$cores)
 
-# Weakly informative on the effect scale, half-t on the variance components.
-
-# The sensitivity suite refits every family under wider and tighter versions
-# of both, so the prior is a tested choice rather than an assumed one.
+# Weakly informative priors:
 
 model_priors <-
   c(
@@ -45,8 +48,7 @@ model_priors <-
 
 # assemble the analysis pool -----------------------------------------------
 
-# The pool is already screened, so only the primary-pool flag and the model
-# grouping variables are applied here.
+# The primary pool, with its grouping variables:
 
 analysis_pool <-
   read_effect_size_pool() %>%
@@ -66,42 +68,50 @@ analysis_pool <-
     )
   )
 
-# modelling pools ----------------------------------------------------------
+# modeling pools------------------------------------------------------------
 
 richness_pool <-
   analysis_pool %>%
   filter(response_metric == "species_richness") %>%
   apply_inclusion_thresholds(grouping_vars = "bmp") %>%
-  mutate(bmp = fct_drop(bmp))
+  mutate(
+    bmp = fct_drop(bmp)
+  )
+
+# Abundance, by guild:
 
 abundance_guild_pool <-
   analysis_pool %>%
   build_guild_pool(metric = "abundance")
 
+# The same, by guild x practice cell:
+
 abundance_guild_bmp_pool <-
   abundance_guild_pool %>%
   build_guild_bmp_pool()
+
+# Nest success, by guild x practice cell:
 
 nest_success_guild_bmp_pool <-
   analysis_pool %>%
   build_guild_pool(metric = "nest_success") %>%
   build_guild_bmp_pool()
 
-# Abundance and nest success are each modelled a second time with the guilds
-# pooled, for the practices the pooled pool reads from BOTH guilds.
+# Abundance with the guilds pooled:
 
 abundance_pooled_bmp_pool <-
   analysis_pool %>%
   build_pooled_pool(metric = "abundance") %>%
   build_guild_bmp_pool()
 
+# Nest success with the guilds pooled:
+
 nest_success_pooled_bmp_pool <-
   analysis_pool %>%
   build_pooled_pool(metric = "nest_success") %>%
   build_guild_bmp_pool()
 
-# A cell model needs two cells: with one, `0 + guild_bmp` has no design matrix.
-# Under the three-paper floor this drops the pooled nest model.
+# Drop the pools with one cell:
 
 model_pools <-
   list(
@@ -124,7 +134,7 @@ model_pools <-
 model_pools %>%
   map(
     \(.pool) {
-      summarise(
+      summarize(
         .pool,
         n_effect_sizes = n(),
         n_studies = n_distinct(key),
@@ -140,10 +150,7 @@ model_pools %>%
     na = ""
   )
 
-# Richness has no guild, and the pooled cells carry the pooled label, so both
-# sit alongside the guild cells in one table.
-
-# The metric each cell pool belongs to, for the pools that were modelled.
+# The metric each modeled pool belongs to:
 
 cell_pool_metrics <-
   c(
@@ -152,7 +159,11 @@ cell_pool_metrics <-
     abundance_pooled_bmp = "abundance",
     nest_success_pooled_bmp = "nest_success"
   ) %>%
-  keep_at(names(model_pools))
+  keep_at(
+    names(model_pools)
+  )
+
+# Effect sizes and studies per cell:
 
 cell_sample_sizes <-
   bind_rows(
@@ -167,7 +178,9 @@ cell_sample_sizes <-
         \(.metric, .pool_name) {
           model_pools %>%
             pluck(.pool_name) %>%
-            count_cells(grouping_vars = c("guild", "bmp")) %>%
+            count_cells(
+              grouping_vars = c("guild", "bmp")
+            ) %>%
             mutate(response_metric = .metric)
         }
       ) %>%
@@ -190,6 +203,8 @@ cell_sample_sizes <-
   ) %>%
   flag_primary_threshold()
 
+# The reporting scripts read these back:
+
 cell_sample_sizes %>%
   write_csv(
     "output/audits/cell_sample_sizes.csv",
@@ -205,8 +220,7 @@ formula_richness_bmp <-
       (1 | effect_id)
   )
 
-# Fitted for the species-level estimates only, which are a guild mean plus a
-# species offset and so need a guild intercept to attach to.
+# Guild intercept, for the species estimates:
 
 formula_guild <-
   bf(
@@ -216,6 +230,8 @@ formula_guild <-
       (1 | species_key) +
       (1 | bmp)
   )
+
+# A cell mean per guild x practice:
 
 formula_guild_bmp <-
   bf(
@@ -227,8 +243,7 @@ formula_guild_bmp <-
 
 # fit models ---------------------------------------------------------------
 
-# One row per model: the pool it is fitted to, its formula, and the model
-# whose compiled Stan program it reuses.
+# One row per model:
 
 model_specs <-
   tribble(
@@ -246,10 +261,11 @@ model_specs <-
     "nest_success_pooled_bmp", "nest_success_pooled_bmp",
     formula_guild_bmp, "abundance_guild_bmp"
   ) %>%
-  filter(pool %in% names(model_pools))
+  filter(
+    pool %in% names(model_pools)
+  )
 
-# One compile group at a time, so each Stan program is compiled once. Groups
-# finish out of order, so the specification order is restored after.
+# Fit one compile group at a time:
 
 grouped_fits <-
   model_specs %>%
@@ -269,6 +285,8 @@ grouped_fits <-
   ) %>%
   list_flatten()
 
+# In the order the specifications name them:
+
 fitted_models <- grouped_fits[model_specs$model]
 
 # save ---------------------------------------------------------------------
@@ -276,8 +294,15 @@ fitted_models <- grouped_fits[model_specs$model]
 fitted_models %>%
   write_rds("output/models/fitted_models.rds")
 
+# The pools behind them:
+
 model_pools %>%
   write_rds("output/models/model_data.rds")
+
+# The cell means, as thinned draws:
+
+fitted_models %>%
+  write_cell_draws()
 
 # diagnostics --------------------------------------------------------------
 
@@ -285,7 +310,7 @@ convergence <-
   fitted_models %>%
   imap(
     \(.fit, .model) {
-      summarise_convergence(.fit, model_name = .model)
+      summarize_convergence(.fit, model_name = .model)
     }
   ) %>%
   list_rbind() %>%
@@ -296,11 +321,15 @@ convergence <-
       n_divergent == 0
   )
 
+# The diagnostics, whether or not they pass:
+
 convergence %>%
   write_csv(
     "output/diagnostics/convergence.csv",
     na = ""
   )
+
+# Warn on any that did not converge:
 
 if (any(!convergence$converged)) {
   unconverged <-
@@ -311,9 +340,8 @@ if (any(!convergence$converged)) {
   cli::cli_warn("Convergence problems in: {unconverged}.")
 }
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

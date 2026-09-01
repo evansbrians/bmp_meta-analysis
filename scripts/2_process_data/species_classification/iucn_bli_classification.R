@@ -15,7 +15,7 @@ library(tidyverse)
 
 # get a list of all birds -------------------------------------------------
 
-# Get all records inside of the group "birds" (this step takes ~20 minutes!):
+# All bird records (~20 minutes):
 
 bird_assessment_ids <-
   rl_class(
@@ -62,7 +62,9 @@ bird_habitats_taxon <-
   ) %>%
   unnest(common_names, keep_empty = TRUE) %>%
   filter(main, language == "eng") %>%
-  select(!c(main, language)) %>%
+  select(
+    !c(main, language)
+  ) %>%
   distinct() %>%
   nest(habitat = assessment_id:major_importance)
 

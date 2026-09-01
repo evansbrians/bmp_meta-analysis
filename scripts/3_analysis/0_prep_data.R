@@ -11,13 +11,17 @@
 
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directory:
 
 fs::dir_create("data/processed/for_analysis")
 
 # read the database --------------------------------------------------------
 
-# The database is the only input, and nothing here writes back to it:
+# Connect to the database, read-only:
 
 database <-
   DBI::dbConnect(
@@ -26,7 +30,7 @@ database <-
     read_only = TRUE
   )
 
-# The seven tables the sheets are rebuilt from, read in one pass:
+# The seven source tables:
 
 bmp_tables <-
   c(
@@ -45,14 +49,13 @@ bmp_tables <-
     }
   )
 
-# Everything is in memory from here, so the connection closes:
+# Disconnect:
 
 DBI::dbDisconnect(database, shutdown = TRUE)
 
 # restore the statistic shapes ---------------------------------------------
 
-# The two estimate shapes are the same table split on which statistic was
-# reported, each back under the names its own sheets used.
+# Split the estimates by statistic:
 
 statistic_shapes <-
   list(
@@ -98,8 +101,7 @@ statistic_shapes <-
       )
   )
 
-# Which shapes each input type carries. A type joins only its own, which is
-# what keeps every list item in the shape its sheet had.
+# Shapes carried by each input type:
 
 sheet_statistics <-
   list(
@@ -110,8 +112,7 @@ sheet_statistics <-
 
 # assemble the records -----------------------------------------------------
 
-# A record joins once per practice, which is how a dual-practice effect size
-# reaches both cells.
+# One row per record and practice:
 
 records <-
   bmp_tables$effect %>%
@@ -143,15 +144,13 @@ records <-
     by = join_by(species)
   ) %>%
 
-  # A study with no place recorded is its own region, so a region filter
-  # never drops it silently.
+  # An unrecorded place is its own region:
 
   mutate(
     region = replace_na(region, "none_recorded")
   )
 
-# One list item per statistic input type: its own records joined to its own
-# statistic shapes, in the shape its sheet had.
+# Rebuild each sheet:
 
 for_analysis <-
   sheet_statistics %>%
@@ -175,7 +174,7 @@ for_analysis <-
 
 # write --------------------------------------------------------------------
 
-# One file per input type, under the name the sheet already had:
+# One file per input type:
 
 for_analysis %>%
   iwalk(
@@ -192,9 +191,8 @@ for_analysis %>%
     }
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

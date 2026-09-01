@@ -12,22 +12,33 @@ library(metafor)
 library(posterior)
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directory:
 
 fs::dir_create("output/tables")
+
+# The primary fits:
 
 fitted_models <-
   read_rds("output/models/fitted_models.rds")
 
+# The pools behind them:
+
 model_pools <-
   read_rds("output/models/model_data.rds")
 
+# Every effect size in the pool:
+
 effect_sizes <- read_effect_size_pool()
+
+# Sample the chains in parallel:
 
 options(mc.cores = sampler_settings$cores)
 
-# The primary prior, doubled and halved on both the effect scale and the
-# variance components:
+# The primary prior, doubled and halved:
 
 sensitivity_priors <-
   list(
@@ -65,8 +76,7 @@ sensitivity_priors <-
 
 # refit helpers ------------------------------------------------------------
 
-# The families refitted under each specification. `abundance_guild` reports no
-# cell means, so it is not among them.
+# The families refitted under each specification:
 
 model_families <-
   list(
@@ -92,7 +102,7 @@ model_families <-
       pooled = FALSE
     ),
 
-    # The guilds pooled, for the practices estimable in both of them.
+    # The guilds pooled:
 
     list(
       response_metric = "abundance",
@@ -110,7 +120,7 @@ model_families <-
     )
   ) %>%
 
-  # A family whose template 3_models.R did not fit has nothing to refit from.
+  # Keep the families that were fitted:
 
   keep(
     \(.family) {
@@ -120,11 +130,7 @@ model_families <-
 
 # specifications -----------------------------------------------------------
 
-# Each specification is a set of build_pool() arguments, plus an optional
-# prior set handed to the refit.
-
-# In order: vegetation classes, data-quality flags, the prior, independence,
-# conversion routes, geography, the paper floor, unclassified records.
+# One entry per specification:
 
 specifications <-
   list(
@@ -133,8 +139,7 @@ specifications <-
       arguments = list()
     ),
 
-    # The non-grassland species the primary analysis holds out, returned to
-    # it:
+    # Return the non-grassland species:
 
     list(
       specification = "non_grassland_classes_retained",
@@ -144,7 +149,7 @@ specifications <-
         )
     ),
 
-    # Every record carrying an unresolved data-quality flag, held out:
+    # Hold out the flagged records:
 
     list(
       specification = "flagged_effects_removed",
@@ -164,8 +169,7 @@ specifications <-
       priors = sensitivity_priors$tighter_priors
     ),
 
-    # One inverse-variance weighted effect size per study and cell: what
-    # treating a study's errors as independent could cost.
+    # One effect size per study and cell:
 
     list(
       specification = "one_effect_per_study_cell",
@@ -175,8 +179,7 @@ specifications <-
         )
     ),
 
-    # Only effects from reported arm summaries, dropping the coefficient and
-    # test-statistic routes.
+    # Arm summaries only:
 
     list(
       specification = "group_means_only",
@@ -186,8 +189,7 @@ specifications <-
         )
     ),
 
-    # Only the Great Plains holds enough of the pool to refit on its own, so
-    # the other regions are read by dropping them instead.
+    # One region at a time:
 
     list(
       specification = "great_plains_only",
@@ -218,7 +220,7 @@ specifications <-
         )
     ),
 
-    # The three-paper floor, one paper either side of it:
+    # The floor, one paper either side:
 
     list(
       specification = "paper_floor_two",
@@ -235,8 +237,7 @@ specifications <-
         )
     ),
 
-    # The pooled model reads species-level records with no grassland class;
-    # this restricts it to the records a guild names.
+    # Restrict the pool to guild records:
 
     list(
       specification = "guild_assigned_only",
@@ -252,9 +253,13 @@ specifications <-
 partial_estimates_file <-
   "output/tables/sensitivity_estimates_partial.csv"
 
+# Clear any partial file:
+
 if (fs::file_exists(partial_estimates_file)) {
   fs::file_delete(partial_estimates_file)
 }
+
+# Every specification refitted over every family:
 
 sensitivity_estimates <-
   model_families %>%
@@ -294,11 +299,15 @@ sensitivity_estimates <-
 
 guild_bmp_columns <- c("guild", "bmp")
 
+# Families estimating a cell mean:
+
 outlier_families <-
   model_families %>%
   keep(
     ~ .x$cell_variable %in% c("guild_bmp", "bmp")
   )
+
+# Refit each family without its outliers:
 
 outlier_results <-
   outlier_families %>%
@@ -334,7 +343,7 @@ outlier_results <-
         )
       per_cell <-
         flagged %>%
-        summarise(
+        summarize(
           k = n(),
           n_outliers = sum(is_outlier),
           n_untestable = sum(is.na(studentized_residual)),
@@ -347,8 +356,7 @@ outlier_results <-
           .before = 1
         )
 
-      # One row per effect, so a flagged effect can be traced back to its
-      # paper and checked rather than only counted.
+      # One row per flagged effect:
 
       per_effect <-
         flagged %>%
@@ -381,6 +389,8 @@ outlier_results <-
     }
   )
 
+# What each cell lost, worst first:
+
 outliers_removed_per_cell <-
   outlier_results %>%
   map("per_cell") %>%
@@ -389,10 +399,14 @@ outliers_removed_per_cell <-
     desc(percent_removed)
   )
 
+# Write it:
+
 outliers_removed_per_cell %>%
   write_output_table(
     file_name = "sensitivity_outliers_per_cell.csv"
   )
+
+# And which effect sizes those were:
 
 outliers_removed_per_effect <-
   outlier_results %>%
@@ -404,10 +418,14 @@ outliers_removed_per_effect <-
     )
   )
 
+# Write it:
+
 outliers_removed_per_effect %>%
   write_output_table(
     file_name = "sensitivity_outliers_per_effect.csv"
   )
+
+# Carry them in beside the rest:
 
 sensitivity_estimates <-
   bind_rows(
@@ -419,11 +437,7 @@ sensitivity_estimates <-
 
 # influential studies ------------------------------------------------------
 
-# For every primary cell whose interval excludes zero: drop the study with
-# the largest absolute studentized deleted residual and refit.
-
-# A headline finding that cannot survive the loss of one study is reported
-# as such.
+# Leave one study out of each clear cell:
 
 primary_clear_cells <-
   sensitivity_estimates %>%
@@ -431,6 +445,8 @@ primary_clear_cells <-
     specification == "primary",
     excludes_zero
   )
+
+# Refit each clear cell:
 
 influence_estimates <-
   model_families %>%
@@ -471,7 +487,7 @@ influence_estimates <-
                     sei = sei
                   )
               ) %>%
-              summarise(
+              summarize(
                 influence =
                   max(
                     abs(studentized_residual),
@@ -509,10 +525,14 @@ influence_estimates <-
   ) %>%
   list_rbind()
 
+# Write it:
+
 influence_estimates %>%
   write_output_table(
     file_name = "sensitivity_influence.csv"
   )
+
+# Carry them in beside the rest:
 
 sensitivity_estimates <-
   bind_rows(
@@ -521,6 +541,8 @@ sensitivity_estimates <-
       select(!removed_study)
   )
 
+# Every specification, in one table:
+
 sensitivity_estimates %>%
   write_output_table(
     file_name = "sensitivity_estimates.csv"
@@ -528,7 +550,7 @@ sensitivity_estimates %>%
 
 # summary ------------------------------------------------------------------
 
-# Columns identifying one cell across specifications.
+# Columns identifying one cell:
 
 cell_keys <-
   c(
@@ -538,6 +560,8 @@ cell_keys <-
     "bmp"
   )
 
+# The primary estimate to compare against:
+
 primary_estimates <-
   sensitivity_estimates %>%
   filter(specification == "primary") %>%
@@ -546,6 +570,8 @@ primary_estimates <-
     primary_estimate = estimate,
     primary_excludes_zero = excludes_zero
   )
+
+# One row per cell and specification:
 
 sensitivity_summary <-
   sensitivity_estimates %>%
@@ -568,13 +594,14 @@ sensitivity_summary <-
     )
   )
 
+# Write it:
+
 sensitivity_summary %>%
   write_output_table(
     file_name = "sensitivity_summary.csv"
   )
 
-# The cells whose conclusion changed, so the page can name them. Gaining
-# precision leaves the primary reading intact; a flipped sign contradicts it.
+# The cells whose conclusion changed:
 
 conclusion_changes <-
   sensitivity_summary %>%
@@ -582,7 +609,10 @@ conclusion_changes <-
   mutate(
     change_type =
       case_when(
-        excludes_zero & sign(estimate) != sign(primary_estimate) ~ "Reversed",
+        excludes_zero &
+          sign(estimate) !=
+          sign(primary_estimate) ~
+          "Reversed",
         excludes_zero ~ "Gained",
         .default = "Lost"
       )
@@ -602,13 +632,14 @@ conclusion_changes <-
     )
   )
 
+# Write it:
+
 conclusion_changes %>%
   write_output_table(
     file_name = "sensitivity_conclusion_changes.csv"
   )
 
-# The records the data-quality specification holds out, copied beside the other
-# sensitivity tables:
+# The records the data-quality screen holds out:
 
 flagged_effects_listed <-
   if (fs::file_exists("data/flagged_effects.csv")) {
@@ -621,14 +652,18 @@ flagged_effects_listed <-
     tibble()
   }
 
+# Write it:
+
 flagged_effects_listed %>%
   write_output_table(
     file_name = "sensitivity_flagged_effects.csv"
   )
 
+# The counts the results page quotes:
+
 sensitivity_digest <-
   sensitivity_summary %>%
-  summarise(
+  summarize(
     n_cells = n(),
     n_new_cells = sum(is_new_cell),
     n_conclusions_changed = sum(conclusion_changed),
@@ -650,6 +685,8 @@ sensitivity_digest <-
     desc(n_conclusions_changed)
   )
 
+# Write it:
+
 sensitivity_digest %>%
   write_output_table(
     file_name = "sensitivity_digest.csv"
@@ -657,8 +694,7 @@ sensitivity_digest %>%
 
 # publication bias ---------------------------------------------------------
 
-# One test per guild, since a test spanning both would carry a study twice.
-# Richness has no guild, and is one test.
+# One test per guild, and one for richness:
 
 publication_bias <-
   list(
@@ -694,14 +730,15 @@ publication_bias <-
   ) %>%
   list_rbind()
 
+# Write it:
+
 publication_bias %>%
   write_output_table(
     file_name = "sensitivity_publication_bias.csv"
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

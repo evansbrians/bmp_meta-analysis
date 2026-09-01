@@ -5,34 +5,35 @@
 
 # setup --------------------------------------------------------------------
 
+library(DBI)
+library(duckdb)
 library(fs)
 library(tidyverse)
 
-flow_directory <- fs::path("output/roses_diagram")
+# Project functions:
 
-fs::dir_create(flow_directory)
+source("src/functions.R")
+
+# Output directory:
+
+flow_directory <- path("output/roses_diagram")
+
+# Create it:
+
+dir_create(flow_directory)
 
 # the exclusion vocabulary -------------------------------------------------
 
-# `problem` carries one value per paper x practice record, so the stages are a
-# single pass over it in the order the review applied them.
+# Exclusion reasons, in the order applied:
 
 citation_problems <-
-  tribble(
-    ~ phase, ~ problem, ~ reason,
-    "screening", "review", "Review article, not a primary study",
-    "screening", "no_access", "Full text not obtainable",
-    "screening", "no_bmp", "No management practice evaluated",
-    "screening", "author_reviewer", "Reviewer authored the paper",
-    "eligibility", "continuous", "Continuous treatment",
-    "eligibility", "continous_no_error", "Continuous treatment",
-    "eligibility", "unusable_treatment", "Treatment contrast not comparable",
-    "eligibility", "unusable_response",
-    "Response not abundance, richness or nest success",
-    "eligibility", "no_quantitative_results", "Missing quantitative results",
-    "eligibility", "no_error", "No measure of dispersion reported",
-    "eligibility", "unknown", "Reason not recorded (review)"
+  read_csv(
+    "src/citation_problems.csv",
+    show_col_types = FALSE
   ) %>%
+
+  # Rank the reasons:
+
   mutate(
     reason_rank =
       reason %>%
@@ -40,38 +41,34 @@ citation_problems <-
       as.integer()
   )
 
-# The screen 2_screen_effects.R applies, under the names it records.
+# Screen reasons from 2_screen_effects.R:
 
 screen_reasons <-
-  tribble(
-    ~ excluded_by, ~ reason,
-    "response_flag", "Response not the one the practice targets",
-    "treatment_control_flag", "Treatment and control not comparable",
-    "response_metric", "Response outside the three analysed",
-    "diversity_index", "Diversity index, not a richness count",
-    "conversion", "No route to an effect size",
-    "duplicate_expression", "One result reported more than one way",
-    "nest_hazard_scale",
-    "Nest survival could not be transformed to the hazard scale",
-    "artificial_nest", "Artificial nest, not a species' response",
-    "unclassified_species", "Species does not fit the classification system"
+  read_csv(
+    "src/screen_reasons.csv",
+    show_col_types = FALSE
   )
 
 # read the tables ----------------------------------------------------------
 
-# The screening record, keyed on study_key x bmp:
+# Connect to the database:
 
 bmp_database <-
-  DBI::dbConnect(
-    duckdb::duckdb(),
+  dbConnect(
+    duckdb(),
     dbdir = "data/raw/bmp_meta.duckdb",
     read_only = TRUE
   )
 
+# Screening record:
+
 citations <-
-  DBI::dbReadTable(bmp_database, "study_bmp") %>%
+  dbReadTable(bmp_database, "study_bmp") %>%
   as_tibble() %>%
   rename(key = study_key) %>%
+
+  # Standardize the keys:
+
   mutate(
     across(
       c(key, problem),
@@ -83,30 +80,37 @@ citations <-
       }
     )
   ) %>%
+
+  # Add the reason and its rank:
+
   left_join(
     citation_problems,
     by = join_by(problem)
   )
 
-# The studies the extraction holds that the screening record never had.
+# Studies missing from the screening record:
 
 studies_outside_metadata <-
-  DBI::dbReadTable(bmp_database, "study") %>%
+  dbReadTable(bmp_database, "study") %>%
   as_tibble() %>%
   filter(!in_metadata) %>%
   pull(study_key) %>%
   str_to_lower()
 
-DBI::dbDisconnect(bmp_database, shutdown = TRUE)
+# Disconnect:
 
-# Every converted effect size, with its exclusion reason -- three stages read
-# off this one frame.
+dbDisconnect(bmp_database, shutdown = TRUE)
+
+# Screened effect sizes:
 
 screened_effects <-
   read_csv(
     "output/audits/screened_effects.csv",
     show_col_types = FALSE
   ) %>%
+
+  # Standardize the keys:
+
   mutate(
     key =
       key %>%
@@ -114,7 +118,7 @@ screened_effects <-
       str_squish()
   )
 
-# The cutoff is applied after the screen, so it reads last:
+# Effect sizes past the screen:
 
 effect_size_pool <-
   screened_effects %>%
@@ -123,10 +127,14 @@ effect_size_pool <-
       excluded_by == "paper_count"
   )
 
+# Effect sizes the screen removed:
+
 excluded_effects <-
   screened_effects %>%
   drop_na(excluded_by) %>%
   filter(excluded_by != "paper_count")
+
+# Grassland classes only:
 
 primary_pool <-
   effect_size_pool %>%
@@ -134,15 +142,21 @@ primary_pool <-
 
 # stages over the citation table -------------------------------------------
 
-# A record survives a stage when its reason has not yet been applied:
+# Records surviving each stage:
 
 citation_flow <-
   citation_problems %>%
+
+  # One row per stage:
+
   distinct(
     phase,
     reason,
     reason_rank
   ) %>%
+
+  # Count survivors and losses:
+
   mutate(
     surviving =
       map(
@@ -153,7 +167,7 @@ citation_flow <-
               is.na(reason_rank) |
                 reason_rank > .rank
             ) %>%
-            summarise(
+            summarize(
               records = n(),
               papers = n_distinct(key)
             )
@@ -165,19 +179,33 @@ citation_flow <-
         \(.rank) {
           citations %>%
             filter(reason_rank == .rank) %>%
-            summarise(
+            summarize(
               records_lost = n(),
               keys_lost = n_distinct(key)
             )
         }
       )
   ) %>%
-  unnest(c(surviving, lost)) %>%
+
+  # Unnest the counts:
+
+  unnest(
+    c(surviving, lost)
+  ) %>%
+
+  # Papers lost per stage:
+
   mutate(
     papers_lost =
-      lag(papers, default = n_distinct(citations$key)) - papers,
+      lag(
+        papers,
+        default = n_distinct(citations$key)
+      ) - papers,
     stage = reason
   ) %>%
+
+  # Drop the working columns:
+
   select(
     !c(
       reason,
@@ -186,30 +214,43 @@ citation_flow <-
     )
   )
 
-# The records that reach extraction, and the papers behind them.
+# Records reaching extraction:
 
 eligible_records <-
   citations %>%
-  filter(is.na(reason_rank))
+  filter(
+    is.na(reason_rank)
+  )
 
 # stages over the effect sizes ---------------------------------------------
 
-# The screen reads in descending order of what it holds out:
+# Screen reasons, largest first:
 
 screen_ranks <-
   excluded_effects %>%
+
+  # Order by records removed:
+
   count(
     excluded_by,
     sort = TRUE,
     name = "records_lost"
   ) %>%
+
+  # Add the printed wording:
+
   left_join(
     screen_reasons,
     by = join_by(excluded_by)
   ) %>%
+
+  # Number them:
+
   mutate(
     screen_rank = row_number()
   )
+
+# Add the rank to the excluded records:
 
 excluded_effects <-
   excluded_effects %>%
@@ -221,6 +262,8 @@ excluded_effects <-
       ),
     by = join_by(excluded_by)
   )
+
+# Survivors of each screen reason:
 
 screen_flow <-
   screen_ranks %>%
@@ -235,21 +278,27 @@ screen_flow <-
                 filter(screen_rank <= .rank),
               by = join_by(es_id)
             ) %>%
-            summarise(
+            summarize(
               records = n(),
               papers = n_distinct(key)
             )
         }
       )
   ) %>%
+
+  # Unnest the counts:
+
   unnest(surviving)
 
 # assemble -----------------------------------------------------------------
 
-# One row per stage, in reporting order, with the phase each belongs to.
+# Every stage, in reporting order:
 
 roses_flow_stages <-
   bind_rows(
+
+    # Records identified:
+
     tibble(
       phase = "identification",
       stage = "Records identified",
@@ -258,7 +307,13 @@ roses_flow_stages <-
       records_lost = 0,
       papers_lost = 0
     ),
+
+    # Screening and eligibility:
+
     citation_flow,
+
+    # Effect sizes extracted:
+
     tibble(
       phase = "extraction",
       stage = "Effect sizes extracted",
@@ -267,13 +322,19 @@ roses_flow_stages <-
       records_lost = 0,
       papers_lost = 0
     ),
+
+    # Effect-size screen:
+
     screen_flow %>%
       rename(stage = reason) %>%
       mutate(
         phase = "screen",
         reason = excluded_by,
         papers_lost =
-          lag(papers, default = n_distinct(screened_effects$key)) - papers
+          lag(
+            papers,
+            default = n_distinct(screened_effects$key)
+          ) - papers
       ) %>%
       select(
         !c(
@@ -281,6 +342,9 @@ roses_flow_stages <-
           screen_rank
         )
       ),
+
+    # Effect sizes retained:
+
     tibble(
       phase = "screen",
       stage = "Effect sizes retained",
@@ -289,8 +353,11 @@ roses_flow_stages <-
       records_lost = 0,
       papers_lost = 0
     ),
+
+    # Grassland classes only:
+
     primary_pool %>%
-      summarise(
+      summarize(
         phase = "analysis",
         stage = "Grassland classes only",
         reason =
@@ -303,22 +370,29 @@ roses_flow_stages <-
         records_lost = nrow(effect_size_pool) - n(),
         papers_lost = n_distinct(effect_size_pool$key) - n_distinct(key)
       ),
+
+    # Three-paper cutoff:
+
     primary_pool %>%
-      filter(is.na(excluded_by)) %>%
-      summarise(
+      filter(
+        is.na(excluded_by)
+      ) %>%
+      summarize(
         phase = "cutoff",
         stage = "Cells of three or more papers",
         reason =
           str_c(
-            "Fewer than three papers across the guilds for that practice ",
-            "and response, or in the guild cell with no pooled cell to ",
-            "carry the record"
+            "Fewer than three papers across the guilds for that ",
+            "practice and response"
           ),
         records = n(),
         papers = n_distinct(key),
         records_lost = nrow(primary_pool) - n(),
         papers_lost = n_distinct(primary_pool$key) - n_distinct(key)
       ),
+
+    # Modeling pools:
+
     read_csv(
       "output/audits/analysis_pool_summary.csv",
       show_col_types = FALSE
@@ -342,22 +416,29 @@ roses_flow_stages <-
         papers_lost
       )
   ) %>%
+
+  # Lead with the stage:
+
   relocate(
     phase,
     stage,
     reason
   )
 
-# Where the citation table and the extraction disagree:
+# Eligible but never extracted:
 
 records_never_extracted <-
   eligible_records %>%
   filter(!key %in% screened_effects$key)
 
+# Extracted despite a problem:
+
 papers_with_a_problem <-
   screened_effects$key %>%
   setdiff(eligible_records$key) %>%
   setdiff(studies_outside_metadata)
+
+# Extracted without a record:
 
 papers_outside_metadata <-
   intersect(
@@ -365,13 +446,7 @@ papers_outside_metadata <-
     studies_outside_metadata
   )
 
-extracted_records <-
-  function(.papers) {
-    screened_effects %>%
-      filter(key %in% .papers) %>%
-      distinct(key, bmp) %>%
-      nrow()
-  }
+# Count each disagreement:
 
 roses_flow_reconciliation <-
   tibble(
@@ -387,17 +462,25 @@ roses_flow_reconciliation <-
     not_in_analysis_records = nrow(records_never_extracted),
     extracted_despite_problem = length(papers_with_a_problem),
     extracted_despite_problem_records =
-      extracted_records(papers_with_a_problem),
+      extracted_records(
+        .effects = screened_effects,
+        .papers = papers_with_a_problem
+      ),
     extracted_outside_metadata = length(papers_outside_metadata),
     extracted_outside_metadata_records =
-      extracted_records(papers_outside_metadata)
+      extracted_records(
+        .effects = screened_effects,
+        .papers = papers_outside_metadata
+      )
   )
 
 # write --------------------------------------------------------------------
 
+# One row per stage:
+
 roses_flow_stages %>%
   write_csv(
-    fs::path(
+    path(
       flow_directory,
       "roses_flow_stages",
       ext = "csv"
@@ -405,9 +488,11 @@ roses_flow_stages %>%
     na = ""
   )
 
+# Reconciliation:
+
 roses_flow_reconciliation %>%
   write_csv(
-    fs::path(
+    path(
       flow_directory,
       "roses_flow_reconciliation",
       ext = "csv"
@@ -415,8 +500,8 @@ roses_flow_reconciliation %>%
     na = ""
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything is on disk above, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

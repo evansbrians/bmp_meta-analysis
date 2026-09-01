@@ -8,26 +8,23 @@
 
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Where the database is written:
 
 database_path <- "data/raw/bmp_meta.duckdb"
 
-# One entry per extraction sheet. `prefix` fixes the effect_id namespace, so
-# these codes are as load-bearing as the file names beside them.
-
-# Eligibility requires a categorical treatment and response, so the two
-# gradient sheets are out of scope and no longer extracted.
+# One row per extraction sheet:
 
 extraction_sheets <-
-  tribble(
-    ~ source_sheet, ~ prefix, ~ extraction_type, ~ design,
-    "mean_diff", "md", "mean_difference", "categorical",
-    "beta_categorical", "bc", "coefficient", "categorical",
-    "other_categorical", "tc", "test_statistic", "categorical"
+  read_csv(
+    "src/extraction_sheets.csv",
+    show_col_types = FALSE
   )
 
-# The two arm conventions in the sheets. Renaming to one of them here is what
-# lets effect_arm be built by suffix rather than by sheet.
+# One arm naming convention:
 
 arm_column_names <-
   c(
@@ -46,8 +43,7 @@ arm_column_names <-
 paper_metadata <-
   read_csv("data/processed/paper_metadata.csv", show_col_types = FALSE)
 
-# The practice split in 2_clean_extraction_gsheet.R makes one effect several
-# rows, so grouping on everything but the practice recovers the observation.
+# Recover one row per effect:
 
 extraction <-
   extraction_sheets %>%
@@ -55,7 +51,9 @@ extraction <-
     \(source_sheet, prefix, extraction_type, design) {
       fs::path("data/processed/cleaned_data", source_sheet, ext = "csv") %>%
         read_csv(show_col_types = FALSE) %>%
-        rename(any_of(arm_column_names)) %>%
+        rename(
+          any_of(arm_column_names)
+        ) %>%
         mutate(
           source_row = row_number(),
           source_sheet = source_sheet,
@@ -63,7 +61,9 @@ extraction <-
           design = design
         ) %>%
         group_by(
-          pick(!c(bmp, source_row))
+          pick(
+            !c(bmp, source_row)
+          )
         ) %>%
         mutate(
           source_row = min(source_row)
@@ -83,8 +83,7 @@ extraction <-
   ) %>%
   list_rbind()
 
-# Every column outside the practice is constant within an effect, so the first
-# row of each is the whole observation.
+# Take the first row of each:
 
 extraction_effects <-
   extraction %>%
@@ -95,17 +94,18 @@ extraction_effects <-
 
 # study --------------------------------------------------------------------
 
-# A key names one paper, so two papers sharing one would load as a single
-# study. duckdb catches it, but not legibly, so it is named here first.
+# Keys naming more than one paper:
 
 colliding_keys <-
   paper_metadata %>%
   distinct(key, paper) %>%
   filter(n() > 1, .by = key) %>%
-  summarise(
+  summarize(
     papers = str_flatten_comma(paper),
     .by = key
   )
+
+# Stop if any were found:
 
 if (nrow(colliding_keys) > 0) {
   cli::cli_abort(
@@ -119,8 +119,7 @@ if (nrow(colliding_keys) > 0) {
   )
 }
 
-# A study reaches the extraction without a metadata row, so the two sources are
-# unioned and `in_metadata` records which side each key came from.
+# Union the metadata and extraction keys:
 
 study <-
   paper_metadata %>%
@@ -140,6 +139,8 @@ study <-
     in_metadata = study_key %in% paper_metadata$key
   )
 
+# One row per study and place:
+
 study_place <-
   paper_metadata %>%
   distinct(
@@ -148,7 +149,11 @@ study_place <-
     geography_type,
     continent
   ) %>%
-  filter(!is.na(geography))
+  filter(
+    !is.na(geography)
+  )
+
+# One row per study and practice:
 
 study_bmp <-
   paper_metadata %>%
@@ -160,7 +165,11 @@ study_bmp <-
     problem,
     additional_notes
   ) %>%
-  filter(!is.na(bmp))
+  filter(
+    !is.na(bmp)
+  )
+
+# One row per study, practice and response:
 
 study_bmp_response <-
   paper_metadata %>%
@@ -182,8 +191,7 @@ study_bmp_response <-
 
 # species ------------------------------------------------------------------
 
-# The union keeps the key: a species the extraction uses but the frame has yet
-# to classify joins in here rather than breaking the effect table.
+# One row per species, classified or not:
 
 species <-
   read_csv(
@@ -199,7 +207,9 @@ species <-
   full_join(
     extraction_effects %>%
       distinct(species) %>%
-      filter(!is.na(species)),
+      filter(
+        !is.na(species)
+      ),
     by = join_by(species)
   )
 
@@ -240,16 +250,19 @@ effect <-
     notes
   )
 
+# One row per effect size and practice:
+
 effect_bmp <-
   extraction %>%
   distinct(
     effect_id,
     bmp
   ) %>%
-  filter(!is.na(bmp))
+  filter(
+    !is.na(bmp)
+  )
 
-# Arm is a variable, not a set of column suffixes. Stripping the suffix off the
-# selected columns is the whole reshape.
+# One row per effect size and arm:
 
 effect_arm <-
   c(
@@ -265,7 +278,9 @@ effect_arm <-
         ) %>%
         rename_with(
           \(.name) {
-            str_remove(.name, str_c(.suffix, "$"))
+            str_remove(
+              .name, str_c(.suffix, "$")
+            )
           }
         ) %>%
         mutate(
@@ -293,13 +308,14 @@ effect_arm <-
     .after = effect_id
   )
 
-# Which statistic was reported is a value, so a coefficient and a test statistic
-# are two rows of one table rather than two tables.
+# One row per reported statistic:
 
 effect_estimate <-
   bind_rows(
     extraction_effects %>%
-      filter(!is.na(beta)) %>%
+      filter(
+        !is.na(beta)
+      ) %>%
       select(
         effect_id,
         statistic_value = beta,
@@ -313,7 +329,9 @@ effect_estimate <-
         statistic_type = "beta"
       ),
     extraction_effects %>%
-      filter(!is.na(test_stat_value)) %>%
+      filter(
+        !is.na(test_stat_value)
+      ) %>%
       select(
         effect_id,
         statistic_type = test_statistic,
@@ -334,15 +352,13 @@ effect_estimate <-
 
 # write --------------------------------------------------------------------
 
-# A run that errors leaves the database open, and duckdb hands an already-open
-# instance back to the next connection, so any instance is shut down first.
+# Shut down any open instance:
 
 duckdb::duckdb_shutdown(
   duckdb::duckdb(dbdir = database_path)
 )
 
-# The build is not incremental, so the file and its write-ahead log are removed
-# rather than opened: a rebuild cannot inherit a stale table.
+# Remove the database and its log:
 
 c(
   database_path,
@@ -351,13 +367,14 @@ c(
   keep(fs::file_exists) %>%
   fs::file_delete()
 
+# Create the database:
+
 database <-
   DBI::dbConnect(
     duckdb::duckdb(dbdir = database_path)
   )
 
-# Comments are stripped per line before the file is split, so a `--` cannot
-# swallow the statement it sits above.
+# Strip comments, then split on the semicolons:
 
 "scripts/2_process_data/schema.sql" %>%
   read_lines() %>%
@@ -375,8 +392,7 @@ database <-
     }
   )
 
-# Load order is dependency order: a table is appended only after every table it
-# references.
+# Append in dependency order:
 
 list(
   bmp = bmp_vocabulary,
@@ -396,11 +412,12 @@ list(
     }
   )
 
+# Close the database:
+
 DBI::dbDisconnect(database, shutdown = TRUE)
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

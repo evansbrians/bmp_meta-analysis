@@ -9,143 +9,64 @@ library(fs)
 library(glue)
 library(tidyverse)
 
+# Project functions:
+
+source("src/functions.R")
+
+# Diagram directory:
+
 flow_directory <- path("output/roses_diagram")
 
-flow_stages <-
+# Counting unit per phase:
+
+phase_units <-
   read_csv(
-    path(flow_directory, "roses_flow_stages", ext = "csv"),
+    "src/phase_units.csv",
     show_col_types = FALSE
   )
 
+# Stage counts, with their unit:
+
+flow_stages <-
+  read_csv(
+    path(
+      flow_directory,
+      "roses_flow_stages",
+      ext = "csv"
+    ),
+    show_col_types = FALSE
+  ) %>%
+  left_join(
+    phase_units,
+    by = join_by(phase)
+  )
+
+# Reconciliation counts:
+
 flow_reconciliation <-
   read_csv(
-    path(flow_directory, "roses_flow_reconciliation", ext = "csv"),
+    path(
+      flow_directory,
+      "roses_flow_reconciliation",
+      ext = "csv"
+    ),
     show_col_types = FALSE
   )
 
 # labels -------------------------------------------------------------------
 
-# A box is a bold heading over a body, carried apart and drawn apart:
-
-# A body is one row per line: `count` is the records-and-papers pair in its own
-# column, `text` what sits beside it, `indent` which column the line starts in.
-
-thousands <-
-  function(.count) {
-    format(
-      .count,
-      big.mark = ",",
-      trim = TRUE
-    )
-  }
-
-body_line <-
-  function(
-    .text,
-    .count = "",
-    .indent = FALSE) {
-    tibble(
-      count = .count,
-      text = as.character(.text),
-      indent = .indent
-    )
-  }
-
-# The reason column is narrower than the box:
-
-reason_width <- 42
-
-# One row per wrapped line, with the count against the first of them.
-
-reason_lines <-
-  function(
-    .reason,
-    .count) {
-    tibble(
-      id = seq_along(.reason),
-      count = .count,
-      text =
-        str_wrap(
-          .reason,
-          width = reason_width
-        )
-    ) %>%
-      separate_longer_delim(text, delim = "\n") %>%
-      mutate(
-        count =
-          if_else(row_number() == 1, count, ""),
-        indent = TRUE,
-        .by = id
-      ) %>%
-      select(count, text, indent)
-  }
+# Survivors per phase:
 
 survivors <-
   flow_stages %>%
-  summarise(
+  summarize(
     records = last(records),
     papers = last(papers),
+    unit = last(unit),
     .by = phase
   )
 
-retained_body <-
-  function(.phase, .unit) {
-    counts <-
-      survivors %>%
-      filter(phase == .phase)
-    body_line(
-      glue(
-        "{thousands(counts$records)} {.unit}",
-        "   |   {thousands(counts$papers)} papers"
-      )
-    )
-  }
-
-# A step is drawn only if it moved something:
-
-lost_stages <-
-  function(.phase) {
-    flow_stages %>%
-      filter(
-        phase == .phase,
-        records_lost > 0 |
-          papers_lost > 0
-      )
-  }
-
-# An exclusion box leads with what the phase lost in total, then one line
-# per reason with its own records and papers against it.
-
-excluded_body <-
-  function(.phase, .unit) {
-    lost <-
-      lost_stages(.phase)
-    if (nrow(lost) == 0) {
-      return(body_line(character()))
-    }
-    bind_rows(
-      body_line(
-        glue_data(
-          lost,
-          "{thousands(sum(records_lost))} {.unit}",
-          "   |   {thousands(sum(papers_lost))} papers"
-        ) %>%
-          first()
-      ),
-      body_line(""),
-      reason_lines(
-        .reason = lost$stage,
-        .count =
-          str_c(
-            lost$records_lost,
-            " | ",
-            lost$papers_lost
-          )
-      )
-    )
-  }
-
-# The one box whose counts come from the reconciliation rather than a stage:
+# Lines for the not-extracted box:
 
 not_extracted_lines <-
   tibble(
@@ -173,6 +94,8 @@ not_extracted_lines <-
       papers > 0
   )
 
+# The box, dropped when empty:
+
 not_extracted_body <-
   if (nrow(not_extracted_lines) == 0) {
     body_line(character())
@@ -189,87 +112,60 @@ not_extracted_body <-
       reason_lines(
         .reason = not_extracted_lines$reason,
         .count =
-          str_c(
+          count_pair(
             not_extracted_lines$records,
-            " | ",
             not_extracted_lines$papers
           )
       )
     )
   }
 
-# These phases name what they kept, so their exclusions read off `reason`:
+# Pool names, in reporting order:
 
-kept_phase_body <-
-  function(.phase) {
-    kept <-
-      lost_stages(.phase)
-    if (nrow(kept) == 0) {
-      return(body_line(character()))
-    }
-    bind_rows(
-      body_line(
-        glue_data(
-          kept,
-          "{records_lost} effect sizes   |   {papers_lost} papers"
-        )
-      ),
-      body_line(""),
-      body_line(
-        kept$reason %>%
-          str_wrap(width = reason_width + 4) %>%
-          str_split("\n") %>%
-          list_c()
-      )
-    )
-  }
+pool_labels <-
+  read_csv(
+    "src/pool_labels.csv",
+    show_col_types = FALSE
+  )
 
-# The pools as the results name them, response first and guild before pooled.
-# `abundance_guild` reports no cell means, so it is left out.
+# Each pool's counts, in that order:
+
+pool_counts <-
+  pool_labels %>%
+  left_join(
+    flow_stages,
+    by = join_by(stage)
+  ) %>%
+
+  # Keep the pools that were fitted:
+
+  drop_na(records)
+
+# The total, then one line per pool:
 
 models_body <-
-  flow_stages %>%
-  filter(
-    phase == "models",
-    stage != "abundance_guild",
-    records > 0 |
-      papers > 0
-  ) %>%
-  mutate(
-    pool =
-      stage %>%
-      str_remove("_bmp$") %>%
-      fct_relevel(
-        "richness",
-        "abundance_guild",
-        "abundance_pooled",
-        "nest_success_guild",
-        "nest_success_pooled"
-      ),
-    label =
-      pool %>%
-      as.character() %>%
-      str_replace_all("_", " ") %>%
-      str_to_title()
-  ) %>%
-  arrange(pool) %>%
-  mutate(
-    entry =
-      glue(
-        "{label}: {thousands(records)} effect sizes, {papers} studies"
-      )
-  ) %>%
-  pull(entry) %>%
-  body_line()
-
+  bind_rows(
+    retained_body(survivors, "cutoff"),
+    body_line(""),
+    reason_lines(
+      .reason = pool_counts$pool_label,
+      .count =
+        count_pair(
+          pool_counts$records,
+          pool_counts$papers
+        )
+    )
+  )
 
 # nodes and edges ----------------------------------------------------------
 
-# `row` places a stage down the page; `group` puts it in the spine of
-# retained counts or in the column of what left at that stage.
+# Box rows and columns:
 
 flow_nodes <-
   bind_rows(
+
+    # Retained boxes:
+
     tibble(
       name =
         c(
@@ -308,16 +204,19 @@ flow_nodes <-
         ),
       body =
         list(
-          retained_body("identification", "practice records"),
-          retained_body("screening", "practice records"),
-          retained_body("eligibility", "practice records"),
-          retained_body("extraction", "effect sizes"),
-          retained_body("screen", "effect sizes"),
-          retained_body("analysis", "effect sizes"),
-          retained_body("cutoff", "effect sizes"),
+          retained_body(survivors, "identification"),
+          retained_body(survivors, "screening"),
+          retained_body(survivors, "eligibility"),
+          retained_body(survivors, "extraction"),
+          retained_body(survivors, "screen"),
+          retained_body(survivors, "analysis"),
+          retained_body(survivors, "cutoff"),
           models_body
         )
     ),
+
+    # Excluded boxes:
+
     tibble(
       name =
         c(
@@ -342,21 +241,23 @@ flow_nodes <-
         ),
       body =
         list(
-          excluded_body("screening", "practice records"),
-          excluded_body("eligibility", "practice records"),
+          excluded_body(flow_stages, "screening"),
+          excluded_body(flow_stages, "eligibility"),
           not_extracted_body,
-          excluded_body("screen", "effect sizes"),
-          kept_phase_body("analysis"),
-          kept_phase_body("cutoff")
+          excluded_body(flow_stages, "screen"),
+          kept_phase_body(flow_stages, "analysis"),
+          kept_phase_body(flow_stages, "cutoff")
         )
     )
   )
 
-# A box whose body came back empty lost nothing, so it is dropped and the rows
-# close up behind it.
+# Drop the boxes that lost nothing:
 
 flow_nodes <-
   flow_nodes %>%
+
+  # Body length:
+
   mutate(
     body_lines =
       map_int(
@@ -366,6 +267,9 @@ flow_nodes <-
         }
       )
   ) %>%
+
+  # Drop them and close the rows:
+
   filter(body_lines > 0) %>%
   mutate(
     row = dense_rank(row)
@@ -373,25 +277,20 @@ flow_nodes <-
 
 # place the boxes ----------------------------------------------------------
 
-# One y unit is one line of text, so a box's height is its title, the gap
-# below it, its body and its padding. Rows stack by a cumulative sum.
+# Box heights, in lines of text:
 
 box_padding <- 0.45
-
 title_gap <- 0.5
-
 row_gap <- 1.3
 
-# The x axis is inches on the page, so a column is exactly as wide as the
-# text it has to hold, whatever the font size.
+# Column edges, in inches:
 
 chart_width <- 11.5
-
 band_edges <- c(0.09, 1.83)
-
 spine_edges <- c(1.97, 6.62)
-
 excluded_edges <- c(6.92, 11.41)
+
+# Height and column of each box:
 
 box_heights <-
   flow_nodes %>%
@@ -399,14 +298,24 @@ box_heights <-
     height =
       1 + title_gap + body_lines + 2 * box_padding,
     xmin =
-      if_else(group == "Retained", spine_edges[1], excluded_edges[1]),
+      if_else(
+        group == "Retained",
+        spine_edges[1],
+        excluded_edges[1]
+      ),
     xmax =
-      if_else(group == "Retained", spine_edges[2], excluded_edges[2])
+      if_else(
+        group == "Retained",
+        spine_edges[2],
+        excluded_edges[2]
+      )
   )
+
+# Row positions:
 
 row_positions <-
   box_heights %>%
-  summarise(
+  summarize(
     row_height = max(height),
     .by = row
   ) %>%
@@ -419,6 +328,8 @@ row_positions <-
       ),
     ymin = ymax - row_height
   )
+
+# Place the boxes and their text:
 
 placed_nodes <-
   box_heights %>%
@@ -437,12 +348,12 @@ placed_nodes <-
     y_body = ymax - box_padding - 1 - title_gap
   )
 
-# One y unit is one line, so a line sits at its index below the top of the
-# body and its counts get a column of their own.
+# Body text columns:
 
 count_column <- 0.62
-
 count_gap <- 0.16
+
+# One row per line of body text:
 
 body_text <-
   placed_nodes %>%
@@ -464,7 +375,7 @@ body_text <-
     .by = name
   )
 
-# The band boxes are as tall as the row they name, so they read as a column.
+# Band boxes, one per row:
 
 band_boxes <-
   placed_nodes %>%
@@ -493,34 +404,7 @@ band_boxes <-
 
 # rounded boxes ------------------------------------------------------------
 
-# geom_rect has square corners, so the outline is four arcs drawn as a polygon.
-# The radii differ because a y unit is not an x unit.
-
-corner_x <- 0.071
-
-corner_y <- 0.34
-
-box_outline <-
-  function(name, xmin, xmax, ymin, ymax, ...) {
-    arc <- seq(0, pi / 2, length.out = 8)
-    tibble(
-      name = name,
-      x =
-        c(
-          xmax - corner_x + corner_x * cos(arc),
-          xmin + corner_x - corner_x * sin(arc),
-          xmin + corner_x - corner_x * cos(arc),
-          xmax - corner_x + corner_x * sin(arc)
-        ),
-      y =
-        c(
-          ymax - corner_y + corner_y * sin(arc),
-          ymax - corner_y + corner_y * cos(arc),
-          ymin + corner_y - corner_y * sin(arc),
-          ymin + corner_y - corner_y * cos(arc)
-        )
-    )
-  }
+# Every box to outline:
 
 box_frames <-
   bind_rows(
@@ -544,11 +428,43 @@ box_frames <-
       mutate(group = "Band")
   )
 
+# Corner radii:
+
+corner_x <- 0.071
+corner_y <- 0.34
+
+# Corner arc:
+
+arc <-
+  seq(
+    0,
+    pi / 2,
+    length.out = 8
+  )
+
+# Outline each box:
+
 box_shapes <-
   box_frames %>%
   pmap(
     \(name, xmin, xmax, ymin, ymax, ...) {
-      box_outline(name, xmin, xmax, ymin, ymax)
+      tibble(
+        name = name,
+        x =
+          c(
+            xmax - corner_x + corner_x * cos(arc),
+            xmin + corner_x - corner_x * sin(arc),
+            xmin + corner_x - corner_x * cos(arc),
+            xmax - corner_x + corner_x * sin(arc)
+          ),
+        y =
+          c(
+            ymax - corner_y + corner_y * sin(arc),
+            ymax - corner_y + corner_y * cos(arc),
+            ymin + corner_y - corner_y * sin(arc),
+            ymin + corner_y - corner_y * cos(arc)
+          )
+      )
     }
   ) %>%
   list_rbind() %>%
@@ -563,8 +479,7 @@ box_shapes <-
 
 # arrows -------------------------------------------------------------------
 
-# The spine arrow drops from one retained box to the next; the exclusion
-# arrow runs across from the spine at the shallower of the two boxes.
+# Spine arrows, box to box:
 
 spine_arrows <-
   placed_nodes %>%
@@ -573,7 +488,11 @@ spine_arrows <-
   mutate(
     yend = lead(ymax)
   ) %>%
-  filter(!is.na(yend))
+  filter(
+    !is.na(yend)
+  )
+
+# Exclusion arrows, spine to box:
 
 exclusion_arrows <-
   placed_nodes %>%
@@ -593,18 +512,18 @@ exclusion_arrows <-
 
 # draw ---------------------------------------------------------------------
 
-# One y unit is a line of text at 1.2 times the font size, which holds only
-# while scales and margins expand by nothing. Geom sizes are millimetres.
+# Text and page sizing:
 
 body_points <- 12.6
-
 line_inches <- body_points * 1.2 / 72
-
 heading_space <- 2.4
-
 bottom_margin <- 0.6
 
+# X limits:
+
 x_limits <- c(0, chart_width)
+
+# Y limits:
 
 y_limits <-
   c(
@@ -612,8 +531,7 @@ y_limits <-
     heading_space
   )
 
-# Every layer brings its own data, so the plot is initialized empty and each
-# geometry is mapped where it is added.
+# Every layer brings its own data:
 
 roses_chart <-
 
@@ -694,8 +612,8 @@ roses_chart <-
     color = "#2c3f4d",
     linewidth = 0.35,
     arrow =
-      grid::arrow(
-        length = grid::unit(0.3, "cm"),
+      arrow(
+        length = unit(0.3, "cm"),
         type = "closed"
       )
   ) +
@@ -711,13 +629,13 @@ roses_chart <-
     linewidth = 0.3,
     linetype = "dashed",
     arrow =
-      grid::arrow(
-        length = grid::unit(0.24, "cm"),
+      arrow(
+        length = unit(0.24, "cm"),
         type = "closed"
       )
   ) +
 
-  # Add the title and the footnote:
+  # Add the title:
 
   annotate(
     "text",
@@ -734,6 +652,7 @@ roses_chart <-
     fontface = "bold",
     color = "#12222f"
   ) +
+
   # Define scale elements:
 
   scale_fill_manual(
@@ -771,17 +690,24 @@ roses_chart <-
     plot.margin = margin(0, 0, 0, 0)
   )
 
-
 # write --------------------------------------------------------------------
+
+# Page height:
 
 chart_height <-
   line_inches * (y_limits[2] - y_limits[1])
+
+# Write the svg and png:
 
 c("svg", "png") %>%
   walk(
     \(.extension) {
       ggsave(
-        path(flow_directory, "roses_diagram", ext = .extension),
+        path(
+          flow_directory,
+          "roses_diagram",
+          ext = .extension
+        ),
         roses_chart,
         width = chart_width,
         height = chart_height,
@@ -790,8 +716,8 @@ c("svg", "png") %>%
     }
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything is on disk above, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

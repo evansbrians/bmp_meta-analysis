@@ -2,21 +2,22 @@
 # - Reads the results tables written by 3_contrasts_tables.R
 # - Builds the manuscript figures from them and the posterior draws
 
-# Every figure is one chain: the data, the aesthetic mapping, the geometries,
-# the scales, the facets, the labels, the theme.
-
-# The manuscript figures come first, numbered as the manuscript numbers them;
-# Figure 1 is the ROSES diagram. The supplemental figures follow, S1 upward.
+# Figure 1 is the ROSES diagram; supplementals run S1 upward.
 
 # setup --------------------------------------------------------------------
 
-library(brms)
 library(tidybayes)
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directory:
 
 fs::dir_create("output/figures")
+
+# Results tables:
 
 results <-
   c(
@@ -27,9 +28,14 @@ results <-
     heterogeneity = "table_heterogeneity",
     species_abundance = "table_species_abundance"
   ) %>%
-  map(read_table_output)
+  map(
+    \(.table_name) {
+      fs::path("output/tables", .table_name, ext = "csv") %>%
+        read_csv(show_col_types = FALSE)
+    }
+  )
 
-# By-guild and pooled cell means, stacked for the panelled figures.
+# Guild and pooled cell means:
 
 bmp_cells <-
   bind_rows(
@@ -37,45 +43,101 @@ bmp_cells <-
     results$pooled_bmp
   )
 
-# shared figure elements ---------------------------------------------------
+# figure labels ------------------------------------------------------------
 
-# Panels stack one per row throughout, so each panel keeps the full figure
-# width; the heights below scale with the rows a panel carries.
+# Practice labels for the y-axis:
 
-# The palette, the axis labels, the filled-point note and the sample-size
-# mapping are in functions.R, beside the labels they are built from.
+practice_labels <-
+  read_csv(
+    "src/practice_labels.csv",
+    show_col_types = FALSE
+  ) %>%
 
-# Wrapped, because a one-line version overruns a stacked figure's width.
+  # Add line breaks:
+
+  mutate(
+    bmp_label =
+      str_wrap(bmp_label, width = 30)
+  )
+
+# Hedges' g axis:
+
+effect_axis_label <- "Pooled effect size (Hedges' g, 95% credible interval)"
+
+# Log hazard ratio axis:
+
+hazard_axis_label <-
+  "Pooled effect size (log hazard ratio, 95% credible interval)"
+
+# Mixed-scale axis, for the contrast figure:
 
 mixed_scale_axis_label <-
   str_c(
-    "Effect size (Hedges' g for abundance and richness, log hazard ratio ",
+    "Effect size (Hedges' g for abundance and richness, -log hazard ratio ",
     "for nest survival; 95% credible interval)"
   ) %>%
-  wrap_label(width = 70)
+  str_wrap(width = 70)
+
+# Sample size labels, star if provisional:
+
+sample_size_label <-
+  aes(
+    x = ucl,
+    label =
+      str_c(
+        "k=",
+        k,
+        "; n=",
+        n_studies,
+        if_else(
+          meets_primary_threshold,
+          "",
+          "*",
+          missing = ""
+        )
+      )
+  )
+
+# Probability labels, at the panel edge:
+
+probability_label_mapping <-
+  aes(
+    x = Inf,
+    label = edge_label
+  )
 
 # posterior draws ----------------------------------------------------------
 
-# Each figure redraws a cell mean as its full posterior, read from the fitted
-# model rather than from the table.
+# Posterior draws:
 
-fitted_models <-
-  read_rds("output/models/fitted_models.rds")
+posterior_draws <- read_cell_draws()
 
-# The slab note, the subtitle it builds and the right-edge label mapping are
-# in functions.R, beside the notes they are built from.
-
-# Richness is assemblage-level and belongs to no guild, so it takes a neutral
-# slab rather than a palette color.
+# Neutral slab color for richness:
 
 richness_slab_color <- "#7A8595"
 
+# Richness draws:
+
 richness_draws <-
-  fitted_models %>%
-  pluck("richness_bmp") %>%
-  gather_cell_draws(term_prefix = "bmp") %>%
+  posterior_draws %>%
+
+  # Subset to richness:
+
+  filter(model == "richness_bmp") %>%
   rename(bmp = cell) %>%
-  add_posterior_bmp_label()
+
+  # Label and order the practice axis:
+
+  left_join(
+    practice_labels,
+    by = join_by(bmp)
+  ) %>%
+  mutate(
+    bmp_label =
+      fct_reorder(bmp_label, .value)
+  )
+
+# Edge labels:
 
 richness_edge_labels <-
   richness_draws %>%
@@ -85,33 +147,42 @@ richness_edge_labels <-
     join_vars = "bmp"
   )
 
-# The guild x BMP and pooled x BMP draws are read separately, because the
-# pooled model is its own figure and the two guilds share one.
+# Guild and pooled cell draws:
 
 cell_draws <-
   c(
     abundance_guild = "abundance_guild_bmp",
     abundance_pooled = "abundance_pooled_bmp",
-    nest_success_guild = "nest_success_guild_bmp",
-    nest_success_pooled = "nest_success_pooled_bmp"
-  ) %>%
-  keep(
-    \(.model_name) {
-      .model_name %in% names(fitted_models)
-    }
+    nest_success_guild = "nest_success_guild_bmp"
   ) %>%
   map(
     \(.model_name) {
-      fitted_models %>%
-        pluck(.model_name) %>%
-        gather_guild_bmp_draws() %>%
+      posterior_draws %>%
+
+        # Subset to the model:
+
+        filter(model == .model_name) %>%
+
+        rename(bmp = cell) %>%
+
+        # Name the guild panels:
+
         add_guild_label() %>%
-        add_posterior_bmp_label()
+
+        # Label and order the practice axis:
+
+        left_join(
+          practice_labels,
+          by = join_by(bmp)
+        ) %>%
+        mutate(
+          bmp_label =
+            fct_reorder(bmp_label, .value)
+        )
     }
   )
 
-# `bmp_cells` carries both responses, so the counts are cut to the pool's own
-# response before the join; the pool's name says which that is.
+# Edge labels, per pool:
 
 edge_labels <-
   cell_draws %>%
@@ -126,7 +197,12 @@ edge_labels <-
                 str_remove(.pool, "_(guild|pooled)$")
             ),
           grouping_vars =
-            c("guild", "bmp", "guild_label", "bmp_label"),
+            c(
+              "guild",
+              "bmp",
+              "guild_label",
+              "bmp_label"
+            ),
           join_vars = c("guild", "bmp")
         )
     }
@@ -187,13 +263,6 @@ figure_richness_posterior <-
 
   labs(
     title = "Species richness: posterior distribution by practice",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Community-level metric; not partitioned by guild. ",
-          posterior_slab_note
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -201,6 +270,8 @@ figure_richness_posterior <-
   # Modify the theme:
 
   theme_bmp(base_size = 12)
+
+# Write figure 2:
 
 figure_richness_posterior %>%
   write_output_figure(
@@ -273,13 +344,6 @@ figure_abundance_pooled <-
 
   labs(
     title = "Abundance: posterior distribution by practice",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Obligate and facultative grassland birds pooled. ",
-          posterior_slab_note
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -287,6 +351,8 @@ figure_abundance_pooled <-
   # Modify the theme:
 
   theme_bmp(base_size = 12)
+
+# Write figure 3:
 
 figure_abundance_pooled %>%
   write_output_figure(
@@ -297,8 +363,7 @@ figure_abundance_pooled %>%
 
 # figure 4: abundance by guild ---------------------------------------------
 
-# The two guilds read as columns of a single row, so a practice is compared
-# across guilds by looking left and right rather than up and down.
+# Guilds as side-by-side panels:
 
 figure_abundance_by_guild <-
   cell_draws %>%
@@ -370,13 +435,6 @@ figure_abundance_by_guild <-
 
   labs(
     title = "Abundance: posterior distribution by practice and guild",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Each guild estimated separately. ",
-          posterior_slab_note
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -384,6 +442,8 @@ figure_abundance_by_guild <-
   # Modify the theme:
 
   theme_bmp(base_size = 11)
+
+# Write figure 4:
 
 figure_abundance_by_guild %>%
   write_output_figure(
@@ -397,9 +457,16 @@ figure_abundance_by_guild %>%
 figure_species_richness <-
   results$species_richness %>%
 
-  # Order the practice axis by effect size:
+  # Label and order the practice axis:
 
-  add_bmp_label() %>%
+  left_join(
+    practice_labels,
+    by = join_by(bmp)
+  ) %>%
+  mutate(
+    bmp_label =
+      fct_reorder(bmp_label, estimate)
+  ) %>%
 
   # Initialize the plot with the data:
 
@@ -460,13 +527,6 @@ figure_species_richness <-
 
   labs(
     title = "Species richness",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Community-level metric; not partitioned by guild. ",
-          filled_point_note
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -474,6 +534,8 @@ figure_species_richness <-
   # Modify the theme:
 
   theme_bmp(base_size = 12)
+
+# Write figure S1:
 
 figure_species_richness %>%
   write_output_figure(
@@ -487,14 +549,24 @@ figure_species_richness %>%
 figure_abundance <-
   bmp_cells %>%
 
-  # Subset to the abundance cells:
+  # Subset to abundance:
 
   filter(response_metric == "abundance") %>%
 
-  # Order the guild panels and the practice axis:
+  # Name the guild panels:
 
   add_guild_label() %>%
-  add_bmp_label() %>%
+
+  # Label and order the practice axis:
+
+  left_join(
+    practice_labels,
+    by = join_by(bmp)
+  ) %>%
+  mutate(
+    bmp_label =
+      fct_reorder(bmp_label, estimate)
+  ) %>%
 
   # Initialize the plot with the data:
 
@@ -568,14 +640,6 @@ figure_abundance <-
 
   labs(
     title = "Abundance, by vegetation-type guild and pooled",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Each guild estimated separately, and the two guilds pooled ",
-          "in their own panel. ",
-          filled_point_note
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -583,6 +647,8 @@ figure_abundance <-
   # Modify the theme:
 
   theme_bmp(base_size = 12)
+
+# Write figure S2:
 
 figure_abundance %>%
   write_output_figure(
@@ -663,13 +729,6 @@ figure_nest_success_posterior <-
 
   labs(
     title = "Nest success: posterior distribution by practice and guild",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Each guild estimated separately. ",
-          posterior_slab_note
-        )
-      ),
     x = hazard_axis_label,
     y = NULL
   ) +
@@ -677,6 +736,8 @@ figure_nest_success_posterior <-
   # Modify the theme:
 
   theme_bmp(base_size = 11)
+
+# Write figure S3:
 
 figure_nest_success_posterior %>%
   write_output_figure(
@@ -690,14 +751,24 @@ figure_nest_success_posterior %>%
 figure_nest_success <-
   bmp_cells %>%
 
-  # Subset to the nest success cells:
+  # Subset to nest success:
 
   filter(response_metric == "nest_success") %>%
 
-  # Order the guild panels and the practice axis:
+  # Name the guild panels:
 
   add_guild_label() %>%
-  add_bmp_label() %>%
+
+  # Label and order the practice axis:
+
+  left_join(
+    practice_labels,
+    by = join_by(bmp)
+  ) %>%
+  mutate(
+    bmp_label =
+      fct_reorder(bmp_label, estimate)
+  ) %>%
 
   # Initialize the plot with the data:
 
@@ -771,14 +842,6 @@ figure_nest_success <-
 
   labs(
     title = "Nest success, by vegetation-type guild and pooled",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Each guild estimated separately, and the two guilds pooled ",
-          "in their own panel. ",
-          filled_point_note
-        )
-      ),
     x = hazard_axis_label,
     y = NULL
   ) +
@@ -786,6 +849,8 @@ figure_nest_success <-
   # Modify the theme:
 
   theme_bmp(base_size = 12)
+
+# Write figure S4:
 
 figure_nest_success %>%
   write_output_figure(
@@ -795,6 +860,8 @@ figure_nest_success %>%
   )
 
 # figure S5: guild contrasts in abundance ----------------------------------
+
+# Contrast probability labels:
 
 contrast_probability_label <-
   aes(
@@ -806,19 +873,28 @@ contrast_probability_label <-
       )
   )
 
+# Drawn only when contrasts exist:
+
 if (nrow(results$guild_contrasts) > 0) {
   figure_guild_contrasts <-
     results$guild_contrasts %>%
 
-    # Name the response each panel carries:
+    # Name the response panels:
 
     mutate(
       panel_label = format_response(response_metric)
     ) %>%
 
-    # Order the practice axis by effect size:
+    # Label and order the practice axis:
 
-    add_bmp_label() %>%
+    left_join(
+      practice_labels,
+      by = join_by(bmp)
+    ) %>%
+    mutate(
+      bmp_label =
+        fct_reorder(bmp_label, estimate)
+    ) %>%
 
     # Initialize the plot with the data:
 
@@ -887,13 +963,6 @@ if (nrow(results$guild_contrasts) > 0) {
 
     labs(
       title = "Do practices affect the two guilds differently?",
-      subtitle =
-        wrap_label(
-          str_c(
-            "Obligate minus facultative, from the joint posterior. P is the ",
-            "probability that the practice benefits obligate species more."
-          )
-        ),
       x = str_c("Difference in ", mixed_scale_axis_label),
       y = NULL
     ) +
@@ -901,6 +970,8 @@ if (nrow(results$guild_contrasts) > 0) {
     # Modify the theme:
 
     theme_bmp(base_size = 12)
+
+  # Write figure S5:
 
   figure_guild_contrasts %>%
     write_output_figure(
@@ -915,7 +986,7 @@ if (nrow(results$guild_contrasts) > 0) {
 figure_heterogeneity <-
   results$heterogeneity %>%
 
-  # Name each model panel and order the variance levels:
+  # Name the panels, order the levels:
 
   mutate(
     model_label =
@@ -980,13 +1051,6 @@ figure_heterogeneity <-
 
   labs(
     title = "Where does the heterogeneity live?",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Share of total variance by level, a multilevel generalisation of ",
-          "I-squared. A single-level model attributes all of this to one term."
-        )
-      ),
     x = "Percent of total variance (95% credible interval)",
     y = NULL
   ) +
@@ -994,6 +1058,8 @@ figure_heterogeneity <-
   # Modify the theme:
 
   theme_bmp(base_size = 11)
+
+# Write figure S6:
 
 figure_heterogeneity %>%
   write_output_figure(
@@ -1007,7 +1073,7 @@ figure_heterogeneity %>%
 figure_species <-
   results$species_abundance %>%
 
-  # Order the guild panels and the species axis:
+  # Order the panels and species axis:
 
   add_guild_label() %>%
   mutate(
@@ -1017,7 +1083,7 @@ figure_species <-
       fct_reorder(estimate)
   ) %>%
 
-  # A species resting on fewer than three effect sizes is not drawn:
+  # Drop species with fewer than three:
 
   filter(k >= 3) %>%
 
@@ -1069,13 +1135,6 @@ figure_species <-
 
   labs(
     title = "Species-level responses in abundance",
-    subtitle =
-      wrap_label(
-        str_c(
-          "Partially pooled estimates: species with few effect sizes are ",
-          "shrunk towards their guild mean rather than estimated in isolation."
-        )
-      ),
     x = effect_axis_label,
     y = NULL
   ) +
@@ -1084,6 +1143,8 @@ figure_species <-
 
   theme_bmp(base_size = 10)
 
+# Write figure S7:
+
 figure_species %>%
   write_output_figure(
     file_name = "figure_S7_species_abundance.png",
@@ -1091,9 +1152,8 @@ figure_species %>%
     height = 14
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

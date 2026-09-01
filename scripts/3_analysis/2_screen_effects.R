@@ -6,14 +6,15 @@
 #   pooled model still carries
 # - Writes the analysis pool to db_mirror and every audit to output/audits
 
-# The screen used to be written twice, here and in 0_prep_data.R, and the two
-# copies drifted. This is the only copy.
-
 # setup --------------------------------------------------------------------
 
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
+
+source("src/functions.R")
+
+# Output directories:
 
 fs::dir_create(
   c(
@@ -24,15 +25,13 @@ fs::dir_create(
 
 # screen the table ---------------------------------------------------------
 
-# One line per reason, each the negation of a test the record has to pass,
-# and a missing value fails that test. Comment one out to run without it.
+# One line per exclusion reason:
 
 screened_effects <-
   read_converted_effects() %>%
   mutate(
 
-    # A richness value is a property of an assemblage, whatever label that
-    # assemblage carries, so every richness record is community level.
+    # Richness is always community level:
 
     label_type =
       if_else(
@@ -42,8 +41,7 @@ screened_effects <-
         "species"
       ),
 
-    # Only the two grassland classes name a guild, so a species outside them
-    # is species level without one and reaches the pooled model alone.
+    # Only grassland classes name a guild:
 
     guild =
       if_else(
@@ -53,11 +51,7 @@ screened_effects <-
         NA_character_
       ),
 
-    # A treatment burned in the year of the count, or long enough ago that
-    # the response has recovered, was held out of the original analysis.
-
-    # The digit is anchored so a two-digit interval cannot match it:
-    # "16 years" is not "6 years".
+    # Flag the post-fire treatments:
 
     fire_excluded_original =
       bmp == "prescribed_fire" &
@@ -73,26 +67,22 @@ screened_effects <-
         )
       ),
 
-    # A shrubland, woodland or forest species responds to a grassland
-    # practice in its own right, so the primary analysis is without them.
+    # Flag the non-grassland classes:
 
     non_grassland_class =
       analysis_class %in% c("shrub", "woodland", "forest"),
 
-    # Every fire interval is retained. Add `!fire_excluded_original` here to
-    # apply the original post-fire rule as well.
+    # Every fire interval is retained:
 
     in_primary_pool = !non_grassland_class,
     excluded_by =
       case_when(
 
-        # An artificial nest measures predation pressure at a place, not a
-        # species' response to the practice, so it is out of scope by design.
+        # Artificial nests are out of scope:
 
         species_group == "artificial_nest" ~ "artificial_nest",
 
-        # A label the frame gives no class at all -- a name the species table
-        # has yet to reach -- supports no species-level estimate.
+        # Unclassified labels:
 
         label_type != "community" &
           is.na(analysis_class) ~ "unclassified_species",
@@ -104,53 +94,52 @@ screened_effects <-
           c("species_richness", "nest_success", "abundance") ~
           "response_metric",
 
-        # A diversity index weights a count by evenness, so it does not pool
-        # with species richness.
+        # A diversity index is not richness:
 
         response_scale == "diversity" ~ "diversity_index",
 
-        # Contrast mismatch over a mixed-guild assemblage, held out by a
-        # recorded team decision.
+        # Held out by team decision:
 
         key == "pytisvj6" ~ "study_decision",
 
-        # A nest-survival record that could not reach the hazard scale: no
-        # arm probabilities, an unusable error, or a survival outside (0, 1).
+        # Nest records off the hazard scale:
 
         response_metric == "nest_success" &
-          !replace_na(is.finite(yi) & is.finite(sei) & sei > 0, FALSE) ~
+          !replace_na(
+            is.finite(yi) &
+              is.finite(sei) &
+              sei > 0,
+            FALSE
+          ) ~
           "nest_hazard_scale",
-        !replace_na(is.finite(yi) & is.finite(sei) & sei > 0, FALSE) ~
+        !replace_na(
+          is.finite(yi) &
+            is.finite(sei) &
+            sei > 0,
+          FALSE
+        ) ~
           "conversion"
       )
   )
 
-# One result reported more than one way, say as both nest success and daily
-# survival. The preferred expression is kept and the rest held out.
+# Preferred expression of each response:
 
 response_expression_preference <-
-  tribble(
-    ~ response_metric, ~ pattern, ~ preference_rank,
-    "nest_success", "^(percent )?nest.?(success|surv)|probability of nesting",
-    1,
-    "nest_success", "dsr|daily (nest )?surv|mayfield", 2,
-    "nest_success", "fledg|successful nests", 3,
-    "nest_success", "depredat|predation", 4,
-    "abundance", "abundance", 1,
-    "abundance", "densit", 2,
-    "abundance", "territor|singing males|crowing", 3,
-    "abundance", "nest", 4,
-    "species_richness", "^(total )?species.?richness", 1,
-    "species_richness", "species per field", 2
+  read_csv(
+    "src/response_expression_preference.csv",
+    show_col_types = FALSE
   )
+
+# Keep one expression per result:
 
 duplicate_expressions <-
   screened_effects %>%
 
-  # Resolved among the records that passed everything above, so that a
-  # held-out expression cannot displace a kept one.
+  # Resolved among the records that passed:
 
-  filter(is.na(excluded_by)) %>%
+  filter(
+    is.na(excluded_by)
+  ) %>%
   bind_cols(
     split_response_var(.$response_var)
   ) %>%
@@ -186,8 +175,7 @@ duplicate_expressions <-
       )
   ) %>%
 
-  # Best-ranked row, ties broken by the smaller standard error. A group whose
-  # expressions disagree in sign is a reading to check against the paper.
+  # Best rank, then smallest standard error:
 
   mutate(
     keep_row =
@@ -200,6 +188,8 @@ duplicate_expressions <-
   ) %>%
   filter(!keep_row) %>%
   pull(es_id)
+
+# Hold out the rest:
 
 screened_effects <-
   screened_effects %>%
@@ -214,14 +204,7 @@ screened_effects <-
 
 # the paper cutoff ---------------------------------------------------------
 
-# The guild cell needs three papers of its own, and the practice and response
-# need three across the guilds.
-
-# A thin guild cell is kept for the pooled model alone, where that pooled cell
-# has three papers of its own and reads both guilds.
-
-# Counted over the records that reach the primary pool. Records outside it keep
-# their own reason and stay available to the sensitivity suite.
+# Papers behind each cell, against the cutoff:
 
 paper_floor <-
   screened_effects %>%
@@ -234,6 +217,8 @@ paper_floor <-
     es_id,
     floor_status
   )
+
+# Hold out the cells below the cutoff:
 
 screened_effects <-
   screened_effects %>%
@@ -254,10 +239,12 @@ screened_effects <-
 
 # write --------------------------------------------------------------------
 
-# The pool, without the screening columns, which are constant across it.
+# The pool, without the screening columns:
 
 screened_effects %>%
-  filter(is.na(excluded_by)) %>%
+  filter(
+    is.na(excluded_by)
+  ) %>%
   select(
     !c(
       species_include,
@@ -271,8 +258,7 @@ screened_effects %>%
 
 # audits -------------------------------------------------------------------
 
-# Every converted record with the screening columns beside it, which the
-# ROSES flow counts its stages from.
+# Every record, with its screening columns:
 
 screened_effects %>%
   write_output_table(
@@ -280,10 +266,12 @@ screened_effects %>%
     directory = "output/audits"
   )
 
-# Everything held out, whole, with the reason and the values behind it.
+# Everything held out, with its reason:
 
 screened_effects %>%
-  filter(!is.na(excluded_by)) %>%
+  filter(
+    !is.na(excluded_by)
+  ) %>%
   arrange(
     excluded_by,
     source_sheet,
@@ -294,8 +282,7 @@ screened_effects %>%
     directory = "output/audits"
   )
 
-# Every nest-survival record, its input scale, and whether it reached the
-# hazard scale.
+# Nest records and their input scale:
 
 screened_effects %>%
   filter(response_metric == "nest_success") %>%
@@ -319,8 +306,7 @@ screened_effects %>%
     directory = "output/audits"
   )
 
-# Every fire treatment the original post-fire rule holds out, so the interval
-# the pattern matched can be read off the treatment text.
+# Fire treatments the original rule held out:
 
 screened_effects %>%
   filter(fire_excluded_original) %>%
@@ -337,9 +323,8 @@ screened_effects %>%
     directory = "output/audits"
   )
 
-# clean the environment ----------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

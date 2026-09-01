@@ -9,10 +9,11 @@
 library(here)
 library(tidyverse)
 
-source("scripts/src/functions.R")
+# Project functions:
 
-# Sentinels that mean missing in the source workbook. "unknown" is not among
-# them: in the screening columns it is a real category and is kept.
+source("src/functions.R")
+
+# Sentinels that mean missing:
 
 null_tokens <-
   c(
@@ -32,12 +33,13 @@ url <-
     "1Lf3v8fU0sCCAcJ6Wj1v8GwgogjI4ve3xcMlPzLW0hnU"
   )
 
+# The sheet, with syntactic headers:
+
 paper_metadata <-
   googlesheets4::read_sheet(url) %>%
   janitor::clean_names()
 
-# Place names as this sheet records them: accents folded away, punctuation
-# dropped, snake_case:
+# Fold place names to snake_case:
 
 fix_place_names <-
   function(.place) {
@@ -54,7 +56,7 @@ paper_metadata_cleaned_fields <-
   paper_metadata %>%
   mutate(
 
-    # Character columns get squished, and the sentinels are blanked:
+    # Squish text and blank the sentinels:
 
     across(
       where(is.character),
@@ -68,7 +70,7 @@ paper_metadata_cleaned_fields <-
       }
     ),
 
-    # To lower and replace anything that's not a letter or number with "_":
+    # Lower and snake_case:
 
     across(
       any_of(
@@ -90,7 +92,7 @@ paper_metadata_cleaned_fields <-
 
 # canonical bmps ----------------------------------------------------------
 
-# Ensuring that BMP names are equivalent across the data:
+# Canonicalize the BMP names:
 
 paper_metadata_canonical_bmps <-
   paper_metadata_cleaned_fields %>%
@@ -128,19 +130,12 @@ paper_metadata_canonical_bmps <-
 # List out the continents:
 
 continent_reference <-
-  tribble(
-    ~ place, ~ place_type,
-    "africa", "continent",
-    "antarctica", "continent",
-    "asia", "continent",
-    "europe", "continent",
-    "north_america", "continent",
-    "oceania", "continent",
-    "south_america", "continent",
-    "global", "global"
+  read_csv(
+    here("src", "continent_reference.csv"),
+    show_col_types = FALSE
   )
 
-# Official country references:
+# Country reference:
 
 country_reference <-
   ISOcodes::ISO_3166_1 %>%
@@ -148,7 +143,9 @@ country_reference <-
     c(Name, Official_name, Common_name),
     values_to = "reference_name"
   ) %>%
-  filter(!is.na(reference_name)) %>%
+  filter(
+    !is.na(reference_name)
+  ) %>%
   mutate(
     place = fix_place_names(reference_name),
     place_type = "country",
@@ -156,7 +153,7 @@ country_reference <-
     .keep = "none"
   )
 
-# Official state/province reference:
+# State and province reference:
 
 state_province_reference <-
   ISOcodes::ISO_3166_2 %>%
@@ -168,34 +165,19 @@ state_province_reference <-
     .keep = "none"
   )
 
-# Some geographies require hand-entry:
+# Hand-entered geographies:
 
 geography_by_hand <-
-  tribble(
-    ~ recorded_place, ~ place, ~ place_type, ~ country_code,
+  read_csv(
+    here("src", "geography_by_hand.csv"),
+    show_col_types = FALSE
+  ) %>%
 
-    # The lower 48, recorded as a region in its own right.
+  # Drop the note column:
 
-    "conterminous_united_states", "united_states", "country", "US",
+  select(!note)
 
-    # ISO names this Saint Helena, Ascension and Tristan da Cunha.
-
-    "saint_helena_island", "saint_helena", "territory", "SH",
-
-    # Russia is Russian federation:
-
-    "russia", "russian_federation", "country", "RU",
-
-    # For names that are in more than one place:
-
-    "florida", "florida", "state", "US",
-    "maryland", "maryland", "state", "US",
-    "montana", "montana", "state", "US",
-    "georgia", "georgia", "state", "US",
-    "mexico", "mexico", "country", "MX"
-  )
-
-# Make a geography look-up table using the above:
+# Geography lookup:
 
 geography_lookup <-
   geography_by_hand %>%
@@ -219,7 +201,7 @@ geography_lookup <-
 paper_metadata_cleaned_geographies <-
   paper_metadata_canonical_bmps %>%
 
-  # Long format for non-atomic geographies:
+  # Split multi-place records:
 
   separate_longer_delim(geography, ";") %>%
   mutate(
@@ -227,14 +209,14 @@ paper_metadata_cleaned_geographies <-
     recorded_place = fix_place_names(geography)
   ) %>%
 
-  # Match with the look-up table:
+  # Match the lookup:
 
   left_join(
     geography_lookup,
     by = join_by(recorded_place)
   ) %>%
 
-  # Add names and define positions:
+  # Add names and positions:
 
   mutate(
     geography = coalesce(place, recorded_place),
@@ -260,7 +242,7 @@ paper_metadata_cleaned_geographies <-
 
 # filtering pass ----------------------------------------------------------
 
-# Ensure only BMPs from the final list are in the document:
+# Keep only the final BMPs:
 
 paper_metadata_bmp_subset <-
   paper_metadata_cleaned_geographies %>%
@@ -276,9 +258,8 @@ paper_metadata_bmp_subset %>%
     here("data/processed", "paper_metadata.csv")
   )
 
-# clean the environment ---------------------------------------------------
+# clear the environment ----------------------------------------------------
 
-# Everything this script produces is written above; the next script
-# reads it back from disk, so nothing is handed on in memory.
-
-rm(list = ls())
+rm(
+  list = ls()
+)

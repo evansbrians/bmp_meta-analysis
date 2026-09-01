@@ -11,7 +11,7 @@
 -- There are no surrogate-key registries: a controlled vocabulary is stored as
 -- its label. The one lookup table, bmp, adds no key -- it maps each practice
 -- label to the formal name the manuscript prints, and is loaded from
--- bmp_vocabulary in scripts/functions.R. Two source columns are not carried
+-- bmp_vocabulary in src/functions.R. Two source columns are not carried
 -- because they restate data already held here -- multiple_bmps restates
 -- study_bmp, and error_class restates which dispersion columns are populated.
 -- Both are checked in the prep script, not here.

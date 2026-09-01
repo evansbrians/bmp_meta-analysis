@@ -40,13 +40,13 @@ analysis_subset_papers <-
     }
   ) %>%
   list_rbind() %>%
-  summarise(
+  summarize(
     table =
       str_flatten(table, collapse = "; "),
     .by = c(key, paper, bmp)
   )
 
-# Add matches and write clip for inserting the column:
+# Add matches and write the clip:
 
 paper_metadata %>%
   select(key, paper, bmp) %>%
