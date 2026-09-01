@@ -1,4 +1,4 @@
-# A meta-analysis on the relative efficacy of best management practices recommended for grassland bird conservation
+# Meta-analysis of best management practices for grassland bird conservation on working lands
 
 This repository contains scripts, data files, and output used in a meta-analysis of the efficacy of best management practices on facultative and obligate birds in working landscapes.
 
