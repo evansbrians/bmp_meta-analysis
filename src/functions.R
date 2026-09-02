@@ -352,27 +352,27 @@ log_hazard_from_coefficient <-
         link == "log" ~ baseline * exp(beta),
         link == "identity" ~ baseline + beta
       )
-
+    
     # The delta-method gradient is taken with respect to whatever `beta`
     # moves: the linear predictor, or the survival itself.
-
+    
     gradient <-
       case_when(
         link %in% c("logistic_exposure", "logit") ~
           (1 - treatment_survival) /
-            abs(
-              log(treatment_survival)
-            ),
+          abs(
+            log(treatment_survival)
+          ),
         link == "log" ~
           1 /
-            abs(
-              log(treatment_survival)
-            ),
+          abs(
+            log(treatment_survival)
+          ),
         link == "identity" ~
           1 /
-            abs(
-              treatment_survival * log(treatment_survival)
-            )
+          abs(
+            treatment_survival * log(treatment_survival)
+          )
       )
     usable <-
       replace_na(
@@ -738,10 +738,10 @@ fit_meta_model <-
     settings = sampler_settings,
     refit_from = NULL) {
     if (!is.null(refit_from)) {
-
+      
       # A prior supplied alongside refit_from is the prior-sensitivity case
       # and triggers a recompile; passing none reuses the compiled program.
-
+      
       update_arguments <-
         list(
           object = refit_from,
@@ -756,7 +756,7 @@ fit_meta_model <-
         )
       if (
         !missing(priors) &&
-          !is.null(priors)
+        !is.null(priors)
       ) {
         update_arguments$prior <- priors
       }
@@ -1158,22 +1158,22 @@ add_species_guilds <-
         species_classified = !is.na(label_type),
         species_missing =
           !species_classified &
-            response_metric %in% guild_response_metrics
+          response_metric %in% guild_response_metrics
       )
-
+    
     unclassified <-
       guilded %>%
       filter(species_missing) %>%
       pull(species_key) %>%
       unique()
-
+    
     if (length(unclassified) > 0) {
       cli::cli_warn(
         "{length(unclassified)} species carry no analysis class, held out. \\
          Named in the unclassified-species audit."
       )
     }
-
+    
     guilded
   }
 
@@ -1414,13 +1414,13 @@ add_analysis_bmp <-
       pull(bmp) %>%
       unique() %>%
       setdiff(canonical_practices)
-
+    
     if (length(unknown) > 0) {
       cli::cli_abort(
         "Practices missing from {.var canonical_practices}: {unknown}."
       )
     }
-
+    
     .data %>%
       left_join(
         practice_analysis_groups,
@@ -1532,9 +1532,9 @@ build_guild_pool <-
     .data,
     metric) {
     .data %>%
-
+      
       # A record its guild cell cannot carry is not a guild record:
-
+      
       filter(
         response_metric == {{ metric }},
         !is.na(guild),
@@ -1564,7 +1564,7 @@ keep_pooled_rows <-
       mutate(
         names_one_species =
           !is.na(guild) |
-            species_group == "species"
+          species_group == "species"
       ) %>%
       filter(
         names_one_species |
@@ -1659,7 +1659,7 @@ count_cells <-
 format_manuscript_table <-
   function(
     .data,
-    caption) {
+    .caption) {
     formatted <-
       .data %>%
       mutate(
@@ -1688,7 +1688,6 @@ format_manuscript_table <-
       formatted %>%
       select(!excludes_zero) %>%
       flextable::flextable() %>%
-      flextable::set_caption(caption) %>%
       flextable::autofit()
     if (length(bold_rows) > 0) {
       table_object <-
@@ -1698,7 +1697,44 @@ format_manuscript_table <-
           bold = TRUE
         )
     }
-    table_object
+    table_object %>%
+      flextable::fontsize(
+        size = 10,
+        part = "body"
+      ) %>%
+      flextable::align(
+        align = "center",
+        part = "all"
+      ) %>%
+      flextable::align(
+        j = "BMP",
+        align = "left",
+        part = "all"
+      ) %>%
+      flextable::padding(
+        padding.top = 2,
+        padding.bottom = 2,
+        part = "all"
+      ) %>%
+
+      # Caption, left aligned and bound to the table:
+
+      flextable::set_caption(
+        .caption,
+        fp_p =
+          officer::fp_par(
+            padding = 3,
+            keep_with_next = TRUE
+          ),
+        align_with_table = FALSE
+      ) %>%
+
+      # Keep the whole table on one page:
+
+      flextable::paginate(
+        init = TRUE,
+        hdr_ftr = TRUE
+      )
   }
 
 # figure construction ------------------------------------------------------
@@ -1811,7 +1847,7 @@ refit_cells <-
     
     # A one-level cell factor has no design matrix to build, and a pooled
     # estimate over a single cell is not what the tables report.
-
+    
     if (n_distinct(prepared[[cell_variable]]) < 2) {
       cli::cli_warn(
         "{specification} leaves {template_name} with fewer than two cells."
@@ -2020,10 +2056,10 @@ build_pool <-
         is.finite(sei),
         sei > 0
       )
-
+    
     # A floor looser than the screen's own reads back the cells the screen
     # held out, before anything else runs.
-
+    
     if (min_papers < 3) {
       pool <-
         pool %>%
@@ -2060,10 +2096,10 @@ build_pool <-
           by = flagged_effect_columns
         )
     }
-
+    
     # The conversion-route specification: only effects computed from reported
     # arm summaries, dropping the coefficient and test-statistic routes.
-
+    
     if (group_means_only) {
       pool <-
         pool %>%
@@ -2075,10 +2111,10 @@ build_pool <-
             )
         )
     }
-
+    
     # The floor the screen applied is three papers, counted over the primary
     # pool. Another value is counted over the pool the specification builds.
-
+    
     if (min_papers != 3) {
       pool <-
         pool %>%
@@ -2089,10 +2125,10 @@ build_pool <-
           .keep = "unused"
         )
     }
-
+    
     # A species-level record without a guild still belongs to the pooled
     # stratum, so the guild requirement is the guild families' alone.
-
+    
     if (by_guild && !pooled) {
       pool <-
         pool %>%
@@ -2109,10 +2145,10 @@ build_pool <-
             !is.na(guild)
           )
       }
-
+      
       # The pooled model covers only the practices read from both guilds, so
       # every refit applies that rule before relabelling.
-
+      
       pool <-
         pool %>%
         keep_pooled_rows() %>%
@@ -2496,24 +2532,24 @@ extract_species_draws <-
       ) %>%
       pmap(
         \(species_key, guild) {
-
+          
           # The two columns to add:
-
+          
           species_column <-
             str_c(
               "r_species_key[",
               species_key,
               ",Intercept]"
             )
-
+          
           guild_column <- str_c("b_guild", guild)
-
+          
           # Skip a species the model carries no offset for:
-
+          
           if (!species_column %in% names(draws)) {
             return(NULL)
           }
-
+          
           tibble(
             model = "species_abundance",
             guild = guild,
@@ -2521,7 +2557,7 @@ extract_species_draws <-
             .draw = seq_len(nrow(draws)),
             .value =
               draws[[guild_column]] +
-                draws[[species_column]]
+              draws[[species_column]]
           )
         }
       ) %>%
@@ -2729,9 +2765,9 @@ reason_lines <-
         )
     ) %>%
       separate_longer_delim(text, delim = "\n") %>%
-
+      
       # Only the first line of a reason carries its count:
-
+      
       mutate(
         count_records =
           if_else(
@@ -2763,15 +2799,15 @@ retained_body <-
   function(
     .survivors,
     .phase) {
-
+    
     # What the phase carried forward:
-
+    
     counts <-
       .survivors %>%
       filter(phase == .phase)
-
+    
     # Records and papers on one line:
-
+    
     body_line(
       glue::glue(
         "{thousands(counts$records)} {counts$unit}",
@@ -2802,22 +2838,22 @@ excluded_body <-
   function(
     .stages,
     .phase) {
-
+    
     # What the phase removed, one row per reason:
-
+    
     lost <-
       lost_stages(.stages, .phase)
-
+    
     # A phase that removed nothing gets no box:
-
+    
     if (nrow(lost) == 0) {
       return(
         body_line(character())
       )
     }
-
+    
     # The phase total, then one line per reason:
-
+    
     bind_rows(
       body_line(
         glue::glue_data(
@@ -2844,22 +2880,22 @@ kept_phase_body <-
     .stages,
     .phase,
     .width = 42) {
-
+    
     # What the phase held out:
-
+    
     kept <-
       lost_stages(.stages, .phase)
-
+    
     # A phase that held out nothing gets no box:
-
+    
     if (nrow(kept) == 0) {
       return(
         body_line(character())
       )
     }
-
+    
     # The phase total, then the reason it gives:
-
+    
     bind_rows(
       body_line(
         glue::glue_data(
