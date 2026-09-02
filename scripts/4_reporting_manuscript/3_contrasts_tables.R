@@ -5,6 +5,8 @@
 # setup --------------------------------------------------------------------
 
 library(brms)
+library(flextable)
+library(officer)
 library(posterior)
 library(tidyverse)
 
@@ -32,18 +34,28 @@ cell_sample_sizes <-
   "output/audits/cell_sample_sizes.csv" %>%
   read_csv(show_col_types = FALSE)
 
+# Define flextable defaults:
+
+set_flextable_defaults(
+  font.family = "Times New Roman",
+  table.layout = "autofit",
+  split = FALSE,
+  caption.style = "Table Caption",
+  caption.align = "left"
+)
+
 # species richness by BMP --------------------------------------------------
 
 table_species_richness <-
   fitted_models %>%
-
+  
   # Cell means:
-
+  
   pluck("richness_bmp") %>%
   summarize_cell_means(term_prefix = "bmp") %>%
-
+  
   # Richness belongs to no guild:
-
+  
   mutate(
     response_metric = "species_richness",
     guild = NA_character_,
@@ -59,9 +71,9 @@ table_species_richness <-
     prob_positive,
     excludes_zero
   ) %>%
-
+  
   # Add sample sizes:
-
+  
   left_join(
     cell_sample_sizes %>%
       filter(response_metric == "species_richness") %>%
@@ -73,9 +85,9 @@ table_species_richness <-
       ),
     by = join_by(bmp)
   ) %>%
-
+  
   # Strongest effect first:
-
+  
   arrange(
     desc(estimate)
   )
@@ -115,17 +127,17 @@ bmp_cell_models <-
 
 table_bmp_cells <-
   bmp_cell_models %>%
-
+  
   # Cell means per model:
-
+  
   imap(
     \(.model_name, .metric) {
       fitted_models %>%
         pluck(.model_name) %>%
         summarize_cell_means(term_prefix = "guild_bmp") %>%
-
+        
         # Split the cell name:
-
+        
         separate_wider_delim(
           cell,
           delim = "__",
@@ -147,9 +159,9 @@ table_bmp_cells <-
     }
   ) %>%
   list_rbind() %>%
-
+  
   # Add sample sizes:
-
+  
   left_join(
     cell_sample_sizes,
     by =
@@ -159,17 +171,17 @@ table_bmp_cells <-
         bmp
       )
   ) %>%
-
+  
   # Strongest effect first:
-
+  
   arrange(
     response_metric,
     guild,
     desc(estimate)
   ) %>%
-
+  
   # Mark guild rows and pooled rows:
-
+  
   mutate(
     guild_scope =
       if_else(
@@ -197,21 +209,21 @@ table_pooled_bmp <-
 
 table_guild_contrasts <-
   guild_bmp_models %>%
-
+  
   # Obligate minus facultative:
-
+  
   imap(
     \(.model_name, .metric) {
-
+      
       # Model draws:
-
+      
       draws <-
         fitted_models %>%
         pluck(.model_name) %>%
         draws_tibble()
-
+      
       # Practices fitted in both guilds:
-
+      
       shared_bmps <-
         draws %>%
         names() %>%
@@ -233,18 +245,18 @@ table_guild_contrasts <-
         ) %>%
         distinct(bmp) %>%
         pull(bmp)
-
+      
       # Difference of the two guild columns:
-
+      
       shared_bmps %>%
         map(
           \(.bmp) {
             obligate_column <-
               str_c("b_guild_bmpobligate_grassland__", .bmp)
-
+            
             facultative_column <-
               str_c("b_guild_bmpfacultative_grassland__", .bmp)
-
+            
             (draws[[obligate_column]] - draws[[facultative_column]]) %>%
               summarize_draws_vector() %>%
               rename(
@@ -275,39 +287,39 @@ table_heterogeneity <-
     "abundance_pooled_bmp",
     "nest_success_pooled_bmp"
   ) %>%
-
+  
   # Only the models that were fitted:
-
+  
   keep(
     \(.model_name) {
       .model_name %in% names(fitted_models)
     }
   ) %>%
   set_names() %>%
-
+  
   # Variance shares by level:
-
+  
   imap(
     \(.model_name, .label) {
-
+      
       # The fit:
-
+      
       fit <-
         fitted_models %>%
         pluck(.model_name)
-
+      
       # Typical sampling variance:
-
+      
       sampling_weights <- 1 / fit$data$sei^2
-
+      
       typical_variance <-
         (length(sampling_weights) - 1) * sum(sampling_weights) /
         (sum(sampling_weights)^2 - sum(sampling_weights^2))
-
+      
       # Variance draws per level:
-
+      
       draws <- draws_tibble(fit)
-
+      
       variance_draws <-
         draws %>%
         names() %>%
@@ -322,16 +334,16 @@ table_heterogeneity <-
             draws[[.term]]^2
           }
         )
-
+      
       # Total variance:
-
+      
       total_variance <-
         variance_draws %>%
         reduce(`+`) +
         typical_variance
-
+      
       # Tau and its share of the total:
-
+      
       variance_draws %>%
         imap(
           \(.variance, .level) {
@@ -370,9 +382,9 @@ table_heterogeneity <-
     }
   ) %>%
   list_rbind() %>%
-
+  
   # Name the levels:
-
+  
   mutate(
     level =
       level %>%
@@ -415,36 +427,36 @@ species_guilds <-
 table_species_abundance <-
   species_draws %>%
   names() %>%
-
+  
   # Offset columns:
-
+  
   keep(
     \(.term) {
       str_starts(.term, "r_species_key\\[")
     }
   ) %>%
   set_names() %>%
-
+  
   # One row per species:
-
+  
   map(
     \(.column) {
       species_name <-
         .column %>%
         str_extract("(?<=\\[).+(?=,)")
-
+      
       species_row <-
         species_guilds %>%
         filter(species_key == species_name)
-
+      
       # Skip unplaceable columns:
-
+      
       if (nrow(species_row) != 1) {
         return(NULL)
       }
-
+      
       guild_column <- str_c("b_guild", species_row$guild)
-
+      
       (species_draws[[guild_column]] + species_draws[[.column]]) %>%
         summarize_draws_vector() %>%
         mutate(
@@ -459,9 +471,9 @@ table_species_abundance <-
     response_metric = "abundance",
     .before = species_key
   ) %>%
-
+  
   # Add sample sizes:
-
+  
   left_join(
     model_pools %>%
       pluck("abundance_guild") %>%
@@ -475,9 +487,9 @@ table_species_abundance <-
       ),
     by = join_by(species_key)
   ) %>%
-
+  
   # Strongest effect first:
-
+  
   arrange(
     guild,
     desc(estimate)
@@ -529,18 +541,167 @@ posterior_columns <-
 
 bold_note <- "Bold indicates a 95% credible interval that excludes zero."
 
-# Table 1, species richness:
+# Table S1, species richness:
 
 richness_flextable <-
   table_species_richness %>%
+  
+  # Print the practice names:
+  
+  mutate(
+    BMP = format_bmp(bmp),
+    .keep = "unused"
+  ) %>%
+  select(
+    BMP,
+    all_of(sample_size_columns),
+    all_of(posterior_columns)
+  ) %>%
+  
+  # Format and caption:
+  
+  format_manuscript_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S1"),
+        ". Pooled effect of each best management practice on species ",
+        "richness, from a Bayesian multilevel meta-analysis. Effect sizes are ",
+        "Hedges' g; positive values indicate a better conservation outcome ",
+        "under the practice. K is the number of effect sizes and Studies the ",
+        "number of independent studies contributing to each estimate. ",
+        "Bold indicates a 95% credible interval that excludes zero."
+      )
+  )
+
+# Table S2, pooled abundance:
+
+pooled_abundance_flextable <-
+  table_bmp_cells %>% 
+  filter(
+    response_metric == "abundance",
+    guild == "all_grassland",
+    guild_scope == "pooled"
+  ) %>% 
+  
+  # By-guild rows first:
+  
+  arrange(
+    desc(estimate)
+  ) %>%
+  
+  # Print the practice names:
+  
+  mutate(
+    BMP = format_bmp(bmp),
+    .keep = "unused"
+  ) %>%
+  select(
+    BMP,
+    all_of(sample_size_columns),
+    all_of(posterior_columns)
+  ) %>% 
+  
+  # Format and caption:
+  
+  format_manuscript_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S2"),
+        ". Effect of best management practices on abundance pooled across",
+        " species. Effect sizes are reported as Hedges' ",
+        as_i("g"),
+        ". Positive values indicate a better conservation outcome under the ",
+        "practice. ",
+        "Bold indicates a 95% credible interval that excludes zero. "
+      )
+  )
+
+# Table S3 abundance by guild:
+
+guild_abundance_flextable <-
+  table_bmp_cells %>% 
+  filter(
+    response_metric == "abundance",
+    guild_scope != "pooled"
+  ) %>% 
+  
+  # By-guild rows first:
+  
+  arrange(
+    guild,
+    desc(estimate)
+  ) %>%
+  
+  # Print the practice names:
+  
+  mutate(
+    BMP = format_bmp(bmp),
+    guild = 
+      guild %>% 
+      str_remove("_grassland") %>% 
+      str_to_title(),
+    .keep = "unused"
+  ) %>%
+  select(
+    Guild = guild,
+    BMP,
+    all_of(sample_size_columns),
+    all_of(posterior_columns)
+  ) %>% 
+  
+  # Format and caption:
+  
+  format_manuscript_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S3"),
+        ". Effect of best management practices on abundance by grassland ",
+        "guild. Effect sizes are reported as Hedges' ",
+        as_i("g"),
+        ". Positive values indicate a better conservation outcome under the ",
+        "practice. ",
+        "Bold indicates a 95% credible interval that excludes zero. "
+      )
+  ) %>%
+  
+  # Merge guilds:
+  
+  merge_v(j = ~ Guild) %>% 
+  hline(
+    i = ~
+      !duplicated(Guild, fromLast = TRUE),
+    border = 
+      fp_border_default(width = 0.5)
+  )
+
+# Table S4 nest success by guild:
+
+guild_nest_success_flextable <-
+  table_bmp_cells %>%
+  filter(
+    response_metric == "nest_success",
+    guild_scope != "pooled"
+  ) %>%
+
+  # Strongest effect first, within guild:
+
+  arrange(
+    guild,
+    desc(estimate)
+  ) %>%
 
   # Print the practice names:
 
   mutate(
     BMP = format_bmp(bmp),
+    guild =
+      guild %>%
+      str_remove("_grassland") %>%
+      str_to_title(),
     .keep = "unused"
   ) %>%
   select(
+    Guild = guild,
     BMP,
     all_of(sample_size_columns),
     all_of(posterior_columns)
@@ -549,72 +710,37 @@ richness_flextable <-
   # Format and caption:
 
   format_manuscript_table(
-    caption =
-      str_c(
-        "Table 1. Pooled effect of each best management practice on species ",
-        "richness, from a Bayesian multilevel meta-analysis. Effect sizes are ",
-        "Hedges' g; positive values indicate a better conservation outcome ",
-        "under the practice. K is the number of effect sizes and Studies the ",
-        "number of independent studies contributing to each estimate. ",
-        bold_note
+    .caption =
+      as_paragraph(
+        as_b("Table S4"),
+        ". Effect of best management practices on nest success by grassland ",
+        "guild. Effect sizes are reported as log hazard ratios. Positive ",
+        "values indicate a better conservation outcome under the practice. ",
+        "Bold indicates a 95% credible interval that excludes zero. "
       )
+  ) %>%
+
+  # Merge guilds:
+
+  merge_v(j = ~ Guild) %>%
+  hline(
+    i = ~
+      !duplicated(Guild, fromLast = TRUE),
+    border =
+      fp_border_default(width = 0.5)
   )
 
-# Table 2, abundance and nest success:
-
-guild_bmp_flextable <-
-  table_bmp_cells %>%
-
-  # By-guild rows first:
-
-  arrange(
-    response_metric,
-    guild_scope,
-    guild,
-    desc(estimate)
-  ) %>%
-
-  # Print the display names:
-
-  mutate(
-    Response = format_response(response_metric),
-    Guild = format_guild(guild),
-    BMP = format_bmp(bmp),
-    .keep = "unused"
-  ) %>%
-  select(
-    Response,
-    Guild,
-    BMP,
-    all_of(sample_size_columns),
-    all_of(posterior_columns)
-  ) %>%
-
-  # Format and caption:
-
-  format_manuscript_table(
-    caption =
-      str_c(
-        "Table 2. Effect of each best management practice on abundance and ",
-        "nest success, estimated separately for obligate and facultative ",
-        "grassland birds. Each is additionally estimated with the guilds ",
-        "pooled, for the practices that clear the inclusion thresholds in ",
-        "both guilds; those rows are a separate model over the same ",
-        "species-level effect sizes, not a sum of the two guild rows, and ",
-        "contain no assemblage-level record. Shrubland, woodland and forest ",
-        "species are not analyzed. Abundance effect ",
-        "sizes are ",
-        "Hedges' g and nest-survival effect sizes are log hazard ratios, so ",
-        "the two metrics are not on a common scale; positive values indicate ",
-        "a better conservation outcome under the practice in both cases. ",
-        bold_note
-      )
-  )
-
-# Table 3, guild contrasts:
+# Table S5 guild contrasts:
 
 contrasts_flextable <-
   table_guild_contrasts %>%
+
+  # Strongest effect first, within response:
+
+  arrange(
+    response_metric,
+    desc(estimate)
+  ) %>%
 
   # Print the display names:
 
@@ -632,33 +758,77 @@ contrasts_flextable <-
   # Format and caption:
 
   format_manuscript_table(
-    caption =
-      str_c(
-        "Table 3. Direct posterior contrasts between obligate and facultative ",
+    .caption =
+      as_paragraph(
+        as_b("Table S5"),
+        ". Direct posterior contrasts between obligate and facultative ",
         "grassland birds within each practice, on the scale of the metric ",
-        "concerned: Hedges' g for abundance, log hazard ratio for nest ",
-        "survival. A positive contrast means the practice benefits obligate ",
-        "species more than facultative species; the final column is the ",
-        "posterior probability of that. These are joint posterior ",
-        "comparisons, not inferences from whether two intervals overlap. ",
-        bold_note
+        "concerned: Hedges' ",
+        as_i("g"),
+        " for abundance, log hazard ratio for nest survival. A positive ",
+        "contrast means the practice benefits obligate species more than ",
+        "facultative species; the final column is the posterior probability ",
+        "of that. These are joint posterior comparisons, not inferences from ",
+        "whether two intervals overlap. ",
+        "Bold indicates a 95% credible interval that excludes zero. "
       )
   ) %>%
 
   # Rename the posterior columns:
 
-  flextable::set_header_labels(
+  set_header_labels(
     `Effect size (95% CrI)` = "Obligate minus facultative (95% CrI)",
     `P(effect > 0)` = "P(obligate > facultative)"
+  ) %>%
+
+  # Merge responses:
+
+  merge_v(j = ~ Response) %>%
+  hline(
+    i = ~
+      !duplicated(Response, fromLast = TRUE),
+    border =
+      fp_border_default(width = 0.5)
   )
 
-# One docx, one sheet per table:
+# Tables in document order:
 
-flextable::save_as_docx(
-  `Species richness` = richness_flextable,
-  `Abundance and nest success by guild and practice` = guild_bmp_flextable,
-  `Guild contrasts` = contrasts_flextable,
-  path = "output/tables/reanalysis_tables.docx"
+manuscript_tables <-
+  list(
+    species_richness = richness_flextable,
+    abundance_pooled = pooled_abundance_flextable,
+    abundance_by_guild = guild_abundance_flextable,
+    nest_success_by_guild = guild_nest_success_flextable,
+    guild_contrasts = contrasts_flextable
+  )
+
+# The table the document opens on:
+
+opening_table <- "species_richness"
+
+# One page per table:
+
+manuscript_document <-
+  manuscript_tables %>%
+  discard_at(opening_table) %>%
+  reduce(
+    \(.document, .table) {
+      .document %>%
+        body_add_break() %>%
+        body_add_flextable(.table)
+    },
+    .init =
+      read_docx() %>%
+      body_add_flextable(
+        pluck(manuscript_tables, opening_table)
+      )
+  )
+
+# Write to file:
+
+print(
+  manuscript_document,
+  target = "output/tables/reanalysis_tables.docx"
 )
 
 # clear the environment ----------------------------------------------------
