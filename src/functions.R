@@ -2695,31 +2695,33 @@ thousands <-
     )
   }
 
-# One box body: a line of text, an optional count and an optional indent.
+# One box body: a line of text and an optional indent.
 
 body_line <-
   function(
     .text,
-    .count = "",
     .indent = FALSE) {
     tibble(
-      count = .count,
+      count_records = "",
+      count_papers = "",
       text = as.character(.text),
       indent = .indent
     )
   }
 
 # One row per wrapped line, with the count against the first of them.
-# `.width` is the reason column, which is narrower than the box.
+# Records and papers are separate columns, so the dividers line up.
 
 reason_lines <-
   function(
     .reason,
-    .count,
+    .records,
+    .papers,
     .width = 42) {
     tibble(
       id = seq_along(.reason),
-      count = .count,
+      count_records = as.character(.records),
+      count_papers = str_c("| ", .papers),
       text =
         str_wrap(
           .reason,
@@ -2727,43 +2729,31 @@ reason_lines <-
         )
     ) %>%
       separate_longer_delim(text, delim = "\n") %>%
+
+      # Only the first line of a reason carries its count:
+
       mutate(
-        count =
+        count_records =
           if_else(
             row_number() == 1,
-            count,
+            count_records,
+            ""
+          ),
+        count_papers =
+          if_else(
+            row_number() == 1,
+            count_papers,
             ""
           ),
         indent = TRUE,
         .by = id
       ) %>%
-      select(count, text, indent)
-  }
-
-# Records and papers either side of the divider, padded with figure spaces so
-# the dividers line up down a box.
-
-count_pair <-
-  function(
-    .records,
-    .papers) {
-    records <- as.character(.records)
-    papers <- as.character(.papers)
-    str_c(
-      str_pad(
-        records,
-        max(str_width(records)),
-        side = "left",
-        pad = "\u2007"
-      ),
-      " | ",
-      str_pad(
-        papers,
-        max(str_width(papers)),
-        side = "right",
-        pad = "\u2007"
+      select(
+        count_records,
+        count_papers,
+        text,
+        indent
       )
-    )
   }
 
 # The one line a retained box carries: records and papers, side by side.
@@ -2840,11 +2830,8 @@ excluded_body <-
       body_line(""),
       reason_lines(
         .reason = lost$stage,
-        .count =
-          count_pair(
-            lost$records_lost,
-            lost$papers_lost
-          )
+        .records = lost$records_lost,
+        .papers = lost$papers_lost
       )
     )
   }

@@ -236,7 +236,7 @@ figure_richness_posterior <-
     .width = 0.95,
     point_interval = "median_qi",
     normalize = "xy",
-    slab_alpha = 0.55,
+    slab_alpha = 0.22,
     slab_linewidth = 0.3,
     point_size = 1.6,
     fill = richness_slab_color,
@@ -311,7 +311,7 @@ figure_abundance_pooled <-
     .width = 0.95,
     point_interval = "median_qi",
     normalize = "xy",
-    slab_alpha = 0.55,
+    slab_alpha = 0.22,
     slab_linewidth = 0.3,
     point_size = 1.6
   ) +
@@ -394,7 +394,7 @@ figure_abundance_by_guild <-
     .width = 0.95,
     point_interval = "median_qi",
     normalize = "xy",
-    slab_alpha = 0.55,
+    slab_alpha = 0.22,
     slab_linewidth = 0.3,
     point_size = 1.6
   ) +
@@ -688,7 +688,7 @@ figure_nest_success_posterior <-
     .width = 0.95,
     point_interval = "median_qi",
     normalize = "xy",
-    slab_alpha = 0.55,
+    slab_alpha = 0.22,
     slab_linewidth = 0.3,
     point_size = 1.6
   ) +

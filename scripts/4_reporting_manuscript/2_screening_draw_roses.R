@@ -111,11 +111,8 @@ not_extracted_body <-
       body_line(""),
       reason_lines(
         .reason = not_extracted_lines$reason,
-        .count =
-          count_pair(
-            not_extracted_lines$records,
-            not_extracted_lines$papers
-          )
+        .records = not_extracted_lines$records,
+        .papers = not_extracted_lines$papers
       )
     )
   }
@@ -149,11 +146,8 @@ models_body <-
     body_line(""),
     reason_lines(
       .reason = pool_counts$pool_label,
-      .count =
-        count_pair(
-          pool_counts$records,
-          pool_counts$papers
-        )
+      .records = pool_counts$records,
+      .papers = pool_counts$papers
     )
   )
 
@@ -352,6 +346,8 @@ placed_nodes <-
 
 count_column <- 0.62
 count_gap <- 0.16
+divider_column <- 0.37
+divider_gap <- 0.05
 
 # One row per line of body text:
 
@@ -579,13 +575,26 @@ roses_chart <-
   geom_text(
     data =
       body_text %>%
-      filter(count != ""),
+      filter(count_records != ""),
     aes(
-      x = x_text + count_column,
+      x = x_text + divider_column - divider_gap,
       y = y_line,
-      label = count
+      label = count_records
     ),
     hjust = 1,
+    vjust = 1,
+    color = "#33454f"
+  ) +
+  geom_text(
+    data =
+      body_text %>%
+      filter(count_records != ""),
+    aes(
+      x = x_text + divider_column,
+      y = y_line,
+      label = count_papers
+    ),
+    hjust = 0,
     vjust = 1,
     color = "#33454f"
   ) +
