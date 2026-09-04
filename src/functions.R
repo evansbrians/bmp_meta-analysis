@@ -1663,13 +1663,13 @@ format_manuscript_table <-
     formatted <-
       .data %>%
       mutate(
-        `Effect size (95% CrI)` =
+        `Hedges' g (95% CrI)` =
           format_estimate(
             estimate = estimate,
             lcl = lcl,
             ucl = ucl
           ),
-        `P(effect > 0)` =
+        `P(> 0)` =
           format_number(
             prob_positive,
             digits = 3
@@ -1698,6 +1698,26 @@ format_manuscript_table <-
         )
     }
     table_object %>%
+      flextable::compose(
+        j = "Hedges' g (95% CrI)",
+        value =
+          flextable::as_paragraph(
+            "Hedges' ",
+            flextable::as_chunk(
+              "g",
+              props =
+                officer::fp_text_lite(
+                  font.family = "Times New Roman",
+                  cs.family = "Times New Roman",
+                  eastasia.family = "Times New Roman",
+                  hansi.family = "Times New Roman",
+                  italic = TRUE
+                )
+            ),
+            " (95% CrI)"
+          ),
+        part = "header"
+      ) %>%
       flextable::fontsize(
         size = 10,
         part = "body"

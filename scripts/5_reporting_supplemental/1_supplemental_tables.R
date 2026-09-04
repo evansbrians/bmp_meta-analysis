@@ -22,6 +22,47 @@ set_flextable_defaults(
   caption.align = "left"
 )
 
+# Supplemental-table spacing and BMP wrapping:
+
+bmp_wrap_width <- 35
+body_row_height <- 0.35
+
+format_supplemental_bmp <-
+  function(.bmp) {
+    .bmp %>%
+      format_bmp() %>%
+      str_wrap(width = bmp_wrap_width)
+  }
+
+set_supplemental_row_height <-
+  function(.table) {
+    .table %>%
+      set_table_properties(
+        layout = "autofit",
+        width = 1
+      ) %>%
+      height_all(
+        height = body_row_height,
+        part = "body"
+      ) %>%
+      hrule(
+        rule = "atleast",
+        part = "body"
+      )
+  }
+
+supplemental_section <-
+  prop_section(
+    page_size = page_size(orient = "portrait"),
+    page_margins =
+      page_mar(
+        top = 1,
+        bottom = 1,
+        left = 1,
+        right = 1
+      )
+  )
+
 # Read tables:
 
 list.files(
@@ -65,7 +106,7 @@ richness_flextable <-
   # Print the practice names:
   
   mutate(
-    BMP = format_bmp(bmp),
+    BMP = format_supplemental_bmp(bmp),
     .keep = "unused"
   ) %>%
   select(
@@ -87,7 +128,8 @@ richness_flextable <-
         "number of independent studies contributing to each estimate. ",
         "Bold indicates a 95% credible interval that excludes zero."
       )
-  )
+  ) %>%
+  set_supplemental_row_height()
 
 # table s2 pooled abundance -----------------------------------------------
 
@@ -107,7 +149,7 @@ pooled_abundance_flextable <-
   # Print the practice names:
   
   mutate(
-    BMP = format_bmp(bmp),
+    BMP = format_supplemental_bmp(bmp),
     .keep = "unused"
   ) %>%
   select(
@@ -129,7 +171,8 @@ pooled_abundance_flextable <-
         "practice. ",
         "Bold indicates a 95% credible interval that excludes zero. "
       )
-  )
+  ) %>%
+  set_supplemental_row_height()
 
 # table s3 abundance by guild ---------------------------------------------
 
@@ -150,7 +193,7 @@ guild_abundance_flextable <-
   # Print the practice names:
   
   mutate(
-    BMP = format_bmp(bmp),
+    BMP = format_supplemental_bmp(bmp),
     guild = 
       guild %>% 
       str_remove("_grassland") %>% 
@@ -187,7 +230,8 @@ guild_abundance_flextable <-
       !duplicated(Guild, fromLast = TRUE),
     border = 
       fp_border_default(width = 0.5)
-  )
+  ) %>%
+  set_supplemental_row_height()
 
 # table s4 guild contrasts ------------------------------------------------
 
@@ -209,7 +253,7 @@ contrasts_flextable <-
   
   mutate(
     Response = format_response(response_metric),
-    BMP = format_bmp(bmp),
+    BMP = format_supplemental_bmp(bmp),
     prob_positive = prob_a_greater
   ) %>%
   select(
@@ -222,15 +266,14 @@ contrasts_flextable <-
   format_manuscript_table(
     .caption =
       as_paragraph(
-        as_b("Table S5"),
+        as_b("Table S4"),
         ". Direct posterior contrasts between obligate and facultative ",
         "grassland birds within each practice, on the scale of the metric ",
         "concerned: Hedges' ",
         as_i("g"),
         ". A positive contrast means the practice benefits obligate species ",
         "more than facultative species; the final column is the posterior ",
-        "probability of that. These are joint posterior comparisons, not ",
-        "inferences from whether two intervals overlap. ",
+        "probability of that. ",
         "Bold indicates a 95% credible interval that excludes zero. "
       )
   ) %>%
@@ -238,9 +281,10 @@ contrasts_flextable <-
   # Rename the posterior columns:
   
   set_header_labels(
-    `Effect size (95% CrI)` = "Obligate minus facultative (95% CrI)",
-    `P(effect > 0)` = "P(obligate > facultative)"
-  )
+    `Hedges' g (95% CrI)` = "obligate – facultative (95% CrI)",
+    `P(> 0)` = "P(obligate > facultative)"
+  ) %>%
+  set_supplemental_row_height()
 
 # Tables in document order:
 
@@ -272,13 +316,16 @@ manuscript_document <-
       body_add_flextable(
         pluck(manuscript_tables, opening_table)
       )
+  ) %>%
+  body_set_default_section(
+    value = supplemental_section
   )
 
 # Write to file:
 
 print(
   manuscript_document,
-  target = "output/tables/reanalysis_tables.docx"
+  target = "output/tables/supplemental_tables.docx"
 )
 
 # clear the environment ----------------------------------------------------
