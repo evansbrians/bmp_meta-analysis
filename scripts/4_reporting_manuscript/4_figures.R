@@ -52,12 +52,18 @@ practice_labels <-
     "src/practice_labels.csv",
     show_col_types = FALSE
   ) %>%
-
+  
   # Add line breaks:
-
+  
   mutate(
     bmp_label =
-      str_wrap(bmp_label, width = 30)
+      str_wrap(bmp_label, width = 25),
+    bmp_label = 
+      bmp_label %>% 
+      # str_replace("Grasses and", "Grasses\nand") %>% 
+      str_replace("Grasses and\nForbs", "Grasses\nand Forbs") %>% 
+      str_replace("Livestock Between\nPastures", "Livestock\nBetween Pastures") %>% 
+      str_replace("Promote Edge and Shrub\nHabitat", "Promote Edge and\nShrub Habitat")
   )
 
 # Hedges' g axis:
@@ -120,14 +126,14 @@ richness_slab_color <- "#7A8595"
 
 richness_draws <-
   posterior_draws %>%
-
+  
   # Subset to richness:
-
+  
   filter(model == "richness_bmp") %>%
   rename(bmp = cell) %>%
-
+  
   # Label and order the practice axis:
-
+  
   left_join(
     practice_labels,
     by = join_by(bmp)
@@ -145,6 +151,11 @@ richness_edge_labels <-
     .cells = results$species_richness,
     grouping_vars = c("bmp", "bmp_label"),
     join_vars = "bmp"
+  ) %>% 
+  mutate(
+    edge_label = 
+      edge_label %>% 
+      str_replace("P>0", "P > 0")
   )
 
 # Guild and pooled cell draws:
@@ -158,19 +169,19 @@ cell_draws <-
   map(
     \(.model_name) {
       posterior_draws %>%
-
+        
         # Subset to the model:
-
+        
         filter(model == .model_name) %>%
-
+        
         rename(bmp = cell) %>%
-
+        
         # Name the guild panels:
-
+        
         add_guild_label() %>%
-
+        
         # Label and order the practice axis:
-
+        
         left_join(
           practice_labels,
           by = join_by(bmp)
@@ -208,39 +219,61 @@ edge_labels <-
     }
   )
 
-# figure 2: species richness -----------------------------------------------
+# figure 2: species richness ----------------------------------------------
 
 figure_richness_posterior <-
-  richness_draws %>%
-
+richness_draws %>%
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = .value,
     y = bmp_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
-    linewidth = 0.3,
+    linewidth = 0.4,
     color = "grey40"
   ) +
   stat_halfeye(
     .width = 0.95,
-    point_interval = "median_qi",
     normalize = "xy",
     slab_alpha = 0.22,
-    slab_linewidth = 0.3,
-    point_size = 1.6,
-    fill = richness_slab_color,
-    color = "grey15"
+    slab_linewidth = 0.8,
+    point_size = 0.5,
+    slab_fill = richness_slab_color,
+    slab_color = "grey25",
+    linewidth = 2.3,
+    scale = 0.8
+  ) +
+  geom_point(
+    data = 
+      richness_draws %>% 
+      group_by(bmp_label) %>%  
+      median_qi(.value, .width = 0.95) %>% 
+      mutate(
+        cross_zero =
+          if_else(
+            .lower < 0 & .upper > 0,
+            TRUE,
+            FALSE
+          )
+      ),
+    aes(
+      x = .value,
+      y = bmp_label,
+      fill = cross_zero
+    ),
+    size = 3.4,
+    shape = 21
   ) +
   geom_text(
     probability_label_mapping,
@@ -249,27 +282,44 @@ figure_richness_posterior <-
     size = 2.8,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
+  scale_fill_manual(
+    values = c("black", "white")
+  ) +
   scale_x_continuous(
+    limits = c(-2, NA),
     expand =
       expansion(
-        mult = c(0.06, 0.46)
+        mult = c(0.001, 0.3)
       )
   ) +
-
+  scale_y_discrete(
+    expand =
+      expansion(
+        mult = c(0.04, 0.05)
+      )
+  ) +
+  
   # Add labels:
-
+  
   labs(
-    title = "Species richness: posterior distribution by practice",
+    title = "Species richness: Posterior distribution by practice",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
-  theme_bmp(base_size = 12)
+  
+  theme_bmp(base_size = 12) +
+  theme(
+    # text = element_text(family = "sans"),
+    plot.title = element_text(size = 15, hjust = 0.4),
+    axis.text = element_text(color = "gray5"),
+    axis.ticks = element_line(color = "gray55"),
+    legend.position = "none"
+  )
 
 # Write figure 2:
 
@@ -277,7 +327,7 @@ figure_richness_posterior %>%
   write_output_figure(
     file_name = "figure_2_species_richness.png",
     width = 9.5,
-    height = 6.5
+    height = 6
   )
 
 # figure 3: abundance, guilds pooled ---------------------------------------
@@ -285,22 +335,22 @@ figure_richness_posterior %>%
 figure_abundance_pooled <-
   cell_draws %>%
   pluck("abundance_pooled") %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = .value,
     y = bmp_label,
     fill = guild_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -322,9 +372,9 @@ figure_abundance_pooled <-
     size = 2.8,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_fill_manual(
     values = guild_colors,
     guide = "none"
@@ -339,17 +389,17 @@ figure_abundance_pooled <-
         mult = c(0.06, 0.46)
       )
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Abundance: posterior distribution by practice",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 12)
 
 # Write figure 3:
@@ -368,22 +418,22 @@ figure_abundance_pooled %>%
 figure_abundance_by_guild <-
   cell_draws %>%
   pluck("abundance_guild") %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = .value,
     y = bmp_label,
     fill = guild_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -405,9 +455,9 @@ figure_abundance_by_guild <-
     size = 2.6,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_fill_manual(
     values = guild_colors,
     guide = "none"
@@ -422,25 +472,25 @@ figure_abundance_by_guild <-
         mult = c(0.06, 0.62)
       )
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_wrap(
     ~ guild_label,
     nrow = 1,
     scales = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Abundance: posterior distribution by practice and guild",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 11)
 
 # Write figure 4:
@@ -456,9 +506,9 @@ figure_abundance_by_guild %>%
 
 figure_species_richness <-
   results$species_richness %>%
-
+  
   # Label and order the practice axis:
-
+  
   left_join(
     practice_labels,
     by = join_by(bmp)
@@ -467,20 +517,20 @@ figure_species_richness <-
     bmp_label =
       fct_reorder(bmp_label, estimate)
   ) %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = estimate,
     y = bmp_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -505,9 +555,9 @@ figure_species_richness <-
     size = 2.9,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_shape_manual(
     values =
       c(
@@ -522,17 +572,17 @@ figure_species_richness <-
         mult = c(0.05, 0.28)
       )
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Species richness",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 12)
 
 # Write figure S1:
@@ -548,17 +598,17 @@ figure_species_richness %>%
 
 figure_abundance <-
   bmp_cells %>%
-
+  
   # Subset to abundance:
-
+  
   filter(response_metric == "abundance") %>%
-
+  
   # Name the guild panels:
-
+  
   add_guild_label() %>%
-
+  
   # Label and order the practice axis:
-
+  
   left_join(
     practice_labels,
     by = join_by(bmp)
@@ -567,21 +617,21 @@ figure_abundance <-
     bmp_label =
       fct_reorder(bmp_label, estimate)
   ) %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = estimate,
     y = bmp_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -606,9 +656,9 @@ figure_abundance <-
     size = 2.9,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_shape_manual(
     values =
       c(
@@ -627,25 +677,25 @@ figure_abundance <-
         mult = c(0.06, 0.28)
       )
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_wrap(
     ~ guild_label,
     ncol = 1,
     scales = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Abundance, by vegetation-type guild and pooled",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 12)
 
 # Write figure S2:
@@ -662,22 +712,22 @@ figure_abundance %>%
 figure_nest_success_posterior <-
   cell_draws %>%
   pluck("nest_success_guild") %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = .value,
     y = bmp_label,
     fill = guild_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -699,9 +749,9 @@ figure_nest_success_posterior <-
     size = 2.6,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_fill_manual(
     values = guild_colors,
     guide = "none"
@@ -716,25 +766,25 @@ figure_nest_success_posterior <-
         mult = c(0.06, 0.62)
       )
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_wrap(
     ~ guild_label,
     nrow = 1,
     scales = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Nest success: posterior distribution by practice and guild",
     x = hazard_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 11)
 
 # Write figure S3:
@@ -750,17 +800,17 @@ figure_nest_success_posterior %>%
 
 figure_nest_success <-
   bmp_cells %>%
-
+  
   # Subset to nest success:
-
+  
   filter(response_metric == "nest_success") %>%
-
+  
   # Name the guild panels:
-
+  
   add_guild_label() %>%
-
+  
   # Label and order the practice axis:
-
+  
   left_join(
     practice_labels,
     by = join_by(bmp)
@@ -769,21 +819,21 @@ figure_nest_success <-
     bmp_label =
       fct_reorder(bmp_label, estimate)
   ) %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = estimate,
     y = bmp_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -808,9 +858,9 @@ figure_nest_success <-
     size = 2.9,
     color = "grey25"
   ) +
-
+  
   # Define scale elements:
-
+  
   scale_shape_manual(
     values =
       c(
@@ -829,25 +879,25 @@ figure_nest_success <-
         mult = c(0.06, 0.28)
       )
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_wrap(
     ~ guild_label,
     ncol = 1,
     scales = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Nest success, by vegetation-type guild and pooled",
     x = hazard_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 12)
 
 # Write figure S4:
@@ -878,15 +928,15 @@ contrast_probability_label <-
 if (nrow(results$guild_contrasts) > 0) {
   figure_guild_contrasts <-
     results$guild_contrasts %>%
-
+    
     # Name the response panels:
-
+    
     mutate(
       panel_label = format_response(response_metric)
     ) %>%
-
+    
     # Label and order the practice axis:
-
+    
     left_join(
       practice_labels,
       by = join_by(bmp)
@@ -895,20 +945,20 @@ if (nrow(results$guild_contrasts) > 0) {
       bmp_label =
         fct_reorder(bmp_label, estimate)
     ) %>%
-
+    
     # Initialize the plot with the data:
-
+    
     ggplot() +
-
+    
     # Map data to visual elements:
-
+    
     aes(
       x = estimate,
       y = bmp_label
     ) +
-
+    
     # Add geometries:
-
+    
     geom_vline(
       xintercept = 0,
       linetype = "dashed",
@@ -933,9 +983,9 @@ if (nrow(results$guild_contrasts) > 0) {
       size = 2.9,
       color = "grey25"
     ) +
-
+    
     # Define scale elements:
-
+    
     scale_shape_manual(
       values =
         c(
@@ -950,29 +1000,29 @@ if (nrow(results$guild_contrasts) > 0) {
           mult = c(0.08, 0.22)
         )
     ) +
-
+    
     # Divide the plot into facets:
-
+    
     facet_wrap(
       ~ panel_label,
       ncol = 1,
       scales = "free_y"
     ) +
-
+    
     # Add labels:
-
+    
     labs(
       title = "Do practices affect the two guilds differently?",
       x = str_c("Difference in ", mixed_scale_axis_label),
       y = NULL
     ) +
-
+    
     # Modify the theme:
-
+    
     theme_bmp(base_size = 12)
-
+  
   # Write figure S5:
-
+  
   figure_guild_contrasts %>%
     write_output_figure(
       file_name = "figure_S5_abundance_guild_contrasts.png",
@@ -985,9 +1035,9 @@ if (nrow(results$guild_contrasts) > 0) {
 
 figure_heterogeneity <-
   results$heterogeneity %>%
-
+  
   # Name the panels, order the levels:
-
+  
   mutate(
     model_label =
       model %>%
@@ -1010,20 +1060,20 @@ figure_heterogeneity <-
       ) %>%
       fct_reorder(i2)
   ) %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = i2,
     y = level_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_linerange(
     aes(
       xmin = i2_lcl,
@@ -1032,31 +1082,31 @@ figure_heterogeneity <-
     linewidth = 0.7
   ) +
   geom_point(size = 2.4) +
-
+  
   # Define scale elements:
-
+  
   scale_x_continuous(
     limits = c(0, 100)
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_wrap(
     ~ model_label,
     ncol = 1,
     scales = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Where does the heterogeneity live?",
     x = "Percent of total variance (95% credible interval)",
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 11)
 
 # Write figure S6:
@@ -1072,9 +1122,9 @@ figure_heterogeneity %>%
 
 figure_species <-
   results$species_abundance %>%
-
+  
   # Order the panels and species axis:
-
+  
   add_guild_label() %>%
   mutate(
     species_label =
@@ -1082,25 +1132,25 @@ figure_species <-
       format_species() %>%
       fct_reorder(estimate)
   ) %>%
-
+  
   # Drop species with fewer than three:
-
+  
   filter(k >= 3) %>%
-
+  
   # Initialize the plot with the data:
-
+  
   ggplot() +
-
+  
   # Map data to visual elements:
-
+  
   aes(
     x = estimate,
     y = species_label,
     color = guild_label
   ) +
-
+  
   # Add geometries:
-
+  
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
@@ -1115,32 +1165,32 @@ figure_species <-
     linewidth = 0.6
   ) +
   geom_point(size = 1.9) +
-
+  
   # Define scale elements:
-
+  
   scale_color_manual(
     values = guild_colors,
     guide = "none"
   ) +
-
+  
   # Divide the plot into facets:
-
+  
   facet_grid(
     guild_label ~ .,
     scales = "free_y",
     space = "free_y"
   ) +
-
+  
   # Add labels:
-
+  
   labs(
     title = "Species-level responses in abundance",
     x = effect_axis_label,
     y = NULL
   ) +
-
+  
   # Modify the theme:
-
+  
   theme_bmp(base_size = 10)
 
 # Write figure S7:
