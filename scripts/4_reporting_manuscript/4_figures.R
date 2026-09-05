@@ -17,32 +17,6 @@ source("src/functions.R")
 
 fs::dir_create("output/figures")
 
-# Results tables:
-
-results <-
-  c(
-    species_richness = "table_species_richness_by_bmp",
-    guild_bmp = "table_guild_bmp",
-    guild_contrasts = "table_guild_contrasts_by_bmp",
-    pooled_bmp = "table_pooled_bmp",
-    heterogeneity = "table_heterogeneity",
-    species_abundance = "table_species_abundance"
-  ) %>%
-  map(
-    \(.table_name) {
-      fs::path("output/tables", .table_name, ext = "csv") %>%
-        read_csv(show_col_types = FALSE)
-    }
-  )
-
-# Guild and pooled cell means:
-
-bmp_cells <-
-  bind_rows(
-    results$guild_bmp,
-    results$pooled_bmp
-  )
-
 # figure labels ------------------------------------------------------------
 
 # Practice labels for the y-axis:
@@ -57,13 +31,26 @@ practice_labels <-
   
   mutate(
     bmp_label =
-      str_wrap(bmp_label, width = 25),
+      str_wrap(bmp_label, width = 30),
     bmp_label = 
       bmp_label %>% 
       # str_replace("Grasses and", "Grasses\nand") %>% 
-      str_replace("Grasses and\nForbs", "Grasses\nand Forbs") %>% 
-      str_replace("Livestock Between\nPastures", "Livestock\nBetween Pastures") %>% 
-      str_replace("Promote Edge and Shrub\nHabitat", "Promote Edge and\nShrub Habitat")
+      str_replace(" Grasses and Forbs", "\nGrasses and Forbs") %>%
+      str_replace(
+        "Livestock Between\nPastures", 
+        "Livestock\nBetween Pastures"
+      ) %>% 
+      str_replace(
+        "Edge and Shrub Habitat", 
+        "Edge\nand Shrub Habitat"
+      ) #%>% 
+      # str_replace(
+      #   "Implement Prescribed",
+      #   "Implement\nPrescribed"
+      # ) %>% 
+      # str_replace(
+      #   ""
+      # )
   )
 
 # Hedges' g axis:
@@ -112,6 +99,56 @@ probability_label_mapping <-
     label = edge_label
   )
 
+# results tables ----------------------------------------------------------
+
+# Results tables:
+
+results <-
+  c(
+    species_richness = "table_species_richness_by_bmp",
+    guild_bmp = "table_guild_bmp",
+    guild_contrasts = "table_guild_contrasts_by_bmp",
+    pooled_bmp = "table_pooled_bmp",
+    heterogeneity = "table_heterogeneity",
+    species_abundance = "table_species_abundance"
+  ) %>%
+  map(
+    \(.table_name) {
+      fs::path(
+        "output/tables", 
+        .table_name, 
+        ext = "csv"
+      ) %>%
+        read_csv(show_col_types = FALSE)
+    }
+  )
+
+# Guild and pooled cell means:
+
+bmp_cells <-
+  bind_rows(
+    results$guild_bmp,
+    results$pooled_bmp
+  )
+
+# BMP results:
+
+bmp_results <-
+  results %>% 
+  keep_at(
+    ~ !str_detect(.x, "hetero|species_abu")
+  ) %>% 
+  names() %>% 
+  set_names() %>% 
+  map(
+    ~ results %>% 
+      pluck(.x) %>% 
+      left_join(
+        practice_labels,
+        by = "bmp"
+      )
+  )
+
 # posterior draws ----------------------------------------------------------
 
 # Posterior draws:
@@ -153,9 +190,22 @@ richness_edge_labels <-
     join_vars = "bmp"
   ) %>% 
   mutate(
-    edge_label = 
-      edge_label %>% 
-      str_replace("P>0", "P > 0")
+    edge_label =
+      edge_label %>%
+      str_replace(
+        "\u2007.*P>0", 
+        str_c(
+          str_dup("\u2007", 5),
+          "\nP > 0"
+        )
+      ) %>%
+      str_replace(
+        " *P>0",
+        "\u2007\nP > 0"
+      ) %>% 
+      str_c(
+        str_dup(" ", 8)
+      )
   )
 
 # Guild and pooled cell draws:
@@ -215,6 +265,24 @@ edge_labels <-
               "bmp_label"
             ),
           join_vars = c("guild", "bmp")
+        ) %>% 
+        mutate(
+          edge_label =
+            edge_label %>%
+            str_replace(
+              "\u2007.*P>0", 
+              str_c(
+                str_dup("\u2007", 5),
+                "\nP > 0"
+              )
+            ) %>%
+            str_replace(
+              " *P>0",
+              "\u2007\nP > 0"
+            ) %>% 
+            str_c(
+              str_dup(" ", 12)
+            )
         )
     }
   )
@@ -222,7 +290,7 @@ edge_labels <-
 # figure 2: species richness ----------------------------------------------
 
 figure_richness_posterior <-
-richness_draws %>%
+  richness_draws %>%
   
   # Initialize the plot with the data:
   
@@ -256,21 +324,12 @@ richness_draws %>%
   ) +
   geom_point(
     data = 
-      richness_draws %>% 
-      group_by(bmp_label) %>%  
-      median_qi(.value, .width = 0.95) %>% 
-      mutate(
-        cross_zero =
-          if_else(
-            .lower < 0 & .upper > 0,
-            TRUE,
-            FALSE
-          )
-      ),
+      bmp_results %>%
+      pluck("species_richness"),
     aes(
-      x = .value,
+      x = estimate,
       y = bmp_label,
-      fill = cross_zero
+      fill = excludes_zero
     ),
     size = 3.4,
     shape = 21
@@ -279,20 +338,21 @@ richness_draws %>%
     probability_label_mapping,
     data = richness_edge_labels,
     hjust = 1.06,
-    size = 2.8,
+    vjust = -0.33,
+    size = 2.9,
     color = "grey25"
   ) +
   
   # Define scale elements:
   
   scale_fill_manual(
-    values = c("black", "white")
+    values = c("white", "black")
   ) +
   scale_x_continuous(
     limits = c(-2, NA),
     expand =
       expansion(
-        mult = c(0.001, 0.3)
+        mult = c(0.001, 0.08)
       )
   ) +
   scale_y_discrete(
@@ -314,8 +374,7 @@ richness_draws %>%
   
   theme_bmp(base_size = 12) +
   theme(
-    # text = element_text(family = "sans"),
-    plot.title = element_text(size = 15, hjust = 0.4),
+    plot.title = element_text(size = 15, hjust = 0.48),
     axis.text = element_text(color = "gray5"),
     axis.ticks = element_line(color = "gray55"),
     legend.position = "none"
@@ -344,9 +403,7 @@ figure_abundance_pooled <-
   
   aes(
     x = .value,
-    y = bmp_label,
-    fill = guild_label,
-    color = guild_label
+    y = bmp_label
   ) +
   
   # Add geometries:
@@ -354,53 +411,76 @@ figure_abundance_pooled <-
   geom_vline(
     xintercept = 0,
     linetype = "dashed",
-    linewidth = 0.3,
+    linewidth = 0.4,
     color = "grey40"
   ) +
   stat_halfeye(
     .width = 0.95,
-    point_interval = "median_qi",
     normalize = "xy",
     slab_alpha = 0.22,
-    slab_linewidth = 0.3,
-    point_size = 1.6
+    slab_linewidth = 0.8,
+    point_size = 0.5,
+    slab_fill = richness_slab_color,
+    slab_color = "grey25",
+    linewidth = 2.3,
+    scale = 0.8
+  ) +
+  geom_point(
+    data = 
+      bmp_results %>%
+      pluck("pooled_bmp"),
+    aes(
+      x = estimate,
+      y = bmp_label,
+      fill = excludes_zero
+    ),
+    size = 3.4,
+    shape = 21
   ) +
   geom_text(
     probability_label_mapping,
     data = edge_labels$abundance_pooled,
     hjust = 1.06,
-    size = 2.8,
+    vjust = -0.33,
+    size = 2.9,
     color = "grey25"
   ) +
   
   # Define scale elements:
   
   scale_fill_manual(
-    values = guild_colors,
-    guide = "none"
-  ) +
-  scale_color_manual(
-    values = guild_colors,
-    guide = "none"
+    values = c("white", "black")
   ) +
   scale_x_continuous(
     expand =
       expansion(
-        mult = c(0.06, 0.46)
+        mult = c(0.03, 0.1)
+      )
+  ) +
+  scale_y_discrete(
+    expand =
+      expansion(
+        mult = c(0.03, 0.05)
       )
   ) +
   
   # Add labels:
   
   labs(
-    title = "Abundance: posterior distribution by practice",
+    title = "Abundance: Posterior distribution by practice",
     x = effect_axis_label,
     y = NULL
   ) +
   
   # Modify the theme:
   
-  theme_bmp(base_size = 12)
+  theme_bmp(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 15, hjust = 0.43),
+    axis.text = element_text(color = "gray5"),
+    axis.ticks = element_line(color = "gray55"),
+    legend.position = "none"
+  )
 
 # Write figure 3:
 
@@ -448,11 +528,33 @@ figure_abundance_by_guild <-
     slab_linewidth = 0.3,
     point_size = 1.6
   ) +
+  
+  # Divide the plot into facets:
+  
+  facet_wrap(
+    ~ guild_label,
+    nrow = 1,
+    scales = "free_y"
+  ) +
+  
+  geom_point(
+    data = 
+      bmp_results %>%
+      pluck("guild_bmp"),
+    aes(
+      x = estimate,
+      y = bmp_label,
+      fill = excludes_zero
+    ),
+    size = 3.4,
+    shape = 21
+  ) +
   geom_text(
     probability_label_mapping,
     data = edge_labels$abundance_guild,
     hjust = 1.06,
-    size = 2.6,
+    vjust = -0.33,
+    size = 2.7,
     color = "grey25"
   ) +
   
@@ -471,14 +573,6 @@ figure_abundance_by_guild <-
       expansion(
         mult = c(0.06, 0.62)
       )
-  ) +
-  
-  # Divide the plot into facets:
-  
-  facet_wrap(
-    ~ guild_label,
-    nrow = 1,
-    scales = "free_y"
   ) +
   
   # Add labels:
