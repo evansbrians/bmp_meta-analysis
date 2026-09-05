@@ -325,7 +325,7 @@ manuscript_document <-
 
 print(
   manuscript_document,
-  target = "output/tables/supplemental_tables.docx"
+  target = "output/supplementals/supplemental_tables.docx"
 )
 
 # clear the environment ----------------------------------------------------
