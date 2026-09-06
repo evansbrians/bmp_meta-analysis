@@ -2697,7 +2697,7 @@ posterior_edge_labels <-
         probability_label =
           prob_positive %>%
           format_number() %>%
-          str_c("P>0 = ", .)
+          str_c("P(> 0) = ", .)
       ) %>%
       left_join(
         .cells %>%
@@ -2716,11 +2716,11 @@ posterior_edge_labels <-
           str_c(
             str_pad(
               sample_note,
-              max(str_width(sample_note)),
+              max(str_width(sample_note)) + 1,
               side = "right",
               pad = "\u2007"
             ),
-            "     ",
+            " ",
             probability_label
           )
       )
