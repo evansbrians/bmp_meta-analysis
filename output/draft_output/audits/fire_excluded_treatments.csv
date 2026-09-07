@@ -1,0 +1,13 @@
+key,treatment,control,response_metric,excluded_by
+VEK3WELY,Burned fields (year of burn),Burned fields (3-years post-burn),abundance,
+6L2Y9PFL,Sites burned that year,Sites not burned that year,abundance,response_flag
+5LF5W5A9,Sites burned that year or the previous year,Unburned sites,abundance,
+K2FW7NWY,Time since fire (6 years),More than 80 years since fire,abundance,conversion
+K2FW7NWY,Time since fire (6 years),More than 80 years since fire,abundance,
+K2FW7NWY,Time since fire (6 years),More than 80 years since fire,species_richness,
+K2FW7NWY,Time since fire (7 years),More than 80 years since fire,abundance,conversion
+K2FW7NWY,Time since fire (7 years),More than 80 years since fire,abundance,
+K2FW7NWY,Time since fire (7 years),More than 80 years since fire,species_richness,
+K2FW7NWY,Time since fire (8 years),More than 80 years since fire,abundance,
+K2FW7NWY,Time since fire (8 years),More than 80 years since fire,abundance,conversion
+K2FW7NWY,Time since fire (8 years),More than 80 years since fire,species_richness,

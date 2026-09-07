@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1080" height="1164"
+     viewBox="0 0 1080 1164">
+  <defs>
+    <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8"
+            refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#2c3f4d"/>
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="6" refX="7"
+            refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7b8d99"/>
+    </marker>
+  </defs>
+  <rect id="canvas" width="1080" height="1164" fill="#ffffff"/>
+  <text id="figure-title" x="28.0" y="46.0" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="28.0" dy="0.0">Grassland bird BMP meta-analysis: records, papers and effect sizes at each stage</tspan></text>
+<g id="stage-1-identification" inkscape:groupmode="layer" inkscape:label="Identification">
+<rect id="stage-1-identification-band" x="28.0" y="96.0" width="118.0" height="79.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-1-identification-band-label" x="87.0" y="139.5" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Identification</tspan></text>
+<rect id="stage-1-identification-box" x="170.0" y="96.0" width="400.0" height="79.0" rx="4" fill="#eef2f6" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-1-identification-title" x="182.0" y="119.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Records in the citation table</tspan></text>
+<text id="stage-1-identification-body" x="182.0" y="139.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">683 practice records   |   565 papers</tspan><tspan x="182.0" dy="17.0">citations_by_bmp_long.xlsx, one row per paper x practice</tspan></text>
+</g>
+<path id="stage-1-identification-arrow" d="M 370.0 178.0 L 370.0 197.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-2-screening" inkscape:groupmode="layer" inkscape:label="Screening">
+<rect id="stage-2-screening-band" x="28.0" y="201.0" width="118.0" height="62.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-2-screening-band-label" x="87.0" y="236.0" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Screening</tspan></text>
+<rect id="stage-2-screening-box" x="170.0" y="201.0" width="400.0" height="62.0" rx="4" fill="#e7eef4" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-2-screening-title" x="182.0" y="224.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Records passing article screening</tspan></text>
+<text id="stage-2-screening-body" x="182.0" y="244.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">544 practice records   |   431 papers</tspan></text>
+<rect id="stage-2-screening-excluded-box" x="626.0" y="201.0" width="430.0" height="96.0" rx="4" fill="#fbf3ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-2-screening-excluded-title" x="638.0" y="224.0" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="638.0" dy="0.0">Excluded (139 records, 134 papers)</tspan></text>
+<text id="stage-2-screening-excluded-body" x="638.0" y="244.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="638.0" dy="0.0">50  Review article, not a primary study</tspan><tspan x="638.0" dy="17.0">18  Full text not obtainable</tspan><tspan x="638.0" dy="17.0">71  No management practice evaluated</tspan></text>
+<path id="stage-2-screening-elbow" d="M 570.0 232.0 L 620.0 232.0" stroke="#7b8d99" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowhead-light)"/>
+</g>
+<path id="stage-2-screening-arrow" d="M 370.0 300.0 L 370.0 319.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-3-eligibility" inkscape:groupmode="layer" inkscape:label="Eligibility">
+<rect id="stage-3-eligibility-band" x="28.0" y="323.0" width="118.0" height="62.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-3-eligibility-band-label" x="87.0" y="358.0" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Eligibility</tspan></text>
+<rect id="stage-3-eligibility-box" x="170.0" y="323.0" width="400.0" height="62.0" rx="4" fill="#e1eaf2" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-3-eligibility-title" x="182.0" y="346.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Records meeting the inclusion criteria</tspan></text>
+<text id="stage-3-eligibility-body" x="182.0" y="366.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">237 practice records   |   185 papers</tspan></text>
+<rect id="stage-3-eligibility-excluded-box" x="626.0" y="323.0" width="430.0" height="147.0" rx="4" fill="#fbf3ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-3-eligibility-excluded-title" x="638.0" y="346.0" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="638.0" dy="0.0">Excluded (307 records, 246 papers)</tspan></text>
+<text id="stage-3-eligibility-excluded-body" x="638.0" y="366.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="638.0" dy="0.0">73  Treatment measured as a gradient, not a contrast</tspan><tspan x="638.0" dy="17.0">64  Treatment contrast not comparable</tspan><tspan x="638.0" dy="17.0">75  Response not abundance, richness or nest success</tspan><tspan x="638.0" dy="17.0">71  No quantitative result reported</tspan><tspan x="638.0" dy="17.0">19  No measure of dispersion reported</tspan><tspan x="638.0" dy="17.0">5  Reason not recorded</tspan></text>
+<path id="stage-3-eligibility-elbow" d="M 570.0 354.0 L 620.0 354.0" stroke="#7b8d99" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowhead-light)"/>
+</g>
+<path id="stage-3-eligibility-arrow" d="M 370.0 473.0 L 370.0 492.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-4-extraction" inkscape:groupmode="layer" inkscape:label="Extraction">
+<rect id="stage-4-extraction-band" x="28.0" y="496.0" width="118.0" height="62.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-4-extraction-band-label" x="87.0" y="531.0" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Extraction</tspan></text>
+<rect id="stage-4-extraction-box" x="170.0" y="496.0" width="400.0" height="62.0" rx="4" fill="#dbe6f0" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-4-extraction-title" x="182.0" y="519.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Effect sizes extracted</tspan></text>
+<text id="stage-4-extraction-body" x="182.0" y="539.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">1,564 effect sizes   |   168 papers</tspan></text>
+<rect id="stage-4-extraction-excluded-box" x="626.0" y="496.0" width="430.0" height="96.0" rx="4" fill="#fbf3ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-4-extraction-excluded-title" x="638.0" y="519.0" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="638.0" dy="0.0">Eligible but not in the analysis table</tspan></text>
+<text id="stage-4-extraction-excluded-body" x="638.0" y="539.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="638.0" dy="0.0">24  papers eligible, never extracted</tspan><tspan x="638.0" dy="17.0">6  papers extracted despite a recorded problem</tspan><tspan x="638.0" dy="17.0">1  papers extracted with no screening record</tspan></text>
+<path id="stage-4-extraction-elbow" d="M 570.0 527.0 L 620.0 527.0" stroke="#7b8d99" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowhead-light)"/>
+</g>
+<path id="stage-4-extraction-arrow" d="M 370.0 595.0 L 370.0 614.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-5-screen" inkscape:groupmode="layer" inkscape:label="Effect-size screen">
+<rect id="stage-5-screen-band" x="28.0" y="618.0" width="118.0" height="62.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-5-screen-band-label" x="87.0" y="653.0" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Effect-size</tspan><tspan x="87.0" dy="17.0">screen</tspan></text>
+<rect id="stage-5-screen-box" x="170.0" y="618.0" width="400.0" height="62.0" rx="4" fill="#d5e2ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-5-screen-title" x="182.0" y="641.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Effect sizes retained</tspan></text>
+<text id="stage-5-screen-body" x="182.0" y="661.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">1,287 effect sizes   |   126 papers</tspan></text>
+<rect id="stage-5-screen-excluded-box" x="626.0" y="618.0" width="430.0" height="181.0" rx="4" fill="#fbf3ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-5-screen-excluded-title" x="638.0" y="641.0" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="638.0" dy="0.0">Excluded (277 effect sizes)</tspan></text>
+<text id="stage-5-screen-excluded-body" x="638.0" y="661.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="638.0" dy="0.0">74  Response not the one the practice targets</tspan><tspan x="638.0" dy="17.0">61  Treatment and control not comparable</tspan><tspan x="638.0" dy="17.0">60  Response outside the three analysed</tspan><tspan x="638.0" dy="17.0">58  No route to an effect size</tspan><tspan x="638.0" dy="17.0">9  One result reported more than one way</tspan><tspan x="638.0" dy="17.0">8  Nest survival with no route to the hazard scale</tspan><tspan x="638.0" dy="17.0">6  Label the species frame does not classify</tspan><tspan x="638.0" dy="17.0">1  Effect size beyond the plausible bound</tspan></text>
+<path id="stage-5-screen-elbow" d="M 570.0 649.0 L 620.0 649.0" stroke="#7b8d99" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowhead-light)"/>
+</g>
+<path id="stage-5-screen-arrow" d="M 370.0 802.0 L 370.0 821.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-6-analysis" inkscape:groupmode="layer" inkscape:label="Primary pool">
+<rect id="stage-6-analysis-band" x="28.0" y="825.0" width="118.0" height="62.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-6-analysis-band-label" x="87.0" y="860.0" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Primary pool</tspan></text>
+<rect id="stage-6-analysis-box" x="170.0" y="825.0" width="400.0" height="62.0" rx="4" fill="#cfdeec" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-6-analysis-title" x="182.0" y="848.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Primary analysis pool</tspan></text>
+<text id="stage-6-analysis-body" x="182.0" y="868.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">1,138 effect sizes   |   124 papers</tspan></text>
+<rect id="stage-6-analysis-excluded-box" x="626.0" y="825.0" width="430.0" height="96.0" rx="4" fill="#fbf3ee" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-6-analysis-excluded-title" x="638.0" y="848.0" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="638.0" dy="0.0">Held out (149 effect sizes)</tspan></text>
+<text id="stage-6-analysis-excluded-body" x="638.0" y="868.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="638.0" dy="0.0">Shrubland, woodland and forest species held out</tspan><tspan x="638.0" dy="17.0">retained in the pool and returned by the</tspan><tspan x="638.0" dy="17.0">non_grassland_classes_retained specification</tspan></text>
+<path id="stage-6-analysis-elbow" d="M 570.0 856.0 L 620.0 856.0" stroke="#7b8d99" stroke-width="1.2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowhead-light)"/>
+</g>
+<path id="stage-6-analysis-arrow" d="M 370.0 924.0 L 370.0 943.0" stroke="#2c3f4d" stroke-width="1.4" fill="none" marker-end="url(#arrowhead)"/>
+<g id="stage-7-models" inkscape:groupmode="layer" inkscape:label="Models">
+<rect id="stage-7-models-band" x="28.0" y="947.0" width="118.0" height="147.0" rx="4" fill="#f6f8fa" stroke="#c3ced6" stroke-width="1.1"/>
+<text id="stage-7-models-band-label" x="87.0" y="1024.5" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3d5160"><tspan x="87.0" dy="0.0">Models</tspan></text>
+<rect id="stage-7-models-box" x="170.0" y="947.0" width="400.0" height="147.0" rx="4" fill="#c9daea" stroke="#2c3f4d" stroke-width="1.1"/>
+<text id="stage-7-models-title" x="182.0" y="970.0" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" text-anchor="start" fill="#12222f"><tspan x="182.0" dy="0.0">Modelling pools</tspan></text>
+<text id="stage-7-models-body" x="182.0" y="990.0" font-family="Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#33454f"><tspan x="182.0" dy="0.0">119 effect sizes, 36 studies   richness_bmp</tspan><tspan x="182.0" dy="17.0">827 effect sizes, 75 studies   abundance_guild</tspan><tspan x="182.0" dy="17.0">762 effect sizes, 71 studies   abundance_guild_bmp</tspan><tspan x="182.0" dy="17.0">56 effect sizes, 23 studies   nest_success_guild_bmp</tspan><tspan x="182.0" dy="17.0">669 effect sizes, 63 studies   abundance_pooled_bmp</tspan><tspan x="182.0" dy="17.0">20 effect sizes, 10 studies   nest_success_pooled_bmp</tspan></text>
+</g>
+  <text id="figure-note" x="28.0" y="1126.0" font-family="Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" text-anchor="start" fill="#5a6b76"><tspan x="28.0" dy="0.0">Practice records are paper x practice rows; a paper contributing to two practices appears twice.</tspan><tspan x="28.0" dy="17.0">Papers are distinct citation keys surviving to that stage.</tspan></text>
+</svg>

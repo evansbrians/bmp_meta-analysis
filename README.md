@@ -91,8 +91,8 @@ The reported output is provided in `output/manuscript` and `output/supplemental_
     * `supplemental_tables.docx`: The supplemental tables.
     * `sensitivity_specifications.csv`: Each sensitivity specification, the rule applied, and the decision tested.
 * `output/supplementals/supplemental_figures`
-    * `figure_S3_nest_success_by_guild.png`: Nest success by practice, within guild.
-    * `figure_S4_nest_success_by_guild_intervals.png`: The same estimates as intervals.
-    * `figure_S5_abundance_guild_contrasts.png`: Obligate minus facultative abundance, by practice.
-    * `figure_S6_heterogeneity.png`: The variance components of each model.
-    * `figure_S7_species_abundance.png`: Species-level abundance estimates.
+    * `figure_S1_nest_success_by_guild.png`: Nest success by practice, within guild.
+    * `figure_S2_nest_success_by_guild_intervals.png`: The same estimates as intervals.
+    * `figure_S3_abundance_guild_contrasts.png`: Obligate minus facultative abundance, by practice.
+    * `figure_S4_heterogeneity.png`: The variance components of each model.
+    * `figure_S5_species_abundance.png`: Species-level abundance estimates.

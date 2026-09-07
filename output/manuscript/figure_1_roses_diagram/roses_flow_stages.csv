@@ -1,0 +1,28 @@
+phase,stage,reason,records,papers,records_lost,papers_lost
+identification,Records identified,,638,522,0,0
+screening,"Review article, not a primary study",,596,485,42,37
+screening,Full text not obtainable,,581,470,15,15
+screening,No management practice evaluated,,508,397,73,73
+screening,Reviewer authored the paper,,508,397,0,0
+eligibility,Continuous treatment,,423,330,85,67
+eligibility,Treatment contrast not comparable,,368,288,55,42
+eligibility,"Response not abundance, richness or nest success",,293,225,75,63
+eligibility,Missing quantitative results,,227,177,66,48
+eligibility,No measure of dispersion reported,,209,164,18,13
+eligibility,Reason not recorded (review),,209,164,0,0
+extraction,Effect sizes extracted,,1544,164,0,0
+screen,Response not the one the practice targets,response_flag,1473,150,71,14
+screen,No route to an effect size,conversion,1404,148,69,2
+screen,Treatment and control not comparable,treatment_control_flag,1340,135,64,13
+screen,One result reported more than one way,duplicate_expression,1327,135,13,0
+screen,"Diversity index, not a richness count",diversity_index,1318,134,9,1
+screen,Nest survival could not be transformed to the hazard scale,nest_hazard_scale,1310,130,8,4
+screen,"Artificial nest, not a species' response",artificial_nest,1304,127,6,3
+screen,Effect sizes retained,,1304,127,0,0
+analysis,Grassland classes only,"Artificial nests and shrubland, woodland, and forest species removed",1155,125,149,2
+cutoff,Cells of three or more papers,Fewer than three papers across the guilds for that practice and response,1097,114,58,11
+models,richness_bmp,,117,35,0,0
+models,abundance_guild,,787,74,0,0
+models,abundance_guild_bmp,,787,74,0,0
+models,nest_success_guild_bmp,,37,16,0,0
+models,abundance_pooled_bmp,,866,81,0,0

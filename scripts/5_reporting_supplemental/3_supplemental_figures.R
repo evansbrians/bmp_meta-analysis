@@ -1,6 +1,6 @@
 
 # This script:
-# - Reads the results tables written by 3_contrasts_tables.R
+# - Reads the results tables written by 3_output_tables.R
 # - Builds the supplemental figures
 
 # setup --------------------------------------------------------------------

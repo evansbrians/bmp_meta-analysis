@@ -1,0 +1,17 @@
+assertion,passed,detail
+Every reported cell meets its metric's effect-size threshold,TRUE,Minimum k reported: 6
+Every reported cell meets its metric's independent-study threshold,TRUE,Minimum studies reported: 3
+Cells below the primary threshold are flagged provisional,TRUE,Provisional cells: 0 of 39
+Reported sample sizes reconcile with the effect-size table,TRUE,Mismatched cells: 0
+No species resolves to more than one guild,TRUE,Species checked: 11826
+No shrubland guild appears in any results table,TRUE,Shrubland rows in the results tables: 0
+"No shrubland, woodland or forest species reaches a primary pool",TRUE,Vegetation-class rows in the pools: 0
+Bayesian and REML fits agree on the sign of every non-null cell mean,TRUE,Disagreements: 0
+"Bayesian and REML fits agree on which intervals exclude zero, for cells above the primary threshold",FALSE,Disagreements above the primary threshold: 1
+Provisional cells where REML and Bayes disagree on excluding zero,TRUE,0 of 0 provisional cells (informational)
+No assemblage-level effect size enters a pooled model,TRUE,Community rows in the pooled pools: 0
+Every pooled cell holds at least the effect sizes of its guild cells,TRUE,Pooled cells smaller than their guild cells: 0
+"Pooled estimates are labeled pooled, and guild estimates are not",TRUE,Pooled cells reported: 11
+"Every pooled metric pools only the practices found in both of its guilds, and no metric is pooled that should not be",FALSE,Metrics pooled: abundance; eligible practices: 7
+"Every nest-survival effect size is a log hazard ratio, and every other effect size is Hedges' g",TRUE,Scales verified from the effect_metric column across 1097 effect sizes
+"Every coefficient derived from a paper's own estimates, rather than read off it, records how it was derived",TRUE,Derived coefficients in the pool: 4

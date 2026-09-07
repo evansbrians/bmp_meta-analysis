@@ -1,0 +1,12 @@
+key,response_var,species,treatment,control,row_id,effect_id,issue_id,paper,issue_code,status
+9VXKLDSA,species_richness,all_species,pre-restoration,post-restoration,md_0313,372,72,Gowdy et al. 2022,duplicate_extraction_row,open
+7DEL2BXP,density (birds/ha),yellow_breasted_chat,Herbicide-only treated sites,Untreated (with invasive shrubs),md_0430,500,71,Lautenbach et al. 2020,identical_arm_values_across_contrasts,open
+7DEL2BXP,density (birds/ha),yellow_breasted_chat,Herbicide and shredded sites,Untreated (with invasive shrubs),md_0441,500,71,Lautenbach et al. 2020,identical_arm_values_across_contrasts,open
+AGDXXJXK,density (birds/ha),northern_bobwhite,Native mixed grass prairie,Old world bluestem monoculture,md_1047,1238,61,George et al. 2013,implausibly_precise_se,open
+L2QEJV7P,species_richness,all_species,NWSG plot,CSG plot,md_0615,699,65,Port and Schottler 2017,implausibly_precise_se,open
+A9QQKZTZ,abundance - 2008,mourning_dove,Treated,Untreated,md_0732,819,60,Raynor et al. 2017,implausibly_precise_se,open
+CRBK6BMU,species_richness,all_species,low grazing intensity (monoculture pasture),high grazing intensity (monoculture pasture),md_1094,1289,62,Willcox et al. 2010,implausibly_precise_se,open
+9KZCR9YH,species_richness,all_species,Rotational grazing,Continuous grazing,md_0614,698,56,Pirez and Aldabe 2023,link_scale_se_reported,open
+YXR6499E,abundance,brown_headed_cowbird,Native grassland,Exotic grassland,md_0271,327,69,Davis et al. 2020b,zero_dispersion_reported,open
+A9QQKZTZ,abundance - 2006,western_kingbird,Treated,Untreated,md_0715,814,59,Raynor et al. 2017,zero_dispersion_reported,open
+A9QQKZTZ,abundance - 2006,brown_headed_cowbird,Treated,Untreated,md_0727,814,59,Raynor et al. 2017,zero_dispersion_reported,open
