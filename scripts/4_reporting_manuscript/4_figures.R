@@ -9,6 +9,7 @@
 
 library(tidybayes)
 library(tidyverse)
+library(patchwork)
 
 # Project functions:
 
@@ -109,25 +110,39 @@ bmp_results <-
       )
   )
 
-bmp_results_guild <- 
-  bmp_results %>%
-  pluck("guild_bmp") %>%
-  filter(response_metric == "abundance") %>% 
+# Assign factor levels for guild-specific abundance:
+
+guild_abundance_start <- 
+  cell_draws %>%
+  pluck("abundance_guild") %>%
+  left_join(
+    bmp_results %>% 
+      pluck("guild_bmp") %>% 
+      filter(response_metric == "abundance") %>% 
+      select(
+        guild:bmp, 
+        estimate,
+        excludes_zero
+      ),
+    by = c("guild", "bmp")
+  ) %>%
   mutate(
+    guild_label = as.character(guild_label),
+    bmp_label = 
+      fct_reorder2(
+        bmp_label, 
+        guild_label,
+        estimate,
+        .desc = FALSE
+      ),
     guild_label =
-      str_to_sentence(guild) %>%
-      str_replace("_", " "),
-    guild_exclusion =
-      case_when(
-        str_detect(guild, "facult") &
-          excludes_zero ~
-          "facultative_excludes_zero",
-        str_detect(guild, "obligate") &
-          excludes_zero ~
-          "obligate_excludes_zero",
-        str_detect(guild, "facult") ~ "facultative_includes_zero",
-        str_detect(guild, "obligate") ~ "obligate_includes_zero",
-        .default = NA
+      fct(
+        guild_label,
+        levels = 
+          c(
+            "Obligate grassland",
+            "Facultative grassland"
+          )
       )
   )
 
@@ -401,7 +416,7 @@ figure_abundance_pooled <-
     slab_linewidth = 0.8,
     point_size = 0.5,
     slab_fill = richness_slab_color,
-    slab_color = "grey25",
+    # slab_color = "grey25",
     linewidth = 2.3,
     scale = 0.8
   ) +
@@ -471,6 +486,244 @@ figure_abundance_pooled %>%
 
 # figure 4: abundance by guild ---------------------------------------------
 
+# Obligate abundance:
+
+obligate_abundance <-
+  guild_abundance_start %>% 
+  filter(
+    guild_label == "Obligate grassland"
+  ) %>% 
+  full_join(
+    guild_abundance_start %>% 
+      distinct(bmp_label),
+    by = "bmp_label"
+  ) %>% 
+  
+  # Initialize the plot with the data:
+  
+  ggplot() +
+  
+  # Map data to visual elements:
+  
+  aes(
+    x = .value,
+    y = bmp_label
+  ) +
+  
+  # Add geometries:
+  
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.3,
+    color = "grey25"
+  ) +
+  stat_halfeye(
+    .width = 0.95,
+    point_interval = "median_qi",
+    normalize = "xy",
+    slab_alpha = 0.22,
+    slab_linewidth = 0.8,
+    point_color = NA,
+    scale = 0.8,
+    slab_fill = "#1B5E3C",
+    slab_color = "#1B5E3C",
+    fill = "#1B5E3C",
+    color = "#1B5E3C"
+  ) +
+  geom_point(
+    aes(
+      x = estimate,
+      fill = excludes_zero
+    ),
+    size = 3.4,
+    shape = 21,
+    color = "#1B5E3C"
+  ) +
+  geom_text(
+    probability_label_mapping,
+    data = 
+      edge_labels$abundance_guild %>% 
+      filter(guild == "obligate_grassland"),
+    hjust = 1.06,
+    vjust = -0.33,
+    size = 2.7,
+    color = "grey25"
+  ) +
+  scale_fill_manual(
+    values = c("#ffffff", "#1B5E3C")
+  ) +
+  scale_x_continuous(
+    expand =
+      expansion(
+        mult = c(0.06, 0.2)
+      )
+  ) +
+  
+  # Add labels:
+  
+  labs(
+    title = "Obligate grassland",
+    x = effect_axis_label,
+    y = NULL
+  ) +
+  
+  # Modify the theme:
+  
+  theme_bmp(base_size = 11) +
+  theme(
+    plot.title = element_text(hjust = 0.65),
+    axis.text = element_text(color = "gray5"),
+    axis.ticks = element_line(color = "gray55"),
+    panel.grid.major.y = element_line(color = "gray95"),
+    legend.position = "none"
+  )
+
+# Facultative abundance:
+
+facultative_abundance <-
+  guild_abundance_start %>% 
+  filter(
+    guild_label == "Facultative grassland"
+  ) %>% 
+  full_join(
+    guild_abundance_start %>% 
+      distinct(bmp_label),
+    by = "bmp_label"
+  ) %>% 
+  
+  # Initialize the plot with the data:
+  
+  ggplot() +
+  
+  # Map data to visual elements:
+  
+  aes(
+    x = .value,
+    y = bmp_label
+  ) +
+  
+  # Add geometries:
+  
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.3,
+    color = "grey25"
+  ) +
+  stat_halfeye(
+    .width = 0.95,
+    point_interval = "median_qi",
+    normalize = "xy",
+    slab_alpha = 0.22,
+    slab_linewidth = 0.8,
+    point_color = NA,
+    scale = 0.8,
+    slab_fill = "#B07A2A",
+    slab_color = "#B07A2A",
+    fill = "#B07A2A",
+    color = "#B07A2A"
+  ) +
+  geom_point(
+    aes(
+      x = estimate,
+      fill = excludes_zero
+    ),
+    size = 3.4,
+    shape = 21,
+    color = "#B07A2A"
+  ) +
+  geom_text(
+    probability_label_mapping,
+    data = 
+      edge_labels$abundance_guild %>% 
+      filter(guild == "facultative_grassland"),
+    hjust = 1.06,
+    vjust = -0.33,
+    size = 2.7,
+    color = "grey25"
+  ) +
+  scale_fill_manual(
+    values = c("#ffffff", "#B07A2A")
+  ) +
+  scale_x_continuous(
+    expand =
+      expansion(
+        mult = c(0.06, 0.1)
+      )
+  ) +
+  scale_y_discrete(
+    expand =
+      expansion(
+        mult = c(0.07, 0.11)
+      )
+  ) +
+  
+  # Add labels:
+  
+  labs(
+    title = "Facultative grassland",
+    x = effect_axis_label,
+    y = NULL
+  ) +
+  
+  # Modify the theme:
+  
+  theme_bmp(base_size = 11) +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.text = element_text(color = "gray5"),
+    axis.text.y = element_blank(),
+    axis.ticks = element_line(color = "gray55"),
+    axis.ticks.y = element_blank(),
+    panel.grid.major.y = element_line(color = "gray95"),
+    legend.position = "none"
+  )
+
+# Combine plots:
+
+figure_abundance_by_guild <- 
+  obligate_abundance + facultative_abundance
+
+# Write figure 4:
+
+figure_abundance_by_guild %>%
+  write_output_figure(
+    file_name = "figure_4_abundance_by_guild.png",
+    width = 15,
+    height = 7.5
+  )
+
+# clear the environment ----------------------------------------------------
+
+rm(
+  list = ls()
+)
+
+# recycling ---------------------------------------------------------------
+
+bmp_results_guild <- 
+  bmp_results %>%
+  pluck("guild_bmp") %>%
+  filter(response_metric == "abundance") %>% 
+  mutate(
+    guild_label =
+      str_to_sentence(guild) %>%
+      str_replace("_", " "),
+    guild_exclusion =
+      case_when(
+        str_detect(guild, "facult") &
+          excludes_zero ~
+          "facultative_excludes_zero",
+        str_detect(guild, "obligate") &
+          excludes_zero ~
+          "obligate_excludes_zero",
+        str_detect(guild, "facult") ~ "facultative_includes_zero",
+        str_detect(guild, "obligate") ~ "obligate_includes_zero",
+        .default = NA
+      )
+  )
+
 # Guilds as side-by-side panels:
 
 # figure_abundance_by_guild <-
@@ -484,6 +737,25 @@ cell_draws %>%
         guild_exclusion
       ),
     by = c("guild", "bmp")
+  ) %>%
+  mutate(
+    guild_label = as.character(guild_label),
+    bmp_label = 
+      fct_reorder2(
+        bmp_label, 
+        guild_label,
+        estimate,
+        .desc = FALSE
+      ),
+    guild_label =
+      fct(
+        guild_label,
+        levels = 
+          c(
+            "Obligate grassland",
+            "Facultative grassland"
+          )
+      )
   ) %>%
   
   # Initialize the plot with the data:
@@ -515,7 +787,7 @@ cell_draws %>%
     point_interval = "median_qi",
     normalize = "xy",
     slab_alpha = 0.22,
-    slab_linewidth = 15,
+    slab_linewidth = 2,
     point_color = NA,
     scale = 0.8
   ) +
@@ -541,7 +813,7 @@ cell_draws %>%
   facet_wrap(
     ~ guild_label,
     nrow = 1,
-    scales = "free"
+    scales = "free_x"
   ) +
   
   # Define scale elements:
@@ -559,6 +831,13 @@ cell_draws %>%
       ),
     guide = "none"
   ) +
+  scale_slab_color_discrete(
+    # palette = 2
+    # scales::pal_manual(
+    #   values = c("#B07A2A", "#1B5E3C"),
+    #   type = "numeric"
+    # )
+  ) +
   scale_color_manual(
     values = guild_colors,
     guide = "none"
@@ -566,7 +845,7 @@ cell_draws %>%
   scale_x_continuous(
     expand =
       expansion(
-        mult = c(0.06, 0.3)
+        mult = c(0.06, 0.2)
       )
   ) +
   
@@ -585,18 +864,3 @@ cell_draws %>%
     axis.ticks = element_line(color = "gray55"),
     legend.position = "none"
   )
-
-# Write figure 4:
-
-figure_abundance_by_guild %>%
-  write_output_figure(
-    file_name = "figure_4_abundance_by_guild.png",
-    width = 15,
-    height = 7.5
-  )
-
-# clear the environment ----------------------------------------------------
-
-rm(
-  list = ls()
-)

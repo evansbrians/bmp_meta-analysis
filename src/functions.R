@@ -1065,7 +1065,7 @@ theme_bmp <-
         panel.grid.major.y = element_blank(),
         panel.grid.major.x =
           element_line(
-            color = "grey88",
+            color = "grey95",
             linewidth = 0.25
           ),
         strip.background =
