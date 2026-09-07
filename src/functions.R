@@ -960,9 +960,6 @@ summarize_convergence <-
 # The practice vocabulary: the code the data carry against the formal name the
 # manuscript prints. 3_build_database.R loads it as the database's bmp table.
 
-# The extraction says `grazing_intensity` where the metadata says
-# `reduce_grazing_intensity`; both name the one practice.
-
 bmp_vocabulary <-
   read_csv(
     here::here("src", "bmp_vocabulary.csv"),
