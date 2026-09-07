@@ -256,8 +256,6 @@ g_from_categorical_beta <-
 
 #   log hazard ratio = cll(survival_treatment) - cll(survival_control)
 
-# Validated in claude/bmp_nest_survival_scale.md.
-
 cloglog <-
   function(.survival) {
     log(
@@ -585,6 +583,38 @@ sampler_settings <-
     backend = "rstan",
     seed = 20260726
   )
+
+# The prior sets: the primary prior, and the multiples of its scales the
+# sensitivity suite refits under.
+
+model_prior_sets <-
+  function(
+    effect_scale = 1,
+    variance_scale = 0.5,
+    multipliers =
+      c(
+        primary = 1,
+        wider = 2,
+        tighter = 0.5
+      )) {
+    multipliers %>%
+      map(
+        \(.multiplier) {
+          c(
+            brms::prior_string(
+              glue::glue("normal(0, {effect_scale * .multiplier})"),
+              class = "b"
+            ),
+            brms::prior_string(
+              glue::glue(
+                "student_t(3, 0, {variance_scale * .multiplier})"
+              ),
+              class = "sd"
+            )
+          )
+        }
+      )
+  }
 
 # Mark each cell against the primary and reduced thresholds, so a cell that
 # clears only the reduced one is still reported, flagged.
@@ -1098,7 +1128,7 @@ write_output_table <-
   function(
     .data,
     file_name,
-    directory = "output/tables") {
+    directory = "output/draft_output/tables") {
     write_csv(
       .data,
       fs::path(directory, file_name),
@@ -1107,17 +1137,18 @@ write_output_table <-
     invisible(.data)
   }
 
-# Write one figure to output/figures, and hand the plot back unchanged.
+# Write one figure to a directory, and hand the plot back unchanged.
 
 write_output_figure <-
   function(
     plot_object,
     file_name,
     width = 7,
-    height = 5) {
+    height = 5,
+    directory = "output/manuscript") {
     ggsave(
       filename =
-        fs::path("output/figures", file_name),
+        fs::path(directory, file_name),
       plot = plot_object,
       width = width,
       height = height,
@@ -1205,7 +1236,7 @@ write_unclassified_species <-
       write_audit_table(file_name = file_name)
   }
 
-# Write one table to output/audits.
+# Write one table to output/draft_output/audits.
 
 write_audit_table <-
   function(
@@ -1214,7 +1245,7 @@ write_audit_table <-
     .data %>%
       write_output_table(
         file_name = file_name,
-        directory = "output/audits"
+        directory = "output/draft_output/audits"
       )
   }
 
@@ -1975,7 +2006,7 @@ read_effect_size_pool <-
 # re-export. A row marked resolved is no longer held out.
 
 # Named for the data-quality flag it carries. The screen's own hold-outs are
-# output/audits/excluded_effects.csv, travelling the other way.
+# output/draft_output/audits/excluded_effects.csv, travelling the other way.
 
 flagged_effect_columns <-
   c(
@@ -2032,7 +2063,7 @@ readmit_screened <-
     .pool,
     reason,
     metric,
-    file_path = "output/audits/excluded_effects.csv") {
+    file_path = "output/draft_output/audits/excluded_effects.csv") {
     held_out <-
       read_csv(
         file_path,
@@ -2516,7 +2547,7 @@ gather_guild_bmp_draws <-
 # The figures and the results page read cell means as draws, so extracting
 # them once keeps the fitted models out of everything downstream.
 
-cell_draws_file <- "output/models/posterior_cell_draws.rds"
+cell_draws_file <- "output/draft_output/models/posterior_cell_draws.rds"
 
 # The models whose cell means are committed as draws:
 
