@@ -76,7 +76,7 @@ results <-
   map(
     \(.table_name) {
       fs::path(
-        "output/tables", 
+        "output/draft_output/tables", 
         .table_name, 
         ext = "csv"
       ) %>%
@@ -107,42 +107,6 @@ bmp_results <-
       left_join(
         practice_labels,
         by = "bmp"
-      )
-  )
-
-# Assign factor levels for guild-specific abundance:
-
-guild_abundance_start <- 
-  cell_draws %>%
-  pluck("abundance_guild") %>%
-  left_join(
-    bmp_results %>% 
-      pluck("guild_bmp") %>% 
-      filter(response_metric == "abundance") %>% 
-      select(
-        guild:bmp, 
-        estimate,
-        excludes_zero
-      ),
-    by = c("guild", "bmp")
-  ) %>%
-  mutate(
-    guild_label = as.character(guild_label),
-    bmp_label = 
-      fct_reorder2(
-        bmp_label, 
-        guild_label,
-        estimate,
-        .desc = FALSE
-      ),
-    guild_label =
-      fct(
-        guild_label,
-        levels = 
-          c(
-            "Obligate grassland",
-            "Facultative grassland"
-          )
       )
   )
 
@@ -245,6 +209,44 @@ edge_labels <-
           join_vars = c("guild", "bmp")
         )
     }
+  )
+
+# pre-processing ----------------------------------------------------------
+
+# Assign factor levels for guild-specific abundance:
+
+guild_abundance_start <- 
+  cell_draws %>%
+  pluck("abundance_guild") %>%
+  left_join(
+    bmp_results %>% 
+      pluck("guild_bmp") %>% 
+      filter(response_metric == "abundance") %>% 
+      select(
+        guild:bmp, 
+        estimate,
+        excludes_zero
+      ),
+    by = c("guild", "bmp")
+  ) %>%
+  mutate(
+    guild_label = as.character(guild_label),
+    bmp_label = 
+      fct_reorder2(
+        bmp_label, 
+        guild_label,
+        estimate,
+        .desc = FALSE
+      ),
+    guild_label =
+      fct(
+        guild_label,
+        levels = 
+          c(
+            "Obligate grassland",
+            "Facultative grassland"
+          )
+      )
   )
 
 # figure 2: species richness ----------------------------------------------
