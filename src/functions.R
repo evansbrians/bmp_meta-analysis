@@ -1089,8 +1089,7 @@ theme_bmp <-
     theme_bw(base_size = base_size) +
       theme(
         panel.grid.minor = element_blank(),
-        panel.grid.major.y = element_blank(),
-        panel.grid.major.x =
+        panel.grid.major =
           element_line(
             color = "grey95",
             linewidth = 0.25
@@ -1103,19 +1102,23 @@ theme_bmp <-
           ),
         strip.text =
           element_text(
-            size = rel(0.9),
+            size = 14,
             face = "bold"
           ),
         axis.title =
           element_text(
-            size = rel(1.0)
+            size = rel(1.0),
+            vjust = 0.2
           ),
+        axis.text = element_text(color = "gray5"),
+        axis.ticks = element_line(color = "gray55"),
         plot.title =
           element_text(
             size = rel(1.15),
             face = "bold"
           ),
-        plot.title.position = "plot"
+        plot.title.position = "plot",
+        legend.position = "none"
       )
   }
 

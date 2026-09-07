@@ -185,24 +185,6 @@ richness_edge_labels <-
     .cells = results$species_richness,
     grouping_vars = c("bmp", "bmp_label"),
     join_vars = "bmp"
-  ) %>% 
-  mutate(
-    edge_label =
-      edge_label %>%
-      str_replace(
-        "dies",
-        str_c(
-          "dies",
-          str_dup("\u2007", 1)
-        )
-      ) %>%
-      str_replace(
-        "P\\(> 0\\)",
-        "\u2007 \nP\\(> 0\\)"
-      ) %>% 
-      str_c(
-        str_dup("\u2007", 9)
-      )
   )
 
 # Guild and pooled cell draws:
@@ -220,7 +202,6 @@ cell_draws <-
         # Subset to the model:
         
         filter(model == .model_name) %>%
-        
         rename(bmp = cell) %>%
         
         # Name the guild panels:
@@ -262,24 +243,6 @@ edge_labels <-
               "bmp_label"
             ),
           join_vars = c("guild", "bmp")
-        ) %>% 
-        mutate(
-          edge_label =
-            edge_label %>%
-            str_replace(
-              "dies",
-              str_c(
-                "dies",
-                str_dup("\u2007", 3)
-              )
-            ) %>%
-            str_replace(
-              " P\\(> 0\\)",
-              "\u2007 \nP\\(> 0\\)"
-            ) %>%
-            str_c(
-              str_dup("\u2007", 10)
-            )
         )
     }
   )
@@ -332,11 +295,23 @@ figure_richness_posterior <-
     shape = 21
   ) +
   geom_text(
-    probability_label_mapping,
-    data = richness_edge_labels,
-    hjust = 1.06,
-    vjust = -0.33,
-    size = 2.9,
+    aes(label = sample_note),
+    data = 
+      richness_edge_labels,
+    x = 1.95,
+    hjust = 0,
+    vjust = -5,
+    size = 2.7,
+    color = "grey25",
+  ) +
+  geom_text(
+    aes(label = probability_label),
+    data = 
+      richness_edge_labels,
+    x = 1.95,
+    hjust = 0,
+    vjust = -3,
+    size = 2.7,
     color = "grey25"
   ) +
   
@@ -346,10 +321,12 @@ figure_richness_posterior <-
     values = c("white", "black")
   ) +
   scale_x_continuous(
-    limits = c(-2, NA),
+    limits = c(-2, 2.5),
+    breaks = 
+      seq(-2, 2.5, by = 0.5),
     expand =
       expansion(
-        mult = c(0.001, 0.08)
+        mult = c(0.001, 0.001)
       )
   ) +
   scale_y_discrete(
@@ -370,9 +347,9 @@ figure_richness_posterior <-
   
   theme_bmp(base_size = 12) +
   theme(
-    axis.text = element_text(color = "gray5"),
-    axis.ticks = element_line(color = "gray55"),
-    legend.position = "none"
+    axis.title.x = element_text(vjust = 0.2),
+    plot.margin = 
+      margin(10, 10, 7, 2),
   )
 
 # Write figure 2:
@@ -416,7 +393,7 @@ figure_abundance_pooled <-
     slab_linewidth = 0.8,
     point_size = 0.5,
     slab_fill = richness_slab_color,
-    # slab_color = "grey25",
+    slab_color = "grey25",
     linewidth = 2.3,
     scale = 0.8
   ) +
@@ -433,11 +410,23 @@ figure_abundance_pooled <-
     shape = 21
   ) +
   geom_text(
-    probability_label_mapping,
-    data = edge_labels$abundance_pooled,
-    hjust = 1.06,
-    vjust = -0.33,
-    size = 2.9,
+    aes(label = sample_note),
+    data = 
+      edge_labels$abundance_pooled,
+    hjust = 0,
+    x = 1.6,
+    vjust = -3.5,
+    size = 2.7,
+    color = "grey25",
+  ) +
+  geom_text(
+    aes(label = probability_label),
+    data = 
+      edge_labels$abundance_pooled,
+    x = 1.6,
+    hjust = 0,
+    vjust = -1.5,
+    size = 2.7,
     color = "grey25"
   ) +
   
@@ -447,9 +436,12 @@ figure_abundance_pooled <-
     values = c("white", "black")
   ) +
   scale_x_continuous(
+    limits = c(-1, 2),
+    breaks = 
+      seq(-1, 2, by = 0.5),
     expand =
       expansion(
-        mult = c(0.03, 0.1)
+        mult = c(0.001, 0.001)
       )
   ) +
   scale_y_discrete(
@@ -470,9 +462,9 @@ figure_abundance_pooled <-
   
   theme_bmp(base_size = 12) +
   theme(
-    axis.text = element_text(color = "gray5"),
-    axis.ticks = element_line(color = "gray55"),
-    legend.position = "none"
+    axis.title.x = element_text(vjust = 0.2),
+    plot.margin = 
+      margin(10, 10, 7, 2),
   )
 
 # Write figure 3:
@@ -486,7 +478,7 @@ figure_abundance_pooled %>%
 
 # figure 4: abundance by guild ---------------------------------------------
 
-# Obligate abundance:
+## obligate abundance -----------------------------------------------------
 
 obligate_abundance <-
   guild_abundance_start %>% 
@@ -497,6 +489,13 @@ obligate_abundance <-
     guild_abundance_start %>% 
       distinct(bmp_label),
     by = "bmp_label"
+  ) %>% 
+  mutate(
+    guild_label = 
+      replace_na(
+        guild_label, 
+        "Obligate grassland"
+      )
   ) %>% 
   
   # Initialize the plot with the data:
@@ -541,29 +540,57 @@ obligate_abundance <-
     color = "#1B5E3C"
   ) +
   geom_text(
-    probability_label_mapping,
+    aes(label = sample_note),
     data = 
       edge_labels$abundance_guild %>% 
       filter(guild == "obligate_grassland"),
-    hjust = 1.06,
-    vjust = -0.33,
+    hjust = 0,
+    x = 1.13,
+    vjust = -4,
+    size = 2.7,
+    color = "grey25",
+  ) +
+  geom_text(
+    aes(label = probability_label),
+    data = 
+      edge_labels$abundance_guild %>% 
+      filter(guild == "obligate_grassland"),
+    x = 1.13,
+    hjust = 0,
+    vjust = -2,
     size = 2.7,
     color = "grey25"
   ) +
+  
+  # Define scale elements:
+  
   scale_fill_manual(
     values = c("#ffffff", "#1B5E3C")
   ) +
   scale_x_continuous(
+    limits = c(-1, 1.5),
+    expand = 
+      expansion(
+        mult = c(0.001, 0.001)
+      )
+  ) +
+  scale_y_discrete(
     expand =
       expansion(
-        mult = c(0.06, 0.2)
+        mult = c(0.03, NA)
       )
+  ) +
+  
+  # Add facet:
+  
+  facet_wrap(
+    ~ guild_label,
+    nrow = 1
   ) +
   
   # Add labels:
   
   labs(
-    title = "Obligate grassland",
     x = effect_axis_label,
     y = NULL
   ) +
@@ -572,14 +599,13 @@ obligate_abundance <-
   
   theme_bmp(base_size = 11) +
   theme(
-    plot.title = element_text(hjust = 0.65),
-    axis.text = element_text(color = "gray5"),
-    axis.ticks = element_line(color = "gray55"),
-    panel.grid.major.y = element_line(color = "gray95"),
-    legend.position = "none"
+    axis.title.x = element_text(size = 14, vjust = 0.2),
+    strip.text = element_text(size = 14),
+    plot.margin = 
+      margin(l = 1, r = 10),
   )
 
-# Facultative abundance:
+## facultative abundance --------------------------------------------------
 
 facultative_abundance <-
   guild_abundance_start %>% 
@@ -590,6 +616,13 @@ facultative_abundance <-
     guild_abundance_start %>% 
       distinct(bmp_label),
     by = "bmp_label"
+  ) %>% 
+  mutate(
+    guild_label = 
+      replace_na(
+        guild_label, 
+        "Facultative grassland"
+      )
   ) %>% 
   
   # Initialize the plot with the data:
@@ -634,35 +667,57 @@ facultative_abundance <-
     color = "#B07A2A"
   ) +
   geom_text(
-    probability_label_mapping,
+    aes(label = sample_note),
     data = 
       edge_labels$abundance_guild %>% 
       filter(guild == "facultative_grassland"),
-    hjust = 1.06,
-    vjust = -0.33,
+    hjust = 0,
+    x = 1.13,
+    vjust = -4,
+    size = 2.7,
+    color = "grey25",
+  ) +
+  geom_text(
+    aes(label = probability_label),
+    data = 
+      edge_labels$abundance_guild %>% 
+      filter(guild == "facultative_grassland"),
+    x = 1.13,
+    hjust = 0,
+    vjust = -2,
     size = 2.7,
     color = "grey25"
   ) +
+  
+  # Define scale elements:
+  
   scale_fill_manual(
     values = c("#ffffff", "#B07A2A")
   ) +
   scale_x_continuous(
-    expand =
+    limits = c(-1, 1.5),
+    expand = 
       expansion(
-        mult = c(0.06, 0.1)
+        mult = c(0.001, 0.001)
       )
   ) +
   scale_y_discrete(
     expand =
       expansion(
-        mult = c(0.07, 0.11)
+        mult = c(0.03, 0.111)
       )
+  ) +
+  
+  # Add facet:
+  
+  facet_wrap(
+    ~ guild_label,
+    nrow = 1
   ) +
   
   # Add labels:
   
   labs(
-    title = "Facultative grassland",
     x = effect_axis_label,
     y = NULL
   ) +
@@ -671,19 +726,22 @@ facultative_abundance <-
   
   theme_bmp(base_size = 11) +
   theme(
-    plot.title = element_text(hjust = 0.5),
-    axis.text = element_text(color = "gray5"),
+    axis.title.x = element_text(size = 14, vjust = 0.2),
     axis.text.y = element_blank(),
-    axis.ticks = element_line(color = "gray55"),
     axis.ticks.y = element_blank(),
-    panel.grid.major.y = element_line(color = "gray95"),
-    legend.position = "none"
+    strip.text = element_text(size = 14),
+    plot.margin = 
+      margin(l = 10, r = 10),
   )
+
+## combine and write ------------------------------------------------------
 
 # Combine plots:
 
 figure_abundance_by_guild <- 
-  obligate_abundance + facultative_abundance
+  obligate_abundance + 
+  facultative_abundance +
+  plot_layout(axis_titles = "collect")
 
 # Write figure 4:
 
@@ -699,168 +757,3 @@ figure_abundance_by_guild %>%
 rm(
   list = ls()
 )
-
-# recycling ---------------------------------------------------------------
-
-bmp_results_guild <- 
-  bmp_results %>%
-  pluck("guild_bmp") %>%
-  filter(response_metric == "abundance") %>% 
-  mutate(
-    guild_label =
-      str_to_sentence(guild) %>%
-      str_replace("_", " "),
-    guild_exclusion =
-      case_when(
-        str_detect(guild, "facult") &
-          excludes_zero ~
-          "facultative_excludes_zero",
-        str_detect(guild, "obligate") &
-          excludes_zero ~
-          "obligate_excludes_zero",
-        str_detect(guild, "facult") ~ "facultative_includes_zero",
-        str_detect(guild, "obligate") ~ "obligate_includes_zero",
-        .default = NA
-      )
-  )
-
-# Guilds as side-by-side panels:
-
-# figure_abundance_by_guild <-
-cell_draws %>%
-  pluck("abundance_guild") %>%
-  left_join(
-    bmp_results_guild %>% 
-      select(
-        guild:bmp, 
-        estimate,
-        guild_exclusion
-      ),
-    by = c("guild", "bmp")
-  ) %>%
-  mutate(
-    guild_label = as.character(guild_label),
-    bmp_label = 
-      fct_reorder2(
-        bmp_label, 
-        guild_label,
-        estimate,
-        .desc = FALSE
-      ),
-    guild_label =
-      fct(
-        guild_label,
-        levels = 
-          c(
-            "Obligate grassland",
-            "Facultative grassland"
-          )
-      )
-  ) %>%
-  
-  # Initialize the plot with the data:
-  
-  ggplot() +
-  
-  # Map data to visual elements:
-  
-  aes(
-    x = .value,
-    y = bmp_label,
-    color = guild_label
-  ) +
-  
-  # Add geometries:
-  
-  geom_vline(
-    xintercept = 0,
-    linetype = "dashed",
-    linewidth = 0.3,
-    color = "grey25"
-  ) +
-  stat_halfeye(
-    aes(
-      fill = guild_label,
-      # slab_color = guild_label
-    ),
-    .width = 0.95,
-    point_interval = "median_qi",
-    normalize = "xy",
-    slab_alpha = 0.22,
-    slab_linewidth = 2,
-    point_color = NA,
-    scale = 0.8
-  ) +
-  geom_point(
-    aes(
-      x = estimate,
-      fill = guild_exclusion
-    ),
-    size = 3.4,
-    shape = 21
-  ) +
-  geom_text(
-    probability_label_mapping,
-    data = edge_labels$abundance_guild,
-    hjust = 1.06,
-    vjust = -0.33,
-    size = 2.7,
-    color = "grey25"
-  ) +
-  
-  # Divide the plot into facets:
-  
-  facet_wrap(
-    ~ guild_label,
-    nrow = 1,
-    scales = "free_x"
-  ) +
-  
-  # Define scale elements:
-  
-  scale_fill_manual(
-    values = 
-      c(
-        guild_colors,
-        c(
-          facultative_excludes_zero = "#B07A2A", 
-          obligate_excludes_zero = "#1B5E3C",
-          facultative_includes_zero = "#ffffff", 
-          obligate_includes_zero = "#ffffff"
-        )
-      ),
-    guide = "none"
-  ) +
-  scale_slab_color_discrete(
-    # palette = 2
-    # scales::pal_manual(
-    #   values = c("#B07A2A", "#1B5E3C"),
-    #   type = "numeric"
-    # )
-  ) +
-  scale_color_manual(
-    values = guild_colors,
-    guide = "none"
-  ) +
-  scale_x_continuous(
-    expand =
-      expansion(
-        mult = c(0.06, 0.2)
-      )
-  ) +
-  
-  # Add labels:
-  
-  labs(
-    x = effect_axis_label,
-    y = NULL
-  ) +
-  
-  # Modify the theme:
-  
-  theme_bmp(base_size = 11) +
-  theme(
-    axis.text = element_text(color = "gray5"),
-    axis.ticks = element_line(color = "gray55"),
-    legend.position = "none"
-  )
