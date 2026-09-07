@@ -282,7 +282,7 @@ edge_labels <-
     }
   )
 
-# figure S3: nest success by guild -----------------------------------------
+# figure S1: nest success by guild -----------------------------------------
 
 figure_nest_success_posterior <-
   cell_draws %>%
@@ -362,17 +362,17 @@ figure_nest_success_posterior <-
   
   theme_bmp(base_size = 11)
 
-# Write figure S3:
+# Write figure S1:
 
 figure_nest_success_posterior %>%
   write_output_figure(
     directory = figure_directory,
-    file_name = "figure_S3_nest_success_by_guild.png",
+    file_name = "figure_S1_nest_success_by_guild.png",
     width = 13,
     height = 6
   )
 
-# figure S4: nest success by guild, intervals ------------------------------
+# figure S2: nest success by guild, intervals ------------------------------
 
 figure_nest_success <-
   bmp_cells %>%
@@ -476,17 +476,17 @@ figure_nest_success <-
   
   theme_bmp(base_size = 12)
 
-# Write figure S4:
+# Write figure S2:
 
 figure_nest_success %>%
   write_output_figure(
     directory = figure_directory,
-    file_name = "figure_S4_nest_success_by_guild_intervals.png",
+    file_name = "figure_S2_nest_success_by_guild_intervals.png",
     width = 9,
     height = 7.5
   )
 
-# figure S5: guild contrasts in abundance ----------------------------------
+# figure S3: guild contrasts in abundance ----------------------------------
 
 # Contrast probability labels:
 
@@ -598,18 +598,18 @@ if (nrow(results$guild_contrasts) > 0) {
     
     theme_bmp(base_size = 12)
   
-  # Write figure S5:
+  # Write figure S3:
   
   figure_guild_contrasts %>%
     write_output_figure(
       directory = figure_directory,
-      file_name = "figure_S5_abundance_guild_contrasts.png",
+      file_name = "figure_S3_abundance_guild_contrasts.png",
       width = 9.5,
       height = 6.5
     )
 }
 
-# figure S6: heterogeneity -------------------------------------------------
+# figure S4: heterogeneity -------------------------------------------------
 
 figure_heterogeneity <-
   results$heterogeneity %>%
@@ -687,17 +687,17 @@ figure_heterogeneity <-
   
   theme_bmp(base_size = 11)
 
-# Write figure S6:
+# Write figure S4:
 
 figure_heterogeneity %>%
   write_output_figure(
     directory = figure_directory,
-    file_name = "figure_S6_heterogeneity.png",
+    file_name = "figure_S4_heterogeneity.png",
     width = 9.5,
     height = 14
   )
 
-# figure S7: species-level abundance ---------------------------------------
+# figure S5: species-level abundance ---------------------------------------
 
 figure_species <-
   results$species_abundance %>%
@@ -772,12 +772,12 @@ figure_species <-
   
   theme_bmp(base_size = 10)
 
-# Write figure S7:
+# Write figure S5:
 
 figure_species %>%
   write_output_figure(
     directory = figure_directory,
-    file_name = "figure_S7_species_abundance.png",
+    file_name = "figure_S5_species_abundance.png",
     width = 9.5,
     height = 14
   )
