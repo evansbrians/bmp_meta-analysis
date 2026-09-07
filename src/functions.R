@@ -1809,11 +1809,6 @@ guild_colors <-
   ) %>%
   set_names(guild_display_levels)
 
-# Practice names run long, so every practice axis wraps at this width. Only
-# the display label wraps, never a join key.
-
-practice_label_width <- 40
-
 # Guild panel labels, in display order.
 
 add_guild_label <-
