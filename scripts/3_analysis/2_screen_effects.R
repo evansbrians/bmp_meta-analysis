@@ -4,7 +4,8 @@
 # - Applies the exclusion screen once, in one place
 # - Holds out the cells resting on fewer than three papers, less those the
 #   pooled model still carries
-# - Writes the analysis pool to db_mirror and every audit to output/audits
+# - Writes the analysis pool to db_mirror and every audit to the audits
+#   folder
 
 # setup --------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ source("src/functions.R")
 fs::dir_create(
   c(
     "data/db_mirror",
-    "output/audits"
+    "output/draft_output/audits"
   )
 )
 
@@ -263,7 +264,7 @@ screened_effects %>%
 screened_effects %>%
   write_output_table(
     file_name = "screened_effects.csv",
-    directory = "output/audits"
+    directory = "output/draft_output/audits"
   )
 
 # Everything held out, with its reason:
@@ -279,7 +280,7 @@ screened_effects %>%
   ) %>%
   write_output_table(
     file_name = "excluded_effects.csv",
-    directory = "output/audits"
+    directory = "output/draft_output/audits"
   )
 
 # Nest records and their input scale:
@@ -303,7 +304,7 @@ screened_effects %>%
   ) %>%
   write_output_table(
     file_name = "nest_hazard_conversion.csv",
-    directory = "output/audits"
+    directory = "output/draft_output/audits"
   )
 
 # Fire treatments the original rule held out:
@@ -320,7 +321,7 @@ screened_effects %>%
   arrange(treatment) %>%
   write_output_table(
     file_name = "fire_excluded_treatments.csv",
-    directory = "output/audits"
+    directory = "output/draft_output/audits"
   )
 
 # clear the environment ----------------------------------------------------

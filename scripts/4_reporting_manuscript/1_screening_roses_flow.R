@@ -16,7 +16,7 @@ source("src/functions.R")
 
 # Output directory:
 
-flow_directory <- path("output/roses_diagram")
+flow_directory <- path("output/manuscript/figure_1_roses_diagram")
 
 # Create it:
 
@@ -105,7 +105,7 @@ dbDisconnect(bmp_database, shutdown = TRUE)
 
 screened_effects <-
   read_csv(
-    "output/audits/screened_effects.csv",
+    "output/draft_output/audits/screened_effects.csv",
     show_col_types = FALSE
   ) %>%
 
@@ -394,7 +394,7 @@ roses_flow_stages <-
     # Modeling pools:
 
     read_csv(
-      "output/audits/analysis_pool_summary.csv",
+      "output/draft_output/audits/analysis_pool_summary.csv",
       show_col_types = FALSE
     ) %>%
       rename(

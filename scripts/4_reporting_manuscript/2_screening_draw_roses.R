@@ -15,7 +15,7 @@ source("src/functions.R")
 
 # Diagram directory:
 
-flow_directory <- path("output/roses_diagram")
+flow_directory <- path("output/manuscript/figure_1_roses_diagram")
 
 # Counting unit per phase:
 

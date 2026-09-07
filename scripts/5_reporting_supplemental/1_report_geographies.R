@@ -16,13 +16,13 @@ source("src/functions.R")
 
 # Output directory:
 
-fs::dir_create("output/tables")
+fs::dir_create("output/draft_output/tables")
 
 # Screened effects:
 
 papers_by_pool <-
   read_csv(
-    "output/audits/screened_effects.csv",
+    "output/draft_output/audits/screened_effects.csv",
     show_col_types = FALSE
   ) %>%
   select(key, region, bmp, in_primary_pool)

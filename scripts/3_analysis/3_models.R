@@ -18,9 +18,9 @@ source("src/functions.R")
 
 fs::dir_create(
   c(
-    "output/audits",
-    "output/models",
-    "output/diagnostics"
+    "output/draft_output/audits",
+    "output/draft_output/models",
+    "output/draft_output/diagnostics"
   )
 )
 
@@ -31,20 +31,8 @@ options(mc.cores = sampler_settings$cores)
 # Weakly informative priors:
 
 model_priors <-
-  c(
-    prior(
-      normal(0, 1),
-      class = "b"
-    ),
-    prior(
-      student_t(
-        3,
-        0,
-        0.5
-      ),
-      class = "sd"
-    )
-  )
+  model_prior_sets() %>%
+  pluck("primary")
 
 # assemble the analysis pool -----------------------------------------------
 
@@ -146,7 +134,7 @@ model_pools %>%
   ) %>%
   list_rbind(names_to = "pool") %>%
   write_csv(
-    "output/audits/analysis_pool_summary.csv",
+    "output/draft_output/audits/analysis_pool_summary.csv",
     na = ""
   )
 
@@ -207,7 +195,7 @@ cell_sample_sizes <-
 
 cell_sample_sizes %>%
   write_csv(
-    "output/audits/cell_sample_sizes.csv",
+    "output/draft_output/audits/cell_sample_sizes.csv",
     na = ""
   )
 
@@ -292,12 +280,12 @@ fitted_models <- grouped_fits[model_specs$model]
 # save ---------------------------------------------------------------------
 
 fitted_models %>%
-  write_rds("output/models/fitted_models.rds")
+  write_rds("output/draft_output/models/fitted_models.rds")
 
 # The pools behind them:
 
 model_pools %>%
-  write_rds("output/models/model_data.rds")
+  write_rds("output/draft_output/models/model_data.rds")
 
 # The cell means, as thinned draws:
 
@@ -325,7 +313,7 @@ convergence <-
 
 convergence %>%
   write_csv(
-    "output/diagnostics/convergence.csv",
+    "output/draft_output/diagnostics/convergence.csv",
     na = ""
   )
 

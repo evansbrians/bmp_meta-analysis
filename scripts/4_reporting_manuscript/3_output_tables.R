@@ -16,22 +16,22 @@ source("src/functions.R")
 
 # Output directory:
 
-fs::dir_create("output/tables")
+fs::dir_create("output/draft_output/tables")
 
 # Fitted models:
 
 fitted_models <-
-  read_rds("output/models/fitted_models.rds")
+  read_rds("output/draft_output/models/fitted_models.rds")
 
 # Pools they were fitted to:
 
 model_pools <-
-  read_rds("output/models/model_data.rds")
+  read_rds("output/draft_output/models/model_data.rds")
 
 # Cell sample sizes:
 
 cell_sample_sizes <-
-  "output/audits/cell_sample_sizes.csv" %>%
+  "output/draft_output/audits/cell_sample_sizes.csv" %>%
   read_csv(show_col_types = FALSE)
 
 # species richness by BMP --------------------------------------------------

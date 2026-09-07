@@ -14,7 +14,11 @@ source("src/functions.R")
 
 # Output directory:
 
-fs::dir_create("output/figures")
+figure_directory <- "output/supplementals/supplemental_figures"
+
+# Create it:
+
+fs::dir_create(figure_directory)
 
 # figure labels ------------------------------------------------------------
 
@@ -98,7 +102,7 @@ results <-
   c(
     species_richness = "table_species_richness_by_bmp",
     guild_bmp = "table_guild_bmp",
-    guild_contrasts = "table_guild_contrasts_by_bmp",
+    guild_contrasts = "table_guild_contrasts",
     pooled_bmp = "table_pooled_bmp",
     heterogeneity = "table_heterogeneity",
     species_abundance = "table_species_abundance"
@@ -106,7 +110,7 @@ results <-
   map(
     \(.table_name) {
       fs::path(
-        "output/tables", 
+        "output/draft_output/tables", 
         .table_name, 
         ext = "csv"
       ) %>%
@@ -362,6 +366,7 @@ figure_nest_success_posterior <-
 
 figure_nest_success_posterior %>%
   write_output_figure(
+    directory = figure_directory,
     file_name = "figure_S3_nest_success_by_guild.png",
     width = 13,
     height = 6
@@ -475,6 +480,7 @@ figure_nest_success <-
 
 figure_nest_success %>%
   write_output_figure(
+    directory = figure_directory,
     file_name = "figure_S4_nest_success_by_guild_intervals.png",
     width = 9,
     height = 7.5
@@ -596,6 +602,7 @@ if (nrow(results$guild_contrasts) > 0) {
   
   figure_guild_contrasts %>%
     write_output_figure(
+      directory = figure_directory,
       file_name = "figure_S5_abundance_guild_contrasts.png",
       width = 9.5,
       height = 6.5
@@ -684,6 +691,7 @@ figure_heterogeneity <-
 
 figure_heterogeneity %>%
   write_output_figure(
+    directory = figure_directory,
     file_name = "figure_S6_heterogeneity.png",
     width = 9.5,
     height = 14
@@ -768,6 +776,7 @@ figure_species <-
 
 figure_species %>%
   write_output_figure(
+    directory = figure_directory,
     file_name = "figure_S7_species_abundance.png",
     width = 9.5,
     height = 14

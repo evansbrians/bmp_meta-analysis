@@ -18,17 +18,17 @@ source("src/functions.R")
 
 # Output directory:
 
-fs::dir_create("output/tables")
+fs::dir_create("output/draft_output/tables")
 
 # The primary fits:
 
 fitted_models <-
-  read_rds("output/models/fitted_models.rds")
+  read_rds("output/draft_output/models/fitted_models.rds")
 
 # The pools behind them:
 
 model_pools <-
-  read_rds("output/models/model_data.rds")
+  read_rds("output/draft_output/models/model_data.rds")
 
 # Every effect size in the pool:
 
@@ -40,39 +40,7 @@ options(mc.cores = sampler_settings$cores)
 
 # The primary prior, doubled and halved:
 
-sensitivity_priors <-
-  list(
-    wider_priors =
-      c(
-        prior(
-          normal(0, 2),
-          class = "b"
-        ),
-        prior(
-          student_t(
-            3,
-            0,
-            1
-          ),
-          class = "sd"
-        )
-      ),
-    tighter_priors =
-      c(
-        prior(
-          normal(0, 0.5),
-          class = "b"
-        ),
-        prior(
-          student_t(
-            3,
-            0,
-            0.25
-          ),
-          class = "sd"
-        )
-      )
-  )
+prior_sets <- model_prior_sets()
 
 # refit helpers ------------------------------------------------------------
 
@@ -161,12 +129,12 @@ specifications <-
     list(
       specification = "wider_priors",
       arguments = list(),
-      priors = sensitivity_priors$wider_priors
+      priors = prior_sets$wider
     ),
     list(
       specification = "tighter_priors",
       arguments = list(),
-      priors = sensitivity_priors$tighter_priors
+      priors = prior_sets$tighter
     ),
 
     # One effect size per study and cell:
@@ -227,6 +195,11 @@ specifications <-
       arguments =
         list(
           min_papers = 2
+        ),
+      thresholds =
+        inclusion_thresholds %>%
+        mutate(
+          metric_min_studies = 2
         )
     ),
     list(
@@ -234,6 +207,11 @@ specifications <-
       arguments =
         list(
           min_papers = 4
+        ),
+      thresholds =
+        inclusion_thresholds %>%
+        mutate(
+          metric_min_studies = 4
         )
     ),
 
@@ -251,7 +229,7 @@ specifications <-
 # run the suite ------------------------------------------------------------
 
 partial_estimates_file <-
-  "output/tables/sensitivity_estimates_partial.csv"
+  "output/draft_output/tables/sensitivity_estimates_partial.csv"
 
 # Clear any partial file:
 
@@ -690,6 +668,93 @@ sensitivity_digest <-
 sensitivity_digest %>%
   write_output_table(
     file_name = "sensitivity_digest.csv"
+  )
+
+# priors -------------------------------------------------------------------
+
+# The distributions each set assumes:
+
+prior_distributions <-
+  prior_sets %>%
+  imap(
+    \(.priors, .set) {
+      .priors %>%
+        as_tibble() %>%
+        mutate(prior_set = .set)
+    }
+  ) %>%
+  list_rbind() %>%
+  select(
+    prior_set,
+    class,
+    prior
+  )
+
+# Write it:
+
+prior_distributions %>%
+  write_output_table(
+    file_name = "sensitivity_priors.csv"
+  )
+
+# Cell means drawn from each prior alone:
+
+prior_predictive <-
+  c(
+    list(primary = NULL),
+    prior_sets[c("wider", "tighter")]
+  ) %>%
+  imap(
+    \(.priors, .set) {
+      update_arguments <-
+        list(
+          object =
+            fitted_models %>%
+            pluck("abundance_guild_bmp"),
+          sample_prior = "only",
+          chains = sampler_settings$chains,
+          iter = sampler_settings$iter,
+          warmup = sampler_settings$warmup,
+          cores = sampler_settings$cores,
+          seed = sampler_settings$seed,
+          refresh = 0,
+          silent = 2
+        )
+      if (!is.null(.priors)) {
+        update_arguments$prior <- .priors
+      }
+      exec(update, !!!update_arguments) %>%
+        draws_tibble() %>%
+        select(
+          starts_with("b_guild_bmp")
+        ) %>%
+        pivot_longer(
+          everything(),
+          values_to = "cell_mean"
+        ) %>%
+        mutate(
+          absolute_mean = abs(cell_mean)
+        ) %>%
+        summarize(
+          median = median(cell_mean),
+          lcl = quantile(cell_mean, 0.025),
+          ucl = quantile(cell_mean, 0.975),
+          p_exceeds_one = mean(absolute_mean > 1),
+          p_exceeds_two = mean(absolute_mean > 2)
+        ) %>%
+        mutate(
+          prior_set = .set,
+          .before = 1
+        )
+    }
+  ) %>%
+  list_rbind()
+
+# Write it:
+
+prior_predictive %>%
+  write_output_table(
+    file_name = "sensitivity_prior_predictive.csv"
   )
 
 # publication bias ---------------------------------------------------------

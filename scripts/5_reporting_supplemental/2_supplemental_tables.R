@@ -66,7 +66,7 @@ supplemental_section <-
 # Read tables:
 
 list.files(
-  "output/tables",
+  "output/draft_output/tables",
   pattern = "^table",
   full.names = TRUE
 ) %>% 
