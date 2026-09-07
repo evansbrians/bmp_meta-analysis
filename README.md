@@ -8,163 +8,91 @@ Grassland bird populations are declining in response to multiple ecological pres
 
 ## Repository structure
 
-### Files to conduct searching
+The pipeline runs in the order the numbered folders are named. Searching comes
+first, then `scripts`, which writes to `data` and then to `output`. `src`
+contains the functions and lookup tables that every script sources.
 
-Lorem ipsum
+### Search files
 
-* `searches`: Lorem ipsum
-    * `response_search.txt`: Lorem ipsum
-    * `species_search.txt`: Lorem ipsum
-* `searches/bmps`: Lorem ipsum
-    * `delay_hay.txt`: Lorem ipsum
-    * `edge_and_shrub.txt`: Lorem ipsum
-    * `eliminate_pesticides.txt`: Lorem ipsum
-    * `flushing_bar.txt`: Lorem ipsum
-    * `grazing_intensity.txt`: Lorem ipsum
-    * `manage_in_patches.txt`: Lorem ipsum
-    * `mow_in_day.txt`: Lorem ipsum
-    * `mow_toward_refugia.txt`: Lorem ipsum
-    * `nest_boxes.txt`: Lorem ipsum
-    * `plant_nwsg.txt`: Lorem ipsum
-    * `prescribed_fire.txt`: Lorem ipsum
-    * `raise_your_blades.txt`: Lorem ipsum
-    * `remove_non-native.txt`: Lorem ipsum
-    * `rotational_grazing.txt`: Lorem ipsum
-    * `stream_exclusion_and_buffers.txt`: Lorem ipsum
-* `searches/response_metrics`: Lorem ipsum
-    * `abundance.txt`: Lorem ipsum
-    * `nest_success.txt`: Lorem ipsum
-    * `species_richness.txt`: Lorem ipsum
-    * `survival.txt`: Lorem ipsum
-* `searches/search_scripts`: Lorem ipsum
-    * `combine_search_strings.r`: Lorem ipsum
-    * `generate_response_search.R`: Lorem ipsum
-    * `generate_species_search.R`: Lorem ipsum
-    * `make_paper_counts_table.R`: Lorem ipsum
+`searches` contains the search strategy and the code used to build it.
+`searches/bmps` and `searches/response_metrics` contain a text file for each
+practice and each response metric, and the scripts in `searches/search_scripts`
+combine them into `response_search.txt` and `species_search.txt`.
 
 ### Script organization
 
-Data processing and analysis scripts are located in the `scripts` folder. Scripts include:
+Data processing and analysis scripts are located in the `scripts` folder.
+Scripts include:
 
-* `1_pre_processing`: Lorem ipsum
-    * `compare_metadata_with_study_results.R`: Lorem ipsum
-* `2_process_data`: Lorem ipsum
-    * `0_clean_metadata_gsheet.R`: Lorem ipsum
-    * `1_classify_species.R`: Lorem ipsum
-    * `2_clean_extraction_gsheet.R`: Lorem ipsum
-    * `3_build_database.R`: Lorem ipsum
-    * `schema.sql`: Lorem ipsum
-* `2_process_data/species_classification`: Lorem ipsum
-    * `eubirds.R`: Lorem ipsum
-    * `iucn_bli_classification.R`: Lorem ipsum
-* `3_analysis`: Lorem ipsum
-    * `0_prep_data.R`: Lorem ipsum
-    * `1_effect_sizes.R`: Lorem ipsum
-    * `2_screen_effects.R`: Lorem ipsum
-    * `3_models.R`: Lorem ipsum
-    * `4_sensitivity.R`: Lorem ipsum
-* `4_reporting_manuscript`: Lorem ipsum
-    * `1_screening_roses_flow.R`: Lorem ipsum
-    * `2_screening_draw_roses.R`: Lorem ipsum
-    * `3_contrasts_tables.R`: Lorem ipsum
-    * `4_figures.R`: Lorem ipsum
-* `5_reporting_supplemental`: Lorem ipsum
-    * `report_geographies.R`: Lorem ipsum
-    
+* `1_pre_processing`
+    * `compare_metadata_with_study_results.R`: Compares the papers in the metadata sheet against those in the extraction sheets, and records which of them appear in the analysis table.
+* `2_process_data`
+    * `0_clean_metadata_gsheet.R`: Reads the paper metadata Google sheet, cleans the screening flags and the notes column, repairs the geography, and writes the result to `data/processed` with a row for each place.
+    * `1_classify_species.R`: Combines habitat classifications from several sources and defines the obligate and facultative grassland species.
+    * `2_clean_extraction_gsheet.R`: Reformats the extraction sheets, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
+    * `3_build_database.R`: Normalizes the cleaned inputs into a table for each level of observation and writes `data/raw/bmp_meta.duckdb`.
+    * `schema.sql`: The database schema used by the build script.
+* `2_process_data/species_classification`
+    * `eubirds.R`: Habitat classifications from Storchova and Horak (2018), with common names taken from the IUCN and BirdLife listing.
+    * `iucn_bli_classification.R`: Downloads the IUCN and BirdLife species list and habitat classification.
+* `3_analysis`
+    * `0_prep_data.R`: Reads the database, restores the extraction shapes, and attaches the study and species lookups required by each shape. Nothing is screened at this stage.
+    * `1_effect_sizes.R`: Converts abundance and richness records to Hedges' *g*, and nest-survival records to log hazard ratios (via a pathway defined by by each record's columns).
+    * `2_screen_effects.R`: Applies the exclusion screen in a single pass, derives the guild, fire and pool columns used for grouping, and excludes the cells supported by fewer than three papers.
+    * `3_models.R`: Fits the Bayesian multilevel meta-analysis models with four chains each, then writes the fits, their pools, and the cell and convergence tables.
+    * `4_sensitivity.R`: Refits every model family under each alternative specification, prior and inclusion threshold, tests for publication bias, and flags influential effect sizes and studies.
+    * `5_verification.R`: Refits every reported cell with REML as an independent check and verifies that the pools, thresholds, response scales and reported tables agree.
+* `4_reporting_manuscript`
+    * `1_screening_roses_flow.R`: Counts the records and papers retained and excluded at each screening stage, through to the three-paper cutoff.
+    * `2_screening_draw_roses.R`: Draws the review flow diagram as an svg for editing and as a png.
+    * `3_output_tables.R`: Converts the fits and their pools into the results tables.
+    * `4_figures.R`: Builds the manuscript figures from the results tables and the posterior draws.
+* `5_reporting_supplemental`
+    * `1_report_geographies.R`: Writes the paper and record counts by region, and by practice and region.
+    * `2_supplemental_tables.R`: Assembles the supplemental tables into a .docx.
+    * `3_supplemental_figures.R`: Builds the supplemental figures.
+
 ### Source files
 
-The folder `src` contains custom functions and files that are used to define variables. Files include:
-
-* `functions.R`: Lorem ipsum
-* `bmp_vocabulary.csv`: Lorem ipsum
-* `citation_problems.csv`: Lorem ipsum
-* `continent_reference.csv`: Lorem ipsum
-* `extraction_sheets.csv`: Lorem ipsum
-* `geography_by_hand.csv`: Lorem ipsum
-* `inclusion_thresholds.csv`: Lorem ipsum
-* `phase_units.csv`: Lorem ipsum
-* `pool_labels.csv`: Lorem ipsum
-* `practice_labels.csv`: Lorem ipsum
-* `response_expression_preference.csv`: Lorem ipsum
-* `screen_reasons.csv`: Lorem ipsum
-* `species_classes_by_hand.csv`: Lorem ipsum
-* `test_statistic_degrees_of_freedom.csv`: Lorem ipsum
+`src` contains `functions.R`, which defines all named function used in this
+analysis, together with a csv for each lookup table that those functions read.
+The lookup tables provide the practice vocabulary and the labels printed by the
+figures and tables, the inclusion thresholds, the screen reasons, the geography
+and species classifications assigned by hand, and the register of extraction
+sheets.
 
 ### Data files
 
-Lorem ipsum
-
-* `data`: Lorem ipsum
-    * `flagged_effects.csv`: Lorem ipsum
-* `data/raw`: Lorem ipsum
-    * `bmp_meta.duckdb`: Lorem ipsum
-* `data/raw/for_species_classification`: Lorem ipsum
-    * `birdlife_international_all_species.csv`: Lorem ipsum
-    * `iucn_bli_classification.rds`: Lorem ipsum
-* `data/raw/for_species_classification/species_classified_by_source`: Lorem ipsum
-    * `species_classification_aab.csv`: Lorem ipsum
-    * `species_classification_birdbase.csv`: Lorem ipsum
-    * `species_classification_eubirds.csv`: Lorem ipsum
-    * `species_classification_pif.csv`: Lorem ipsum
-    * `species_classification_vgbi.csv`: Lorem ipsum
-    * `species_classification_vickery_1999.csv`: Lorem ipsum
-* `data/db_mirror`: Lorem ipsum
-    * `converted_effects.csv`: Lorem ipsum
-    * `effect_sizes.csv`: Lorem ipsum
-* `data/processed`: Lorem ipsum
-    * `paper_metadata.csv`: Lorem ipsum
-    * `species_classified_analysis_frame.csv`: Lorem ipsum
-* `data/processed/cleaned_data`: Lorem ipsum
-    * `beta_categorical.csv`: Lorem ipsum
-    * `mean_diff.csv`: Lorem ipsum
-    * `other_categorical.csv`: Lorem ipsum
-* `data/processed/for_analysis`: Lorem ipsum
-    * `beta_categorical.csv`: Lorem ipsum
-    * `mean_diff.csv`: Lorem ipsum
-    * `other_categorical.csv`: Lorem ipsum
+`data` contains the inputs and the intermediate tables used in the analysis.
+`data/raw` contains the database written by `3_build_database.R` and the
+species classification sources used to build it. `data/processed` contains the
+cleaned extraction sheets and the shapes derived from them for analysis.
+`data/db_mirror` contains the converted and screened effect-size tables used to
+fit the models. `data/flagged_effects.csv` is the data-quality register read by
+the sensitivity analysis.
 
 ### Output files
 
-Lorem ipsum
+`output/draft_output` contains everything produced by the analysis on the way to
+the reported results: the fitted models and their pools, the audit trail of the
+screen, the convergence and verification diagnostics, and the results and
+sensitivity tables. These files are tracked so that the figures, tables and
+results page can be rebuilt without refitting the models. The fitted models are
+too large to track in GitHub and can be regenerated by running `3_analysis/3_models.R`.
 
-* `output`: Lorem ipsum
-    * `sensitivity_specifications.csv`: Lorem ipsum
-* `output/audits`: Lorem ipsum
-    * `excluded_effects.csv`: Lorem ipsum
-* `output/models`: Lorem ipsum
-    * `posterior_cell_draws.rds`: Lorem ipsum
-* `output/figures`: Lorem ipsum
-    * `figure_2_species_richness.png`: Lorem ipsum
-    * `figure_3_abundance_pooled.png`: Lorem ipsum
-    * `figure_4_abundance_by_guild.png`: Lorem ipsum
-    * `figure_S1_species_richness_intervals.png`: Lorem ipsum
-    * `figure_S2_abundance_by_guild_intervals.png`: Lorem ipsum
-    * `figure_S3_nest_success_by_guild.png`: Lorem ipsum
-    * `figure_S4_nest_success_by_guild_intervals.png`: Lorem ipsum
-    * `figure_S5_abundance_guild_contrasts.png`: Lorem ipsum
-    * `figure_S6_heterogeneity.png`: Lorem ipsum
-    * `figure_S7_species_abundance.png`: Lorem ipsum
-* `output/roses_diagram`: Lorem ipsum
-    * `README.md`: Lorem ipsum
-    * `roses_diagram.png`: Lorem ipsum
-    * `roses_diagram.svg`: Lorem ipsum
-    * `roses_diagram_manual.svg`: Lorem ipsum
-    * `roses_flow_reconciliation.csv`: Lorem ipsum
-    * `roses_flow_stages.csv`: Lorem ipsum
-* `output/tables`: Lorem ipsum
-    * `reanalysis_tables.docx`: Lorem ipsum
-    * `sensitivity_conclusion_changes.csv`: Lorem ipsum
-    * `sensitivity_digest.csv`: Lorem ipsum
-    * `sensitivity_estimates.csv`: Lorem ipsum
-    * `sensitivity_flagged_effects.csv`: Lorem ipsum
-    * `sensitivity_influence.csv`: Lorem ipsum
-    * `sensitivity_outliers_per_cell.csv`: Lorem ipsum
-    * `sensitivity_outliers_per_effect.csv`: Lorem ipsum
-    * `sensitivity_publication_bias.csv`: Lorem ipsum
-    * `sensitivity_summary.csv`: Lorem ipsum
-    * `table_guild_bmp.csv`: Lorem ipsum
-    * `table_guild_contrasts_by_bmp.csv`: Lorem ipsum
-    * `table_heterogeneity.csv`: Lorem ipsum
-    * `table_pooled_bmp.csv`: Lorem ipsum
-    * `table_species_richness_by_bmp.csv`: Lorem ipsum
-    * `table_species_abundance.csv`: Lorem ipsum
+The reported output is provided in `output/manuscript` and `output/supplemental_figures` (**we still have to renumber the supplementals!**:
+
+* `output/manuscript`
+    * `figure_1_roses_diagram`: The review flow diagram, its stage and reconciliation tables, and the edited svg used in the manuscript.
+    * `figure_2_species_richness.png`: Species richness by practice.
+    * `figure_3_abundance_pooled.png`: Abundance by practice, guilds pooled.
+    * `figure_4_abundance_by_guild.png`: Abundance by practice, within guild.
+* `output/supplementals`
+    * `supplemental_tables.docx`: The supplemental tables.
+    * `sensitivity_specifications.csv`: Each sensitivity specification, the rule applied, and the decision tested.
+* `output/supplementals/supplemental_figures`
+    * `figure_S3_nest_success_by_guild.png`: Nest success by practice, within guild.
+    * `figure_S4_nest_success_by_guild_intervals.png`: The same estimates as intervals.
+    * `figure_S5_abundance_guild_contrasts.png`: Obligate minus facultative abundance, by practice.
+    * `figure_S6_heterogeneity.png`: The variance components of each model.
+    * `figure_S7_species_abundance.png`: Species-level abundance estimates.
