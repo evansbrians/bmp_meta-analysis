@@ -1,6 +1,6 @@
 pool,n_effect_sizes,n_studies,n_species,n_bmps,median_sei
-richness_bmp,117,35,14,7,0.4172315880512766
-abundance_guild,787,74,88,10,0.4825934660542677
-abundance_guild_bmp,787,74,88,10,0.4825934660542677
-nest_success_guild_bmp,37,16,14,3,0.27812596989928506
-abundance_pooled_bmp,866,81,100,11,0.47207817175469524
+richness_bmp,112,32,14,7,0.4172315880512766
+abundance_guild,747,70,87,10,0.4825934660542677
+abundance_guild_bmp,747,70,87,10,0.4825934660542677
+nest_success_guild_bmp,28,11,12,2,0.3623010279116328
+abundance_pooled_bmp,833,75,97,11,0.4714160196657466
