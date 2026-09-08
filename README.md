@@ -16,8 +16,9 @@ contains the functions and lookup tables that every script sources.
 
 `searches` contains the search strategy and the code used to build it.
 `searches/bmps` and `searches/response_metrics` contain a text file for each
-practice and each response metric, and the scripts in `searches/search_scripts`
-combine them into `response_search.txt` and `species_search.txt`.
+practice and each response metric. The scripts in `searches/search_scripts`
+write `response_search.txt` and `species_search.txt`, and combine those with a
+practice term into the strings pasted into Web of Science.
 
 ### Script organization
 
@@ -27,9 +28,9 @@ Scripts include:
 * `1_pre_processing`
     * `compare_metadata_with_study_results.R`: Compares the papers in the metadata sheet against those in the extraction sheets, and records which of them appear in the analysis table.
 * `2_process_data`
-    * `0_clean_metadata_gsheet.R`: Reads the paper metadata Google sheet, cleans the screening flags and the notes column, repairs the geography, and writes the result to `data/processed` with a row for each place.
+    * `0_clean_metadata.R`: Reads the paper metadata workbook, cleans the screening flags and the notes column, repairs the geography, and writes the result to `data/processed` with a row for each place.
     * `1_classify_species.R`: Combines habitat classifications from several sources and defines the obligate and facultative grassland species.
-    * `2_clean_extraction_gsheet.R`: Reformats the extraction sheets, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
+    * `2_clean_extraction.R`: Reformats the extraction workbook, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
     * `3_build_database.R`: Normalizes the cleaned inputs into a table for each level of observation and writes `data/raw/bmp_meta.duckdb`.
     * `schema.sql`: The database schema used by the build script.
 * `2_process_data/species_classification`
@@ -40,7 +41,7 @@ Scripts include:
     * `1_effect_sizes.R`: Converts abundance and richness records to Hedges' *g*, and nest-survival records to log hazard ratios (via a pathway defined by by each record's columns).
     * `2_screen_effects.R`: Applies the exclusion screen in a single pass, derives the guild, fire and pool columns used for grouping, and excludes the cells supported by fewer than three papers.
     * `3_models.R`: Fits the Bayesian multilevel meta-analysis models with four chains each, then writes the fits, their pools, and the cell and convergence tables.
-    * `4_sensitivity.R`: Refits every model family under each alternative specification, prior and inclusion threshold, tests for publication bias, and flags influential effect sizes and studies.
+    * `4_sensitivity.R`: Refits every model family under each alternative specification, prior and inclusion threshold, tests for publication bias, and flags influential effect sizes.
     * `5_verification.R`: Refits every reported cell with REML as an independent check and verifies that the pools, thresholds, response scales and reported tables agree.
 * `4_reporting_manuscript`
     * `1_screening_roses_flow.R`: Counts the records and papers retained and excluded at each screening stage, through to the three-paper cutoff.
@@ -49,23 +50,27 @@ Scripts include:
     * `4_figures.R`: Builds the manuscript figures from the results tables and the posterior draws.
 * `5_reporting_supplemental`
     * `1_report_geographies.R`: Writes the paper and record counts by region, and by practice and region.
-    * `2_supplemental_tables.R`: Assembles the supplemental tables into a .docx.
+    * `2_supplemental_tables.R`: Assembles the supplemental tables into a .docx and writes the sensitivity specification table.
     * `3_supplemental_figures.R`: Builds the supplemental figures.
 
 ### Source files
 
-`src` contains `functions.R`, which defines all named function used in this
-analysis, together with a csv for each lookup table that those functions read.
-The lookup tables provide the practice vocabulary and the labels printed by the
-figures and tables, the inclusion thresholds, the screen reasons, the geography
-and species classifications assigned by hand, and the register of extraction
-sheets.
+`src` contains `functions.R`, which defines every function used in this
+analysis, together with a csv for each lookup table read by the functions and
+the scripts. The lookup tables provide the practice vocabulary and the labels
+printed by the figures and tables, the inclusion thresholds, the screen
+reasons, the geography and species classifications assigned by hand, the
+register of extraction sheets, and the description of each sensitivity
+specification.
 
 ### Data files
 
 `data` contains the inputs and the intermediate tables used in the analysis.
-`data/raw` contains the database written by `3_build_database.R` and the
-species classification sources used to build it. `data/processed` contains the
+`data/raw` contains the two extraction workbooks the pipeline reads,
+`citations_by_bmp_long.xlsx` for the paper metadata and
+`bmp_review_analysis_subset.xlsx` for the extracted study findings, together
+with the database written by `3_build_database.R` and the species
+classification sources used to build it. `data/processed` contains the
 cleaned extraction sheets and the shapes derived from them for analysis.
 `data/db_mirror` contains the converted and screened effect-size tables used to
 fit the models. `data/flagged_effects.csv` is the data-quality register read by
@@ -77,13 +82,15 @@ the sensitivity analysis.
 the reported results: the fitted models and their pools, the audit trail of the
 screen, the convergence and verification diagnostics, and the results and
 sensitivity tables. These files are tracked so that the figures, tables and
-results page can be rebuilt without refitting the models. The fitted models are
-too large to track in GitHub and can be regenerated by running `3_analysis/3_models.R`.
+results page can be rebuilt without refitting the models. The fitted models
+are too large to track in GitHub and can be regenerated by running
+`3_analysis/3_models.R`.
 
-The reported output is provided in `output/manuscript` and `output/supplemental_figures` (**we still have to renumber the supplementals!**:
+The reported output is provided in `output/manuscript` and
+`output/supplementals`:
 
 * `output/manuscript`
-    * `figure_1_roses_diagram`: The review flow diagram, its stage and reconciliation tables, and the edited svg used in the manuscript.
+    * `figure_1_roses_diagram`: The review flow diagram as a png and as an svg for editing, with the stage and reconciliation tables behind it.
     * `figure_2_species_richness.png`: Species richness by practice.
     * `figure_3_abundance_pooled.png`: Abundance by practice, guilds pooled.
     * `figure_4_abundance_by_guild.png`: Abundance by practice, within guild.
