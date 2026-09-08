@@ -104,24 +104,38 @@ bmp_read_table <-
 
 # error conversion ---------------------------------------------------------
 
-# SD implied by a 95% confidence interval.
+# Interval width that spans one standard error, at the reported level.
+
+confint_width_per_se <-
+  function(confidence_level = 95) {
+    2 *
+      qnorm(
+        1 - (1 - confidence_level / 100) / 2
+      )
+  }
+
+# SD implied by a confidence interval.
 
 confint_to_sd <-
   function(
     lower_cl,
     upper_cl,
-    n) {
-    abs(upper_cl - lower_cl) / 3.92 *
+    n,
+    confidence_level = 95) {
+    abs(upper_cl - lower_cl) /
+      confint_width_per_se(confidence_level) *
       sqrt(n)
   }
 
-# SE implied by a 95% confidence interval.
+# SE implied by a confidence interval.
 
 confint_to_se <-
   function(
     lower_cl,
-    upper_cl) {
-    abs(upper_cl - lower_cl) / 3.92
+    upper_cl,
+    confidence_level = 95) {
+    abs(upper_cl - lower_cl) /
+      confint_width_per_se(confidence_level)
   }
 
 # Standard error to standard deviation, and back.
@@ -1198,18 +1212,22 @@ derive_group_sd <-
     se_reported,
     lower_cl,
     upper_cl,
-    n) {
+    n,
+    confidence_level = 95) {
     has_sd <- !is.na(sd_reported)
     has_se <- !is.na(se_reported)
     has_lower <- !is.na(lower_cl)
     has_upper <- !is.na(upper_cl)
     has_confint <- has_lower & has_upper
+    level <- replace_na(confidence_level, 95)
+    interval_width <- confint_width_per_se(level)
     sd_from_se <- se_to_sd(se_reported, n)
     sd_from_confint <-
       confint_to_sd(
         lower_cl,
         upper_cl,
-        n
+        n,
+        confidence_level = level
       )
     tibble(
       group_sd =
@@ -1223,7 +1241,10 @@ derive_group_sd <-
         case_when(
           has_sd ~ "reported SD",
           has_se ~ "SE x sqrt(n)",
-          has_confint ~ "95% CI width / 3.92 x sqrt(n)",
+          has_confint ~
+            glue::glue(
+              "{level}% CI width / {round(interval_width, 2)} x sqrt(n)"
+            ),
           .default = "unavailable"
         )
     )
@@ -1241,7 +1262,8 @@ add_group_sd <-
         se_reported = .data[[str_c("se_", arm)]],
         lower_cl = .data[[str_c("lcl_", arm)]],
         upper_cl = .data[[str_c("ucl_", arm)]],
-        n = .data[[str_c("n_", arm)]]
+        n = .data[[str_c("n_", arm)]],
+        confidence_level = .data$confidence_level
       ) %>%
       rename(
         "sd_{arm}_used" := group_sd,
@@ -1260,7 +1282,8 @@ derive_beta_se <-
     upper_cl,
     lower_cl_e,
     upper_cl_e,
-    n) {
+    n,
+    confidence_level = 95) {
     has_se <- !is.na(se_reported)
     has_sd <- !is.na(sd_reported)
     has_lower <- !is.na(lower_cl)
@@ -1269,9 +1292,21 @@ derive_beta_se <-
     has_upper_e <- !is.na(upper_cl_e)
     has_confint <- has_lower & has_upper
     has_confint_e <- has_lower_e & has_upper_e
+    level <- replace_na(confidence_level, 95)
+    interval_width <- confint_width_per_se(level)
     se_from_sd <- sd_to_se(sd_reported, n)
-    se_from_confint <- confint_to_se(lower_cl, upper_cl)
-    se_from_confint_e <- confint_to_se(lower_cl_e, upper_cl_e)
+    se_from_confint <-
+      confint_to_se(
+        lower_cl,
+        upper_cl,
+        confidence_level = level
+      )
+    se_from_confint_e <-
+      confint_to_se(
+        lower_cl_e,
+        upper_cl_e,
+        confidence_level = level
+      )
     tibble(
       se_used =
         case_when(
@@ -1285,8 +1320,10 @@ derive_beta_se <-
         case_when(
           has_se ~ "reported SE",
           has_sd ~ "SD / sqrt(n)",
-          has_confint ~ "95% CI width / 3.92",
-          has_confint_e ~ "95% CI width / 3.92",
+          has_confint ~
+            glue::glue("{level}% CI width / {round(interval_width, 2)}"),
+          has_confint_e ~
+            glue::glue("{level}% CI width / {round(interval_width, 2)}"),
           .default = "unavailable"
         )
     )
@@ -1500,6 +1537,38 @@ count_cells <-
         n_studies = n_distinct(key),
         .by = all_of(grouping_vars)
       )
+  }
+
+# maps ----------------------------------------------------------------------
+
+# Snake-cased place names back to the spelling map outlines use.
+
+restore_place_name <-
+  function(.geography) {
+    .geography %>%
+      str_replace_all("_", " ") %>%
+      str_to_title()
+  }
+
+# Study counts drawn on one set of outlines, joined on `place`.
+
+draw_study_map <-
+  function(
+    .outlines,
+    .counts,
+    .title) {
+    .outlines %>%
+      left_join(
+        .counts,
+        by = join_by(place)
+      ) %>%
+      tm_shape() +
+      tm_polygons(
+        fill = "n_studies",
+        fill.legend =
+          tm_legend(title = "Studies")
+      ) +
+      tm_title(.title)
   }
 
 # contrasts and manuscript tables ------------------------------------------
