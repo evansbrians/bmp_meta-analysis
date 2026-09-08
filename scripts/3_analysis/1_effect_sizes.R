@@ -137,7 +137,8 @@ beta_categorical_effects <-
       upper_cl = .$ucl,
       lower_cl_e = .$lcl_e,
       upper_cl_e = .$ucl_e,
-      n = .$n
+      n = .$n,
+      confidence_level = .$confidence_level
     )
   ) %>%
   bind_cols(
@@ -248,6 +249,17 @@ test_statistic_effects <-
 
     magnitude = abs(test_stat_value),
 
+    # The direction a signed statistic carries of its own:
+
+    implied_direction =
+      case_when(
+        !test_statistic %in% c("t", "odds_ratio") ~ NA_real_,
+        test_statistic == "t" & test_stat_value < 0 ~ -1,
+        test_statistic == "t" & test_stat_value > 0 ~ 1,
+        test_statistic == "odds_ratio" & test_stat_value < 1 ~ -1,
+        test_statistic == "odds_ratio" & test_stat_value > 1 ~ 1
+      ),
+
     # Phi from chi-square, r from Z:
 
     correlation =
@@ -260,8 +272,8 @@ test_statistic_effects <-
     # Flag the convertible contrasts:
 
     one_contrast =
-      replace_na(df == 1, FALSE) |
-      str_detect(notes, "comparison of two groups"),
+      replace_na(df == 1, TRUE) &
+      str_detect(notes, "comparison of two groups|single .* contrast|2 x 2"),
     convertible =
       !is.na(needs_one_df) &
       !is.na(response_dir) &
@@ -304,6 +316,23 @@ test_statistic_effects <-
     conversion = "test statistic",
     effect_metric = "hedges_g"
   )
+
+# Records whose statistic contradicts the direction recorded against it:
+
+direction_conflicts <-
+  test_statistic_effects %>%
+  filter(
+    convertible,
+    !is.na(implied_direction),
+    implied_direction != response_dir
+  )
+
+if (nrow(direction_conflicts) > 0) {
+  cli::cli_abort(
+    "The statistic contradicts the recorded direction in \\
+     {nrow(direction_conflicts)} record{?s}: {direction_conflicts$row_id}."
+  )
+}
 
 ## nest survival from an odds ratio ---------------------------------------
 

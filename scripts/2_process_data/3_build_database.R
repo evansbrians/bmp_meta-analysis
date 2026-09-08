@@ -247,6 +247,7 @@ effect <-
     treatment_control_flag,
     response_flag,
     response_dir,
+    confidence_level,
     notes
   )
 

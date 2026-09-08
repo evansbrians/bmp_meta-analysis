@@ -91,6 +91,7 @@ CREATE TABLE effect (
     treatment_control_flag  TEXT,
     response_flag           INTEGER,
     response_dir            INTEGER,
+    confidence_level        DOUBLE,
     notes                   TEXT,
     CHECK (design IN ('categorical', 'continuous'))
 );
