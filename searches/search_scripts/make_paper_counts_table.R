@@ -3,26 +3,24 @@
 
 # setup -------------------------------------------------------------------
 
-library(googlesheets4)
+library(readxl)
 library(tidyverse)
 
-# URL for the effect size table:
+# The effect size workbook:
 
-sheet_url <- 
-  file.path(
-    "https://docs.google.com/spreadsheets/d",
-    "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA",
-    "edit?gid=1072800016"
-  )
+extraction_workbook <- "data/raw/bmp_review_analysis_subset.xlsx"
+
+# Rows read before a column type is fixed:
+
+guess_rows <- 10000
 
 # Get citations_by_bmp_long:
 
 papers <- 
-  file.path(
-    "https://docs.google.com/spreadsheets/d",
-    "1Lf3v8fU0sCCAcJ6Wj1v8GwgogjI4ve3xcMlPzLW0hnU"
+  read_excel(
+    "data/raw/citations_by_bmp_long.xlsx",
+    guess_max = guess_rows
   ) %>% 
-  read_sheet() %>% 
   mutate(
     key = tolower(key),
     bmp = 
@@ -36,17 +34,20 @@ papers <-
 # Get effect size tables:
 
 bmp_effects <- 
-  sheet_url %>% 
-  googlesheets4::sheet_names() %>% 
+  extraction_workbook %>% 
+  excel_sheets() %>% 
   map_df(
-    ~ googlesheets4::read_sheet(
-      sheet_url,
-      sheet = .x
-    ) %>% 
-      mutate(
-        sheet = .x,
-        .before = paper
-      )
+    \(.sheet) {
+      read_excel(
+        extraction_workbook,
+        sheet = .sheet,
+        guess_max = guess_rows
+      ) %>% 
+        mutate(
+          sheet = .sheet,
+          .before = paper
+        )
+    }
   ) %>% 
   mutate(
     across(

@@ -4,12 +4,10 @@
 library(clipr)
 library(tidyverse)
 
-lit_search_path <- "manuscript/supplemental/lit_search"
-
 # Search strings associated with best management practices:
   
 bmp_strings <- 
-  list.files("bmps", full.names = TRUE) %>% 
+  list.files("searches/bmps", full.names = TRUE) %>% 
   set_names(
     str_extract(., "[a-z_]*\\.txt$") %>% 
       str_remove("\\.txt")
@@ -22,7 +20,7 @@ bmp_strings <-
 # Search strings associated with response metrics:
 
 response_metrics <-
-  list.files("response_metrics", full.names = TRUE) %>% 
+  list.files("searches/response_metrics", full.names = TRUE) %>% 
   set_names(
     str_extract(., "[a-z_]*\\.txt$") %>% 
       str_remove("\\.txt")
@@ -35,7 +33,7 @@ response_metrics <-
 # Species searches:
 
 species_search <-
-  file.path("species_search.txt") %>% 
+  file.path("searches/species_search.txt") %>% 
   read_lines()  %>% 
   str_c(collapse = "")
 

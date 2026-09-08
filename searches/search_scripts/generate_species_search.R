@@ -159,7 +159,12 @@ europe_birds <-
   ) %>% 
   select(scientific_name) %>% 
   left_join(
-    read_csv("data/birdlife_international_all_species.csv") %>% 
+    read_csv(
+      file.path(
+        "data/raw/for_species_classification",
+        "birdlife_international_all_species.csv"
+      )
+    ) %>% 
       janitor::clean_names() %>% 
       select(scientific_name, common_name),
     by = "scientific_name"
