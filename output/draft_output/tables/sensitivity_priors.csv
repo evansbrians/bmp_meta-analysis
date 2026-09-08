@@ -1,0 +1,7 @@
+prior_set,class,prior
+primary,b,"normal(0, 1)"
+primary,sd,"student_t(3, 0, 0.5)"
+wider,b,"normal(0, 2)"
+wider,sd,"student_t(3, 0, 1)"
+tighter,b,"normal(0, 0.5)"
+tighter,sd,"student_t(3, 0, 0.25)"

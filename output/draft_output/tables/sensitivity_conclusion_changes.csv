@@ -1,8 +1,6 @@
 response_metric,model_family,specification,guild,bmp,estimate,lcl,ucl,excludes_zero,primary_estimate,primary_excludes_zero,is_new_cell,estimate_shift,conclusion_changed,change_type
 abundance,abundance_pooled_bmp,outliers_removed,all_grassland,install_nest_boxes,0.029580394374400992,-0.4812698603857936,0.5145097481791342,FALSE,0.5975824023990427,TRUE,FALSE,-0.5680020080246417,TRUE,Lost
-abundance,abundance_pooled_bmp,most_influential_study_removed,all_grassland,install_nest_boxes,0.04168930390564333,-0.5790405457006337,0.6529395233635217,FALSE,0.5975824023990427,TRUE,FALSE,-0.5558930984933994,TRUE,Lost
 abundance,abundance_guild_bmp,great_plains_only,facultative_grassland,plant_nwsg,-0.12212626099728338,-0.6985264046607881,0.4623225802222845,FALSE,0.39059721019637916,TRUE,FALSE,-0.5127234711936626,TRUE,Lost
-species_richness,richness_bmp,most_influential_study_removed,,eliminate_pesticides,0.39605188832668625,-0.23746726431536339,1.044292703859382,FALSE,0.8327019299916116,TRUE,FALSE,-0.4366500416649254,TRUE,Lost
 species_richness,richness_bmp,europe_dropped,,eliminate_pesticides,0.47074314963557073,-0.4524162161392502,1.3897931720856738,FALSE,0.8327019299916116,TRUE,FALSE,-0.3619587803560409,TRUE,Lost
 abundance,abundance_guild_bmp,great_plains_dropped,facultative_grassland,prescribed_fire,-0.03513502693550323,-0.45456281757552525,0.3816259549129094,FALSE,-0.34863705127586997,TRUE,FALSE,0.3135020243403667,TRUE,Lost
 abundance,abundance_guild_bmp,one_effect_per_study_cell,facultative_grassland,plant_nwsg,0.10503458657835854,-0.21958017952718983,0.42339423581862784,FALSE,0.39059721019637916,TRUE,FALSE,-0.28556262361802065,TRUE,Lost
@@ -10,7 +8,6 @@ abundance,abundance_guild_bmp,one_effect_per_study_cell,obligate_grassland,reduc
 abundance,abundance_pooled_bmp,great_plains_only,all_grassland,plant_nwsg,-0.04185619969875436,-0.39155595026471235,0.3278820779958905,FALSE,0.22510084949704268,TRUE,FALSE,-0.26695704919579705,TRUE,Lost
 species_richness,richness_bmp,tighter_priors,,eliminate_pesticides,0.5870923424639958,-0.05080655468908036,1.18947868208567,FALSE,0.8327019299916116,TRUE,FALSE,-0.24560958752761586,TRUE,Lost
 abundance,abundance_guild_bmp,one_effect_per_study_cell,facultative_grassland,prescribed_fire,-0.12195434911010172,-0.4601163440866476,0.21623587427128113,FALSE,-0.34863705127586997,TRUE,FALSE,0.22668270216576825,TRUE,Lost
-abundance,abundance_guild_bmp,most_influential_study_removed,obligate_grassland,prescribed_fire,0.12077378235802269,-0.09940929391864044,0.3511824877685392,FALSE,0.3192064223716612,TRUE,FALSE,-0.1984326400136385,TRUE,Lost
 abundance,abundance_guild_bmp,one_effect_per_study_cell,obligate_grassland,prescribed_fire,0.1516252901724694,-0.10143857249160167,0.4032343610405388,FALSE,0.3192064223716612,TRUE,FALSE,-0.1675811321991918,TRUE,Lost
 abundance,abundance_guild_bmp,southeast_us_dropped,facultative_grassland,plant_nwsg,0.2518757134206162,-0.009904681235926329,0.5154750704161902,FALSE,0.39059721019637916,TRUE,FALSE,-0.13872149677576295,TRUE,Lost
 abundance,abundance_guild_bmp,great_plains_only,obligate_grassland,manage_in_patches,0.4284025573838066,-0.08408863866843197,0.9210978402510566,FALSE,0.5592844542915281,TRUE,FALSE,-0.13088189690772145,TRUE,Lost
@@ -25,11 +22,13 @@ abundance,abundance_guild_bmp,southeast_us_dropped,obligate_grassland,reduce_gra
 abundance,abundance_guild_bmp,tighter_priors,obligate_grassland,provide_overwintering_habitat,0.38031935068171524,-0.007096246357709651,0.7649608179903795,FALSE,0.4397847705573663,TRUE,FALSE,-0.05946541987565107,TRUE,Lost
 abundance,abundance_pooled_bmp,non_grassland_classes_retained,all_grassland,plant_nwsg,0.17522737226334173,-0.025517692244456963,0.38854980760083435,FALSE,0.22510084949704268,TRUE,FALSE,-0.04987347723370095,TRUE,Lost
 abundance,abundance_pooled_bmp,one_effect_per_study_cell,all_grassland,plant_nwsg,0.27463345356541563,-0.00276921208255911,0.5581009138135824,FALSE,0.22510084949704268,TRUE,FALSE,0.049532604068372954,TRUE,Lost
+abundance,abundance_guild_bmp,paper_floor_two,obligate_grassland,provide_overwintering_habitat,0.3927456155357302,-0.046057316672430994,0.8148240424450122,FALSE,0.4397847705573663,TRUE,FALSE,-0.047039155021636136,TRUE,Lost
 abundance,abundance_pooled_bmp,great_plains_dropped,all_grassland,install_nest_boxes,0.6382469471395822,-0.021304007227354628,1.3143905098279685,FALSE,0.5975824023990427,TRUE,FALSE,0.04066454474053949,TRUE,Lost
 abundance,abundance_guild_bmp,great_plains_only,facultative_grassland,prescribed_fire,-0.30838135668631794,-0.7478194539211901,0.14421278147792263,FALSE,-0.34863705127586997,TRUE,FALSE,0.04025569458955203,TRUE,Lost
 abundance,abundance_pooled_bmp,guild_assigned_only,all_grassland,plant_nwsg,0.18537110373500687,-0.018465592857260665,0.4009385888200243,FALSE,0.22510084949704268,TRUE,FALSE,-0.039729745762035806,TRUE,Lost
 abundance,abundance_pooled_bmp,group_means_only,all_grassland,plant_nwsg,0.18924131344578535,-0.017286755129092474,0.41189796748863755,FALSE,0.22510084949704268,TRUE,FALSE,-0.03585953605125733,TRUE,Lost
 abundance,abundance_guild_bmp,great_plains_only,obligate_grassland,prescribed_fire,0.28791255087142853,-0.08511795836176532,0.6270940843922752,FALSE,0.3192064223716612,TRUE,FALSE,-0.03129387150023266,TRUE,Lost
+abundance,abundance_pooled_bmp,paper_floor_two,all_grassland,install_nest_boxes,0.6087046480933365,-0.010217843118181018,1.233572726980352,FALSE,0.5975824023990427,TRUE,FALSE,0.011122245694293764,TRUE,Lost
 abundance,abundance_pooled_bmp,paper_floor_four,all_grassland,install_nest_boxes,0.6069818496669132,-0.0026746886515114235,1.2156410325821272,FALSE,0.5975824023990427,TRUE,FALSE,0.009399447267870453,TRUE,Lost
 species_richness,richness_bmp,southeast_us_dropped,,eliminate_pesticides,0.8273674054822613,-0.04414249437731169,1.654620504384436,FALSE,0.8327019299916116,TRUE,FALSE,-0.005334524509350347,TRUE,Lost
 abundance,abundance_pooled_bmp,flagged_effects_removed,all_grassland,install_nest_boxes,0.6008396246696219,-0.0020603807025980484,1.2058289266581428,FALSE,0.5975824023990427,TRUE,FALSE,0.0032572222705792298,TRUE,Lost
