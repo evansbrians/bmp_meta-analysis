@@ -1,0 +1,15 @@
+specification,specification_label,rule_applied,decision_tested
+non_grassland_classes_retained,Non-grassland classes retained,"Shrubland, woodland and forest species returned to the pool",Restriction of the pool to grassland-associated species
+flagged_effects_removed,Flagged effects removed,Records carrying an unresolved data-quality flag held out,Reliance on records not yet re-checked against the source paper
+wider_priors,Wider priors,Prior scales doubled on both the effect and variance components,Influence of the prior on the posterior
+tighter_priors,Tighter priors,Prior scales halved on both the effect and variance components,Influence of the prior on the posterior
+one_effect_per_study_cell,One effect per study cell,Each study reduced to one inverse-variance weighted effect per cell,Treatment of a study's multiple effect sizes as independent
+group_means_only,Group means only,Pool restricted to effects computed from reported group means,Coefficient and test-statistic conversion routes
+great_plains_only,Great Plains only,Pool restricted to studies in the Great Plains,Generality of the estimates beyond the region holding most of the evidence
+great_plains_dropped,Great Plains dropped,Great Plains studies removed,Dependence of the estimates on the Great Plains
+southeast_us_dropped,Southeast US dropped,Southeastern United States studies removed,Dependence of the estimates on the southeastern United States
+europe_dropped,Europe dropped,European studies removed,Dependence of the estimates on Europe
+paper_floor_two,Paper floor two,Cells with at least two papers retained,Three-paper inclusion floor
+paper_floor_four,Paper floor four,Cells with at least four papers retained,Three-paper inclusion floor
+guild_assigned_only,Guild assigned only,Pooled models restricted to records naming a grassland guild,Records the pooled models carry without a guild assignment
+outliers_removed,Outliers removed,Effects with a studentized deleted residual beyond the cell threshold removed,Influence of individual outlying effect sizes
