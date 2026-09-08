@@ -71,6 +71,7 @@ effect_size_columns <-
     "species_key",
     "yi",
     "sei",
+    "zero_variance_arm",
     "in_primary_pool",
     "pooled_only"
   )
@@ -1219,7 +1220,7 @@ derive_group_sd <-
     has_lower <- !is.na(lower_cl)
     has_upper <- !is.na(upper_cl)
     has_confint <- has_lower & has_upper
-    level <- replace_na(confidence_level, 95)
+    level <- replace_na(as.numeric(confidence_level), 95)
     interval_width <- confint_width_per_se(level)
     sd_from_se <- se_to_sd(se_reported, n)
     sd_from_confint <-
@@ -1292,7 +1293,7 @@ derive_beta_se <-
     has_upper_e <- !is.na(upper_cl_e)
     has_confint <- has_lower & has_upper
     has_confint_e <- has_lower_e & has_upper_e
-    level <- replace_na(confidence_level, 95)
+    level <- replace_na(as.numeric(confidence_level), 95)
     interval_width <- confint_width_per_se(level)
     se_from_sd <- sd_to_se(sd_reported, n)
     se_from_confint <-
@@ -1980,6 +1981,7 @@ build_pool <-
     pooled = FALSE,
     group_means_only = FALSE,
     one_per_study_cell = FALSE,
+    drop_zero_variance_arm = FALSE,
     only_region = NULL,
     drop_region = NULL) {
     pool <-
@@ -2021,6 +2023,11 @@ build_pool <-
       pool <-
         pool %>%
         filter(!region %in% drop_region)
+    }
+    if (drop_zero_variance_arm) {
+      pool <-
+        pool %>%
+        filter(!zero_variance_arm)
     }
     if (drop_flagged) {
       pool <-

@@ -1,5 +1,6 @@
 specification,specification_label,rule_applied,decision_tested
 non_grassland_classes_retained,Non-grassland classes retained,"Shrubland, woodland and forest species returned to the pool",Restriction of the pool to grassland-associated species
+zero_variance_arm_removed,Zero-variance arm removed,"Effects with an arm holding no variance, almost always a species absent from that arm, held out",Weight carried by records reporting a species as absent from one treatment
 flagged_effects_removed,Flagged effects removed,Records carrying an unresolved data-quality flag held out,Reliance on records not yet re-checked against the source paper
 wider_priors,Wider priors,Prior scales doubled on both the effect and variance components,Influence of the prior on the posterior
 tighter_priors,Tighter priors,Prior scales halved on both the effect and variance components,Influence of the prior on the posterior
