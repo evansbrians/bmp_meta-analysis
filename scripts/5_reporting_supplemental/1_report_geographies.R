@@ -10,6 +10,7 @@
 
 library(DBI)
 library(duckdb)
+library(fs)
 library(rnaturalearth)
 library(sf)
 library(tmap)
@@ -21,8 +22,8 @@ source("src/functions.R")
 
 # Output directories:
 
-fs::dir_create("output/draft_output/tables")
-fs::dir_create("output/supplementals/supplemental_figures")
+dir_create("output/draft_output/tables")
+dir_create("output/supplementals/supplemental_figures")
 
 # Screened effects:
 
@@ -41,7 +42,11 @@ papers_by_pool <-
     !non_grassland_class,
     in_primary_pool
   ) %>%
-  select(key, region, bmp)
+  select(
+    key,
+    region,
+    bmp
+  )
 
 # Connect to the database:
 
@@ -100,19 +105,24 @@ primary_pool_regions <-
 
 # studies by geography -----------------------------------------------------
 
-# The studies holding at least one modeled record:
+# Studies holding a modeled record:
 
 included_studies <-
   papers_by_pool %>%
   distinct(key) %>%
   pull()
 
-# Every located study, marked included or excluded:
+# Every located study, included or excluded:
 
 studies_by_geography <-
   study_locations %>%
   mutate(
-    screening = if_else(study_key %in% included_studies, "included", "excluded")
+    screening =
+      if_else(
+        study_key %in% included_studies,
+        "included",
+        "excluded"
+      )
   ) %>%
   summarize(
     n_studies = n_distinct(study_key),
@@ -124,6 +134,9 @@ studies_by_geography <-
     names_prefix = "n_studies_",
     values_fill = 0
   ) %>%
+
+  # Both counts, and their sum:
+
   mutate(
     n_studies_total = n_studies_included + n_studies_excluded
   ) %>%
@@ -151,6 +164,9 @@ country_outlines <-
 
 continent_outlines <-
   country_outlines %>%
+
+  # Grouping, not `.by`, is what unions sf geometry:
+
   group_by(continent_name) %>%
   summarize() %>%
   ungroup() %>%
@@ -173,7 +189,7 @@ map_place_names <-
     show_col_types = FALSE
   )
 
-# Every located study at state, country and continent grain:
+# Each located study, at every grain it carries:
 
 study_places <-
   study_locations %>%
@@ -181,8 +197,15 @@ study_places <-
     map_place_names,
     by = join_by(geography)
   ) %>%
+
+  # The spelling the outlines use:
+
   mutate(
-    place = coalesce(map_place, restore_place_name(geography)),
+    place =
+      geography %>%
+      str_replace_all("_", " ") %>%
+      str_to_title(),
+    place = coalesce(map_place, place),
     country =
       case_match(
         geography_type,
@@ -192,6 +215,9 @@ study_places <-
       ),
     included = study_key %in% included_studies
   ) %>%
+
+  # The continent each country sits in:
+
   left_join(
     country_outlines %>%
       st_drop_geometry() %>%
@@ -202,7 +228,7 @@ study_places <-
     by = join_by(country)
   )
 
-# The included studies, at every grain each one carries:
+# One row per included study and grain:
 
 study_grains <-
   study_places %>%
@@ -229,7 +255,7 @@ study_grains <-
     values_drop_na = TRUE
   )
 
-# Included study counts at each grain:
+# Study counts at each grain:
 
 study_counts <-
   study_grains %>%
@@ -238,7 +264,7 @@ study_counts <-
     .by = c(grain, place)
   )
 
-# The outlines and title for each grain:
+# The outlines each grain is drawn on:
 
 grain_outlines <-
   list(
@@ -246,6 +272,8 @@ grain_outlines <-
     country = country_outlines,
     state = state_outlines
   )
+
+# The title each map carries:
 
 grain_titles <-
   c(
@@ -260,14 +288,21 @@ study_maps <-
   grain_outlines %>%
   imap(
     \(.outlines, .grain) {
-      draw_study_map(
-        .outlines = .outlines,
-        .counts =
+      drawn <-
+        .outlines %>%
+        left_join(
           study_counts %>%
-          filter(grain == .grain) %>%
-          select(!grain),
-        .title = grain_titles[[.grain]]
-      )
+            filter(grain == .grain) %>%
+            select(!grain),
+          by = join_by(place)
+        )
+      tm_shape(drawn) +
+        tm_polygons(
+          fill = "n_studies",
+          fill.legend =
+            tm_legend(title = "Studies")
+        ) +
+        tm_title(grain_titles[[.grain]])
     }
   )
 
@@ -319,7 +354,7 @@ study_maps %>%
       tmap_save(
         .map,
         filename =
-          fs::path(
+          path(
             "output/supplementals/supplemental_figures",
             str_c("map_studies_by_", .grain),
             ext = "png"
