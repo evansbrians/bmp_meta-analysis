@@ -76,7 +76,12 @@ mean_difference_effects <-
   ) %>%
   mutate(
     conversion = "two group means",
-    effect_metric = "hedges_g"
+    effect_metric = "hedges_g",
+
+    # An arm holding no variance, almost always a species absent from it:
+
+    zero_variance_arm =
+      replace_na(sd_e_used == 0 | sd_c_used == 0, FALSE)
   )
 
 ## nest survival to the log hazard scale in mean differences --------------
@@ -381,6 +386,10 @@ all_effects <-
     beta_categorical_effects,
     test_statistic_effects
   ) %>%
+  mutate(
+    zero_variance_arm =
+      replace_na(zero_variance_arm, FALSE)
+  ) %>%
   select(
     es_id = row_id,
     effect_id,
@@ -411,6 +420,7 @@ all_effects <-
     effect_metric,
     xbar_e,
     xbar_c,
+    zero_variance_arm,
     yi,
     sei,
     n_total

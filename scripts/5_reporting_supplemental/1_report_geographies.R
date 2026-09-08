@@ -165,36 +165,93 @@ state_outlines <-
   ) %>%
   select(place = name)
 
+# Names the outlines spell differently:
+
+map_place_names <-
+  read_csv(
+    "src/map_place_names.csv",
+    show_col_types = FALSE
+  )
+
+# Every located study at state, country and continent grain:
+
+study_places <-
+  study_locations %>%
+  left_join(
+    map_place_names,
+    by = join_by(geography)
+  ) %>%
+  mutate(
+    place = coalesce(map_place, restore_place_name(geography)),
+    country =
+      case_match(
+        geography_type,
+        "state" ~ "United States of America",
+        "province" ~ "Canada",
+        .default = place
+      ),
+    included = study_key %in% included_studies
+  ) %>%
+  left_join(
+    country_outlines %>%
+      st_drop_geometry() %>%
+      select(
+        country = place,
+        continent_name
+      ),
+    by = join_by(country)
+  )
+
+# The included studies, at every grain each one carries:
+
+study_grains <-
+  study_places %>%
+  filter(included) %>%
+  mutate(
+    state =
+      if_else(
+        geography_type %in% c("state", "province"),
+        place,
+        NA_character_
+      ),
+    continent = continent_name
+  ) %>%
+  select(
+    study_key,
+    state,
+    country,
+    continent
+  ) %>%
+  pivot_longer(
+    cols = !study_key,
+    names_to = "grain",
+    values_to = "place",
+    values_drop_na = TRUE
+  )
+
 # Included study counts at each grain:
 
 study_counts <-
-  studies_by_geography %>%
-  mutate(
-    place = restore_place_name(geography),
-    grain =
-      case_match(
-        geography_type,
-        c("state", "province") ~ "state",
-        .default = geography_type
-      )
-  ) %>%
-  select(
-    grain,
-    place,
-    n_studies = n_studies_included
-  ) %>%
+  study_grains %>%
   summarize(
-    n_studies = sum(n_studies),
+    n_studies = n_distinct(study_key),
     .by = c(grain, place)
   )
 
-# The outlines each grain is drawn on:
+# The outlines and title for each grain:
 
 grain_outlines <-
   list(
     continent = continent_outlines,
     country = country_outlines,
     state = state_outlines
+  )
+
+grain_titles <-
+  c(
+    continent = "Studies by continent",
+    country = "Studies by country",
+    state = "Studies by state or province"
   )
 
 # One map per grain:
@@ -209,8 +266,7 @@ study_maps <-
           study_counts %>%
           filter(grain == .grain) %>%
           select(!grain),
-        .title =
-          glue::glue("Studies by {str_replace(.grain, 'state', 'state or province')}")
+        .title = grain_titles[[.grain]]
       )
     }
   )

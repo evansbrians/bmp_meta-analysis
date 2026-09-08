@@ -1,6 +1,6 @@
 
 # This script:
-# - Reads the results tables written by 3_contrasts_tables.R
+# - Reads the results tables written by 3_output_tables.R
 # - Builds the manuscript figures from them and the posterior draws
 
 # Figure 1 is the ROSES diagram.
@@ -17,7 +17,7 @@ source("src/functions.R")
 
 # Output directory:
 
-fs::dir_create("output/figures")
+fs::dir_create("output/manuscript")
 
 # figure labels ------------------------------------------------------------
 
@@ -68,7 +68,7 @@ results <-
   c(
     species_richness = "table_species_richness_by_bmp",
     guild_bmp = "table_guild_bmp",
-    guild_contrasts = "table_guild_contrasts_by_bmp",
+    guild_contrasts = "table_guild_contrasts",
     pooled_bmp = "table_pooled_bmp",
     heterogeneity = "table_heterogeneity",
     species_abundance = "table_species_abundance"

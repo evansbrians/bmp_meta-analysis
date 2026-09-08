@@ -117,6 +117,16 @@ specifications <-
         )
     ),
 
+    # Hold out the records with an arm that holds no variance:
+
+    list(
+      specification = "zero_variance_arm_removed",
+      arguments =
+        list(
+          drop_zero_variance_arm = TRUE
+        )
+    ),
+
     # Hold out the flagged records:
 
     list(
