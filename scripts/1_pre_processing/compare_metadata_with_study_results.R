@@ -1,42 +1,42 @@
-# Purpose: This script compares the papers in the metadata table (in Google
-# sheets) with those in the tables where we extract study findings and clips out
-# the table names for inserting into citations_by_bmp_long, var =
-# in_analysis_table.
+# Purpose: This script compares the papers in the metadata table with those in
+# the tables where we extract study findings and clips out the table names for
+# inserting into citations_by_bmp_long, var = in_analysis_table.
 
 # setup -------------------------------------------------------------------
 
 library(tidyverse)
 
+# The extraction workbook:
+
+extraction_workbook <- "data/raw/bmp_review_analysis_subset.xlsx"
+
+# Rows read before a column type is fixed:
+
+guess_rows <- 10000
+
 # citations_by_bmp_long:
 
 paper_metadata <-
-  str_c(
-    "https://docs.google.com/spreadsheets/d/",
-    "1Lf3v8fU0sCCAcJ6Wj1v8GwgogjI4ve3xcMlPzLW0hnU"
+  readxl::read_excel(
+    "data/raw/citations_by_bmp_long.xlsx",
+    guess_max = guess_rows
   ) %>%
-  googlesheets4::read_sheet() %>%
   janitor::clean_names()
 
 # papers used:
 
 analysis_subset_papers <-
-  list(
-    "mean_diff",
-    "beta_categorical",
-    "beta_continuous",
-    "other_categorical",
-    "other_continuous"
-  ) %>%
+  readxl::excel_sheets(extraction_workbook) %>%
   set_names() %>%
   map(
-    \ (.x) {
-      str_c(
-        "https://docs.google.com/spreadsheets/d/",
-        "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA"
+    \(.sheet) {
+      readxl::read_excel(
+        extraction_workbook,
+        sheet = .sheet,
+        guess_max = guess_rows
       ) %>%
-      googlesheets4::read_sheet(sheet = .x) %>%
         distinct(key, bmp, paper) %>%
-        mutate(table = .x)
+        mutate(table = .sheet)
     }
   ) %>%
   list_rbind() %>%

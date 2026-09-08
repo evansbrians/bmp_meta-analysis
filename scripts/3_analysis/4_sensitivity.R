@@ -2,7 +2,7 @@
 # - Refits every model family under each alternate specification, prior,
 #   aggregation, conversion route and inclusion threshold among them
 # - Tests for publication bias (Egger, PET, PEESE) and flags influential
-#   effect sizes and studies
+#   effect sizes
 # - Saves the sensitivity tables read by the results page
 
 # setup --------------------------------------------------------------------
@@ -411,112 +411,6 @@ sensitivity_estimates <-
     outlier_results %>%
       map("estimates") %>%
       list_rbind()
-  )
-
-# influential studies ------------------------------------------------------
-
-# Leave one study out of each clear cell:
-
-primary_clear_cells <-
-  sensitivity_estimates %>%
-  filter(
-    specification == "primary",
-    excludes_zero
-  )
-
-# Refit each clear cell:
-
-influence_estimates <-
-  model_families %>%
-  map(
-    \(.family) {
-      family_cells <-
-        primary_clear_cells %>%
-        filter(model_family == .family$template)
-      if (nrow(family_cells) == 0) {
-        return(NULL)
-      }
-      pool <-
-        build_pool(
-          .effect_sizes = effect_sizes,
-          response_metric = .family$response_metric,
-          by_guild = .family$cell_variable != "bmp",
-          pooled = .family$pooled
-        ) %>%
-        apply_inclusion_thresholds(
-          grouping_vars = .family$grouping_vars
-        )
-      family_cells %>%
-        pmap(
-          \(guild, bmp, ...) {
-            in_cell <-
-              pool$bmp == bmp &
-              (is.na(guild) | pool$guild == guild)
-            cell_pool <- pool[in_cell, ]
-            if (n_distinct(cell_pool$key) < 2) {
-              return(NULL)
-            }
-            most_influential <-
-              cell_pool %>%
-              mutate(
-                studentized_residual =
-                  cell_deleted_residuals(
-                    yi = yi,
-                    sei = sei
-                  )
-              ) %>%
-              summarize(
-                influence =
-                  max(
-                    abs(studentized_residual),
-                    na.rm = TRUE
-                  ),
-                .by = key
-              ) %>%
-              slice_max(
-                influence,
-                n = 1,
-                with_ties = FALSE
-              ) %>%
-              pull(key)
-            refit_family(
-              .pool =
-                pool %>%
-                filter(
-                  !(in_cell & key == most_influential)
-                ),
-              .family = .family,
-              specification = "most_influential_study_removed",
-              models = fitted_models
-            ) %>%
-              filter(
-                bmp == {{ bmp }},
-                is.na(guild) | guild == {{ guild }}
-              ) %>%
-              mutate(
-                removed_study = most_influential
-              )
-          }
-        ) %>%
-        list_rbind()
-    }
-  ) %>%
-  list_rbind()
-
-# Write it:
-
-influence_estimates %>%
-  write_output_table(
-    file_name = "sensitivity_influence.csv"
-  )
-
-# Carry them in beside the rest:
-
-sensitivity_estimates <-
-  bind_rows(
-    sensitivity_estimates,
-    influence_estimates %>%
-      select(!removed_study)
   )
 
 # Every specification, in one table:

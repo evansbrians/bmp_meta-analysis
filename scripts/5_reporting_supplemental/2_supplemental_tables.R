@@ -1,6 +1,7 @@
 # This script:
 # - Reads the results tables written by 3_output_tables.R
 # - Generates a .docx supplemental table document
+# - Writes the sensitivity specification table
 
 # setup --------------------------------------------------------------------
 
@@ -11,6 +12,10 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
+
+# Output directory:
+
+fs::dir_create("output/supplementals")
 
 # Define flextable defaults:
 
@@ -327,6 +332,50 @@ print(
   manuscript_document,
   target = "output/supplementals/supplemental_tables.docx"
 )
+
+# sensitivity specifications -----------------------------------------------
+
+# The specifications the run reports:
+
+specifications_run <-
+  read_csv(
+    "output/draft_output/tables/sensitivity_summary.csv",
+    show_col_types = FALSE
+  ) %>%
+  distinct(specification) %>%
+  pull(specification)
+
+# What each one does:
+
+sensitivity_specifications <-
+  read_csv(
+    "src/sensitivity_specifications.csv",
+    show_col_types = FALSE
+  )
+
+# Specifications described but not run, or run but not described:
+
+unmatched <-
+  union(
+    setdiff(sensitivity_specifications$specification, specifications_run),
+    setdiff(specifications_run, sensitivity_specifications$specification)
+  )
+
+if (length(unmatched) > 0) {
+  cli::cli_abort(
+    "Specification in one source and not the other: {unmatched}."
+  )
+}
+
+# Write the reader-facing table:
+
+sensitivity_specifications %>%
+  select(!specification) %>%
+  rename(specification = specification_label) %>%
+  write_output_table(
+    file_name = "sensitivity_specifications.csv",
+    directory = "output/supplementals"
+  )
 
 # clear the environment ----------------------------------------------------
 

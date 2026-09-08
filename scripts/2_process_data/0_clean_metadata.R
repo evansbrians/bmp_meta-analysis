@@ -1,5 +1,5 @@
 # This script:
-# - Reads the paper metadata Google sheet
+# - Reads the paper metadata workbook
 # - Cleans the screening flags and the notes column
 # - Repairs the geography
 # - Saves the result (one place per row) to data/processed
@@ -25,18 +25,17 @@ null_tokens <-
     "nan"
   )
 
-# Google sheet url:
+# Rows read before a column type is fixed:
 
-url <-
-  str_c(
-    "https://docs.google.com/spreadsheets/d/",
-    "1Lf3v8fU0sCCAcJ6Wj1v8GwgogjI4ve3xcMlPzLW0hnU"
-  )
+guess_rows <- 10000
 
-# The sheet, with syntactic headers:
+# The workbook, with syntactic headers:
 
 paper_metadata <-
-  googlesheets4::read_sheet(url) %>%
+  readxl::read_excel(
+    "data/raw/citations_by_bmp_long.xlsx",
+    guess_max = guess_rows
+  ) %>%
   janitor::clean_names()
 
 # Fold place names to snake_case:

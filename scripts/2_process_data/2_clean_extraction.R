@@ -1,5 +1,5 @@
 # This script:
-# - Reformats the Google sheets
+# - Reformats the extraction workbook
 # - Cleans grouping variables (e.g., BMPs, species)
 # - Flags whether a nest-success response is a daily or a period rate
 # - Saves each tab as an individual csv file in data/processed.
@@ -35,25 +35,28 @@ vocabulary_columns <-
     "test_statistic"
   )
 
-# Google sheet url:
+# The extraction workbook:
 
-url <-
-  str_c(
-    "https://docs.google.com/spreadsheets/d/",
-    "14SWR7TXIKNvrYGr2_vwx9xBp5LDrDNaYcqZt6pldSoA"
-  )
+extraction_workbook <- "data/raw/bmp_review_analysis_subset.xlsx"
+
+# Rows read before a column type is fixed:
+
+guess_rows <- 10000
 
 # Read the sheets:
 
 analysis_subset_list <-
-  googlesheets4::sheet_names(url) %>%
+  readxl::excel_sheets(extraction_workbook) %>%
   set_names() %>%
   map(
-    ~ googlesheets4::read_sheet(
-      url,
-      sheet = .x
-    ) %>%
-      janitor::clean_names()
+    \(.sheet) {
+      readxl::read_excel(
+        extraction_workbook,
+        sheet = .sheet,
+        guess_max = guess_rows
+      ) %>%
+        janitor::clean_names()
+    }
   )
 
 # Species classification frame:
