@@ -65,10 +65,10 @@
 <text x='151.92' y='145.85' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='201.30px' lengthAdjust='spacingAndGlyphs'>508 practice records   |   397 papers</text>
 <text x='151.92' y='277.39' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='201.30px' lengthAdjust='spacingAndGlyphs'>209 practice records   |   164 papers</text>
 <text x='151.92' y='454.30' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='185.00px' lengthAdjust='spacingAndGlyphs'>1,544 effect sizes   |   164 papers</text>
-<text x='151.92' y='525.36' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='185.00px' lengthAdjust='spacingAndGlyphs'>1,304 effect sizes   |   127 papers</text>
-<text x='151.92' y='732.51' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='185.00px' lengthAdjust='spacingAndGlyphs'>1,155 effect sizes   |   125 papers</text>
-<text x='151.92' y='848.93' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='184.06px' lengthAdjust='spacingAndGlyphs'>1,097 effect sizes   |   114 papers</text>
-<text x='151.92' y='965.35' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='184.06px' lengthAdjust='spacingAndGlyphs'>1,097 effect sizes   |   114 papers</text>
+<text x='151.92' y='525.36' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='185.00px' lengthAdjust='spacingAndGlyphs'>1,299 effect sizes   |   125 papers</text>
+<text x='151.92' y='732.51' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='185.00px' lengthAdjust='spacingAndGlyphs'>1,150 effect sizes   |   123 papers</text>
+<text x='151.92' y='848.93' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='184.06px' lengthAdjust='spacingAndGlyphs'>1,092 effect sizes   |   112 papers</text>
+<text x='151.92' y='965.35' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='184.06px' lengthAdjust='spacingAndGlyphs'>1,092 effect sizes   |   112 papers</text>
 <text x='208.08' y='995.59' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='95.17px' lengthAdjust='spacingAndGlyphs'>Species richness</text>
 <text x='208.08' y='1010.71' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='105.00px' lengthAdjust='spacingAndGlyphs'>Abundance pooled</text>
 <text x='208.08' y='1025.83' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='103.59px' lengthAdjust='spacingAndGlyphs'>Abundance x guild</text>
@@ -84,23 +84,23 @@
 <text x='564.48' y='352.99' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='45.48px' lengthAdjust='spacingAndGlyphs'>success</text>
 <text x='564.48' y='368.11' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='151.14px' lengthAdjust='spacingAndGlyphs'>Missing quantitative results</text>
 <text x='564.48' y='383.23' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='193.81px' lengthAdjust='spacingAndGlyphs'>No measure of dispersion reported</text>
-<text x='508.32' y='525.36' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='167.50px' lengthAdjust='spacingAndGlyphs'>240 effect sizes   |   37 papers</text>
+<text x='508.32' y='525.36' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='167.50px' lengthAdjust='spacingAndGlyphs'>245 effect sizes   |   39 papers</text>
 <text x='564.48' y='555.60' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='233.75px' lengthAdjust='spacingAndGlyphs'>Response not the one the practice targets</text>
 <text x='564.48' y='570.72' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='139.73px' lengthAdjust='spacingAndGlyphs'>No route to an effect size</text>
 <text x='564.48' y='585.84' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='212.94px' lengthAdjust='spacingAndGlyphs'>Treatment and control not comparable</text>
 <text x='564.48' y='600.96' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='219.02px' lengthAdjust='spacingAndGlyphs'>One result reported more than one way</text>
 <text x='564.48' y='616.08' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='201.53px' lengthAdjust='spacingAndGlyphs'>Diversity index, not a richness count</text>
-<text x='564.48' y='631.20' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='228.81px' lengthAdjust='spacingAndGlyphs'>Nest survival could not be transformed to</text>
-<text x='564.48' y='646.32' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='92.38px' lengthAdjust='spacingAndGlyphs'>the hazard scale</text>
-<text x='564.48' y='661.44' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='210.25px' lengthAdjust='spacingAndGlyphs'>Artificial nest, not a species' response</text>
+<text x='564.48' y='631.20' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='210.25px' lengthAdjust='spacingAndGlyphs'>Artificial nest, not a species' response</text>
+<text x='564.48' y='646.32' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='228.81px' lengthAdjust='spacingAndGlyphs'>Nest survival could not be transformed to</text>
+<text x='564.48' y='661.44' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='92.38px' lengthAdjust='spacingAndGlyphs'>the hazard scale</text>
 <text x='508.32' y='732.51' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='160.50px' lengthAdjust='spacingAndGlyphs'>149 effect sizes   |   2 papers</text>
 <text x='508.32' y='762.75' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='249.84px' lengthAdjust='spacingAndGlyphs'>Artificial nests and shrubland, woodland, and</text>
 <text x='508.32' y='777.87' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='130.14px' lengthAdjust='spacingAndGlyphs'>forest species removed</text>
 <text x='508.32' y='848.93' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='159.56px' lengthAdjust='spacingAndGlyphs'>58 effect sizes   |   11 papers</text>
 <text x='508.32' y='879.17' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='253.30px' lengthAdjust='spacingAndGlyphs'>Fewer than three papers across the guilds for</text>
 <text x='508.32' y='894.29' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='148.36px' lengthAdjust='spacingAndGlyphs'>that practice and response</text>
-<text x='174.96' y='995.59' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.06px' lengthAdjust='spacingAndGlyphs'>117</text>
-<text x='174.96' y='1010.71' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>866</text>
+<text x='174.96' y='995.59' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.06px' lengthAdjust='spacingAndGlyphs'>115</text>
+<text x='174.96' y='1010.71' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>864</text>
 <text x='174.96' y='1025.83' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>787</text>
 <text x='174.96' y='1040.95' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>37</text>
 <text x='531.36' y='176.09' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>42</text>
@@ -111,15 +111,15 @@
 <text x='531.36' y='337.87' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>75</text>
 <text x='531.36' y='368.11' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>66</text>
 <text x='531.36' y='383.23' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>18</text>
-<text x='531.36' y='555.60' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>71</text>
+<text x='531.36' y='555.60' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>78</text>
 <text x='531.36' y='570.72' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>69</text>
 <text x='531.36' y='585.84' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>64</text>
 <text x='531.36' y='600.96' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='14.00px' lengthAdjust='spacingAndGlyphs'>13</text>
 <text x='531.36' y='616.08' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='7.00px' lengthAdjust='spacingAndGlyphs'>9</text>
-<text x='531.36' y='631.20' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='7.00px' lengthAdjust='spacingAndGlyphs'>8</text>
-<text x='531.36' y='661.44' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='7.00px' lengthAdjust='spacingAndGlyphs'>6</text>
-<text x='178.56' y='995.59' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 35</text>
-<text x='178.56' y='1010.71' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 81</text>
+<text x='531.36' y='631.20' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='7.00px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='531.36' y='646.32' text-anchor='end' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='7.00px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='178.56' y='995.59' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 34</text>
+<text x='178.56' y='1010.71' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 79</text>
 <text x='178.56' y='1025.83' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 74</text>
 <text x='178.56' y='1040.95' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 16</text>
 <text x='534.96' y='176.09' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 37</text>
@@ -130,13 +130,13 @@
 <text x='534.96' y='337.87' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 63</text>
 <text x='534.96' y='368.11' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 48</text>
 <text x='534.96' y='383.23' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 13</text>
-<text x='534.96' y='555.60' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 14</text>
+<text x='534.96' y='555.60' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 17</text>
 <text x='534.96' y='570.72' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 2</text>
 <text x='534.96' y='585.84' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='20.77px' lengthAdjust='spacingAndGlyphs'>| 13</text>
 <text x='534.96' y='600.96' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 0</text>
 <text x='534.96' y='616.08' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 1</text>
-<text x='534.96' y='631.20' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 4</text>
-<text x='534.96' y='661.44' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 3</text>
+<text x='534.96' y='631.20' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 3</text>
+<text x='534.96' y='646.32' style='font-size: 12.60px;fill: #33454F; font-family: "Arial";' textLength='13.77px' lengthAdjust='spacingAndGlyphs'>| 3</text>
 <text x='69.12' y='66.57' text-anchor='middle' style='font-size: 12.80px; font-weight: bold;fill: #3D5160; font-family: "Arial";' textLength='79.62px' lengthAdjust='spacingAndGlyphs'>Identification</text>
 <text x='69.12' y='167.88' text-anchor='middle' style='font-size: 12.80px; font-weight: bold;fill: #3D5160; font-family: "Arial";' textLength='61.84px' lengthAdjust='spacingAndGlyphs'>Screening</text>
 <text x='69.12' y='322.10' text-anchor='middle' style='font-size: 12.80px; font-weight: bold;fill: #3D5160; font-family: "Arial";' textLength='56.91px' lengthAdjust='spacingAndGlyphs'>Eligibility</text>

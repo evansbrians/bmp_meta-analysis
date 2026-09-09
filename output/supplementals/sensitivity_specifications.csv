@@ -1,5 +1,6 @@
 specification,rule_applied,decision_tested
 Non-grassland classes retained,"Shrubland, woodland and forest species returned to the pool",Restriction of the pool to grassland-associated species
+Zero-variance arm removed,"Effects with an arm holding no variance, almost always a species absent from that arm, held out",Weight carried by records reporting a species as absent from one treatment
 Flagged effects removed,Records carrying an unresolved data-quality flag held out,Reliance on records not yet re-checked against the source paper
 Wider priors,Prior scales doubled on both the effect and variance components,Influence of the prior on the posterior
 Tighter priors,Prior scales halved on both the effect and variance components,Influence of the prior on the posterior
@@ -13,4 +14,3 @@ Paper floor two,Cells with at least two papers retained,Three-paper inclusion fl
 Paper floor four,Cells with at least four papers retained,Three-paper inclusion floor
 Guild assigned only,Pooled models restricted to records naming a grassland guild,Records the pooled models carry without a guild assignment
 Outliers removed,Effects with a studentized deleted residual beyond the cell threshold removed,Influence of individual outlying effect sizes
-Most influential study removed,"For each cell whose interval excludes zero, the study with the largest absolute studentized deleted residual removed",Dependence of a finding on a single study
