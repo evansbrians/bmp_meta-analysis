@@ -49,8 +49,13 @@ practice_labels <-
 
 effect_axis_label <- 
   bquote(
-    "Pooled effect size (Hedges'"
-    ~ italic("g") * ", 95% credible interval)")
+    "Effect size (Hedges'" ~ italic("g") * ", 95% credible interval)"
+  )
+
+pooled_effect_axis_label <- 
+  bquote(
+    "Pooled effect size (Hedges'" ~ italic("g") * ", 95% credible interval)"
+  )
 
 # Probability labels, at the panel edge:
 
@@ -456,7 +461,7 @@ figure_abundance_pooled <-
   # Add labels:
   
   labs(
-    x = effect_axis_label,
+    x = pooled_effect_axis_label,
     y = NULL
   ) +
   
