@@ -416,7 +416,7 @@ figure_abundance_pooled <-
     data = 
       edge_labels$abundance_pooled,
     hjust = 0,
-    x = 1.6,
+    x = 1.1,
     vjust = -3.5,
     size = 2.7,
     color = "grey25",
@@ -425,7 +425,7 @@ figure_abundance_pooled <-
     aes(label = probability_label),
     data = 
       edge_labels$abundance_pooled,
-    x = 1.6,
+    x = 1.1,
     hjust = 0,
     vjust = -1.5,
     size = 2.7,
@@ -438,9 +438,9 @@ figure_abundance_pooled <-
     values = c("white", "black")
   ) +
   scale_x_continuous(
-    limits = c(-1, 2),
+    limits = c(-1, 1.5),
     breaks = 
-      seq(-1, 2, by = 0.5),
+      seq(-1, 1.5, by = 0.5),
     expand =
       expansion(
         mult = c(0.001, 0.001)
