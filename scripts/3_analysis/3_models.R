@@ -8,6 +8,7 @@
 
 library(brms)
 library(posterior)
+library(tidybayes)
 library(tidyverse)
 
 # Project functions:

@@ -1540,38 +1540,6 @@ count_cells <-
       )
   }
 
-# maps ----------------------------------------------------------------------
-
-# Snake-cased place names back to the spelling map outlines use.
-
-restore_place_name <-
-  function(.geography) {
-    .geography %>%
-      str_replace_all("_", " ") %>%
-      str_to_title()
-  }
-
-# Study counts drawn on one set of outlines, joined on `place`.
-
-draw_study_map <-
-  function(
-    .outlines,
-    .counts,
-    .title) {
-    .outlines %>%
-      left_join(
-        .counts,
-        by = join_by(place)
-      ) %>%
-      tm_shape() +
-      tm_polygons(
-        fill = "n_studies",
-        fill.legend =
-          tm_legend(title = "Studies")
-      ) +
-      tm_title(.title)
-  }
-
 # contrasts and manuscript tables ------------------------------------------
 
 # Rows whose interval excludes zero are bolded.
