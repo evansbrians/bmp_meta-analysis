@@ -12,10 +12,10 @@ md_0310,LNNCH8TG,Davis 2018,plant_nwsg,eggs per nest,period_survival,1,4.5,4.7,l
 md_0311,LNNCH8TG,Davis 2018,plant_nwsg,fledglings per nest,period_survival,1,1.2,0.9,log_hazard_ratio,-3.7371513020529994,0.21092445073423813,response_flag
 md_0321,SQ8ICKWV,Davis et al. 2016,plant_nwsg,number of young fledged per nest,period_survival,1,1.3,0.6,log_hazard_ratio,-2.1402476569927265,0.6534992930950938,response_flag
 md_0322,SQ8ICKWV,Davis et al. 2016,plant_nwsg,number of young fledged per nest,period_survival,1,1.3,1,log_hazard_ratio,,,response_flag
-md_0337,IAAZA5MM,Denny et al. 2021,delay_hay,dsr,daily_survival,1,0.96,0.929,log_hazard_ratio,0.590056147599046,0.24048468707577456,duplicate_expression
-md_0338,IAAZA5MM,Denny et al. 2021,delay_hay,nest_success,period_survival,1,0.377,0.169,log_hazard_ratio,0.6002032351909932,0.19788151018743147,
-md_0339,IAAZA5MM,Denny et al. 2021,delay_hay,dsr,daily_survival,1,0.967,0.94,log_hazard_ratio,0.6118837110048623,0.2949376020867945,duplicate_expression
-md_0340,IAAZA5MM,Denny et al. 2021,delay_hay,nest_success,period_survival,1,0.432,0.216,log_hazard_ratio,0.6020369894986823,0.27655351013794716,
+md_0337,IAAZA5MM,Denny et al. 2021,delay_hay,dsr,daily_survival,1,0.96,0.929,log_hazard_ratio,0.590056147599046,0.2404891061195343,duplicate_expression
+md_0338,IAAZA5MM,Denny et al. 2021,delay_hay,nest_success,period_survival,1,0.377,0.169,log_hazard_ratio,0.6002032351909932,0.1978851463734331,
+md_0339,IAAZA5MM,Denny et al. 2021,delay_hay,dsr,daily_survival,1,0.967,0.94,log_hazard_ratio,0.6118837110048623,0.2949430217340321,duplicate_expression
+md_0340,IAAZA5MM,Denny et al. 2021,delay_hay,nest_success,period_survival,1,0.432,0.216,log_hazard_ratio,0.6020369894986823,0.27655859196697363,
 md_0367,DDEKX9E9,Gehlbach 1994,install_nest_boxes,successful nests (%),period_survival,1,67.8,81.1,log_hazard_ratio,-0.6179083420543882,0.4858248417881438,
 md_0371,LU5JZP88,Giuliano and Daves 2002,plant_nwsg,fledge_rate (number fledged/number eggs),period_survival,1,0.7,0.48,log_hazard_ratio,0.7216421861057112,0.4909052309724858,response_flag
 md_0372,LU5JZP88,Giuliano and Daves 2002,plant_nwsg,depredation_rate,period_survival,-1,0.31,0.35,log_hazard_ratio,0.1492305924260683,0.5292356329429394,
@@ -23,17 +23,17 @@ md_0386,M8T4QVJ5,Grueebler et al. 2012,delay_hay,nest survival probability,perio
 md_0486,QI6DHMSY,Holcomb et al. 2014,prescribed_fire,nest_success,daily_survival,1,50.9,57.6,log_hazard_ratio,-0.20225832114053224,0.19571191465097673,paper_count
 md_0487,QI6DHMSY,Holcomb et al. 2014,prescribed_fire,nest_success,daily_survival,1,17.6,21.8,log_hazard_ratio,-0.131462737688661,0.25869341498423604,paper_count
 md_0488,QI6DHMSY,Holcomb et al. 2014,prescribed_fire,nest_success,daily_survival,1,14.3,12.4,log_hazard_ratio,0.07073854821449521,0.37690922622897505,paper_count
-md_0497,6RIJF37M,Kentie et al. 2015,manage_in_patches,nest_success (%),period_survival,1,32,21,log_hazard_ratio,0.3145690619067474,0.24982805258299273,treatment_control_flag
+md_0497,6RIJF37M,Kentie et al. 2015,manage_in_patches,nest_success (%),period_survival,1,32,21,log_hazard_ratio,0.3145690619067474,0.2498326433164411,treatment_control_flag
 md_0508,4KV5TD3V,Korpimaki 1984,install_nest_boxes,number of fledglings,period_survival,1,2.88,2.47,log_hazard_ratio,0.04238082105190743,0.2933790841540438,response_flag
 md_0511,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,successful nests per 100 ha - 2005,period_survival,1,3.3,2.8,log_hazard_ratio,0.04704110154928576,0.11948430014508926,response_flag
 md_0512,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,successful nests per 100 ha - 2006,period_survival,1,2.6,1.7,log_hazard_ratio,0.11012466417117528,0.11098764266094696,response_flag
-md_0513,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,successful nests per breeding pair - 2005,period_survival,1,0.26,0.35,log_hazard_ratio,-0.2493138269047479,0.4713334838581882,response_flag
+md_0513,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,successful nests per breeding pair - 2005,period_survival,1,0.26,0.35,log_hazard_ratio,-0.2493138269047479,0.47134214488070864,response_flag
 md_0537,8IQ6TE6A,Lituma et al. 2012,plant_nwsg,Daily nest survival,daily_survival,1,0.895,0.93,log_hazard_ratio,-0.4243522805809725,0.2838863742492312,
-md_0539,GE3868HZ,Lloyd and Martin 2005,plant_nwsg,clutch size,period_survival,1,4,4,log_hazard_ratio,-0,0.0084059339084541,response_flag
+md_0539,GE3868HZ,Lloyd and Martin 2005,plant_nwsg,clutch size,period_survival,1,4,4,log_hazard_ratio,-0,0.00840608837230057,response_flag
 md_0707,L3NEIUFB,Monroe et al. 2016,plant_nwsg,eggs per nest,period_survival,1,4.52,4.37,log_hazard_ratio,,,response_flag
 md_0708,L3NEIUFB,Monroe et al. 2016,plant_nwsg,fledglings per successful nest,period_survival,1,3.22,4.2,log_hazard_ratio,-0.08048793327748949,0.01505247923982297,response_flag
-md_0717,IXNBX5LG,Perlut et al. 2006,delay_hay,dsr,daily_survival,1,97.184,88.796,log_hazard_ratio,1.4255313837028374,1.6746528597135986,
-md_0718,IXNBX5LG,Perlut et al. 2006,delay_hay,dsr,daily_survival,1,96.645,90.294,log_hazard_ratio,1.095893427063095,0.9335006299679572,
+md_0717,IXNBX5LG,Perlut et al. 2006,delay_hay,dsr,daily_survival,1,97.184,88.796,log_hazard_ratio,1.4255313837028374,1.6746836324183367,
+md_0718,IXNBX5LG,Perlut et al. 2006,delay_hay,dsr,daily_survival,1,96.645,90.294,log_hazard_ratio,1.095893427063095,0.933517783576296,
 md_0719,IXNBX5LG,Perlut et al. 2006,delay_hay,number of offspring fledged per female,period_survival,1,2.79,0.05,log_hazard_ratio,-0.17793065984721879,0.33429453930284203,response_flag
 md_0720,IXNBX5LG,Perlut et al. 2006,delay_hay,number of offspring fledged per female,period_survival,1,3.29,1.28,log_hazard_ratio,0.2441169883730605,0.0391900123876719,response_flag
 md_0723,S9JEF6KQ,Pintaric et al. 2019,delay_hay,dsr,daily_survival,1,0.978,0.939,log_hazard_ratio,1.0400340719552106,0.4047731430813913,treatment_control_flag
@@ -92,15 +92,15 @@ md_1217,FFFPKYB5,Jensen and Finck 2004,edge_and_shrub_habitat,daily nest predati
 md_1219,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,mayfield daily nest survival rate,daily_survival,1,0.9605,0.976,log_hazard_ratio,-0.5062080586393414,0.30052893493198196,paper_count
 md_1220,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,mayfield daily nest survival rate,daily_survival,1,0.9557,0.9585,log_hazard_ratio,-0.06674331334995198,0.24839046875796503,paper_count
 md_1221,JGT3P9TP,Bollinger and Gavin 2004,edge_and_shrub_habitat,DSR,daily_survival,1,0.9519,0.9788,log_hazard_ratio,-0.8331325500307907,0.27812596989928506,
-md_1230,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0979,0.2155,log_hazard_ratio,-0.4148111225111277,0.9964385225963966,paper_count
-md_1231,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.4588,0.5981,log_hazard_ratio,-0.4159738528048426,1.024781572394557,paper_count
-md_1232,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0196,0.0801,log_hazard_ratio,-0.4431707315743585,0.8852342012061706,paper_count
-md_1233,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.2071,0.351,log_hazard_ratio,-0.40807237067157714,1.0634055974517618,paper_count
-md_1234,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0219,0.1411,log_hazard_ratio,-0.6685126573676494,0.7130171780164986,paper_count
-md_1235,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.1293,0.3422,log_hazard_ratio,-0.6458391684492861,0.9794869777319488,paper_count
+md_1230,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0979,0.2155,log_hazard_ratio,-0.4148111225111277,0.9964568327245332,paper_count
+md_1231,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.4588,0.5981,log_hazard_ratio,-0.4159738528048426,1.0248004033424547,paper_count
+md_1232,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0196,0.0801,log_hazard_ratio,-0.4431707315743585,0.8852504678912565,paper_count
+md_1233,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.2071,0.351,log_hazard_ratio,-0.40807237067157714,1.0634251381382254,paper_count
+md_1234,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0219,0.1411,log_hazard_ratio,-0.6685126573676494,0.7130302801152201,paper_count
+md_1235,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.1293,0.3422,log_hazard_ratio,-0.6458391684492861,0.9795049763657468,paper_count
 md_1236,T8JD6C6I,Hausmann et al. 2005,edge_and_shrub_habitat,Percent of nests predated,period_survival,-1,65.1168,73.1275,log_hazard_ratio,0.22132692870902157,0.24470084829146097,artificial_nest
-md_1241,ERL3H2FK,Monroe et al. 2019,plant_nwsg,DSR,daily_survival,1,0.9422,0.8994,log_hazard_ratio,0.577087656158656,0.4522364321978466,
-md_1242,ERL3H2FK,Monroe et al. 2019,plant_nwsg,DSR,daily_survival,1,0.8705,0.8609,log_hazard_ratio,0.07692367935275346,0.38357069757603,
+md_1241,ERL3H2FK,Monroe et al. 2019,plant_nwsg,DSR,daily_survival,1,0.9422,0.8994,log_hazard_ratio,0.577087656158656,0.4522447423011131,
+md_1242,ERL3H2FK,Monroe et al. 2019,plant_nwsg,DSR,daily_survival,1,0.8705,0.8609,log_hazard_ratio,0.07692367935275346,0.3835777459071242,
 md_1243,JY7UF4YC,Perkins et al. 2013,edge_and_shrub_habitat,Daily nest survival,daily_survival,1,0.8016,0.8558,log_hazard_ratio,-0.35077070426884216,0.20279262703923215,
 md_1244,JY7UF4YC,Perkins et al. 2013,edge_and_shrub_habitat,Daily nest survival,daily_survival,1,0.8916,0.9011,log_hazard_ratio,-0.09692153044901408,0.3991763357331949,
 md_1261,TY9UGHCS,Valentine et al. 2019,edge_and_shrub_habitat,Mean nest survival (days),period_survival,1,6.4925,7.2127,log_hazard_ratio,-0.03922898649107931,0.05043362493962571,artificial_nest
@@ -109,26 +109,26 @@ md_1263,TY9UGHCS,Valentine et al. 2019,edge_and_shrub_habitat,Mean nest survival
 md_1288,PAM2R2T8,Broyer et al. 2016,delay_hay,hatching_success,period_survival,1,72.7,47.5,log_hazard_ratio,0.8479786097188342,0.05293890119408775,
 md_1289,PAM2R2T8,Broyer et al. 2016,delay_hay,hatching_success,period_survival,1,66.8,34.9,log_hazard_ratio,0.9590027997733584,0.04625217359153945,
 md_1290,PAM2R2T8,Broyer et al. 2016,delay_hay,hatching_success,period_survival,1,68.2,57.6,log_hazard_ratio,0.3655911312065403,0.10340522500338922,paper_count
-md_1291,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.917,0.926,log_hazard_ratio,-0.11959235541786972,0.2448938141435223,paper_count
-md_1292,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.747,0.754,log_hazard_ratio,-0.03249875431636262,0.602229329548166,paper_count
-md_1293,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.923,0.922,log_hazard_ratio,0.01343812401184507,0.16249024254508662,paper_count
-md_1294,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.951,0.953,log_hazard_ratio,-0.0427145054652378,0.21584623819575932,paper_count
-md_1295,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.962,0.981,log_hazard_ratio,-0.7028789827774644,2.867932049949101,paper_count
-md_1296,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.961,0.955,log_hazard_ratio,0.14620998163256527,0.3869956272677495,paper_count
-md_1297,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.97,0.968,log_hazard_ratio,0.06556509689269374,0.3841141501406206,
-md_1298,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.954,0.964,log_hazard_ratio,-0.2502998802046301,0.3190467456023256,paper_count
-md_1299,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.96,0.958,log_hazard_ratio,0.04982564186066351,0.17267794939753794,
-md_1300,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.984,0.922,log_hazard_ratio,1.6163965014357853,0.6642470592387844,
-md_1301,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.948,0.941,log_hazard_ratio,0.12996413886140745,0.27046762311106637,
-md_1302,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.971,0.949,log_hazard_ratio,0.575910552462243,0.4375609968932319,
-md_1303,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.937,0.938,log_hazard_ratio,-0.0165279383579584,0.20292821191051033,
-md_1304,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.944,0.941,log_hazard_ratio,0.05376155896724155,0.26171985814622684,
-md_1305,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.921,0.938,log_hazard_ratio,-0.25134694119842527,0.30041011310857946,paper_count
-md_1306,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.948,0.946,log_hazard_ratio,0.03878671097456498,0.15513001674900906,
-md_1307,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.984,0.921,log_hazard_ratio,1.629670728609239,0.668121957442685,
-md_1308,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.926,0.916,log_hazard_ratio,0.13210617314879292,0.25966510817332694,
-md_1309,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.94,0.9,log_hazard_ratio,0.5322652060653552,0.3647022928918725,
-md_1310,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.93,0.931,log_hazard_ratio,-0.01491963244155902,0.21826639043952256,
+md_1291,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.917,0.926,log_hazard_ratio,-0.11959235541786972,0.33343618073760384,paper_count
+md_1292,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.747,0.754,log_hazard_ratio,-0.03249875431636262,0.8199678226867116,paper_count
+md_1293,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.923,0.922,log_hazard_ratio,0.01343812401184507,0.22123925861846316,paper_count
+md_1294,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.951,0.953,log_hazard_ratio,-0.0427145054652378,0.29388633413334747,paper_count
+md_1295,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.962,0.981,log_hazard_ratio,-0.7028789827774644,3.9048446882760497,paper_count
+md_1296,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.961,0.955,log_hazard_ratio,0.14620998163256527,0.5269154893503663,paper_count
+md_1297,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.97,0.968,log_hazard_ratio,0.06556509689269374,0.5229922023064987,
+md_1298,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.954,0.964,log_hazard_ratio,-0.2502998802046301,0.4343994098113698,paper_count
+md_1299,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.96,0.958,log_hazard_ratio,0.04982564186066351,0.2351103728204939,
+md_1300,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.984,0.922,log_hazard_ratio,1.6163965014357853,0.9044083178391854,
+md_1301,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.948,0.941,log_hazard_ratio,0.12996413886140745,0.3682563056103927,
+md_1302,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.971,0.949,log_hazard_ratio,0.575910552462243,0.5957629765132105,
+md_1303,SQ8ICKWV,Davis et al. 2016,plant_nwsg,incubation DSR,daily_survival,1,0.937,0.938,log_hazard_ratio,-0.0165279383579584,0.27629774226839715,
+md_1304,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.944,0.941,log_hazard_ratio,0.05376155896724155,0.35634575021287296,
+md_1305,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.921,0.938,log_hazard_ratio,-0.25134694119842527,0.40902462612294554,paper_count
+md_1306,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.948,0.946,log_hazard_ratio,0.03878671097456498,0.211217912887892,
+md_1307,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.984,0.921,log_hazard_ratio,1.629670728609239,0.9096842014394892,
+md_1308,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.926,0.916,log_hazard_ratio,0.13210617314879292,0.3535480969290178,
+md_1309,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.94,0.9,log_hazard_ratio,0.5322652060653552,0.49656190816173584,
+md_1310,SQ8ICKWV,Davis et al. 2016,plant_nwsg,nestling DSR,daily_survival,1,0.93,0.931,log_hazard_ratio,-0.01491963244155902,0.29718150238325286,
 md_1311,KGGBIEC9,Weldon 2006,edge_and_shrub_habitat,dsr (early nests),daily_survival,1,0.9414,0.9755,log_hazard_ratio,-0.8897262943174713,0.4264985529555653,
 md_1312,KGGBIEC9,Weldon 2006,edge_and_shrub_habitat,dsr (late nests),daily_survival,1,0.968,0.929,log_hazard_ratio,0.8173237393447534,0.5517267448901456,
 md_1348,Z8IHZVRP,Luscier and Thompson 2009,delay_hay,nests surviving cut (%),period_survival,1,96.08,16.67,log_hazard_ratio,3.802237120811177,0.7665536583102728,treatment_control_flag
@@ -138,8 +138,8 @@ md_1358,XW78AT45,Perkins et al. 2003,edge_and_shrub_habitat,DSR - site DO,daily_
 md_1359,XW78AT45,Perkins et al. 2003,edge_and_shrub_habitat,DSR - site TL,daily_survival,1,0.88,0.95,log_hazard_ratio,-0.9131676008423506,0.48946652549472286,
 md_1360,XW78AT45,Perkins et al. 2003,edge_and_shrub_habitat,DSR - site DO,daily_survival,1,0.93,0.93,log_hazard_ratio,-0,0.8639631926093223,duplicate_expression
 md_1361,XW78AT45,Perkins et al. 2003,edge_and_shrub_habitat,DSR - site TL,daily_survival,1,0.91,0.89,log_hazard_ratio,0.21158706599023436,0.8492192117518967,duplicate_expression
-md_1362,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0275,0.1226,log_hazard_ratio,-0.5377667199879855,0.5099587583103796,response_flag
-md_1363,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.1309,0.3119,log_hazard_ratio,-0.5568872647900253,0.7620996275755136,response_flag
+md_1362,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.0275,0.1226,log_hazard_ratio,-0.5377667199879855,0.5099681290944243,response_flag
+md_1363,VXQYBKJ5,Carnochan et al. 2018,rotational_grazing,Probability of nesting success,period_survival,1,0.1309,0.3119,log_hazard_ratio,-0.5568872647900253,0.7621136315923369,response_flag
 bc_0002,47Y8JMQT,Assandri et al. 2017,eliminate_pesticides,Daily nest failure,daily_survival,1,,,log_hazard_ratio,0.4004704747040369,0.5727759725429727,
 bc_0007,5QFBJNUI,Conkling et al. 2017,plant_nwsg,Nest survival,period_survival,1,,,hedges_g,,,treatment_control_flag
 bc_0038,4G526MHA,Coon et al. 2022,plant_nwsg,Nest survival,daily_survival,1,,,log_hazard_ratio,0.38180198924527575,0.7075406749194417,
@@ -156,15 +156,15 @@ tc_0035,2W9S5HLE,Green et al. 1997,mow_towards_refugia,Proportion of chicks kill
 tc_0036,2W9S5HLE,Green et al. 1997,mow_towards_refugia,Proportion of chicks killed,period_survival,1,,,hedges_g,,,nest_hazard_scale
 tc_0039,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,nest_success (2005),period_survival,1,,,hedges_g,,,nest_hazard_scale
 tc_0040,H9PA8BNU,Kragten and de Snoo 2007,eliminate_pesticides,nest_success (2006),period_survival,1,,,hedges_g,,,nest_hazard_scale
-tc_0042,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.5250890241499047,0.2381247449815937,
-tc_0043,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.02967990478776272,0.3372927485212368,paper_count
-tc_0044,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.00776802766668538,0.03426679458811958,paper_count
-tc_0045,PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.47875530841864977,0.25549038753915804,
-tc_0046,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.47875530841864977,0.25549038753915804,
-tc_0047,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-1.0551120093942976,0.5830564229904259,paper_count
-tc_0048,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.01869467770422384,0.04781416678544816,paper_count
-tc_0049,ASXX3FVX,Robertson and Rendell 1990,install_nest_boxes,nest_success (1986),period_survival,1,,,hedges_g,,,nest_hazard_scale
-tc_0050,ASXX3FVX,Robertson and Rendell 1990,install_nest_boxes,nest_success (1987),period_survival,1,,,hedges_g,,,nest_hazard_scale
-tc_0081,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.1018561761700898,0.14585708398570177,treatment_control_flag
-tc_0082,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.42924116228946607,0.17161235230667082,paper_count
-tc_0083,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.3292249923326076,0.18247795436637249,response_flag
+tc_0042,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.5250890241499047,0.2381291206600668,
+tc_0043,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.02967990478776272,0.337298946468531,paper_count
+tc_0044,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.00776802766668538,0.03426742426008177,paper_count
+tc_0045,PKYELK4R,Peak et al. 2004,edge_and_shrub_habitat,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.47875530841864977,0.25549508232125184,
+tc_0046,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-0.47875530841864977,0.25549508232125184,
+tc_0047,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,-1.0551120093942976,0.5830671369858943,paper_count
+tc_0048,PKYELK4R,Peak et al. 2004,stream_exclusion_and_buffers,nest_success,daily_survival,-1,,,log_hazard_ratio,0.01869467770422384,0.04781504539812795,paper_count
+tc_0049,ASXX3FVX,Robertson and Rendell 1990,install_nest_boxes,nest_success (1986),period_survival,1,,,hedges_g,,,response_flag
+tc_0050,ASXX3FVX,Robertson and Rendell 1990,install_nest_boxes,nest_success (1987),period_survival,1,,,hedges_g,,,response_flag
+tc_0081,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.1018561761700898,0.14585976419309724,treatment_control_flag
+tc_0082,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.42924116228946607,0.17161550578186197,paper_count
+tc_0083,DNJ2A44M,Long et al. 2012,prescribed_fire,dsr,daily_survival,1,,,log_hazard_ratio,0.3292249923326076,0.1824813075032201,response_flag
