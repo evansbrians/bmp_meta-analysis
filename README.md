@@ -57,26 +57,30 @@ Scripts include:
 
 ### Source files
 
-`src` contains `functions.R`, which defines every function used in this
-analysis, together with a csv for each lookup table read by the functions and
-the scripts. The lookup tables provide the practice vocabulary and the labels
-printed by the figures and tables, the inclusion thresholds, the screen
-reasons, the geography and species classifications assigned by hand, the
-register of extraction sheets, and the description of each sensitivity
-specification.
+`src` contains `functions.R`, which defines every custom function used in this
+analysis, and csv files of each lookup table read by the functions and
+the scripts. The lookup tables provide:
+
+* BMP names and labels printed by the figures and tables, the inclusion thresholds
+* Screen reasons (i.e., inclusion and exclusion criteria for papers and records)
+* The geography and species classifications assigned by hand
+* The register of extraction sheets
+* Description of each sensitivity specification
 
 ### Data files
 
-`data` contains the inputs and the intermediate tables used in the analysis.
-`data/raw` contains the two extraction workbooks the pipeline reads,
-`citations_by_bmp_long.xlsx` for the paper metadata and
-`bmp_review_analysis_subset.xlsx` for the extracted study findings, together
-with the database written by `3_build_database.R` and the species
-classification sources used to build it. `data/processed` contains the
-cleaned extraction sheets and the shapes derived from them for analysis.
-`data/db_mirror` contains the converted and screened effect-size tables used to
-fit the models. `data/flagged_effects.csv` is the data-quality register read by
-the sensitivity analysis.
+* `data`: the inputs and the intermediate tables used in the analysis.
+* `data/raw`: the two extraction workbooks the pipeline reads
+    * `citations_by_bmp_long.xlsx`: paper-level metadata
+    * `bmp_review_analysis_subset.xlsx` extracted study findings
+    * `bmp_meta.duckdb`: The database written by `3_build_database.R` 
+    *  `for_species_clasification` (folder): species classification sources
+* `data/processed`:
+    * `cleaned_data` (folder): Cleaned extraction sheets written in `2.3_clean_extraction.R`
+    * `for_analysis` (folder): Analysis-ready data written in `2.5_prep_data.R`
+* `data/db_mirror`: The converted and screened effect-size tables used to
+fit the models.
+* `data/flagged_effects.csv`: The data-quality register read by the sensitivity analysis in `3.4_sensitivity.R`
 
 ### Output files
 
