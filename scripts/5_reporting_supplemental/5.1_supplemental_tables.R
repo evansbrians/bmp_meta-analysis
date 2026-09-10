@@ -330,7 +330,11 @@ manuscript_document <-
 
 print(
   manuscript_document,
-  target = "output/supplementals/supplemental_tables.docx"
+  target = 
+    file.path(
+      "output/supplementals",
+      "snedgen_et_al_2026_supporting_information.docx"
+    )
 )
 
 # sensitivity specifications -----------------------------------------------
