@@ -7,9 +7,9 @@
 
 # setup --------------------------------------------------------------------
 
+library(patchwork)
 library(tidybayes)
 library(tidyverse)
-library(patchwork)
 
 # Project functions:
 
