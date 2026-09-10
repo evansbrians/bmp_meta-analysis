@@ -25,17 +25,19 @@ practice term into the strings pasted into Web of Science.
 Data processing and analysis scripts are located in the `scripts` folder.
 Scripts include:
 
-* `1_pre_processing`
-    * `compare_metadata_with_study_results.R`: Compares the papers in the metadata sheet against those in the extraction sheets, and records which of them appear in the analysis table.
+* `1_pre-process_data`
+    * `1.1_compare_metadata_with_study_results.R`: Compares the papers in the metadata sheet against those in the extraction sheets, and records which of them appear in the analysis table.
+    * `1.2_species_classification`: Build classification systems from online sources
+        * `1.2.1_iucn_bli_classification.R`: Downloads the IUCN and BirdLife species list and habitat classification.
+        * `1.2.2_eubirds.R`: Habitat classifications from Storchova and Horak (2018), with common names taken from the IUCN and BirdLife listing.
+
 * `2_process_data`
-    * `0_clean_metadata.R`: Reads the paper metadata workbook, cleans the screening flags and the notes column, repairs the geography, and writes the result to `data/processed` with a row for each place.
-    * `1_classify_species.R`: Combines habitat classifications from several sources and defines the obligate and facultative grassland species.
-    * `2_clean_extraction.R`: Reformats the extraction workbook, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
-    * `3_build_database.R`: Normalizes the cleaned inputs into a table for each level of observation and writes `data/raw/bmp_meta.duckdb`.
+    * `2.1_clean_metadata.R`: Reads the paper metadata workbook, cleans the screening flags and the notes column, repairs the geography, and writes the result to `data/processed` with a row for each place.
+    * `2.2_classify_species.R`: Combines habitat classifications from several sources and defines the obligate and facultative grassland species.
+    * `2.3_clean_extraction.R`: Reformats the extraction workbook, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
+    * `2.4_build_database.R`: Normalizes the cleaned inputs into a table for each level of observation and writes `data/raw/bmp_meta.duckdb`.
     * `schema.sql`: The database schema used by the build script.
-* `2_process_data/species_classification`
-    * `eubirds.R`: Habitat classifications from Storchova and Horak (2018), with common names taken from the IUCN and BirdLife listing.
-    * `iucn_bli_classification.R`: Downloads the IUCN and BirdLife species list and habitat classification.
+
 * `3_analysis`
     * `0_prep_data.R`: Reads the database, restores the extraction shapes, and attaches the study and species lookups required by each shape. Nothing is screened at this stage.
     * `1_effect_sizes.R`: Converts abundance and richness records to Hedges' *g*, and nest-survival records to log hazard ratios (via a pathway defined by by each record's columns).
@@ -48,10 +50,10 @@ Scripts include:
     * `2_screening_draw_roses.R`: Draws the review flow diagram as an svg for editing and as a png.
     * `3_output_tables.R`: Converts the fits and their pools into the results tables.
     * `4_figures.R`: Builds the manuscript figures from the results tables and the posterior draws.
+    * `5_report_geographies.R`: Calculates records and papers by region to inform paragraph 2 of the methods.
 * `5_reporting_supplemental`
-    * `1_report_geographies.R`: Writes the paper and record counts by region, and by practice and region.
-    * `2_supplemental_tables.R`: Assembles the supplemental tables into a .docx and writes the sensitivity specification table.
-    * `3_supplemental_figures.R`: Builds the supplemental figures.
+    * `1_supplemental_tables.R`: Assembles the supplemental tables into a .docx and writes the sensitivity specification table.
+    * `2_supplemental_figures.R`: Builds the supplemental figures.
 
 ### Source files
 
