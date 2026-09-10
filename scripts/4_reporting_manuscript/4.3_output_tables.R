@@ -1,6 +1,8 @@
 # This script:
-# - Reads the fits, their pools and the cell table written by 3_models.R
+# - Reads the fits, their pools and the cell table written by 3.3_models.R
 # - Turns them into the results tables and the manuscript tables
+
+# Note: This script will not run without first running 3.3_models.R.
 
 # setup --------------------------------------------------------------------
 
@@ -13,10 +15,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directory:
-
-fs::dir_create("output/draft_output/tables")
 
 # Fitted models:
 
@@ -506,3 +504,9 @@ list(
         )
     }
   )
+
+# clear the environment ----------------------------------------------------
+
+rm(
+  list = ls()
+)

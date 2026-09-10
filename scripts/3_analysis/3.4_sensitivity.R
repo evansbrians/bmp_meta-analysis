@@ -3,7 +3,9 @@
 #   aggregation, conversion route and inclusion threshold among them
 # - Tests for publication bias (Egger, PET, PEESE) and flags influential
 #   effect sizes
-# - Saves the sensitivity tables read by the results page
+# - Saves the sensitivity tables
+
+# Warning: This script can take several hours to run!
 
 # setup --------------------------------------------------------------------
 
@@ -15,10 +17,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directory:
-
-fs::dir_create("output/draft_output/tables")
 
 # The primary fits:
 

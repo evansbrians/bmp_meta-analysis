@@ -1,11 +1,11 @@
 # This script:
-# - Reads the database written by scripts/2_process_data/3_build_database.R
+# - Reads the database written by 2.4_build_database.R
 # - Restores the five extraction shapes and attaches the study and species
 #   lookups every shape needs
 # - Writes data/processed/for_analysis
 
 # Nothing is screened or dropped here. The exclusion screen happens in
-# 2_screen_effects.R.
+# 3.2_screen_effects.R.
 
 # setup --------------------------------------------------------------------
 
@@ -14,10 +14,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directory:
-
-fs::dir_create("data/processed/for_analysis")
 
 # read the database --------------------------------------------------------
 

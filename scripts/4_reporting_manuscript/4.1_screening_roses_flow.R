@@ -18,10 +18,6 @@ source("src/functions.R")
 
 flow_directory <- path("output/manuscript/figure_1_roses_diagram")
 
-# Create it:
-
-dir_create(flow_directory)
-
 # the exclusion vocabulary -------------------------------------------------
 
 # Exclusion reasons, in the order applied:
@@ -41,7 +37,7 @@ citation_problems <-
       as.integer()
   )
 
-# Screen reasons from 2_screen_effects.R:
+# Screen reasons from 3.2_screen_effects.R:
 
 screen_reasons <-
   read_csv(

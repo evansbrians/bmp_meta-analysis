@@ -1,6 +1,6 @@
 # This script:
 # - Reads the cleaned inputs from data/processed
-# - Normalises them into nine tables, one per level of observation, and loads
+# - Normalizes them into nine tables, one per level of observation, and loads
 #   the practice vocabulary beside them
 # - Writes data/raw/bmp_meta.duckdb
 

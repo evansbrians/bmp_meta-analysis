@@ -1,7 +1,7 @@
 # This script:
-# - Reads the stage table 1_screening_roses_flow.R writes
+# - Reads the stage table 4.1_screening_roses_flow.R writes
 # - Draws it: what was retained down one column, what left beside it
-# - Writes roses_diagram.svg, for editing in Inkscape, and a png
+# - Writes roses_diagram.png
 
 # setup --------------------------------------------------------------------
 
@@ -706,24 +706,19 @@ roses_chart <-
 chart_height <-
   line_inches * (y_limits[2] - y_limits[1])
 
-# Write the svg and png:
+# Write as a png:
 
-c("svg", "png") %>%
-  walk(
-    \(.extension) {
-      ggsave(
-        path(
-          flow_directory,
-          "roses_diagram",
-          ext = .extension
-        ),
-        roses_chart,
-        width = chart_width,
-        height = chart_height,
-        dpi = 300
-      )
-    }
-  )
+ggsave(
+  path(
+    flow_directory,
+    "roses_diagram",
+    ext = "png"
+  ),
+  roses_chart,
+  width = chart_width,
+  height = chart_height,
+  dpi = 300
+)
 
 # clear the environment ----------------------------------------------------
 

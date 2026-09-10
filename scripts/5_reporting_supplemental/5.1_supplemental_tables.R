@@ -1,5 +1,5 @@
 # This script:
-# - Reads the results tables written by 3_output_tables.R
+# - Reads the results tables written by 4.3_output_tables.R
 # - Generates a .docx supplemental table document
 # - Writes the sensitivity specification table
 
@@ -12,10 +12,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directory:
-
-fs::dir_create("output/supplementals")
 
 # Define flextable defaults:
 

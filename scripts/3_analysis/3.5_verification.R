@@ -15,10 +15,6 @@ library(tidyverse)
 
 source("src/functions.R")
 
-# Output directory:
-
-fs::dir_create("output/draft_output/diagnostics")
-
 # The pools behind the primary fits:
 
 model_pools <-

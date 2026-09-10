@@ -1,11 +1,11 @@
 
 # This script:
-# - Reads the results tables written by 3_output_tables.R
+# - Reads the results tables written by 4.3_output_tables.R
 # - Builds the manuscript figures from them and the posterior draws
 
-# Figure 1 is the ROSES diagram.
+# Note: Figure 1 is the ROSES diagram.
 
-# setup --------------------------------------------------------------------
+# setup -------------------------------------------------------------------
 
 library(patchwork)
 library(tidybayes)
@@ -15,11 +15,7 @@ library(tidyverse)
 
 source("src/functions.R")
 
-# Output directory:
-
-fs::dir_create("output/manuscript")
-
-# figure labels ------------------------------------------------------------
+# figure labels -----------------------------------------------------------
 
 # Practice labels for the y-axis:
 
@@ -115,7 +111,7 @@ bmp_results <-
       )
   )
 
-# posterior draws ----------------------------------------------------------
+# posterior draws ---------------------------------------------------------
 
 # Posterior draws:
 
@@ -368,7 +364,7 @@ figure_richness_posterior %>%
     height = 6
   )
 
-# figure 3: abundance, guilds pooled ---------------------------------------
+# figure 3: abundance, guilds pooled --------------------------------------
 
 figure_abundance_pooled <-
   cell_draws %>%
@@ -483,7 +479,7 @@ figure_abundance_pooled %>%
     height = 8
   )
 
-# figure 4: abundance by guild ---------------------------------------------
+# figure 4: abundance by guild --------------------------------------------
 
 ## obligate abundance -----------------------------------------------------
 
@@ -759,7 +755,7 @@ figure_abundance_by_guild %>%
     height = 7.5
   )
 
-# clear the environment ----------------------------------------------------
+# clear the environment ---------------------------------------------------
 
 rm(
   list = ls()

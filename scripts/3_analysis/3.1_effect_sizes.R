@@ -5,8 +5,8 @@
 # - Converts nest-survival records to log hazard ratios
 # - Writes the converted table, unscreened, to db_mirror
 
-# Note: Screening is 2_screen_effects.R, so a record that fails a conversion is
-# still here with an empty yi.
+# Note: Screening is 3.2_screen_effects.R, so a record that fails a conversion
+# is still here with an empty yi.
 
 # setup --------------------------------------------------------------------
 
@@ -15,10 +15,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directory:
-
-fs::dir_create("data/db_mirror")
 
 # read the extraction ------------------------------------------------------
 

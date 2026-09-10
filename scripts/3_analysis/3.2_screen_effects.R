@@ -1,5 +1,5 @@
 # This script:
-# - Reads the converted table written by 1_effect_sizes.R
+# - Reads the converted table written by 3.1_effect_sizes.R
 # - Derives the guild, fire and pool columns the models group on
 # - Applies the exclusion screen once, in one place
 # - Holds out the cells resting on fewer than three papers, less those the
@@ -14,15 +14,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directories:
-
-fs::dir_create(
-  c(
-    "data/db_mirror",
-    "output/draft_output/audits"
-  )
-)
 
 # screen the table ---------------------------------------------------------
 

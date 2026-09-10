@@ -1,8 +1,13 @@
 # This script:
-# - Reads the analysis pool written by 2_screen_effects.R
+# - Reads the analysis pool written by 3.2_screen_effects.R
 # - Builds one modeling pool per response, guild and practice cell
 # - Fits the Bayesian multilevel meta-analysis models with four chains
 # - Saves the fits, their pools, and the cell and convergence tables
+
+# Note: The raw model output is too large for posting the GitHub repository.
+# This script must be run in order to generate
+# `output/draft_output/models/fitted_models.rds`. Remaining scripts use derived
+# data from that output.
 
 # setup --------------------------------------------------------------------
 
@@ -14,16 +19,6 @@ library(tidyverse)
 # Project functions:
 
 source("src/functions.R")
-
-# Output directories:
-
-fs::dir_create(
-  c(
-    "output/draft_output/audits",
-    "output/draft_output/models",
-    "output/draft_output/diagnostics"
-  )
-)
 
 # Sample the chains in parallel:
 
@@ -279,6 +274,8 @@ grouped_fits <-
 fitted_models <- grouped_fits[model_specs$model]
 
 # save ---------------------------------------------------------------------
+
+# This is the file that is too large to fit in the repository:
 
 fitted_models %>%
   write_rds("output/draft_output/models/fitted_models.rds")

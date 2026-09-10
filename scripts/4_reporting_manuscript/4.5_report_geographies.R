@@ -16,10 +16,6 @@ library(tidyverse)
 
 source("src/functions.R")
 
-# Output directories:
-
-dir_create("output/draft_output/tables")
-
 # Screened effects:
 
 screened_effects <-
@@ -81,7 +77,11 @@ northeast <-
   filter(
     geography_type == "state",
     geography %in%
-      c("new_york", "vermont", "massachusetts")
+      c(
+        "new_york", 
+        "vermont", 
+        "massachusetts"
+      )
   ) %>%
   distinct(study_key) %>%
   pull()
@@ -148,7 +148,13 @@ studies_by_geography <-
   ) %>%
   summarize(
     n_studies = n_distinct(study_key),
-    .by = c(geography_type, geography, continent, screening)
+    .by = 
+      c(
+        geography_type,
+        geography, 
+        continent, 
+        screening
+      )
   ) %>%
   pivot_wider(
     names_from = screening,
@@ -156,9 +162,9 @@ studies_by_geography <-
     names_prefix = "n_studies_",
     values_fill = 0
   ) %>%
-
+  
   # Both counts, and their sum:
-
+  
   mutate(
     n_studies_total = n_studies_included + n_studies_excluded
   ) %>%
@@ -166,6 +172,7 @@ studies_by_geography <-
     geography_type,
     desc(n_studies_total)
   )
+
 # clear the environment ----------------------------------------------------
 
 rm(

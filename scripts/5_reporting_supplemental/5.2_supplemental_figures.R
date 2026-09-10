@@ -1,6 +1,6 @@
 
 # This script:
-# - Reads the results tables written by 3_output_tables.R
+# - Reads the results tables written by 4.3_output_tables.R
 # - Builds the supplemental figures
 
 # setup --------------------------------------------------------------------
@@ -15,10 +15,6 @@ source("src/functions.R")
 # Output directory:
 
 figure_directory <- "output/supplementals/supplemental_figures"
-
-# Create it:
-
-fs::dir_create(figure_directory)
 
 # figure labels ------------------------------------------------------------
 
