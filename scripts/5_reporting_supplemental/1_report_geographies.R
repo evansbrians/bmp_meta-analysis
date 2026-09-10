@@ -4,16 +4,15 @@
 # - Moves the northeastern states out of the "other" region label
 # - Writes the paper and record counts by region, and by practice and region
 # - Writes the study counts by geography, included against excluded
-# - Draws static maps of the studies by continent, country and state
+# - Writes the geography supplement as a .docx
 
 # setup --------------------------------------------------------------------
 
 library(DBI)
 library(duckdb)
+library(flextable)
 library(fs)
-library(rnaturalearth)
-library(sf)
-library(tmap)
+library(officer)
 library(tidyverse)
 
 # Project functions:
@@ -23,7 +22,6 @@ source("src/functions.R")
 # Output directories:
 
 dir_create("output/draft_output/tables")
-dir_create("output/supplementals/supplemental_figures")
 
 # Screened effects:
 
@@ -103,6 +101,33 @@ primary_pool_regions <-
       )
   )
 
+# Papers and records by region:
+
+region_counts <-
+  primary_pool_regions %>%
+  summarize(
+    n_papers = n_distinct(key),
+    n_records = n(),
+    .by = region
+  ) %>%
+  arrange(
+    desc(n_papers)
+  )
+
+# By practice and region:
+
+bmp_region_counts <-
+  primary_pool_regions %>%
+  summarize(
+    n_papers = n_distinct(key),
+    n_records = n(),
+    .by = c(bmp, region)
+  ) %>%
+  arrange(
+    bmp,
+    desc(n_papers)
+  )
+
 # studies by geography -----------------------------------------------------
 
 # Studies holding a modeled record:
@@ -145,165 +170,159 @@ studies_by_geography <-
     desc(n_studies_total)
   )
 
-# maps ---------------------------------------------------------------------
+# supplement ---------------------------------------------------------------
 
-# Country outlines, less Antarctica:
+# Flextable defaults:
 
-country_outlines <-
-  ne_countries(
-    scale = "medium",
-    returnclass = "sf"
-  ) %>%
-  filter(continent != "Antarctica") %>%
-  select(
-    place = admin,
-    continent_name = continent
+set_flextable_defaults(
+  font.family = "Times New Roman",
+  table.layout = "autofit",
+  split = FALSE,
+  caption.style = "Table Caption",
+  caption.align = "left"
+)
+
+# Page setup:
+
+supplement_section <-
+  prop_section(
+    page_size = page_size(orient = "portrait"),
+    page_margins =
+      page_mar(
+        top = 1,
+        bottom = 1,
+        left = 1,
+        right = 1
+      )
   )
 
-# Continent outlines, dissolved from the countries:
+# One supplemental table, captioned:
 
-continent_outlines <-
-  country_outlines %>%
+format_geography_table <-
+  function(
+    .data,
+    .caption) {
+    .data %>%
+      flextable() %>%
+      autofit() %>%
+      fontsize(
+        size = 10,
+        part = "body"
+      ) %>%
+      align(
+        align = "center",
+        part = "all"
+      ) %>%
+      align(
+        j = 1,
+        align = "left",
+        part = "all"
+      ) %>%
+      padding(
+        padding.top = 2,
+        padding.bottom = 2,
+        part = "all"
+      ) %>%
+      set_caption(
+        .caption,
+        fp_p =
+          fp_par(
+            padding = 3,
+            keep_with_next = TRUE
+          ),
+        align_with_table = FALSE
+      )
+  }
 
-  # Grouping, not `.by`, is what unions sf geometry:
+# Reader-facing region names:
 
-  group_by(continent_name) %>%
-  summarize() %>%
-  ungroup() %>%
-  rename(place = continent_name)
-
-# State and province outlines:
-
-state_outlines <-
-  ne_states(
-    country = c("united states of america", "canada"),
-    returnclass = "sf"
-  ) %>%
-  select(place = name)
-
-# Names the outlines spell differently:
-
-map_place_names <-
+region_labels <-
   read_csv(
-    "src/map_place_names.csv",
+    "src/region_labels.csv",
     show_col_types = FALSE
   )
 
-# Each located study, at every grain it carries:
+# Papers and records by region:
 
-study_places <-
-  study_locations %>%
+region_flextable <-
+  region_counts %>%
   left_join(
-    map_place_names,
-    by = join_by(geography)
-  ) %>%
-
-  # The spelling the outlines use:
-
-  mutate(
-    place =
-      geography %>%
-      str_replace_all("_", " ") %>%
-      str_to_title(),
-    place = coalesce(map_place, place),
-    country =
-      case_match(
-        geography_type,
-        "state" ~ "United States of America",
-        "province" ~ "Canada",
-        .default = place
-      ),
-    included = study_key %in% included_studies
-  ) %>%
-
-  # The continent each country sits in:
-
-  left_join(
-    country_outlines %>%
-      st_drop_geometry() %>%
-      select(
-        country = place,
-        continent_name
-      ),
-    by = join_by(country)
-  )
-
-# One row per included study and grain:
-
-study_grains <-
-  study_places %>%
-  filter(included) %>%
-  mutate(
-    state =
-      if_else(
-        geography_type %in% c("state", "province"),
-        place,
-        NA_character_
-      ),
-    continent = continent_name
+    region_labels,
+    by = join_by(region)
   ) %>%
   select(
-    study_key,
-    state,
-    country,
-    continent
+    Region = region_label,
+    Papers = n_papers,
+    Records = n_records
   ) %>%
-  pivot_longer(
-    cols = !study_key,
-    names_to = "grain",
-    values_to = "place",
-    values_drop_na = TRUE
+  format_geography_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S5"),
+        ". Papers and effect sizes in the primary analysis pool, by region. ",
+        "Studies reporting a northeastern state are labeled Northeastern ",
+        "U.S. rather than Other."
+      )
   )
 
-# Study counts at each grain:
+# By practice and region:
 
-study_counts <-
-  study_grains %>%
-  summarize(
-    n_studies = n_distinct(study_key),
-    .by = c(grain, place)
+bmp_region_flextable <-
+  bmp_region_counts %>%
+  left_join(
+    region_labels,
+    by = join_by(region)
+  ) %>%
+  mutate(
+    BMP = format_bmp(bmp)
+  ) %>%
+  select(
+    BMP,
+    Region = region_label,
+    Papers = n_papers,
+    Records = n_records
+  ) %>%
+  format_geography_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S6"),
+        ". Papers and effect sizes in the primary analysis pool, by best ",
+        "management practice and region."
+      )
   )
 
-# The outlines each grain is drawn on:
+# Studies by geography, included against excluded:
 
-grain_outlines <-
-  list(
-    continent = continent_outlines,
-    country = country_outlines,
-    state = state_outlines
-  )
+geography_flextable <-
+  studies_by_geography %>%
 
-# The title each map carries:
+  # Print the place names:
 
-grain_titles <-
-  c(
-    continent = "Studies by continent",
-    country = "Studies by country",
-    state = "Studies by state or province"
-  )
-
-# One map per grain:
-
-study_maps <-
-  grain_outlines %>%
-  imap(
-    \(.outlines, .grain) {
-      drawn <-
-        .outlines %>%
-        left_join(
-          study_counts %>%
-            filter(grain == .grain) %>%
-            select(!grain),
-          by = join_by(place)
-        )
-      tm_shape(drawn) +
-        tm_polygons(
-          fill = "n_studies",
-          fill.legend =
-            tm_legend(title = "Studies")
-        ) +
-        tm_title(grain_titles[[.grain]])
-    }
+  mutate(
+    across(
+      c(geography_type, geography, continent),
+      \(.place) {
+        .place %>%
+          str_replace_all("_", " ") %>%
+          str_to_title()
+      }
+    )
+  ) %>%
+  select(
+    Grain = geography_type,
+    Place = geography,
+    Continent = continent,
+    Included = n_studies_included,
+    Excluded = n_studies_excluded,
+    Total = n_studies_total
+  ) %>%
+  format_geography_table(
+    .caption =
+      as_paragraph(
+        as_b("Table S7"),
+        ". Located studies by geography, those holding a modeled effect ",
+        "size against those screened out."
+      )
   )
 
 # write --------------------------------------------------------------------
@@ -317,24 +336,14 @@ other_region_studies %>%
 
 # Papers and records by region:
 
-primary_pool_regions %>%
-  summarize(
-    n_papers = n_distinct(key),
-    n_records = n(),
-    .by = region
-  ) %>%
+region_counts %>%
   write_output_table(
     file_name = "geography_by_region.csv"
   )
 
 # By practice and region:
 
-primary_pool_regions %>%
-  summarize(
-    n_papers = n_distinct(key),
-    n_records = n(),
-    .by = c(bmp, region)
-  ) %>%
+bmp_region_counts %>%
   write_output_table(
     file_name = "geography_by_bmp_region.csv"
   )
@@ -346,25 +355,25 @@ studies_by_geography %>%
     file_name = "geography_studies_included_excluded.csv"
   )
 
-# The maps:
+# The supplement:
 
-study_maps %>%
-  iwalk(
-    \(.map, .grain) {
-      tmap_save(
-        .map,
-        filename =
-          path(
-            "output/supplementals/supplemental_figures",
-            str_c("map_studies_by_", .grain),
-            ext = "png"
-          ),
-        width = 9,
-        height = 6,
-        dpi = 400
-      )
-    }
+geography_document <-
+  read_docx() %>%
+  body_add_flextable(region_flextable) %>%
+  body_add_break() %>%
+  body_add_flextable(bmp_region_flextable) %>%
+  body_add_break() %>%
+  body_add_flextable(geography_flextable) %>%
+  body_set_default_section(
+    value = supplement_section
   )
+
+# Write to file:
+
+print(
+  geography_document,
+  target = "output/supplementals/geography_supplement.docx"
+)
 
 # clear the environment ----------------------------------------------------
 
