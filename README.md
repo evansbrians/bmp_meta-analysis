@@ -36,24 +36,24 @@ Scripts include:
     * `2.2_classify_species.R`: Combines habitat classifications from several sources and defines the obligate and facultative grassland species.
     * `2.3_clean_extraction.R`: Reformats the extraction workbook, cleans the grouping variables, flags whether a nest-success response is a daily or a period rate, and writes each tab as a csv.
     * `2.4_build_database.R`: Normalizes the cleaned inputs into a table for each level of observation and writes `data/raw/bmp_meta.duckdb`.
+    * `2.5_prep_data.R`: Reads the database, restores the extraction shapes, and attaches the study and species lookups required by each shape. Nothing is screened at this stage.
     * `schema.sql`: The database schema used by the build script.
 
 * `3_analysis`
-    * `0_prep_data.R`: Reads the database, restores the extraction shapes, and attaches the study and species lookups required by each shape. Nothing is screened at this stage.
-    * `1_effect_sizes.R`: Converts abundance and richness records to Hedges' *g*, and nest-survival records to log hazard ratios (via a pathway defined by by each record's columns).
-    * `2_screen_effects.R`: Applies the exclusion screen in a single pass, derives the guild, fire and pool columns used for grouping, and excludes the cells supported by fewer than three papers.
-    * `3_models.R`: Fits the Bayesian multilevel meta-analysis models with four chains each, then writes the fits, their pools, and the cell and convergence tables.
-    * `4_sensitivity.R`: Refits every model family under each alternative specification, prior and inclusion threshold, tests for publication bias, and flags influential effect sizes.
-    * `5_verification.R`: Refits every reported cell with REML as an independent check and verifies that the pools, thresholds, response scales and reported tables agree.
+    * `3.1_effect_sizes.R`: Converts abundance and richness records to Hedges' *g*, and nest-survival records to log hazard ratios (via a pathway defined by by each record's columns).
+    * `3.2_screen_effects.R`: Applies the exclusion screen in a single pass, derives the guild, fire and pool columns used for grouping, and excludes the cells supported by fewer than three papers.
+    * `3.3_models.R`: Fits the Bayesian multilevel meta-analysis models with four chains each, then writes the fits, their pools, and the cell and convergence tables.
+    * `3.4_sensitivity.R`: Refits every model family under each alternative specification, prior and inclusion threshold, tests for publication bias, and flags influential effect sizes.
+    * `3.5_verification.R`: Refits every reported cell with REML as an independent check and verifies that the pools, thresholds, response scales and reported tables agree.
 * `4_reporting_manuscript`
-    * `1_screening_roses_flow.R`: Counts the records and papers retained and excluded at each screening stage, through to the three-paper cutoff.
-    * `2_screening_draw_roses.R`: Draws the review flow diagram as an svg for editing and as a png.
-    * `3_output_tables.R`: Converts the fits and their pools into the results tables.
-    * `4_figures.R`: Builds the manuscript figures from the results tables and the posterior draws.
-    * `5_report_geographies.R`: Calculates records and papers by region to inform paragraph 2 of the methods.
+    * `4.1_screening_roses_flow.R`: Counts the records and papers retained and excluded at each screening stage, through to the three-paper cutoff.
+    * `4.2_screening_draw_roses.R`: Draws the review flow diagram as an svg for editing and as a png.
+    * `4.3_output_tables.R`: Converts the fits and their pools into the results tables.
+    * `4.4_figures.R`: Builds the manuscript figures from the results tables and the posterior draws.
+    * `4.5_report_geographies.R`: Calculates records and papers by region to inform paragraph 2 of the methods.
 * `5_reporting_supplemental`
-    * `1_supplemental_tables.R`: Assembles the supplemental tables into a .docx and writes the sensitivity specification table.
-    * `2_supplemental_figures.R`: Builds the supplemental figures.
+    * `5.1_supplemental_tables.R`: Assembles the supplemental tables into a .docx and writes the sensitivity specification table.
+    * `5.2_supplemental_figures.R`: Builds the supplemental figures.
 
 ### Source files
 
